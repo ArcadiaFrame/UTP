@@ -1,0 +1,20 @@
+template,english
+{ship} {here}{toward} {come}-{past-un} {ev-seen}.,The ship came here (I saw it)
+{ship} {here}{toward} {come}-{past-un} {ev-inferred}.,The ship came here (I conclude)
+{dungi} {tu} {trust}?,Will you trust me? (canon)
+{ish-ve} {ni} {komihn}.,He is so Human (canon)
+{commander} Tucker {colleague} {my}.,Commander Tucker is my colleague (canon)
+"{vocative} {mentor}, {request} {tu} {speak}-{honorific}.","Respected teacher, please speak (honorific)"
+{nash-ve} {not} {know}-{humble}.,This one does not know (humble)
+{person} {relative} {ship}-{object-wizh} {repair}-{past-un}.,The person who repaired the ship
+{saavik} {be}ish.,I am Saavik (canon)
+{exclamative} {nash-ve} {rage}!,"How I rage! (Classical, before Surak)"
+{anger} {in} {nash-ve} {noting}.,There is anger in me. Noted. (Standard)
+{ish-ve} {anger} {ev-inferred}.,He is angry (I conclude: Standard needs evidence)
+{tu} {nash-ve}-{object-wizh} {enrage}-{past-un}.,You enraged me (a reproach)
+{request} {forgive-display}.,Please forgive the display
+{nash-ve} {tu}-{object-wizh} {grant-leave}.,I grant you leave (to touch)
+{forced-meld} {crime}.,A forced meld is a crime
+{request} {you-honored} {eat-hon} {formal}.,"Please eat, honored one (honorific verb, formal)"
+{request} {nash-ve} {touch-hum}.,Please let this one touch you (asking leave)
+{tu} {t'hy'la} {my}.,You are my t'hy'la (plain speech)

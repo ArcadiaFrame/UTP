@@ -1,0 +1,33 @@
+{
+  "proto": {
+    "about": "Proto-Sample: a test fixture for the UTP builder, not a designed language. Two daughters, East and West.",
+    "units": ["sh", "ch", "ts", "ng", "aa", "ii", "uu", "p", "t", "k", "b", "d", "g", "m", "n", "s", "z", "f", "v",
+              "l", "r", "w", "y", "h", "a", "e", "i", "o", "u"],
+    "vowels": ["a", "e", "i", "o", "u", "aa", "ii", "uu"],
+    "onset_clusters": ["pl", "pr", "kl", "kr", "tr", "bl", "br", "gr", "dr", "fl", "fr", "sp", "st", "sk", "sm", "sn", "sl"],
+    "finals": ["p", "t", "k", "m", "n", "ng", "s", "sh", "l", "r", "f"]
+  },
+  "branches": {
+    "east": {
+      "label": "East Sample",
+      "rules": [
+        {"id": "E1", "pattern": "ts", "replace": "s", "note": "ts simplifies to s", "era": "Old"},
+        {"id": "E2", "pattern": "(?<=[aeiou])g(?=[aeiou])", "replace": "y", "note": "g between vowels softens to y", "era": "Middle"},
+        {"id": "E3", "pattern": "aa", "replace": "o", "note": "long aa rounds to o", "era": "Middle"}
+      ]
+    },
+    "west": {
+      "label": "West Sample",
+      "rules": [
+        {"id": "W1", "pattern": "^p", "replace": "f", "note": "initial p becomes f", "era": "Old"},
+        {"id": "W2", "pattern": "(?<=[aeiou])t(?=[aeiou])", "replace": "d", "note": "t between vowels voices to d", "era": "Old"},
+        {"id": "W3", "pattern": "ch", "replace": "sh", "note": "ch becomes sh", "era": "Middle"},
+        {"id": "W4", "pattern": "uu", "replace": "ou", "note": "long uu breaks to ou", "era": "Middle"}
+      ]
+    }
+  },
+  "tests": [
+    {"proto": "*pata", "gloss": "test", "east": "pata", "west": "fada"},
+    {"proto": "*tsaagu", "gloss": "test", "east": "soyu", "west": "tsaagu"}
+  ]
+}

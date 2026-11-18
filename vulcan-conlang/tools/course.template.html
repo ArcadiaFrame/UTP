@@ -1,0 +1,770 @@
+<title>Vuhlkansu Course</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the Lab's identity (rust = Vulcan, Newsreader over IBM Plex), one column.
+   Home is a path of units; a lesson takes over the column as a single focused card with a progress rule above it. */
+:root {
+  --bg: #f3f2ef;
+  --surface: #ffffff;
+  --sunk: #eae8e4;
+  --ink: #1e1c1a;
+  --muted: #69625b;
+  --line: #d9d5cf;
+  --vulcan: #a3401e;
+  --vulcan-tint: #f6e6df;
+  --cer: #7a5a12;
+  --cer-tint: #f3ead2;
+  --good: #2f7a36;
+  --good-tint: #e3f1e2;
+  --bad: #b3261e;
+  --bad-tint: #f8e1de;
+  --focus: #3b5bdb;
+  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161413; --surface: #1f1c1a; --sunk: #2a2623; --ink: #ece7e1; --muted: #a69d95; --line: #3a3531;
+    --vulcan: #e0805a; --vulcan-tint: #3a231a; --cer: #d4ae5a; --cer-tint: #33290f;
+    --good: #72c27a; --good-tint: #1b2e1c; --bad: #ef7468; --bad-tint: #3a1b18; --focus: #8ea6ff; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161413; --surface: #1f1c1a; --sunk: #2a2623; --ink: #ece7e1; --muted: #a69d95; --line: #3a3531;
+  --vulcan: #e0805a; --vulcan-tint: #3a231a; --cer: #d4ae5a; --cer-tint: #33290f;
+  --good: #72c27a; --good-tint: #1b2e1c; --bad: #ef7468; --bad-tint: #3a1b18; --focus: #8ea6ff; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; }
+header.mast { display: grid; gap: 6px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.mast h1 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 42px); line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+.mast p { margin: 0; color: var(--muted); max-width: 66ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 8px; font-size: 14px; color: var(--muted); }
+.stats strong { color: var(--ink); font-variant-numeric: tabular-nums; font-size: 18px; margin-right: 4px; }
+.sync { font-size: 12.5px; color: var(--muted); }
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; margin: 16px 0 22px; border-bottom: 1px solid var(--line); }
+nav.tabs a { padding: 10px 14px; color: var(--muted); text-decoration: none; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+nav.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+nav.tabs a:hover { color: var(--ink); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0 0 6px; text-wrap: balance; }
+h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+.lede { color: var(--muted); margin: 0; max-width: 66ch; }
+section.view { display: grid; gap: 28px; }
+button { font: inherit; font-weight: 500; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+button:hover { background: var(--sunk); }
+button.primary { background: var(--vulcan); color: #fff; border-color: var(--vulcan); }
+button.primary:hover { filter: brightness(1.06); background: var(--vulcan); }
+:root[data-theme="dark"] button.primary { color: #1f1c1a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) button.primary { color: #1f1c1a; } }
+button:disabled { opacity: .45; cursor: default; }
+input[type="text"], input[type="search"], select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 9px 11px; min-width: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tag { font-size: 12.5px; color: var(--muted); }
+.mono { font-family: var(--mono); }
+
+/* path */
+.level { display: grid; gap: 10px; }
+.level-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.level-head h2 { margin: 0; }
+.level.planned { opacity: .72; }
+.units { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.unit { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.unit:last-child { border-bottom: 0; }
+.unit .num { font-family: var(--mono); font-size: 13px; color: var(--muted); text-align: right; }
+.unit .body { min-width: 0; display: grid; gap: 4px; }
+.unit .name { font-weight: 600; }
+.unit .meta { font-size: 13px; color: var(--muted); }
+.unit .acts { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.unit.next { background: var(--vulcan-tint); }
+.unit.story .num { color: var(--cer); }
+.unit.story .name { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 17px; }
+.meter { height: 5px; border-radius: 3px; background: var(--sunk); overflow: hidden; max-width: 220px; }
+.meter > i { display: block; height: 100%; background: var(--vulcan); }
+.pill { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap; border: 1px solid currentColor; }
+.pill.done { color: var(--good); }
+.pill.next { color: var(--vulcan); }
+.pill.new { color: var(--muted); }
+.pill.story { color: var(--cer); }
+.planned-note { font-size: 14px; color: var(--muted); background: var(--sunk); border-radius: 8px; padding: 12px 14px; }
+
+/* review */
+.due-panel { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+.due-panel .big { font-family: var(--display); font-size: 40px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.boxes { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; align-items: end; }
+.box-col { display: grid; gap: 6px; justify-items: center; font-size: 12.5px; color: var(--muted); text-align: center; }
+.box-col .bar { width: 100%; max-width: 64px; background: var(--vulcan); border-radius: 3px 3px 0 0; min-height: 2px; }
+.box-col .bar.zero { background: var(--line); }
+.box-col strong { color: var(--ink); font-variant-numeric: tabular-nums; font-size: 14px; }
+.box-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 16px 12px; }
+
+/* words */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; background: var(--sunk); }
+tr:last-child td { border-bottom: 0; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.unseen td { color: var(--muted); }
+.vword { font-family: var(--display); font-size: 17px; font-weight: 500; }
+
+/* reading aid */
+.reading { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
+.rd { display: inline-grid; gap: 1px; }
+.rd .syl { font-size: 15px; letter-spacing: 0.01em; }
+.rd .syl b { color: var(--vulcan); font-weight: 600; }
+.rd .ipa { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+button.chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--sunk); border-color: transparent; }
+button.chip[aria-expanded="true"] { background: var(--vulcan-tint); color: var(--vulcan); }
+.sound-note { font-size: 13.5px; background: var(--sunk); border-radius: 6px; padding: 10px 12px; display: grid; gap: 4px; }
+.sound-note b { font-weight: 600; }
+
+/* sounds key */
+.key-grid { display: grid; gap: 22px; }
+
+/* session */
+#session { display: grid; gap: 18px; max-width: 640px; margin: 0 auto; }
+.s-top { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; }
+.progress { height: 8px; background: var(--sunk); border-radius: 4px; overflow: hidden; }
+.progress > i { display: block; height: 100%; background: var(--vulcan); transition: width .25s; }
+@media (prefers-reduced-motion: reduce) { .progress > i { transition: none; } }
+.s-count { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px; display: grid; gap: 16px; min-width: 0; }
+.ask { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+.prompt-v { font-family: var(--display); font-size: clamp(26px, 6vw, 36px); font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
+.prompt-v.long { font-size: clamp(21px, 4.6vw, 27px); }
+.prompt-en { font-size: 19px; font-weight: 500; }
+.gloss { font-size: 17px; }
+.tip { font-size: 14px; color: var(--muted); border-left: 3px solid var(--cer); padding-left: 10px; }
+.opts { display: grid; gap: 8px; }
+.opts button { text-align: left; padding: 11px 14px; display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: baseline; }
+.opts button .k { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.opts button.v-opt .t { font-family: var(--display); font-size: 18px; font-weight: 500; }
+.opts button.picked { border-color: var(--ink); }
+.opts button.right { border-color: var(--good); background: var(--good-tint); }
+.opts button.wrong { border-color: var(--bad); background: var(--bad-tint); }
+.answer-in { width: 100%; font-family: var(--display); font-size: 21px !important; padding: 11px 13px !important; }
+.tray { min-height: 54px; border: 1px dashed var(--line); border-radius: 8px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; }
+button.tile { font-family: var(--display); font-size: 18px; font-weight: 500; padding: 6px 12px; }
+button.tile.used { visibility: hidden; }
+.gap-line { font-family: var(--display); font-size: 23px; font-weight: 500; overflow-wrap: anywhere; }
+.gap-line .blank { display: inline-block; min-width: 64px; border-bottom: 2px solid var(--vulcan); color: var(--vulcan); text-align: center; }
+.feedback { border-radius: 10px; padding: 16px 18px; display: grid; gap: 10px; border: 1px solid; }
+.feedback.ok { background: var(--good-tint); border-color: var(--good); }
+.feedback.no { background: var(--bad-tint); border-color: var(--bad); }
+.feedback .verdict { font-weight: 600; }
+.feedback.ok .verdict { color: var(--good); }
+.feedback.no .verdict { color: var(--bad); }
+.feedback .correct { font-family: var(--display); font-size: 19px; font-weight: 500; }
+.s-foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
+.selfgrade { display: flex; gap: 8px; flex-wrap: wrap; }
+.story-lines { display: grid; gap: 12px; }
+.sline { display: grid; gap: 6px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.sline:last-child { border-bottom: 0; padding-bottom: 0; }
+.sline .who { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cer); font-weight: 600; }
+.sline .v { font-family: var(--display); font-size: 21px; font-weight: 500; overflow-wrap: anywhere; }
+.sline .en { color: var(--muted); }
+.result-num { font-family: var(--display); font-size: 48px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.missed { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.toast { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 14px; }
+@media (max-width: 520px) {
+  .unit { grid-template-columns: 26px 1fr; }
+  .unit .acts { grid-column: 2; justify-content: flex-start; }
+  .due-panel { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="wrap">
+  <div id="home">
+    <header class="mast">
+      <h1>Vuhlkansu Course</h1>
+      <p>Federation Standard Vulcan in small steps: words, then phrases, then sentences, with every item coming back for review just before you would forget it.</p>
+      <div class="stats" id="stats"></div>
+      <div class="sync" id="sync">Loading your progress…</div>
+    </header>
+
+    <nav class="tabs" aria-label="Views">
+      <a href="#path" data-view="path">Path</a>
+      <a href="#review" data-view="review">Review</a>
+      <a href="#words" data-view="words">Words</a>
+      <a href="#sounds" data-view="sounds">Sounds</a>
+    </nav>
+
+    <section class="view" id="view-path"></section>
+
+    <section class="view" id="view-review" hidden>
+      <div>
+        <h2>Review</h2>
+        <p class="lede">Every item sits in one of five review boxes. Answer it right and it moves up a box and waits longer before it returns: a day, then three, a week, two weeks, a month. Miss it and it drops back to box 1.</p>
+      </div>
+      <div class="due-panel">
+        <div><div class="big" id="due-n">0</div><div class="tag" id="due-label">items due today</div></div>
+        <div class="row"><button class="primary" id="start-review">Start review</button><button id="start-sounds">Sound drill</button></div>
+      </div>
+      <div class="box-wrap">
+        <h3>Items by review box</h3>
+        <div class="boxes" id="boxes"></div>
+      </div>
+      <p class="tag">The sound drill shows items you have learned, one at a time. Read each aloud from the spelling, then check yourself against the syllables and sounds. Items you mark as missed come back first next time.</p>
+    </section>
+
+    <section class="view" id="view-words" hidden>
+      <div>
+        <h2>Words and phrases</h2>
+        <p class="lede">Everything in the course, with how to read it and how well you know it. Stressed syllables are in color.</p>
+      </div>
+      <div class="row">
+        <input id="wq" type="search" placeholder="Search Vulcan or English" aria-label="Search words" style="width:min(100%,260px)">
+        <select id="wunit" aria-label="Unit"><option value="">All units</option></select>
+        <select id="wstate" aria-label="Status"><option value="">All</option><option value="seen">Learned</option><option value="due">Due</option><option value="weak">Weak (missed more than right)</option><option value="unseen">Not started</option></select>
+      </div>
+      <div class="table-wrap"><table id="words-table"></table></div>
+    </section>
+
+    <section class="view" id="view-sounds" hidden>
+      <div>
+        <h2>Sounds</h2>
+        <p class="lede">One letter or letter pair is always one sound. Each sound is anchored three ways: English, Japanese, and other Earth languages. Use whichever you already own.</p>
+      </div>
+      <div class="key-grid" id="sound-key"></div>
+    </section>
+  </div>
+
+  <div id="session" hidden></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DATA = __DATA__;
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = (a, n) => shuffle(a).slice(0, n);
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 2000); }
+function today(offset = 0) { const d = new Date(); d.setDate(d.getDate() + offset); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+const norm = s => String(s).toLowerCase().replace(/[’‘`´ʼ]/g, "'").replace(/[.,?!:;"]/g, "").replace(/\s+/g, " ").trim();
+function lev(a, b) { const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, (_, i) => [i]); for (let j = 1; j <= n; j++) d[0][j] = j; for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[m][n]; }
+
+/* ---------- course index ---------- */
+const UNITS = DATA.units;
+const ITEMS = {}; const UNIT_OF = {};
+UNITS.forEach((u, ui) => u.items.forEach(it => { ITEMS[it.id] = it; UNIT_OF[it.id] = ui; }));
+const STORY_AFTER = {}; DATA.stories.forEach(s => (STORY_AFTER[s.after] = STORY_AFTER[s.after] || []).push(s));
+const INTERVAL = [0, 1, 3, 7, 16, 35];   // days to wait after reaching box n
+
+/* ---------- sounds: the same anchors as the pronunciation guide ---------- */
+const SOUNDS = {
+  "kh": { name: "kh", en: "Scottish loch", ja: "ひ/は pushed back into a scrape", other: "German Bach, Spanish j, Arabic خ", how: "Start a k, but don't close: let the air hiss through." },
+  "'": { name: "' (catch)", en: "the break in uh-oh; button said \"buh'n\"", ja: "ッ, as in あっ", other: "Hawaiian ʻokina, Arabic hamza", how: "Close the throat for an instant. It is a stop, never a vowel: no \"eh\"." },
+  "r": { name: "r", en: "the tt in American butter", ja: "ら行, exactly", other: "Spanish pero", how: "One light tap of the tongue. Never the English r." },
+  "l": { name: "l", en: "leaf", ja: "no match: ら is the Vulcan r, not l", other: "Spanish, Italian l", how: "A true l, tongue tip on the ridge behind the teeth." },
+  "th": { name: "th", en: "thin (never this)", ja: "no match; not さ", other: "Castilian Spanish zapato", how: "Tongue between the teeth, voiceless." },
+  "sh": { name: "sh", en: "ship", ja: "し", other: "French ch", how: "" },
+  "zh": { name: "zh", en: "measure", ja: "like じ with no stop", other: "French je", how: "A buzzing hiss with no d at the start." },
+  "ch": { name: "ch", en: "church", ja: "ち", other: "Italian ciao", how: "" },
+  "j": { name: "j", en: "jump", ja: "じ", other: "Italian giorno", how: "" },
+  "uh": { name: "uh", en: "the a in about", ja: "a relaxed, mumbled ア", other: "German bitte, French le", how: "Unstressed and short." },
+  "long": { name: "aa, ee, oo", en: "the vowel held", ja: "ー: ムー is moo", other: "Finnish, Latin long vowels", how: "One vowel, held longer. Never two vowels." },
+  "diph": { name: "ai, au, ei, oi", en: "eye, cow, day, boy", ja: "あい, あう, えい, おい", other: "Spanish hay, causa, rey, hoy", how: "Glide from the first vowel to the second. Don't flatten ei to \"ee\"." },
+  "y-vowel": { name: "y between consonants", en: "no English match", ja: "unrounded う, Tokyo-style", other: "Russian ы, Polish y", how: "Say \"ee,\" then pull the tongue back without rounding the lips." },
+  "y": { name: "y beside a vowel", en: "yes", ja: "や行", other: "Spanish ya", how: "A consonant, never its own syllable." },
+  "double": { name: "doubled consonant", en: "held longer", ja: "っ, as in きって", other: "Italian notte", how: "" },
+};
+const VOWEL_KEY = [
+  ["a", "father, short", "あ", "Spanish, Italian a"], ["e", "bed, never \"ay\"", "え", "Spanish e"], ["i", "machine, short", "い", "Spanish i"],
+  ["o", "or, no \"oh-w\" glide", "お", "Spanish o"], ["u", "rule, short", "う, with rounded lips", "German u, Spanish u"],
+];
+function renderSoundKey() {
+  const vrows = VOWEL_KEY.map(([s, en, ja, o]) => `<tr><td class="vword">${esc(s)}</td><td>${esc(en)}</td><td>${esc(ja)}</td><td>${esc(o)}</td></tr>`).join("") +
+    ["uh", "long", "diph", "y-vowel"].map(k => soundRow(k)).join("");
+  const crows = ["kh", "'", "r", "l", "th", "sh", "zh", "ch", "j", "y", "double"].map(k => soundRow(k)).join("");
+  const head = `<thead><tr><th>Spelling</th><th>English</th><th>Japanese</th><th>Other languages</th></tr></thead>`;
+  $("#sound-key").innerHTML = `
+    <div><h3>Vowels</h3><div class="table-wrap"><table>${head}<tbody>${vrows}</tbody></table></div></div>
+    <div><h3>Consonants</h3><div class="table-wrap"><table>${head}<tbody>${crows}</tbody></table></div></div>
+    <div class="tip">Stress falls on the first syllable of the root; endings stay light. Japanese marks accent with pitch alone, so add force and a little length. If no vowel is written, none is said.</div>`;
+}
+function soundRow(k) { const s = SOUNDS[k]; return `<tr><td class="vword">${esc(s.name)}</td><td>${esc(s.en)}</td><td>${esc(s.ja)}</td><td>${esc(s.other)}${s.how ? `<br><span class="tag">${esc(s.how)}</span>` : ""}</td></tr>`; }
+
+function readingHtml(read) {
+  return `<div class="reading">${read.map(w => `<span class="rd"><span class="syl">${w.parts.map(p => esc(p.join) + (p.st ? `<b>${esc(p.s)}</b>` : esc(p.s))).join("")}</span><span class="ipa">/${esc(w.ipa)}/</span></span>`).join("")}</div>`;
+}
+function soundChips(read, scope) {
+  const feats = [...new Set(read.flatMap(w => w.f))].filter(f => SOUNDS[f]);
+  if (!feats.length) return "";
+  return `<div class="chips" data-scope="${scope}">${feats.map(f => `<button class="chip" data-sound="${esc(f)}" aria-expanded="false">${esc(SOUNDS[f].name)}</button>`).join("")}</div><div class="sound-out" id="so-${scope}"></div>`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-sound]"); if (!b) return;
+  const wrap = b.parentElement, out = $("#so-" + wrap.dataset.scope), open = b.getAttribute("aria-expanded") === "true";
+  wrap.querySelectorAll("[data-sound]").forEach(x => x.setAttribute("aria-expanded", "false"));
+  if (open) { out.innerHTML = ""; return; }
+  b.setAttribute("aria-expanded", "true");
+  const s = SOUNDS[b.dataset.sound];
+  out.innerHTML = `<div class="sound-note"><span><b>${esc(s.name)}</b>${s.how ? " · " + esc(s.how) : ""}</span><span>English: ${esc(s.en)}</span><span>Japanese: ${esc(s.ja)}</span><span>Elsewhere: ${esc(s.other)}</span></div>`;
+});
+
+/* ---------- progress: one record per learner, kept in the page's store, mirrored in this browser ---------- */
+const LOCAL_KEY = "vuhlkansu-course-v1";
+function fresh() { return { v: 1, updated: 0, items: {}, sounds: {}, units: {}, stories: {}, days: [], sessions: [] }; }
+let S = fresh();
+try { const l = JSON.parse(localStorage.getItem(LOCAL_KEY)); if (l && l.v === 1) S = { ...fresh(), ...l }; } catch (e) {}
+let REF = null, writing = Promise.resolve(), saveTimer = null, dirty = false;
+function save() {
+  S.updated = Date.now();
+  try { localStorage.setItem(LOCAL_KEY, JSON.stringify(S)); } catch (e) {}
+  if (!REF) return;
+  dirty = true; clearTimeout(saveTimer);
+  saveTimer = setTimeout(flush, 1200);
+}
+function flush() {
+  if (!REF || !dirty) return writing;
+  dirty = false;
+  const body = JSON.parse(JSON.stringify(S));
+  writing = writing.then(() => REF.set(body)).then(() => setSync("Progress saved to your course record.")).catch(err => {
+    setSync("Couldn't save to your course record (" + (err && err.code || "error") + "). Progress is kept in this browser.");
+  });
+  return writing;
+}
+function setSync(t) { $("#sync").textContent = t; }
+(async () => {
+  const timer = setTimeout(() => { if (!REF) setSync("Progress is saved in this browser."); }, 10000);
+  try {
+    const [user, db] = await Promise.all([window.claude?.use?.("user"), window.claude?.use?.("db")]);
+    if (!user || !db) { clearTimeout(timer); setSync("Progress is saved in this browser."); return; }
+    const uid = await user.id();
+    if (!uid) { clearTimeout(timer); setSync("Progress is saved in this browser."); return; }
+    const ref = db.doc("learners/" + uid);
+    const snap = await ref.get();
+    clearTimeout(timer);
+    REF = ref;
+    const remote = snap.exists ? snap.data() : null;
+    if (remote && remote.v === 1 && (remote.updated || 0) > (S.updated || 0)) {
+      S = { ...fresh(), ...JSON.parse(JSON.stringify(remote)) };
+      try { localStorage.setItem(LOCAL_KEY, JSON.stringify(S)); } catch (e) {}
+      setSync("Progress loaded from your course record.");
+      if ($("#session").hidden) renderAll();
+    } else if (S.updated) { dirty = true; flush(); }
+    else setSync("Your progress will be saved to your course record.");
+  } catch (e) { clearTimeout(timer); setSync("Progress is saved in this browser."); }
+})();
+
+/* ---------- review boxes ---------- */
+const st = id => S.items[id];
+const isDue = id => st(id) && st(id).due <= today();
+function grade(id, ok) {
+  // the item's state before this session is kept, so repeats inside one session move it at most one box
+  const base = SESSION.base;
+  if (!(id in base)) base[id] = st(id) ? { ...st(id) } : null;
+  const was = base[id], c = SESSION.counts[id] || (SESSION.counts[id] = { r: 0, w: 0 });
+  if (ok) c.r++; else c.w++;
+  if (!ok) SESSION.marks[id] = false; else if (SESSION.marks[id] === undefined) SESSION.marks[id] = true;
+  const box = SESSION.marks[id] ? Math.min(5, (was ? was.b : 0) + 1) : 1;
+  S.items[id] = { b: box, due: today(INTERVAL[box]), r: (was ? was.r : 0) + c.r, w: (was ? was.w : 0) + c.w, first: was ? was.first : today(), last: today() };
+  save();
+}
+
+/* ---------- exercises ---------- */
+function sameKind(it, pool) { return pool.filter(x => x.id !== it.id && x.en !== it.en && (it.k === "w" ? x.k === "w" : x.k !== "w")); }
+function poolUpTo(ui) { return UNITS.slice(0, ui + 1).flatMap(u => u.items); }
+function distractors(it, n) {
+  const ui = UNIT_OF[it.id];
+  let near = sameKind(it, UNITS[ui].items), far = sameKind(it, poolUpTo(Math.max(ui, 2)));
+  const out = pick(near, Math.min(n, near.length));
+  for (const x of shuffle(far)) { if (out.length >= n) break; if (!out.includes(x)) out.push(x); }
+  if (out.length < n) for (const x of shuffle(sameKind(it, Object.values(ITEMS)))) { if (out.length >= n) break; if (!out.includes(x)) out.push(x); }
+  return out;
+}
+const EX = {
+  learn: it => ({ type: "learn", it, graded: false }),
+  decode: it => ({ type: "decode", it, graded: false }),
+  recog: it => ({ type: "mc", it, dir: "v2e", opts: shuffle([it, ...distractors(it, 3)]) }),
+  rev: it => ({ type: "mc", it, dir: "e2v", opts: shuffle([it, ...distractors(it, 3)]) }),
+  type: it => ({ type: "type", it }),
+  build: it => { const extra = pick([...new Set(distractors(it, 6).flatMap(x => x.tiles))].filter(t => !it.tiles.includes(t)), it.tiles.length > 3 ? 3 : 2); return { type: "build", it, bank: shuffle([...it.tiles, ...extra]) }; },
+  gap: it => { const g = it.gaps[Math.floor(Math.random() * it.gaps.length)]; const opts = shuffle([g.answer, ...pick(g.options.filter(o => o !== g.answer), 2)]); return { type: "gap", it, g, opts }; },
+};
+function exFor(it) {   // review exercise chosen by how well the item is known
+  const b = st(it.id)?.b || 1;
+  if (it.k === "w") return b <= 1 ? EX.recog(it) : b === 2 ? EX.rev(it) : EX.type(it);
+  if (b <= 1) return EX.build(it);
+  if (b === 2) return it.gaps.length ? EX.gap(it) : EX.rev(it);
+  return b >= 4 ? EX.type(it) : EX.build(it);
+}
+
+/* ---------- sessions ---------- */
+let SESSION = null;
+function startSession(kind, title, queue, extra = {}) {
+  SESSION = { kind, title, queue, i: 0, base: {}, marks: {}, counts: {}, right: 0, total: 0, missed: [], requeued: new Set(), ...extra };
+  $("#home").hidden = true; $("#session").hidden = false; window.scrollTo(0, 0);
+  showStep();
+}
+function lessonQueue(ui) {
+  const u = UNITS[ui], q = [];
+  const due = Object.keys(S.items).filter(id => isDue(id) && UNIT_OF[id] !== ui && ITEMS[id]);
+  pick(due, 4).forEach(id => q.push(exFor(ITEMS[id])));
+  const words = u.items.filter(i => i.k === "w"), multi = u.items.filter(i => i.k !== "w");
+  words.forEach(w => { q.push(EX.learn(w)); q.push(EX.decode(w)); q.push(EX.recog(w)); });
+  multi.forEach(m => { q.push(EX.learn(m)); q.push(EX.build(m)); });
+  const practice = [];
+  words.forEach(w => practice.push(EX.rev(w)));
+  pick(words, 3).forEach(w => practice.push(EX.type(w)));
+  multi.filter(m => m.gaps.length).forEach(m => practice.push(EX.gap(m)));
+  multi.filter(m => !m.gaps.length).forEach(m => practice.push(EX.rev(m)));
+  u.errors.forEach(e => practice.push({ type: "error", e, opts: shuffle([e.right, ...e.wrong]) }));
+  return q.concat(shuffle(practice));
+}
+function practiceQueue(ui) {
+  const u = UNITS[ui];
+  return shuffle(u.items.map(exFor).concat(u.errors.map(e => ({ type: "error", e, opts: shuffle([e.right, ...e.wrong]) }))));
+}
+function reviewQueue() {
+  const due = Object.keys(S.items).filter(id => isDue(id) && ITEMS[id]).sort((a, b) => st(a).due.localeCompare(st(b).due) || st(a).b - st(b).b).slice(0, 15);
+  return due.map(id => exFor(ITEMS[id]));
+}
+function soundQueue() {
+  const seen = Object.keys(S.items).filter(id => ITEMS[id]);
+  const weak = seen.filter(id => (S.sounds[id]?.miss || 0) > (S.sounds[id]?.ok || 0));
+  const rest = shuffle(seen.filter(id => !weak.includes(id)));
+  return [...shuffle(weak), ...rest].slice(0, 10).map(id => EX.decode(ITEMS[id]));
+}
+function storyQueue(s) { return [{ type: "story", s }].concat(s.questions.map(q => ({ type: "sq", q, opts: shuffle([q.right, ...q.wrong]) }))); }
+
+function exitSession(finished) {
+  flush();
+  if (finished) {
+    if (SESSION.kind === "lesson") S.units[SESSION.unit] = { done: today(), best: Math.max(S.units[SESSION.unit]?.best || 0, pct()) };
+    if (SESSION.kind === "story") S.stories[SESSION.story] = { done: today(), score: SESSION.right + "/" + SESSION.total };
+  }
+  if (SESSION.total || SESSION.kind === "sounds") {
+    if (!S.days.includes(today())) S.days = [...S.days, today()].slice(-120);
+    S.sessions = [...S.sessions, { d: today(), kind: SESSION.kind, what: SESSION.title, right: SESSION.right, total: SESSION.total, done: !!finished }].slice(-60);
+    save(); flush();
+  }
+  SESSION = null;
+  $("#session").hidden = true; $("#home").hidden = false;
+  renderAll(); window.scrollTo(0, 0);
+}
+const pct = () => SESSION.total ? Math.round(100 * SESSION.right / SESSION.total) : 100;
+
+function showStep() {
+  const s = SESSION;
+  if (s.i >= s.queue.length) return showResult();
+  const ex = s.queue[s.i];
+  const prog = Math.round(100 * s.i / s.queue.length);
+  $("#session").innerHTML = `
+    <div class="s-top">
+      <button id="quit" aria-label="Leave this session">Leave</button>
+      <div class="progress" role="progressbar" aria-valuenow="${prog}" aria-valuemin="0" aria-valuemax="100" aria-label="Session progress"><i style="width:${prog}%"></i></div>
+      <span class="s-count">${s.i + 1}/${s.queue.length}</span>
+    </div>
+    <div class="tag">${esc(s.title)}</div>
+    <div id="ex"></div>
+    <div id="fb"></div>
+    <div class="s-foot" id="foot"></div>`;
+  $("#quit").onclick = () => exitSession(false);
+  RENDER[ex.type](ex);
+}
+function next() { SESSION.i++; showStep(); }
+function footer(html) { $("#foot").innerHTML = html; }
+function continueBtn(label = "Continue") { footer(`<span></span><button class="primary" id="go">${label}</button>`); $("#go").onclick = next; $("#go").focus(); }
+function verdict(ok, correctHtml, note = "", ex) {
+  const s = SESSION;
+  s.total++; if (ok) s.right++;
+  else if (ex && !s.requeued.has(s.i)) { s.requeued.add(s.queue.length); s.queue.push(regen(ex)); }
+  if (!ok && ex && ex.it) s.missed.push(ex.it);
+  if (!ok && ex && ex.e) s.missed.push({ v: ex.e.right, en: ex.e.en });
+  $("#fb").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}" role="status"><div class="verdict">${ok ? "Correct." : "Not quite."}</div>${correctHtml}${note ? `<div class="tag">${note}</div>` : ""}</div>`;
+  continueBtn();
+}
+function regen(ex) {   // a fresh copy of a missed exercise for the end of the session
+  if (ex.type === "mc") return ex.dir === "v2e" ? EX.recog(ex.it) : EX.rev(ex.it);
+  if (ex.type === "error") return { ...ex, opts: shuffle(ex.opts) };
+  if (EX[ex.type]) return EX[ex.type](ex.it);
+  return ex;
+}
+const correctV = it => `<div class="correct">${esc(it.v)}</div><div>${esc(it.en)}</div>${readingHtml(it.read)}`;
+
+const RENDER = {
+  learn(ex) {
+    const it = ex.it, u = UNITS[UNIT_OF[it.id]];
+    const firstOfUnit = SESSION.kind === "lesson" && !SESSION.tipShown;
+    if (firstOfUnit) SESSION.tipShown = true;
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">New ${it.k === "w" ? "word" : it.k === "p" ? "phrase" : "sentence"}</div>
+      <div class="prompt-v ${it.v.length > 22 ? "long" : ""}">${esc(it.v)}</div>
+      <div class="gloss">${esc(it.en)}</div>
+      ${readingHtml(it.read)}
+      ${soundChips(it.read, "learn")}
+      ${firstOfUnit ? `<div class="tip">${esc(u.tip)}</div>` : ""}
+    </div>`;
+    continueBtn("Got it");
+  },
+  decode(ex) {
+    const it = ex.it;
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">Read it aloud</div>
+      <div class="prompt-v ${it.v.length > 22 ? "long" : ""}">${esc(it.v)}</div>
+      <label class="tag" for="dec-in">Say it from the spelling, then type how you said it (optional), e.g. JA-rahl.</label>
+      <input id="dec-in" type="text" class="answer-in" autocomplete="off" spellcheck="false" autocapitalize="off">
+      <div id="dec-out"></div>
+    </div>`;
+    footer(`<span></span><button class="primary" id="show">Check the reading</button>`);
+    const show = () => {
+      const said = $("#dec-in").value.trim();
+      $("#dec-out").innerHTML = `${said ? `<div class="tag">You wrote: ${esc(said)}</div>` : ""}<div><div class="ask" style="margin-bottom:6px">How it is read</div>${readingHtml(it.read)}</div>${soundChips(it.read, "dec")}<div>${esc(it.en)}</div>`;
+      footer(`<span class="tag">Did you say it this way?</span><div class="selfgrade"><button id="sg-no">I missed something</button><button class="primary" id="sg-ok">I said it right</button></div>`);
+      const mark = ok => { const r = S.sounds[it.id] || { ok: 0, miss: 0 }; r[ok ? "ok" : "miss"]++; S.sounds[it.id] = r; save(); next(); };
+      $("#sg-ok").onclick = () => mark(true); $("#sg-no").onclick = () => mark(false); $("#sg-ok").focus();
+    };
+    $("#show").onclick = show;
+    $("#dec-in").addEventListener("keydown", e => { if (e.key === "Enter") { e.stopPropagation(); show(); } });
+    $("#dec-in").focus();
+  },
+  mc(ex) {
+    const it = ex.it, v2e = ex.dir === "v2e";
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">${v2e ? "What does this mean?" : "Choose the Vulcan"}</div>
+      ${v2e ? `<div class="prompt-v ${it.v.length > 22 ? "long" : ""}">${esc(it.v)}</div>` : `<div class="prompt-en">${esc(it.en)}</div>`}
+      <div class="opts">${ex.opts.map((o, i) => `<button data-i="${i}" class="${v2e ? "" : "v-opt"}"><span class="k">${i + 1}</span><span class="t">${esc(v2e ? o.en : o.v)}</span></button>`).join("")}</div>
+    </div>`;
+    bindOpts(ex.opts.length, i => {
+      const ok = ex.opts[i] === it;
+      markOpts(i, ex.opts.indexOf(it));
+      grade(it.id, ok);
+      verdict(ok, correctV(it), "", ex);
+    });
+  },
+  type(ex) {
+    const it = ex.it;
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">Write this in Vulcan</div>
+      <div class="prompt-en">${esc(it.en)}</div>
+      <input id="ty-in" type="text" class="answer-in" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Your answer in Vulcan">
+    </div>`;
+    footer(`<span class="tag">The apostrophe is part of the spelling.</span><button class="primary" id="check">Check</button>`);
+    const check = () => {
+      const got = norm($("#ty-in").value); if (!got) return;
+      $("#ty-in").disabled = true;
+      const want = norm(it.v), noHy = s => s.replace(/-/g, "");
+      let ok = got === want || noHy(got) === noHy(want), note = "";
+      if (!ok && got.replace(/'/g, "") === want.replace(/'/g, "")) note = "The catch (') is part of the word: it is a sound, not decoration.";
+      else if (!ok && want.length >= 5 && lev(noHy(got), noHy(want)) <= 1) { ok = true; note = "Counted, but watch the spelling: one letter is off."; }
+      grade(it.id, ok);
+      verdict(ok, `${ok && got === want ? "" : `<div class="tag">You wrote: ${esc($("#ty-in").value)}</div>`}${correctV(it)}`, note, ex);
+    };
+    $("#check").onclick = check;
+    $("#ty-in").addEventListener("keydown", e => { if (e.key === "Enter") { e.stopPropagation(); if (!$("#ty-in").disabled) check(); else next(); } });
+    $("#ty-in").focus();
+  },
+  build(ex) {
+    const it = ex.it, chosen = [];
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">Put the words in order</div>
+      <div class="prompt-en">${esc(it.en)}</div>
+      <div class="tray" id="tray" aria-label="Your sentence"></div>
+      <div class="bank" id="bank">${ex.bank.map((t, i) => `<button class="tile" data-b="${i}">${esc(t)}</button>`).join("")}</div>
+    </div>`;
+    footer(`<button id="clear">Clear</button><button class="primary" id="check" disabled>Check</button>`);
+    const draw = () => {
+      $("#tray").innerHTML = chosen.map((bi, k) => `<button class="tile" data-t="${k}">${esc(ex.bank[bi])}</button>`).join("");
+      document.querySelectorAll("#bank .tile").forEach(b => b.classList.toggle("used", chosen.includes(+b.dataset.b)));
+      $("#check").disabled = !chosen.length;
+    };
+    $("#bank").onclick = e => { const b = e.target.closest("[data-b]"); if (!b || chosen.includes(+b.dataset.b) || $("#bank").dataset.locked) return; chosen.push(+b.dataset.b); draw(); };
+    $("#tray").onclick = e => { const b = e.target.closest("[data-t]"); if (!b || $("#bank").dataset.locked) return; chosen.splice(+b.dataset.t, 1); draw(); };
+    $("#clear").onclick = () => { if ($("#bank").dataset.locked) return; chosen.length = 0; draw(); };
+    $("#check").onclick = () => {
+      $("#bank").dataset.locked = "1";
+      const got = chosen.map(i => ex.bank[i]).join(" "), ok = norm(got) === norm(it.tiles.join(" "));
+      grade(it.id, ok);
+      verdict(ok, ok ? correctV(it) : `<div class="tag">You built: ${esc(got)}</div>${correctV(it)}`, "", ex);
+    };
+  },
+  gap(ex) {
+    const it = ex.it, parts = ex.g.text.split("___");
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">Fill the gap</div>
+      <div class="gap-line">${esc(parts[0])}<span class="blank" id="blank">?</span>${esc(parts[1] || "")}</div>
+      <div class="gloss">${esc(it.en)}</div>
+      <div class="opts">${ex.opts.map((o, i) => `<button data-i="${i}" class="v-opt"><span class="k">${i + 1}</span><span class="t">${esc(o)}</span></button>`).join("")}</div>
+    </div>`;
+    bindOpts(ex.opts.length, i => {
+      const ok = ex.opts[i] === ex.g.answer;
+      $("#blank").textContent = ex.opts[i];
+      markOpts(i, ex.opts.indexOf(ex.g.answer));
+      grade(it.id, ok);
+      verdict(ok, correctV(it), "", ex);
+    });
+  },
+  error(ex) {
+    const e = ex.e;
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">Only one of these is right</div>
+      <div class="prompt-en">${esc(e.en)}</div>
+      <div class="opts">${ex.opts.map((o, i) => `<button data-i="${i}" class="v-opt"><span class="k">${i + 1}</span><span class="t">${esc(o)}</span></button>`).join("")}</div>
+    </div>`;
+    bindOpts(ex.opts.length, i => {
+      const ok = ex.opts[i] === e.right;
+      markOpts(i, ex.opts.indexOf(e.right));
+      verdict(ok, `<div class="correct">${esc(e.right)}</div><div>${esc(e.why)}</div>`, "", ex);
+    });
+  },
+  story(ex) {
+    const s = ex.s; let shown = 1;
+    const draw = () => {
+      $("#ex").innerHTML = `<div class="card">
+        <div class="ask">Story · ${esc(s.title)}</div>
+        <div class="tip">${esc(s.setting)}</div>
+        <div class="story-lines">${s.lines.slice(0, shown).map((l, k) => `<div class="sline">
+          <span class="who">${esc(l.who)}</span><span class="v">${esc(l.v)}</span>
+          <div class="row"><button class="chip" data-reveal="en-${k}">English</button><button class="chip" data-reveal="rd-${k}">How to read it</button></div>
+          <div class="en" id="en-${k}" hidden>${esc(l.en)}</div><div id="rd-${k}" hidden>${readingHtml(l.read)}</div>
+        </div>`).join("")}</div>
+      </div>`;
+      if (shown < s.lines.length) { footer(`<span class="tag">Read the line aloud, then go on.</span><button class="primary" id="more">Next line</button>`); $("#more").onclick = () => { shown++; draw(); }; $("#more").focus(); }
+      else continueBtn("Questions");
+    };
+    draw();
+  },
+  sq(ex) {
+    $("#ex").innerHTML = `<div class="card">
+      <div class="ask">About the story</div>
+      <div class="prompt-en">${esc(ex.q.q)}</div>
+      <div class="opts">${ex.opts.map((o, i) => `<button data-i="${i}"><span class="k">${i + 1}</span><span class="t">${esc(o)}</span></button>`).join("")}</div>
+    </div>`;
+    bindOpts(ex.opts.length, i => { const ok = ex.opts[i] === ex.q.right; markOpts(i, ex.opts.indexOf(ex.q.right)); verdict(ok, `<div>${esc(ex.q.right)}</div>`); });
+  },
+};
+document.addEventListener("click", e => { const b = e.target.closest("[data-reveal]"); if (!b) return; const el = document.getElementById(b.dataset.reveal); el.hidden = !el.hidden; });
+function bindOpts(n, onPick) {
+  let done = false;
+  const go = i => { if (done) return; done = true; document.querySelectorAll(".opts button").forEach(b => b.disabled = true); onPick(i); };
+  document.querySelectorAll(".opts button").forEach(b => b.onclick = () => go(+b.dataset.i));
+  SESSION.keys = e => { const k = +e.key; if (k >= 1 && k <= n && !done && !e.target.matches("input")) go(k - 1); };
+}
+function markOpts(picked, right) {
+  const bs = document.querySelectorAll(".opts button");
+  bs[right]?.classList.add("right");
+  if (picked !== right) bs[picked]?.classList.add("wrong");
+}
+document.addEventListener("keydown", e => {
+  if (!SESSION) return;
+  if (e.key === "Enter" && $("#go") && !e.target.matches("input:not(:disabled)")) { e.preventDefault(); $("#go").click(); return; }
+  SESSION.keys && SESSION.keys(e);
+});
+
+function showResult() {
+  const s = SESSION, p = pct();
+  const missed = [...new Map(s.missed.map(m => [m.v, m])).values()];
+  $("#session").innerHTML = `
+    <div class="card">
+      <div class="ask">${esc(s.title)} · complete</div>
+      ${s.total ? `<div><span class="result-num">${p}%</span> <span class="tag">${s.right} of ${s.total} answers right</span></div>` : `<div class="gloss">Sound drill finished. Items you marked as missed come back first next time.</div>`}
+      ${missed.length ? `<div><h3>Missed this time</h3><ul class="missed">${missed.map(m => `<li><span class="vword">${esc(m.v)}</span> <span class="tag">${esc(m.en)}</span></li>`).join("")}</ul><p class="tag" style="margin:6px 0 0">These dropped back to box 1 and return tomorrow.</p></div>` : s.total ? `<div class="gloss">Nothing missed.</div>` : ""}
+    </div>
+    <div class="s-foot"><span></span><button class="primary" id="done">Back to the course</button></div>`;
+  $("#done").onclick = () => exitSession(true); $("#done").focus();
+  SESSION.keys = null;
+}
+
+/* ---------- home views ---------- */
+function unitMastery(u) { const bs = u.items.map(i => st(i.id)?.b || 0); return bs.reduce((a, b) => a + b, 0) / (5 * bs.length); }
+function streak() {
+  const set = new Set(S.days); let n = 0, off = set.has(today()) ? 0 : -1;
+  while (set.has(today(off))) { n++; off--; }
+  return n;
+}
+function renderStats() {
+  const seen = Object.keys(S.items).filter(id => ITEMS[id]).length, due = Object.keys(S.items).filter(id => ITEMS[id] && isDue(id)).length;
+  $("#stats").innerHTML = `<span><strong>${streak()}</strong>day streak</span><span><strong>${seen}</strong>of ${Object.keys(ITEMS).length} items learned</span><span><strong>${due}</strong>due today</span><span><strong>${Object.values(S.units).filter(u => u.done).length}</strong>of ${UNITS.length} units done</span>`;
+}
+function renderPath() {
+  const nextUi = UNITS.findIndex(u => !S.units[u.id]?.done);
+  let n = 0;
+  const html = DATA.levels.map(L => {
+    const us = UNITS.map((u, ui) => ({ u, ui })).filter(x => x.u.level === L.id);
+    if (!us.length) return `<div class="level planned"><div class="level-head"><h2>${esc(L.title)}</h2><span class="pill new">Planned</span></div><div class="planned-note">${esc(L.about)} Units are added here as the language grows.</div></div>`;
+    const rows = us.map(({ u, ui }) => {
+      n++;
+      const done = S.units[u.id]?.done, isNext = ui === nextUi, m = unitMastery(u);
+      const row = `<li class="unit ${isNext ? "next" : ""}">
+        <span class="num">${n}</span>
+        <div class="body"><span class="name">${esc(u.title)} ${done ? '<span class="pill done">Done</span>' : isNext ? '<span class="pill next">Next</span>' : ""}</span>
+          <span class="meta">${u.items.length} items · ${u.from ? esc(u.from) : "from lesson " + u.lesson}</span>
+          <div class="meter" title="Mastery ${Math.round(m * 100)}%"><i style="width:${Math.round(m * 100)}%"></i></div></div>
+        <div class="acts">${done ? `<button data-practice="${ui}">Practice</button><button data-lesson="${ui}">Redo lesson</button>` : `<button class="${isNext ? "primary" : ""}" data-lesson="${ui}">Start</button>`}</div>
+      </li>`;
+      const stories = (STORY_AFTER[u.id] || []).map(s => {
+        const sd = S.stories[s.id]; const open = !!done;
+        return `<li class="unit story"><span class="num">✦</span>
+          <div class="body"><span class="name">${esc(s.title)} <span class="pill story">Story</span> ${sd ? '<span class="pill done">Read</span>' : ""}</span>
+          <span class="meta">${esc(s.setting)}${open ? "" : ` Opens after “${esc(u.title)}”.`}</span></div>
+          <div class="acts"><button data-story="${esc(s.id)}" ${open ? "" : "disabled"}>${sd ? "Read again" : "Read"}</button></div></li>`;
+      }).join("");
+      return row + stories;
+    }).join("");
+    return `<div class="level"><div class="level-head"><h2>${esc(L.title)}</h2><span class="tag">${esc(L.about)}</span></div><ul class="units">${rows}</ul></div>`;
+  }).join("");
+  $("#view-path").innerHTML = html + `<p class="tag">Built ${esc(DATA.built)} from the dictionary (${DATA.lexiconSize.toLocaleString()} entries). Every form here is rendered from it, so the course always matches the language.</p>`;
+}
+document.addEventListener("click", e => {
+  const l = e.target.closest("[data-lesson]"), p = e.target.closest("[data-practice]"), s = e.target.closest("[data-story]");
+  if (l) { const ui = +l.dataset.lesson; startSession("lesson", "Unit " + (ui + 1) + " · " + UNITS[ui].title, lessonQueue(ui), { unit: UNITS[ui].id }); }
+  if (p) { const ui = +p.dataset.practice; startSession("practice", "Practice · " + UNITS[ui].title, practiceQueue(ui)); }
+  if (s) { const st_ = DATA.stories.find(x => x.id === s.dataset.story); startSession("story", st_.title, storyQueue(st_), { story: st_.id }); }
+});
+function renderReview() {
+  const ids = Object.keys(S.items).filter(id => ITEMS[id]);
+  const due = ids.filter(isDue).length;
+  $("#due-n").textContent = due;
+  $("#due-label").textContent = due === 1 ? "item due today" : "items due today";
+  $("#start-review").disabled = !due;
+  $("#start-sounds").disabled = !ids.length;
+  const counts = [0, 0, 0, 0, 0, 0];
+  Object.keys(ITEMS).forEach(id => counts[st(id)?.b || 0]++);
+  const max = Math.max(...counts, 1);
+  const label = ["Not started", "Box 1 · daily", "Box 2 · 3 days", "Box 3 · weekly", "Box 4 · 2 weeks", "Box 5 · monthly"];
+  $("#boxes").innerHTML = counts.map((c, b) => `<div class="box-col"><strong>${c}</strong><div class="bar ${c ? "" : "zero"}" style="height:${Math.round(110 * c / max)}px"></div><span>${label[b]}</span></div>`).join("");
+}
+$("#start-review").onclick = () => { const q = reviewQueue(); if (q.length) startSession("review", "Review", q); };
+$("#start-sounds").onclick = () => { const q = soundQueue(); if (q.length) startSession("sounds", "Sound drill", q); };
+UNITS.forEach((u, ui) => $("#wunit").insertAdjacentHTML("beforeend", `<option value="${ui}">${ui + 1}. ${esc(u.title)}</option>`));
+function renderWords() {
+  const q = $("#wq").value.trim().toLowerCase(), fu = $("#wunit").value, fs = $("#wstate").value;
+  const rows = Object.values(ITEMS).filter(it => {
+    const s = st(it.id);
+    if (fu !== "" && UNIT_OF[it.id] !== +fu) return false;
+    if (fs === "seen" && !s) return false;
+    if (fs === "unseen" && s) return false;
+    if (fs === "due" && !isDue(it.id)) return false;
+    if (fs === "weak" && !(s && s.w > s.r)) return false;
+    return !q || (it.v + " " + it.en).toLowerCase().includes(q);
+  });
+  $("#words-table").innerHTML = `<thead><tr><th>Vulcan</th><th>Reading</th><th>English</th><th>Unit</th><th class="num">Box</th><th class="num">Right / missed</th><th class="num">Next review</th></tr></thead><tbody>${
+    rows.map(it => { const s = st(it.id); return `<tr class="${s ? "" : "unseen"}"><td class="vword">${esc(it.v)}</td><td>${readingHtml(it.read)}</td><td>${esc(it.en)}</td><td class="tag">${UNIT_OF[it.id] + 1}</td><td class="num">${s ? s.b : "–"}</td><td class="num">${s ? s.r + " / " + s.w : "–"}</td><td class="num">${s ? (s.due <= today() ? "Due" : esc(s.due)) : "Not started"}</td></tr>`; }).join("")
+  }</tbody>`;
+}
+["#wq", "#wunit", "#wstate"].forEach(sel => $(sel).addEventListener("input", renderWords));
+
+function renderAll() { renderStats(); renderPath(); renderReview(); renderWords(); }
+
+/* ---------- routing ---------- */
+const VIEWS = ["path", "review", "words", "sounds"];
+function route() {
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "path";
+  VIEWS.forEach(n => { $("#view-" + n).hidden = n !== v; });
+  document.querySelectorAll("nav.tabs a").forEach(a => { if (a.dataset.view === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+}
+window.addEventListener("hashchange", route);
+renderSoundKey(); renderAll(); route();
+</script>

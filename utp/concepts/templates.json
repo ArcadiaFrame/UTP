@@ -1,0 +1,53 @@
+{
+  "about": "How later meanings are built from older ones, in every UTP language. Each affix is a grammatical meaning the language gets as a root of its own (Vulcan's equivalents: ve 'person', -tor 'make', -hol abstract, -kam diminutive). A template turns a root of one part of speech into a new meaning, the way Latin, Japanese and most of the world's languages build their later vocabulary. A pack can switch templates off, limit them to fields, or move an affix in front.",
+  "affixes": [
+    {"key": "agent", "gloss": "agent (one who does it)", "pos": "suffix", "rank": 1},
+    {"key": "action", "gloss": "action noun (the act or its outcome)", "pos": "suffix", "rank": 1},
+    {"key": "place", "gloss": "place (where it is done or kept)", "pos": "suffix", "rank": 1},
+    {"key": "instrument", "gloss": "instrument (the thing used to do it)", "pos": "suffix", "rank": 1},
+    {"key": "abstract", "gloss": "abstract noun (the quality)", "pos": "suffix", "rank": 2},
+    {"key": "adjectival", "gloss": "adjective-maker (of, like, full of)", "pos": "suffix", "rank": 1},
+    {"key": "causative", "gloss": "causative (make it so)", "pos": "suffix", "rank": 1},
+    {"key": "negative", "gloss": "negative (not, without)", "pos": "prefix", "rank": 1},
+    {"key": "diminutive", "gloss": "diminutive (little, dear)", "pos": "suffix", "rank": 0}
+  ],
+  "grammar_about": "Inflection and grammatical particles every UTP language gets as roots, so the interlingua can render sentences in it. Function words the registry already has (pronouns, question words, not, if, my, in) are used as they are. A pack's grammar section says which of these it uses and where they attach.",
+  "grammar": [
+    {"key": "g-plural", "gloss": "plural (noun inflection)", "pos": "suffix", "rank": 0},
+    {"key": "g-past", "gloss": "past tense", "pos": "suffix", "rank": 0},
+    {"key": "g-ongoing", "gloss": "ongoing aspect", "pos": "suffix", "rank": 1},
+    {"key": "g-completed", "gloss": "completed aspect", "pos": "prefix", "rank": 1},
+    {"key": "g-future", "gloss": "future (auxiliary)", "pos": "auxiliary", "rank": 1},
+    {"key": "g-ability", "gloss": "can, be able (auxiliary)", "pos": "auxiliary", "rank": 1},
+    {"key": "g-duty", "gloss": "must (auxiliary)", "pos": "auxiliary", "rank": 1},
+    {"key": "g-object", "gloss": "object marker", "pos": "suffix", "rank": 0},
+    {"key": "g-toward", "gloss": "toward, to (direction)", "pos": "particle", "rank": 0},
+    {"key": "g-of", "gloss": "of (possession, belonging)", "pos": "particle", "rank": 0},
+    {"key": "g-question", "gloss": "yes-or-no question particle", "pos": "particle", "rank": 0},
+    {"key": "g-request", "gloss": "please (request particle)", "pos": "particle", "rank": 1},
+    {"key": "g-hortative", "gloss": "let us (hortative particle)", "pos": "particle", "rank": 1},
+    {"key": "g-comp", "gloss": "that (introduces what was said or known)", "pos": "particle", "rank": 1},
+    {"key": "g-vocative", "gloss": "vocative particle (O ...)", "pos": "particle", "rank": 1},
+    {"key": "g-adverbial", "gloss": "adverb-maker (-ly)", "pos": "suffix", "rank": 1},
+    {"key": "g-honorific", "gloss": "honorific (raises the one spoken of)", "pos": "suffix", "rank": 1},
+    {"key": "g-humble", "gloss": "humble (lowers the speaker)", "pos": "suffix", "rank": 1}
+  ],
+  "templates": [
+    {"id": "agent", "affix": "agent", "from": "verb", "to": "noun", "gloss": "one who: {g}", "key": "{k}.agent"},
+    {"id": "action", "affix": "action", "from": "verb", "to": "noun", "gloss": "the act of: {g}", "key": "{k}.action"},
+    {"id": "place", "affix": "place", "from": "verb", "to": "noun", "gloss": "place for: {g}", "key": "{k}.place",
+     "fields": ["basic-actions-and-technology", "food-and-drink", "the-house", "religion-and-belief", "law",
+                "cognition", "speech-and-language", "agriculture-and-vegetation", "possession", "social-and-political-relations"]},
+    {"id": "instrument", "affix": "instrument", "from": "verb", "to": "noun", "gloss": "tool for: {g}", "key": "{k}.instrument",
+     "fields": ["basic-actions-and-technology", "agriculture-and-vegetation", "food-and-drink", "warfare-and-hunting",
+                "clothing-and-grooming", "sense-perception", "motion"]},
+    {"id": "abstract", "affix": "abstract", "from": "adjective", "to": "noun", "gloss": "the quality: {g}", "key": "{k}.abstract"},
+    {"id": "causative", "affix": "causative", "from": "adjective", "to": "verb", "gloss": "to make: {g}", "key": "{k}.causative"},
+    {"id": "negative", "affix": "negative", "from": "adjective", "to": "adjective", "gloss": "not: {g}", "key": "{k}.negative"},
+    {"id": "adjectival", "affix": "adjectival", "from": "noun", "to": "adjective", "gloss": "of or like: {g}", "key": "{k}.adjectival",
+     "fields": ["the-physical-world", "agriculture-and-vegetation", "food-and-drink", "animals", "emotions-and-values",
+                "the-body", "time", "religion-and-belief"]},
+    {"id": "diminutive", "affix": "diminutive", "from": "noun", "to": "noun", "gloss": "little: {g}", "key": "{k}.diminutive",
+     "fields": ["animals", "kinship", "the-house", "clothing-and-grooming"]}
+  ]
+}

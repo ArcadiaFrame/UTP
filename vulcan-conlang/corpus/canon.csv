@@ -1,0 +1,115 @@
+id,form,gloss,source,maker_layer,type,proposed_stage,notes
+c001,pon farr,time of mating,"TOS ""Amok Time""",writers,ritual,tribal fossil,
+c002,kal-if-fee,challenge,"TOS ""Amok Time""",writers,word,tribal fossil,also kah-if-fee in novels
+c003,koon-ut-kal-if-fee,marriage or challenge,"TOS ""Amok Time""",writers,compound,tribal fossil,isolates koon-ut 'marriage'
+c004,kroykah,"stop, enough","TOS ""Amok Time""",writers,word,ceremonial,
+c005,kar-i-far,begin,"TOS ""Amok Time""",writers,word,ceremonial,
+c006,plak tow,blood fever,"VOY ""Blood Fever""",writers,compound,tribal fossil,
+c007,koon-ut so'lik,marriage proposal,"VOY ""Blood Fever""",writers,compound,ceremonial,shares koon-ut
+c008,katra,"living spirit, consciousness",Star Trek III,film,word,tribal fossil,
+c009,fal-tor-pan,katra re-fusion rite,Star Trek III,film,ritual,ceremonial,shares -tor-
+c010,fal-tor-voh,meld treatment for neurodegenerative disease,"VOY ""Endgame""",writers,compound,standard,shares fal-tor-
+c011,kahs-wan,maturity ordeal,"TAS ""Yesteryear""",writers,ritual,tribal fossil,
+c012,le-matya,a predator animal,"TAS ""Yesteryear""",writers,word,tribal fossil,
+c013,tasmeen,a Vulcan month,"TAS ""Yesteryear""",writers,word,classical,
+c014,sehlat,an animal,"TOS ""Journey to Babel""",writers,word,tribal fossil,
+c015,tal-shaya,deadly martial technique,"TOS ""Journey to Babel""",writers,compound,classical,
+c016,nome,all,"TOS ""The Savage Curtain""",writers,word,classical,
+c017,arev,desert wind,"ENT ""The Forge""",writers,word,standard,
+c018,vokau,remember,"ENT ""The Forge""",writers,word,standard,
+c019,nirak,fool,"ENT ""Kir'Shara""",writers,word,classical,from the name of a soldier of Gol
+c020,bilak par,self-pity,"VOY ""Gravity""",writers,compound,standard,
+c021,shon-ha'lock,"the engulfment, love at first sight","VOY ""Gravity""",writers,compound,standard,
+c022,k'oh-nar,feeling completely exposed,"VOY ""Alter Ego""",writers,word,standard,
+c023,soo-lak,one who trivializes another's attachment,"VOY ""Alter Ego""",writers,word,standard,
+c024,t'san s'at,lifelong management of emotion,"VOY ""Alter Ego""",writers,compound,unified,Surak-era term
+c025,keethera,structure of harmony,"VOY ""Flashback""",writers,word,unified,
+c026,pyllora,telepathic guide,"VOY ""Flashback""",writers,word,classical,
+c027,pleenok,child's educational tool,"VOY ""Human Error""",writers,word,standard,
+c028,qui'lari,bioelectric focal point,"DS9 ""The Muse""",writers,word,standard,
+c029,v'tosh ka'tur,Vulcans without logic,"ENT ""Fusion""",writers,compound,standard,
+c030,gespar,a fruit,"ENT ""Home""",writers,word,standard,
+c031,navorkot,a Suus Mahna technique,"ENT ""Marauders""",writers,word,standard,
+c032,suus mahna,a martial art,"ENT ""Marauders""",writers,compound,classical,
+c033,pok tar,a food,"ENT ""Breaking the Ice""",writers,compound,standard,
+c034,surah'tahn,neuro-pressure posture,"ENT ""Rajiin""",writers,word,standard,
+c035,v'shar,security agency,"TNG ""Gambit, Part II""",writers,word,standard,
+c036,l'tak terai,a learning disability,"DIS ""Light and Shadows""",writers,compound,standard,
+c037,vokaya,a mineral,Star Trek Beyond,film,word,standard,
+c038,mol-kom,serenity,"ENT ""Shuttlepod One""",writers,word,standard,dream only; low confidence
+c039,fullara,ritual to repress memories,"ENT ""The Seventh""",writers,ritual,classical,
+c040,kal rekk,holiday of solitude and silence,"VOY ""Meld""",writers,ritual,unified,
+c041,rumarie,obsolete pagan festival,"VOY ""Meld""",writers,ritual,classical,
+c042,tal-shanar,a private ritual,"ENT ""Cold Front""",writers,ritual,classical,
+c043,tarul-etek,ritual to provoke emotion,"ENT ""Horizon""",writers,ritual,classical,
+c044,tokmar,ritual to bring lost ones home,"DIS ""Light and Shadows""",writers,ritual,classical,
+c045,kolinahr,purging of all emotion,Star Trek: TMP,film,word,unified,
+c046,ni'var,two forms; Vulcan's later name,"ENT ""Kir'Shara""; DIS",fan origin (Heydt),word,classical,1960s fan term adopted into canon
+c047,Dif-tor heh smusma,live long and prosper,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,shares -tor-
+c048,Sochya eh dif,peace and long life,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,eh 'and'; dif 'long life'
+c049,Dakh orfikkel aushfamaluhr shaukaush fi'aifa mazhiv,our ancestors cast out their animal passions on these very sands,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,Gol liturgy
+c050,Sha'koshtri korseivel bai'elkhrul-akteibuhl t'Kolinahr,saving our race through the attainment of Kolinahr,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,t' linker before Kolinahr
+c051,Nahp hif-bi tu throks,your thoughts... give them to me,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,
+c052,Kashkau Spohkh wuhkuh eh teretuhr,our minds are joined Spock... together and as one,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,eh 'and'
+c053,T'Ish hokni'es kwi'shoret,I sense the consciousness calling to you from space,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,
+c054,Estuhl terrupik khaf Spohkh,your Human blood is touched by it Spock,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,
+c055,vravshal srashiv t'Kolinahr,you have not yet attained Kolinahr,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,t' linker
+c056,T'I kilko-srashiv kitok-wilat,he must search elsewhere for his answer,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,srashiv recurs
+c057,I'tah tehrai k'etwel,he shall not find it here,Star Trek: TMP,Scharfe/Doohan,sentence,ceremonial,
+c058,Gishen worla ihk-banut,he's never what I expect,Star Trek II,Okrand,sentence,standard,ihk-banut 'that one'
+c059,Wakli ak'wikman ot-lan,what surprises you lieutenant,Star Trek II,Okrand,sentence,standard,
+c060,Ish-veh ni komihn,he's so human,Star Trek II,Okrand,sentence,standard,komihn = loan of 'human'
+c061,Kling akhlami buhfik Saavik-kam,nobody's perfect Saavik,Star Trek II,Okrand,sentence,standard,-kam diminutive
+c062,Saavik wimish. Kup-stariben?,I am Saavik. Can you speak?,Star Trek III,Okrand,sentence,standard,kup 'can'
+c063,Dom ki'sarlah,so it has come,Star Trek III,Okrand,sentence,standard,
+c064,Dungi tu sahrafel?,will you trust me?,Star Trek III,Okrand,sentence,standard,tu 'you'?
+c065,Chaya t'not,thank you (inferred),"ENT ""Strange New World""",writers,sentence,standard,
+c066,Ponfo miran,go to hell (production notes),"ENT ""Broken Bow""",writers,sentence,standard,
+c067,Ishtaya kulah. Vestal ma etak J'Kah.,a traditional litany (untranslated),"ENT ""The Andorian Incident""",writers,sentence,ceremonial,
+c068,Shanshot tulara komosh.,untranslated (Vanik to T'Pol),"ENT ""Breaking the Ice""",writers,sentence,standard,
+c069,T'nar pahk sarat y'rani,a greeting (untranslated),"ENT ""Fallen Hero""",writers,sentence,standard,
+c070,T'nar jaral,reply to greeting,"ENT ""Fallen Hero""",writers,sentence,standard,
+c071,Pash tah,good night (script),"ENT ""Fallen Hero""",writers,sentence,standard,
+c072,Tiar merra,untranslated; possibly an insult,"ENT ""Bounty""",writers,sentence,standard,
+c073,Ghishun tanfi bosh dwener?,why is he here?,"ENT ""Home""",Okrand,sentence,standard,
+c074,Pod Tucker avalde keru... Vulkanfi tozhi dawru.,Commander Tucker is my colleague... he wanted to visit Vulcan,"ENT ""Home""",Okrand,sentence,standard,-fi directional?
+c075,Falu nenvikh valdewizh sukfi lorun.,this is the first time you've brought a colleague home with you,"ENT ""Home""",Okrand,sentence,standard,avalde/valdewizh 'colleague'
+c076,Tulek tu,you are the vessel (script),"ENT ""Kir'Shara""",writers,sentence,ceremonial,tu 'you'
+c077,FAK-saith pahn-ak-TORR dzoh shin-AH. pon-aht PLAK-toe-fahl KAH-trah kah-NESH.,katra transfer incantation,"ENT ""Awakening""",writers,sentence,ceremonial,phonetic only in script; contains katra and plak-tow
+c078,Nehn glomahk uskahfu sivusi,you're tending a plant that is dead,"DIS ""Project Daedalus""",writers,sentence,standard,
+c079,Nenlohk dwon zeesh... Michael,I love you Michael (inferred),"DIS ""Such Sweet Sorrow, Part 2""",writers,sentence,standard,
+c080,Nirak,fool,"ENT ""Kir'Shara""",writers,name,classical,duplicate of c019 as proper name
+c081,Surak,philosopher of logic,TOS,writers,name,classical,male -k
+c082,Sarek,Spock's father,"TOS ""Journey to Babel""",writers,name,standard,male -k
+c083,Spock,—,TOS,writers,name,standard,male -k
+c084,Sybok,Spock's half-brother,Star Trek V,film,name,standard,male -k
+c085,Solok,a Vulcan captain,DS9,writers,name,standard,male -k
+c086,Vanik,a Vulcan captain,ENT,writers,name,standard,male -k
+c087,Stonn,T'Pring's chosen,"TOS ""Amok Time""",writers,name,standard,male S-
+c088,T'Pau,matriarch,"TOS ""Amok Time""",writers,name,ceremonial,female T'
+c089,T'Pring,Spock's betrothed,"TOS ""Amok Time""",writers,name,standard,female T'
+c090,T'Pol,science officer,ENT,writers,name,standard,female T'
+c091,T'Lar,priestess,Star Trek III,film,name,ceremonial,female T'
+c092,Saavik,lieutenant,Star Trek II,film,name,standard,
+c093,Gol,place of the Kolinahr masters,Star Trek: TMP,film,place,classical,
+c094,Seleya,sacred mountain,Star Trek III,film,place,classical,
+c095,ShiKahr,Spock's home city,"TAS ""Yesteryear""",writers,place,classical,
+c096,Kir'Shara,Surak's original writings,"ENT ""Kir'Shara""",writers,word,unified,
+c097,P'Jem,monastery world,"ENT ""The Andorian Incident""",writers,place,classical,
+c098,Vulkan,Vulcan (as heard in Vulkanfi),"ENT ""Home""",Okrand,place,standard,
+c099,lirpa,bladed staff weapon,"TOS ""Amok Time""",writers,word,classical,
+c100,ahn-woon,leather sling and strangling weapon,"TOS ""Amok Time""",writers,word,classical,
+c101,plomeek,a vegetable (plomeek soup),"TOS ""Amok Time""",writers,word,standard,
+c102,kal-toh,a strategy game of balance,"VOY ""Alter Ego""",writers,word,standard,shares kal-
+c103,pa'nar,a meld-transmitted disease (Pa'nar syndrome),"ENT ""Stigma""",writers,word,standard,
+c104,Syrran,leader of the Syrrannites,"ENT ""The Forge""",writers,name,unified,eponym source of Syrrannite
+c105,isik,a coin,"DIS ""Despite Yourself""",writers,word,standard,in the calque 'an isik for your thoughts'
+c106,Llangon,mountain range,"ENT ""The Forge""",writers,place,classical,
+c107,Tuvok,security officer,VOY,writers,name,standard,male -k
+c108,Vorik,engineer,VOY,writers,name,standard,male -k
+c109,Soval,ambassador,ENT,writers,name,standard,male S-
+c110,V'Lar,ambassador,"ENT ""Fallen Hero""",writers,name,standard,
+c111,Valeris,lieutenant,Star Trek VI,film,name,standard,
+c112,Selar,doctor,TNG,writers,name,standard,
+c113,T'Pel,Tuvok's wife,VOY,writers,name,standard,female T'
+c114,T'Lyn,science officer,LD,writers,name,standard,female T'

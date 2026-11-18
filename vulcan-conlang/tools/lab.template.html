@@ -1,0 +1,810 @@
+<title>Vuhlkansu Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column, a tab rail under the masthead, each view a single instrument panel.
+   Two branch colours carry meaning everywhere: rust = Vulcan, green = Romulan. */
+:root {
+  --bg: #f3f2ef;
+  --surface: #ffffff;
+  --sunk: #eae8e4;
+  --ink: #1e1c1a;
+  --muted: #69625b;
+  --line: #d9d5cf;
+  --vulcan: #a3401e;
+  --vulcan-tint: #f6e6df;
+  --romulan: #1e7469;
+  --romulan-tint: #dcefec;
+  --cer: #7a5a12;
+  --cer-tint: #f3ead2;
+  --good: #2f7a36;
+  --bad: #b3261e;
+  --focus: #3b5bdb;
+  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161413; --surface: #1f1c1a; --sunk: #2a2623; --ink: #ece7e1; --muted: #a69d95; --line: #3a3531;
+    --vulcan: #e0805a; --vulcan-tint: #3a231a; --romulan: #56b8aa; --romulan-tint: #16302c; --cer: #d4ae5a; --cer-tint: #33290f;
+    --good: #72c27a; --bad: #ef7468; --focus: #8ea6ff; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161413; --surface: #1f1c1a; --sunk: #2a2623; --ink: #ece7e1; --muted: #a69d95; --line: #3a3531;
+  --vulcan: #e0805a; --vulcan-tint: #3a231a; --romulan: #56b8aa; --romulan-tint: #16302c; --cer: #d4ae5a; --cer-tint: #33290f;
+  --good: #72c27a; --bad: #ef7468; --focus: #8ea6ff; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 64px; }
+header.mast { display: grid; gap: 6px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.mast h1 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+.mast p { margin: 0; color: var(--muted); max-width: 70ch; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; margin: 18px 0 22px; border-bottom: 1px solid var(--line); }
+nav.tabs a { padding: 10px 14px; color: var(--muted); text-decoration: none; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+nav.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+nav.tabs a:hover { color: var(--ink); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0 0 6px; text-wrap: balance; }
+h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+.lede { color: var(--muted); margin: 0 0 18px; max-width: 72ch; }
+section.view { display: grid; gap: 26px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+label.field { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+input[type="text"], input[type="search"], select, textarea {
+  font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; min-width: 0;
+}
+input.mono, textarea.mono, .mono { font-family: var(--mono); }
+.proto-input { font-family: var(--mono); font-size: 20px; padding: 10px 12px; width: min(100%, 420px); }
+button { font: inherit; font-weight: 500; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+button:hover { background: var(--sunk); }
+button.chip { font-family: var(--mono); font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+button.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+button.primary:hover { opacity: 0.9; background: var(--ink); }
+.out-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.branch { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 10px; min-width: 0; }
+.branch.vulcan { border-top: 3px solid var(--vulcan); }
+.branch.romulan { border-top: 3px solid var(--romulan); }
+.branch.ceremonial { border-top: 3px solid var(--cer); }
+.branch.ceremonial .name { color: var(--cer); }
+.branch .name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.branch.vulcan .name { color: var(--vulcan); }
+.branch.romulan .name { color: var(--romulan); }
+.branch .result { font-family: var(--mono); font-size: 28px; line-height: 1.2; overflow-wrap: anywhere; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+ol.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: baseline; }
+ol.steps .rid { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+ol.steps .form { font-family: var(--mono); }
+ol.steps .why { color: var(--muted); font-size: 13px; }
+.nochange { color: var(--muted); font-size: 14px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; background: var(--sunk); position: sticky; top: 0; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.pass { color: var(--good); border: 1px solid var(--good); }
+.pill.fail { color: var(--bad); border: 1px solid var(--bad); }
+.pill.mid { color: var(--cer); border: 1px solid var(--cer); }
+.tag { font-size: 12px; color: var(--muted); }
+.summary { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; color: var(--muted); }
+.summary strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.rules-grid { display: grid; gap: 22px; }
+.rule-table input { width: 100%; font-family: var(--mono); font-size: 13px; padding: 6px 8px; }
+.rule-table input.note { font-family: var(--body); }
+.rule-table td { padding: 6px 6px; }
+.rule-table .ops { white-space: nowrap; }
+.rule-table .ops button { padding: 4px 8px; font-size: 13px; }
+.err { color: var(--bad); font-size: 12px; }
+.note-box { font-size: 13px; color: var(--muted); background: var(--sunk); border-radius: 6px; padding: 10px 12px; max-width: 80ch; }
+textarea.json { width: 100%; min-height: 160px; font-size: 12px; }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; min-width: 0; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .caption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.form-cell { font-family: var(--mono); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: grid; gap: 10px; align-content: start; min-width: 0; scroll-margin-top: 16px; }
+.card p { margin: 0; font-size: 14px; }
+.card .term { font-family: var(--mono); font-size: 22px; margin-right: 10px; }
+.card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; }
+.card .lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+.card ul.range { margin: 0; padding-left: 18px; font-size: 14px; }
+.card.flash { outline: 2px solid var(--vulcan); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip-s { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--sunk); color: var(--ink); white-space: nowrap; }
+.chip-s.era { background: var(--vulcan-tint); color: var(--vulcan); }
+a.badge { font-size: 11.5px; font-weight: 600; color: var(--vulcan); border: 1px solid var(--vulcan); border-radius: 999px; padding: 0 7px; text-decoration: none; white-space: nowrap; }
+.workshop { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+.toast { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 14px; }
+@media (prefers-reduced-motion: no-preference) { .branch .result { transition: color .2s; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <h1>Vuhlkansu Lab</h1>
+    <p>Workbench for the Vulcan language family. Type a Proto-Vulcan form and watch the sound laws carry it into Vulcan and Romulan, edit the laws, browse the corpus they have to explain, and see which words hold meaning English cannot.</p>
+    <div class="legend"><span><span class="swatch" style="background:var(--vulcan)"></span>Vulcan branch</span><span><span class="swatch" style="background:var(--romulan)"></span>Romulan branch</span><span><span class="swatch" style="background:var(--cer)"></span>Ceremonial (Classical, frozen in ritual)</span><span id="build-stamp"></span></div>
+  </header>
+
+  <nav class="tabs" aria-label="Views">
+    <a href="#derive" data-view="derive">Derive</a>
+    <a href="#rules" data-view="rules">Sound laws</a>
+    <a href="#dictionary" data-view="dictionary">Dictionary</a>
+    <a href="#glosser" data-view="glosser">Glosser</a>
+    <a href="#corpus" data-view="corpus">Corpus</a>
+    <a href="#concepts" data-view="concepts">Concepts and idioms</a>
+    <a href="#sounds" data-view="sounds">Sound profile</a>
+  </nav>
+
+  <section class="view" id="view-derive">
+    <div>
+      <h2>Derive a word</h2>
+      <p class="lede">Enter a reconstructed Proto-Vulcan form. Each branch applies its sound laws in order, and every step that changes the word is listed with the law that caused it.</p>
+      <div class="row">
+        <input id="proto" class="proto-input" type="text" value="*sehaik" aria-label="Proto-Vulcan form" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="row" id="examples" style="margin-top:10px"></div>
+    </div>
+    <div class="out-grid" id="outputs"></div>
+    <div id="derive-concept"></div>
+    <div>
+      <h3>Test cases</h3>
+      <div class="summary" id="test-summary"></div>
+      <div class="table-wrap" style="margin-top:10px"><table id="tests"></table></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-rules" hidden>
+    <div>
+      <h2>Sound laws</h2>
+      <p class="lede">Laws run top to bottom on each word. A pattern is a regular expression on the romanized form: ^ marks the start of a word, $ the end, and $1 in a replacement repeats the first bracketed group. Test cases rerun as you type.</p>
+      <div class="summary" id="rules-summary"></div>
+    </div>
+    <div class="rules-grid" id="rule-tables"></div>
+    <div class="note-box">Edits stay in this browser only. To make a change permanent, copy the laws below and paste them into chat; they go into tools/rules.json, which the scripts and this page both build from.</div>
+    <div class="row">
+      <button class="primary" id="copy-json">Copy laws as JSON</button>
+      <button id="reset-rules">Reset to published laws</button>
+    </div>
+    <textarea class="json mono" id="json-out" readonly aria-label="Laws as JSON"></textarea>
+  </section>
+
+  <section class="view" id="view-dictionary" hidden>
+    <div>
+      <h2>Dictionary</h2>
+      <p class="lede">Every root is reconstructed in Proto-Vulcan and carried into each branch by the sound laws. Canon words are anchors the laws must reproduce; the rest come from the generator, and none were accepted until they passed every check against the words already in.</p>
+      <div class="summary" id="lex-summary"></div>
+    </div>
+    <div class="workshop">
+      <h3>Word workshop</h3>
+      <p class="tag" style="margin:0 0 10px">Test a Proto-Vulcan form of your own, or let the generator suggest forms for a meaning. Every result is checked against the whole dictionary below. Copy a row and paste it in chat to have it added.</p>
+      <div class="row">
+        <label class="field">Meaning<input id="w-gloss" type="text" placeholder="e.g. oasis" style="width:180px"></label>
+        <label class="field">Part of speech<select id="w-pos"></select></label>
+        <label class="field">Field<select id="w-field"></select></label>
+        <label class="field">Proto-Vulcan form (optional)<input id="w-proto" class="mono" type="text" placeholder="*kʼarun" style="width:160px" spellcheck="false" autocomplete="off"></label>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="primary" id="w-suggest">Suggest five forms</button>
+        <button id="w-check">Check my form</button>
+        <span class="tag">Type ʼ for an ejective with the ʼ key below, or paste it.</span>
+        <button class="chip" id="w-ej" type="button">ʼ</button>
+      </div>
+      <div class="table-wrap" style="margin-top:12px"><table id="w-out"><tbody><tr><td class="tag">Results appear here. Example: meaning "oasis", noun, desert, then Suggest.</td></tr></tbody></table></div>
+    </div>
+    <div class="row">
+      <label class="field">Search<input id="lq" type="search" placeholder="Vulcan, Romulan or English" style="width:220px"></label>
+      <label class="field">Field<select id="lf-field"><option value="">All</option></select></label>
+      <label class="field">Part of speech<select id="lf-pos"><option value="">All</option></select></label>
+      <label class="field">Origin<select id="lf-status"><option value="">All</option></select></label>
+    </div>
+    <div class="table-wrap"><table id="lex-table"></table></div>
+    <div>
+      <h3>Canon sentences, read word by word</h3>
+      <p class="lede">How each canon line was split into words. High confidence means the English subtitle pins the word down; medium means its position and repetition do; low means it is still a guess and stays out of the dictionary.</p>
+      <div class="table-wrap"><table id="interlinear"></table></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-glosser" hidden>
+    <div>
+      <h2>Glosser</h2>
+      <p class="lede">Pick Vulcan or Romulan, then type a sentence in standard spelling and see it split into words and endings, each with its meaning. Hyphens before endings are optional. Canon spellings like <span class="mono">sahrafel</span> are tidied to standard spelling first. Anything not in the dictionary is flagged, which is how gaps get found.</p>
+      <div class="row">
+        <select id="g-lang" aria-label="Language" style="font-size:15px;padding:9px 10px"><option value="v">Vulcan</option><option value="r">Romulan</option></select>
+        <input id="g-in" type="text" class="mono" style="width:min(100%,520px);font-size:17px;padding:10px 12px" aria-label="Sentence to gloss" spellcheck="false" autocomplete="off" value="Shelek tanfi sarla-un ho.">
+      </div>
+      <div class="row" id="g-examples" style="margin-top:10px"></div>
+    </div>
+    <div class="summary" id="g-summary"></div>
+    <div class="table-wrap"><table id="g-out"></table></div>
+    <div>
+      <h3 style="margin-top:28px">Phrasebook</h3>
+      <p class="lede">Everyday lines for conversation. Click one to gloss it above. The check below runs every line through the Glosser, so a phrase that uses a missing word shows up at once.</p>
+      <div class="summary" id="pb-summary"></div>
+      <div class="table-wrap"><table id="pb-out"></table></div>
+    </div>
+    <div class="note-box">Word order is Subject, then Object, then Verb, with the evidential last. Endings attach to the end of a word: <span class="mono">-wizh</span> marks the object, <span class="mono">-un</span> the past, <span class="mono">-fi</span> direction toward. See the Grammar tab in the design bible for the full sketch.</div>
+  </section>
+
+  <section class="view" id="view-corpus" hidden>
+    <div>
+      <h2>Corpus</h2>
+      <p class="lede">Every attested form the reconstruction must explain. Canon is fixed evidence; novel and Romulan forms guide choices. Maker layer records who wrote the line, which is how inconsistencies become eras and dialects.</p>
+    </div>
+    <div class="row">
+      <label class="field">Search<input id="q" type="search" placeholder="form, meaning or source" style="width:240px"></label>
+      <label class="field">Set<select id="f-set"><option value="">All</option><option value="canon">Canon</option><option value="novel">Novels</option><option value="romulan">Romulan</option></select></label>
+      <label class="field">Proposed stage<select id="f-stage"><option value="">All</option></select></label>
+      <label class="field">Maker<select id="f-maker"><option value="">All</option></select></label>
+    </div>
+    <div class="summary" id="corpus-count"></div>
+    <div class="table-wrap"><table id="corpus-table"></table></div>
+  </section>
+
+  <section class="view" id="view-concepts" hidden>
+    <div>
+      <h2>Words that don't translate fully</h2>
+      <p class="lede">Some Vulcan words bundle ideas that English keeps apart, or carry feeling and sacred weight no English word holds. Every language has these, like je ne sais quoi or saudade. Each card gives the word's full range, why English falls short, and the closest Earth parallels a translator can lean on.</p>
+      <div class="row"><label class="field">Domain<select id="f-domain"><option value="">All</option></select></label></div>
+    </div>
+    <div class="cards" id="concept-cards"></div>
+    <div>
+      <h2>Idioms and sayings</h2>
+      <p class="lede">Sayings attested in canon and the novels. Several have no Vulcan wording on screen yet; those will be built from the reconstructed lexicon.</p>
+      <div class="table-wrap"><table id="idioms"></table></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-sounds" hidden>
+    <div>
+      <h2>Sound profile</h2>
+      <p class="lede">Computed live from the corpus. Each word is split into provisional sounds, then counted by who wrote it. The oldest layers carry the most fricatives, and Romulan stands apart through its diphthongs.</p>
+    </div>
+    <div class="charts">
+      <div class="chart"><h3>Fricatives, % of sounds</h3><div id="chart-fric"></div><div class="caption">kh, sh, zh, th, s, f, v, h and lh as a share of every sound in the layer.</div></div>
+      <div class="chart"><h3>Long vowels and diphthongs, % of vowels</h3><div id="chart-diph"></div><div class="caption">Romulan figure is from Diane Duane's word-generator vowel blocks.</div></div>
+    </div>
+    <div>
+      <h3>Recurring pieces (root and affix candidates)</h3>
+      <p class="lede">Strings of three or more letters found in two or more unrelated entries, longest unique matches kept. Hover an entry number to see the word.</p>
+      <div class="table-wrap"><table id="pieces"></table></div>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DATA = __DATA__;
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function store(key, val) { try { if (val === undefined) return JSON.parse(localStorage.getItem(key)); localStorage.setItem(key, JSON.stringify(val)); } catch (e) { return null; } }
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 1800); }
+$("#build-stamp").textContent = "Built " + DATA.built;
+
+/* ---------- sound-change engine (same logic as tools/sca.py) ---------- */
+let RULES = store("vl-rules-v2") || JSON.parse(JSON.stringify(DATA.rules.branches));
+const BRANCHES = Object.keys(DATA.rules.branches);
+
+function compile(rule) {
+  try { return { re: new RegExp(rule.pattern, "g"), err: null }; }
+  catch (e) { return { re: null, err: e.message }; }
+}
+function chain(branch) {
+  const b = RULES[branch];
+  return (b.inherits ? chain(b.inherits) : []).concat(b.rules);
+}
+function derive(form, branch) {
+  const words = form.trim().replace(/^\*/, "").split(/\s+/).filter(Boolean);
+  const steps = [];
+  const out = words.map(w => {
+    for (const r of chain(branch)) {
+      const c = compile(r);
+      if (!c.re) continue;
+      const nw = w.replace(c.re, r.replace);
+      if (nw !== w) { steps.push({ id: r.id, from: w, to: nw, note: r.note }); w = nw; }
+    }
+    return w;
+  });
+  return { result: out.join(" "), steps };
+}
+
+/* ---------- derive view ---------- */
+function renderDerive() {
+  const form = $("#proto").value;
+  $("#outputs").innerHTML = BRANCHES.map(b => {
+    const d = derive(form, b);
+    const steps = d.steps.length
+      ? `<ol class="steps">${d.steps.map(s => `<li><span class="rid">${esc(s.id)}</span><span><span class="form">${esc(s.from)} → ${esc(s.to)}</span><br><span class="why">${esc(s.note)}</span></span></li>`).join("")}</ol>`
+      : `<div class="nochange">No law applies. The form is inherited unchanged.</div>`;
+    return `<div class="branch ${b}"><div class="name">${esc(RULES[b].label)}</div><div class="result">${esc(d.result || "—")}</div>${steps}</div>`;
+  }).join("");
+  const key = form.trim().replace(/^\*/, "").toLowerCase();
+  const c = DATA.concepts.find(c => c.term.toLowerCase() === key || ((ENTRY_BY_ID[c.entry] || {}).std || "").toLowerCase() === key);
+  $("#derive-concept").innerHTML = c ? `<h3>This word doesn't translate fully</h3>${conceptCard(c)}` : "";
+}
+function renderTests() {
+  let pass = 0, total = 0;
+  const rows = DATA.rules.tests.map(t => {
+    const cells = BRANCHES.map(b => {
+      if (!(b in t)) return `<td class="tag">${esc(derive(t.proto, b).result)}</td>`;
+      const got = derive(t.proto, b).result, ok = got === t[b];
+      total++; if (ok) pass++;
+      return `<td class="form-cell">${esc(got)} <span class="pill ${ok ? "pass" : "fail"}">${ok ? "Pass" : "Fail, want " + esc(t[b])}</span></td>`;
+    }).join("");
+    return `<tr><td class="form-cell"><button class="chip" data-proto="${esc(t.proto)}">${esc(t.proto)}</button></td><td>${esc(t.gloss)}<br><span class="tag">${esc(t.kind)} · ${esc(t.source)}</span></td>${cells}</tr>`;
+  }).join("");
+  $("#tests").innerHTML = `<thead><tr><th>Proto-Vulcan</th><th>Meaning</th>${BRANCHES.map(b => `<th>${esc(RULES[b].label)}</th>`).join("")}</tr></thead><tbody>${rows}</tbody>`;
+  const s = `<span><strong>${pass}</strong> of <strong>${total}</strong> branch outcomes match the attested or predicted form</span>`;
+  $("#test-summary").innerHTML = s;
+  $("#rules-summary").innerHTML = s;
+}
+$("#examples").innerHTML = DATA.rules.tests.map(t => `<button class="chip" data-proto="${esc(t.proto)}">${esc(t.proto)}</button>`).join("") +
+  ["*sarek", "*kahsuan", "*sailak"].map(p => `<button class="chip" data-proto="${p}" title="Untested example">${p}</button>`).join("");
+document.addEventListener("click", e => {
+  const p = e.target.closest("[data-proto]");
+  if (p) { $("#proto").value = p.dataset.proto; renderDerive(); if (location.hash !== "#derive") location.hash = "derive"; }
+});
+$("#proto").addEventListener("input", renderDerive);
+
+/* ---------- rules view ---------- */
+function renderRules() {
+  $("#rule-tables").innerHTML = BRANCHES.map(b => `
+    <div>
+      <h3 style="color:var(--${b === "ceremonial" ? "cer" : b})">${esc(RULES[b].label)}</h3>
+      <p class="tag" style="margin:0 0 8px">${esc(RULES[b].about || "")}${RULES[b].inherits ? ` Runs every ${esc(RULES[RULES[b].inherits].label)} law first.` : ""}</p>
+      <div class="table-wrap"><table class="rule-table">
+        <thead><tr><th style="width:72px">Law</th><th>Pattern</th><th>Replacement</th><th>What it does</th><th></th></tr></thead>
+        <tbody>${RULES[b].rules.map((r, i) => {
+          const c = compile(r);
+          return `<tr>
+            <td><input id="r-${b}-${i}-id" data-b="${b}" data-i="${i}" data-k="id" value="${esc(r.id)}" aria-label="Law id"></td>
+            <td><input id="r-${b}-${i}-pattern" data-b="${b}" data-i="${i}" data-k="pattern" value="${esc(r.pattern)}" aria-label="Pattern">${c.err ? `<div class="err">Pattern error: ${esc(c.err)}</div>` : ""}</td>
+            <td><input id="r-${b}-${i}-replace" data-b="${b}" data-i="${i}" data-k="replace" value="${esc(r.replace)}" aria-label="Replacement"></td>
+            <td><input class="note" id="r-${b}-${i}-note" data-b="${b}" data-i="${i}" data-k="note" value="${esc(r.note)}" aria-label="Description"></td>
+            <td class="ops"><button data-op="up" data-b="${b}" data-i="${i}" aria-label="Move up">↑</button> <button data-op="down" data-b="${b}" data-i="${i}" aria-label="Move down">↓</button> <button data-op="del" data-b="${b}" data-i="${i}" aria-label="Delete law">Delete</button></td>
+          </tr>`; }).join("")}</tbody>
+      </table></div>
+      <div class="row" style="margin-top:8px"><button data-op="add" data-b="${b}">Add ${esc(RULES[b].label)} law</button></div>
+    </div>`).join("");
+  $("#json-out").value = JSON.stringify(RULES, null, 2);
+}
+function rulesChanged(rerender) {
+  store("vl-rules-v2", RULES);
+  $("#json-out").value = JSON.stringify(RULES, null, 2);
+  renderTests(); renderDerive();
+  if (rerender) renderRules();
+}
+$("#rule-tables").addEventListener("input", e => {
+  const t = e.target; if (!t.dataset.k) return;
+  RULES[t.dataset.b].rules[+t.dataset.i][t.dataset.k] = t.value;
+  rulesChanged(false);
+  if (t.dataset.k === "pattern") {
+    const c = compile(RULES[t.dataset.b].rules[+t.dataset.i]);
+    let err = t.parentElement.querySelector(".err");
+    if (c.err) { if (!err) { err = document.createElement("div"); err.className = "err"; t.after(err); } err.textContent = "Pattern error: " + c.err; }
+    else if (err) err.remove();
+  }
+});
+$("#rule-tables").addEventListener("click", e => {
+  const btn = e.target.closest("[data-op]"); if (!btn) return;
+  const list = RULES[btn.dataset.b].rules, i = +btn.dataset.i;
+  if (btn.dataset.op === "add") list.push({ id: ({ ceremonial: "C", vulcan: "S", romulan: "R" }[btn.dataset.b] || "X") + (list.length + 1), pattern: "", replace: "", note: "", era: "" });
+  if (btn.dataset.op === "del") list.splice(i, 1);
+  if (btn.dataset.op === "up" && i > 0) [list[i - 1], list[i]] = [list[i], list[i - 1]];
+  if (btn.dataset.op === "down" && i < list.length - 1) [list[i + 1], list[i]] = [list[i], list[i + 1]];
+  rulesChanged(true);
+});
+$("#reset-rules").addEventListener("click", () => { RULES = JSON.parse(JSON.stringify(DATA.rules.branches)); try { localStorage.removeItem("vl-rules-v2"); } catch (e) {} rulesChanged(true); toast("Laws reset"); });
+$("#copy-json").addEventListener("click", () => {
+  const ta = $("#json-out");
+  navigator.clipboard.writeText(ta.value).then(() => toast("Copied")).catch(() => { ta.focus(); ta.select(); toast("Selected. Press Ctrl+C or Cmd+C to copy"); });
+});
+
+/* ---------- corpus view ---------- */
+const CORPUS = [
+  ...DATA.canon.map(r => ({ set: "canon", id: r.id, form: r.form, std: r.std, ipa: r.ipa, gloss: r.gloss, source: r.source, maker: r.maker_layer, stage: r.proposed_stage, type: r.type, notes: r.notes })),
+  ...DATA.novel.map(r => ({ set: "novel", id: r.id, form: r.form, std: r.std, ipa: r.ipa, gloss: r.gloss, source: r.source, maker: "novelists", stage: r.proposed_stage, type: "", notes: r.notes })),
+  ...DATA.romulan.map(r => ({ set: "romulan", id: r.id, form: r.form, std: r.std, ipa: r.ipa, gloss: r.gloss, source: r.source, maker: r.tier === "1" ? "canon writers" : "Duane", stage: "Romulan", type: "", notes: r.notes })),
+];
+for (const [sel, key] of [["#f-stage", "stage"], ["#f-maker", "maker"]]) {
+  [...new Set(CORPUS.map(r => r[key]).filter(Boolean))].sort().forEach(v => $(sel).insertAdjacentHTML("beforeend", `<option>${esc(v)}</option>`));
+}
+const CONCEPT_BY_ENTRY = Object.fromEntries(DATA.concepts.map(c => [c.entry, c]));
+const ENTRY_BY_ID = Object.fromEntries(CORPUS.map(r => [r.id, r]));
+function renderCorpus() {
+  const q = $("#q").value.trim().toLowerCase(), fs = $("#f-set").value, st = $("#f-stage").value, mk = $("#f-maker").value;
+  const rows = CORPUS.filter(r => (!fs || r.set === fs) && (!st || r.stage === st) && (!mk || r.maker === mk) &&
+    (!q || [r.form, r.std, r.gloss, r.source, r.notes].join(" ").toLowerCase().includes(q)));
+  $("#corpus-count").innerHTML = `<span><strong>${rows.length}</strong> of <strong>${CORPUS.length}</strong> entries</span>`;
+  $("#corpus-table").innerHTML = `<thead><tr><th>Id</th><th>As written</th><th>Standard</th><th>Sounds</th><th>Meaning</th><th>Source</th><th>Maker</th><th>Stage</th><th>Notes</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td class="tag">${esc(r.id)}</td><td class="form-cell" style="color:var(--${r.set === "romulan" ? "romulan" : "ink"})">${esc(r.form)}</td><td class="form-cell">${r.std !== r.form ? esc(r.std) : '<span class="tag">same</span>'}</td><td class="form-cell tag">${r.ipa ? "/" + esc(r.ipa) + "/" : ""}</td><td>${esc(r.gloss)}${CONCEPT_BY_ENTRY[r.id] ? ` <a class="badge" href="#concepts" data-concept="${CONCEPT_BY_ENTRY[r.id].id}">Doesn't translate fully</a>` : ""}</td><td>${esc(r.source)}</td><td>${esc(r.maker)}</td><td>${esc(r.stage)}</td><td class="tag">${esc(r.notes)}</td></tr>`).join("")
+  }</tbody>`;
+  try { sessionStorage.setItem("vl-filters", JSON.stringify({ q, fs, st, mk })); } catch (e) {}
+}
+try { const f = JSON.parse(sessionStorage.getItem("vl-filters")); if (f) { $("#q").value = f.q; $("#f-set").value = f.fs; $("#f-stage").value = f.st; $("#f-maker").value = f.mk; } } catch (e) {}
+["#q", "#f-set", "#f-stage", "#f-maker"].forEach(s => $(s).addEventListener("input", renderCorpus));
+
+/* ---------- sound profile: segments are precomputed by tools/phon.py at build time ---------- */
+const VOWELS = new Set(["ɨ","a","e","i","o","u","uː","iː","aː","ai","au","ei","ae","oi","ə"]);
+const LONG = new Set(["uː","iː","aː","ai","au","ei","ae","oi"]);
+const FRIC = new Set(["x","ʃ","ʒ","θ","ð","s","z","f","v","h","ɬ"]);
+const TOKENS = DATA.tokens;
+
+const ORDER = ["Film I Gol liturgy", "Novels' Old Vulcan", "Okrand", "Episode writers", "Film writers", "Names"];
+function layerStats(layer) {
+  const segs = TOKENS.filter(t => t.layer === layer).flatMap(t => t.segs.map(s => s.replace("ː", "") === s ? s : s.replace(/ː$/, "")));
+  const vowels = TOKENS.filter(t => t.layer === layer).flatMap(t => t.segs).filter(s => VOWELS.has(s));
+  return { fric: 100 * segs.filter(s => FRIC.has(s)).length / segs.length, diph: 100 * vowels.filter(s => LONG.has(s)).length / vowels.length };
+}
+function bars(el, rows, color) {
+  const W = 520, rowH = 30, left = 170, right = 44, max = Math.max(...rows.map(r => r.v)) * 1.08;
+  const H = rows.length * rowH + 28;
+  const x = v => left + (v / max) * (W - left - right);
+  const ticks = []; const step = max > 40 ? 20 : 5;
+  for (let t = 0; t <= max; t += step) ticks.push(t);
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(el.previousElementSibling.textContent)}">
+    ${ticks.map(t => `<line x1="${x(t)}" x2="${x(t)}" y1="4" y2="${H - 22}" stroke="var(--line)" stroke-width="1"/><text x="${x(t)}" y="${H - 6}" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="var(--mono)">${t}</text>`).join("")}
+    ${rows.map((r, i) => { const y = 8 + i * rowH; return `
+      <text x="${left - 10}" y="${y + 14}" text-anchor="end" font-size="12.5" fill="var(--ink)">${esc(r.label)}</text>
+      <rect x="${left}" y="${y + 2}" width="${Math.max(1, x(r.v) - left)}" height="17" rx="2" fill="${r.color || color}"/>
+      <text x="${x(r.v) + 6}" y="${y + 15}" font-size="12" fill="var(--ink)" font-family="var(--mono)">${r.v.toFixed(1)}</text>`; }).join("")}
+  </svg>`;
+}
+function renderSounds() {
+  const stats = ORDER.filter(l => TOKENS.some(t => t.layer === l)).map(l => ({ label: l, ...layerStats(l) }));
+  bars($("#chart-fric"), stats.map(s => ({ label: s.label, v: s.fric })), "var(--vulcan)");
+  bars($("#chart-diph"), [...stats.map(s => ({ label: s.label, v: s.diph })), { label: "Romulan (Duane)", v: DATA.romulanDiphthongShare, color: "var(--romulan)" }], "var(--vulcan)");
+
+  const byStr = new Map();
+  for (const t of TOKENS) for (let n = 3; n <= 6; n++) for (let i = 0; i + n <= t.w.length; i++) {
+    const k = t.w.slice(i, i + n); if (!byStr.has(k)) byStr.set(k, new Set()); byStr.get(k).add(t.id);
+  }
+  const cands = [...byStr].filter(([, v]) => v.size >= 2).sort((a, b) => b[0].length - a[0].length);
+  const keep = [];
+  for (const [k, v] of cands) if (!keep.some(([big, bv]) => big.includes(k) && [...v].every(x => bv.has(x)))) keep.push([k, v]);
+  keep.sort((a, b) => b[1].size - a[1].size || a[0].localeCompare(b[0]));
+  const formOf = Object.fromEntries([...DATA.canon, ...DATA.novel].map(r => [r.id, r.form + " — " + r.gloss]));
+  $("#pieces").innerHTML = `<thead><tr><th>Piece</th><th class="num">Entries</th><th>Found in</th></tr></thead><tbody>${
+    keep.slice(0, 40).map(([k, v]) => `<tr><td class="form-cell">${esc(k)}</td><td class="num">${v.size}</td><td>${[...v].sort().map(id => `<span class="tag" title="${esc(formOf[id])}">${esc(id)}</span>`).join(" ")}</td></tr>`).join("")
+  }</tbody>`;
+}
+
+/* ---------- concepts and idioms ---------- */
+function conceptCard(c) {
+  const e = ENTRY_BY_ID[c.entry] || {};
+  return `<article class="card" id="concept-${esc(c.id)}">
+    <div class="card-head"><span class="term">${esc(e.std || c.term)}</span>${e.ipa ? `<span class="tag mono">/${esc(e.ipa)}/</span>` : ""}</div>
+    <div class="chips">${c.domain.split(";").map(d => `<span class="chip-s">${esc(d.trim())}</span>`).join("")}<span class="chip-s era">${esc(c.era)}</span></div>
+    <div><div class="lbl">Range of meaning</div><ul class="range">${c.semantic_range.split(";").map(x => `<li>${esc(x.trim())}</li>`).join("")}</ul></div>
+    <div><div class="lbl">Why English falls short</div><p>${esc(c.why_it_resists_translation)}</p></div>
+    <div><div class="lbl">Closest Earth parallels</div><p>${esc(c.earth_parallels)}</p></div>
+    ${c.notes ? `<p class="tag">${esc(c.notes)}</p>` : ""}
+  </article>`;
+}
+[...new Set(DATA.concepts.flatMap(c => c.domain.split(";").map(d => d.trim())))].sort().forEach(d => $("#f-domain").insertAdjacentHTML("beforeend", `<option>${esc(d)}</option>`));
+function renderConcepts() {
+  const d = $("#f-domain").value;
+  $("#concept-cards").innerHTML = DATA.concepts.filter(c => !d || c.domain.split(";").map(x => x.trim()).includes(d)).map(conceptCard).join("");
+  $("#idioms").innerHTML = `<thead><tr><th>Saying</th><th>Meaning</th><th>Kind</th><th>Source</th><th>Earth parallels</th><th>Notes</th></tr></thead><tbody>${
+    DATA.idioms.map(i => `<tr><td>${i.vulcan ? `<span class="form-cell">${esc(i.vulcan)}</span><br>` : ""}<em>${esc(i.english)}</em></td><td>${esc(i.meaning)}</td><td><span class="chip-s">${esc(i.kind)}</span></td><td>${esc(i.source)}</td><td>${esc(i.earth_parallels)}</td><td class="tag">${esc(i.notes)}</td></tr>`).join("")
+  }</tbody>`;
+}
+$("#f-domain").addEventListener("input", renderConcepts);
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-concept]"); if (!b) return;
+  if ($("#f-domain").value) { $("#f-domain").value = ""; renderConcepts(); }
+  setTimeout(() => { const el = document.getElementById("concept-" + b.dataset.concept); if (el) { el.scrollIntoView({ block: "start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); } }, 0);
+});
+
+/* ---------- dictionary ---------- */
+const LEX = DATA.lexicon;
+const PROTO = DATA.rules.proto;
+const UNITS = [...PROTO.units].sort((a, b) => b.length - a.length);
+const PVOW = new Set(PROTO.vowels);
+const ENGLISH_WORDS = new Set(DATA.english);
+const STATUS_LABEL = { reconstructed: "Canon anchor", aligned: "From canon dialogue", designed: "Designed etymon", generated: "Generated root", compound: "Compound", loan: "Loanword" };
+
+function protoUnits(form) {
+  const out = []; let i = 0;
+  while (i < form.length) { const u = UNITS.find(u => form.startsWith(u, i)); if (!u) return null; out.push(u); i += u.length; }
+  return out;
+}
+function shapeOk(form) {
+  const us = protoUnits(form);
+  if (!us) return [false, "uses a sound outside Proto-Vulcan"];
+  if (us[0] === "'") return [false, "cannot start with a glottal stop"];
+  let run = [], onset = [], seenV = false;
+  for (const u of us) {
+    if (PVOW.has(u)) {
+      if (!seenV && onset.length > 1 && !PROTO.onset_clusters.includes(onset.join(""))) return [false, `onset ${onset.join("")}- is not allowed`];
+      if (seenV && run.filter(c => c !== "'").length > 2) return [false, "more than two consonants together"];
+      seenV = true; run = [];
+    } else (seenV ? run : onset).push(u);
+  }
+  if (!seenV) return [false, "has no vowel"];
+  const fin = run.filter(c => c !== "'");
+  if (fin.length > 1) return [false, "ends in a consonant cluster"];
+  if (fin.length && !PROTO.finals.includes(fin[0])) return [false, `cannot end in ${fin[0]}`];
+  return [true, ""];
+}
+/* same segmenter as tools/phon.py, so sound-alike checks match the scripts */
+function segment(w) {
+  const segs = []; let i = 0;
+  while (i < w.length) {
+    let hit = false;
+    for (const [src, dst] of DATA.phon.multi) {
+      if (w.startsWith(src, i)) {
+        if (["ah", "eh", "oh", "uh"].includes(src) && i + 2 < w.length && "aeiou".includes(w[i + 2])) continue;
+        segs.push(dst); i += src.length; hit = true; break;
+      }
+    }
+    if (!hit) {
+      const ch = w[i];
+      if (ch === "y") { const pv = i > 0 && "aeiou".includes(w[i - 1]), nv = i + 1 < w.length && "aeiou".includes(w[i + 1]); segs.push(pv || nv ? "j" : "ɨ"); }
+      else segs.push(DATA.phon.single[ch] ?? ch);
+      i++;
+    }
+  }
+  const out = [];
+  for (const s of segs) { if (out.length && s === out[out.length - 1] && !VOWELS.has(s)) out[out.length - 1] = s + "ː"; else out.push(s); }
+  return out.join("");
+}
+const soundKey = v => v.toLowerCase().split(/[\s-]+/).map(segment).join("");
+const normGloss = g => g.toLowerCase().split(/[,;(]/)[0].trim();
+
+function checkCandidate(proto, gloss, pos) {
+  const out = { proto, problems: [], forms: {} };
+  for (const b of BRANCHES) out.forms[b] = derive(proto, b).result;
+  const [ok, why] = shapeOk(proto); if (!ok) out.problems.push(`Shape: ${why}`);
+  const v = out.forms.vulcan, r = out.forms.romulan, sk = soundKey(v);
+  for (const e of LEX) {
+    if (e.proto && e.proto === proto) out.problems.push(`*${proto} is already used for "${e.gloss}"`);
+    if (e.vulcan && e.vulcan === v) out.problems.push(`"${v}" already means "${e.gloss}"`);
+    else if (e.vulcan && e.ipa && e.ipa.replace(/ /g, "") === sk) out.problems.push(`"${v}" sounds the same as "${e.vulcan}" (${e.gloss})`);
+    if (e.romulan && e.romulan === r) out.problems.push(`Romulan "${r}" already means "${e.gloss}"`);
+    if (gloss && normGloss(e.gloss) === normGloss(gloss) && e.pos === pos && e.register === "everyday") out.problems.push(`"${normGloss(gloss)}" is already covered by ${e.vulcan || e.proto}`);
+  }
+  if (ENGLISH_WORDS.has(v)) out.problems.push(`"${v}" is an English word`);
+  if (ENGLISH_WORDS.has(r)) out.problems.push(`Romulan "${r}" is an English word`);
+  out.problems = [...new Set(out.problems)];
+  return out;
+}
+
+/* generator: same weights as tools/lexicon.py */
+function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const G = DATA.gen;
+function pickW(rng, table, tone, allow) {
+  const items = Object.entries(table).filter(([k]) => !allow || allow.has(k)).map(([k, w]) => {
+    if (tone === "harsh") w *= G.harsh.includes(k) ? 2.5 : G.soft.includes(k) ? 0.6 : 1;
+    else if (tone === "soft") w *= G.soft.includes(k) ? 2.0 : ["kʼ", "tʼ", "pʼ", "q"].includes(k) ? 0.3 : 1;
+    return [k, w];
+  });
+  let r = rng() * items.reduce((a, [, w]) => a + w, 0);
+  for (const [k, w] of items) { r -= w; if (r <= 0) return k; }
+  return items[items.length - 1][0];
+}
+const CLUSTERS = new Set(PROTO.onset_clusters);
+function generate(rng, pos, field) {
+  const tone = G.tones[field];
+  const key = G.shapes[pos] ? pos : (["pronoun", "particle", "conjunction", "interjection", "determiner", "adverb", "auxiliary", "number"].includes(pos) ? "short" : "noun");
+  const shape = pickW(rng, Object.fromEntries(G.shapes[key]), null);
+  let out = "", i = 0;
+  while (i < shape.length) {
+    if (shape[i] === "V") { out += pickW(rng, G.vowels, tone); i++; }
+    else if (i === 0 && shape.startsWith("CC")) { out += pickW(rng, G.onset, tone, new Set(Object.keys(G.onset).filter(k => CLUSTERS.has(k)))); i += 2; }
+    else if (i === 0) { out += pickW(rng, G.onset, tone, new Set(Object.keys(G.onset).filter(k => !CLUSTERS.has(k)))); i++; }
+    else if (i === shape.length - 1) { out += pickW(rng, G.finals, tone); i++; }
+    else { out += pickW(rng, G.medial, tone); i++; }
+  }
+  return out;
+}
+function rowHtml(c, gloss, pos, field) {
+  const pass = !c.problems.length;
+  const tsv = [c.proto, gloss, pos, field, c.forms.vulcan, c.forms.romulan].join("\t");
+  return `<tr><td class="form-cell">*${esc(c.proto)}</td><td class="form-cell" style="color:var(--cer)">${esc(c.forms.ceremonial)}</td><td class="form-cell"><strong>${esc(c.forms.vulcan)}</strong></td><td class="form-cell" style="color:var(--romulan)">${esc(c.forms.romulan)}</td>
+    <td>${pass ? '<span class="pill pass">Passes all checks</span>' : c.problems.map(p => `<div class="err">${esc(p)}</div>`).join("")}</td>
+    <td><button class="chip" data-copy="${esc(tsv)}">Copy row</button></td></tr>`;
+}
+const W_HEAD = `<thead><tr><th>Proto</th><th>Ceremonial</th><th>Standard</th><th>Romulan</th><th>Checks</th><th></th></tr></thead>`;
+let suggestRound = 0;
+$("#w-suggest").addEventListener("click", () => {
+  const gloss = $("#w-gloss").value.trim(), pos = $("#w-pos").value, field = $("#w-field").value;
+  if (!gloss) { $("#w-out").innerHTML = `<tbody><tr><td class="err">Enter a meaning first, such as "oasis".</td></tr></tbody>`; return; }
+  const dup = LEX.find(e => normGloss(e.gloss) === normGloss(gloss) && e.pos === pos);
+  let seed = 0; for (const ch of gloss + pos + field) seed = (seed * 31 + ch.charCodeAt(0)) | 0;
+  const rng = mulberry(seed + 7919 * suggestRound++);
+  const found = []; let tries = 0;
+  while (found.length < 5 && tries < 3000) {
+    tries++;
+    const c = checkCandidate(generate(rng, pos, field), gloss, pos);
+    c.problems = c.problems.filter(p => !p.includes("already covered"));
+    if (!c.problems.length && !found.some(f => f.proto === c.proto)) found.push(c);
+  }
+  $("#w-out").innerHTML = W_HEAD + `<tbody>${dup ? `<tr><td colspan="6" class="err">Note: "${esc(normGloss(gloss))}" already has a word: ${esc(dup.vulcan)}. These would be synonyms; give one a different register or shade of meaning.</td></tr>` : ""}${found.map(c => rowHtml(c, gloss, pos, field)).join("")}<tr><td colspan="6" class="tag">${tries} candidates generated, ${tries - found.length} rejected by the checks. Press Suggest again for five more.</td></tr></tbody>`;
+});
+$("#w-check").addEventListener("click", () => {
+  const proto = $("#w-proto").value.trim().replace(/^\*/, "").replace(/[’']/g, m => m), gloss = $("#w-gloss").value.trim();
+  if (!proto) { $("#w-out").innerHTML = `<tbody><tr><td class="err">Enter a Proto-Vulcan form to check, such as kʼarun.</td></tr></tbody>`; return; }
+  $("#w-out").innerHTML = W_HEAD + `<tbody>${rowHtml(checkCandidate(proto, gloss, $("#w-pos").value), gloss, $("#w-pos").value, $("#w-field").value)}</tbody>`;
+});
+$("#w-ej").addEventListener("click", () => { const el = $("#w-proto"); el.value += "ʼ"; el.focus(); });
+$("#w-out").addEventListener("click", e => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  navigator.clipboard.writeText(b.dataset.copy).then(() => toast("Row copied")).catch(() => toast("Copy blocked here. Select the row instead"));
+});
+const POS = [...new Set(LEX.map(e => e.pos))].sort(), FIELDS = [...new Set(LEX.map(e => e.field))].sort();
+POS.forEach(p => { $("#w-pos").insertAdjacentHTML("beforeend", `<option${p === "noun" ? " selected" : ""}>${esc(p)}</option>`); $("#lf-pos").insertAdjacentHTML("beforeend", `<option>${esc(p)}</option>`); });
+FIELDS.forEach(f => { $("#w-field").insertAdjacentHTML("beforeend", `<option>${esc(f)}</option>`); $("#lf-field").insertAdjacentHTML("beforeend", `<option>${esc(f)}</option>`); });
+Object.entries(STATUS_LABEL).forEach(([k, v]) => $("#lf-status").insertAdjacentHTML("beforeend", `<option value="${k}">${v}</option>`));
+
+function renderLexicon() {
+  const counts = {}; LEX.forEach(e => counts[e.status] = (counts[e.status] || 0) + 1);
+  const ch = DATA.lexCheck;
+  $("#lex-summary").innerHTML = `<span><strong>${LEX.length}</strong> entries</span>` +
+    Object.entries(STATUS_LABEL).map(([k, v]) => `<span>${v}: <strong>${counts[k] || 0}</strong></span>`).join("") +
+    `<span>Check: <strong>${ch.errors}</strong> errors, <strong>${ch.exceptions}</strong> logged exception${ch.exceptions === 1 ? "" : "s"}</span>`;
+  const q = $("#lq").value.trim().toLowerCase(), ff = $("#lf-field").value, fp = $("#lf-pos").value, fs = $("#lf-status").value;
+  const rows = LEX.filter(e => (!ff || e.field === ff) && (!fp || e.pos === fp) && (!fs || e.status === fs) &&
+    (!q || [e.vulcan, e.romulan, e.ceremonial, e.proto, e.gloss].join(" ").toLowerCase().includes(q)));
+  $("#lex-table").innerHTML = `<thead><tr><th>Standard</th><th>Sounds</th><th>Meaning</th><th>Part of speech</th><th>Ceremonial</th><th>Romulan</th><th>Proto</th><th>Origin</th><th>Notes</th></tr></thead><tbody>${
+    rows.map(e => `<tr><td class="form-cell"><strong>${esc(e.vulcan || "—")}</strong></td><td class="form-cell tag">${e.ipa ? "/" + esc(e.ipa) + "/" : ""}</td><td>${esc(e.gloss)}</td><td class="tag">${esc(e.pos)}<br>${esc(e.field)}</td><td class="form-cell" style="color:var(--cer)">${esc(e.ceremonial)}</td><td class="form-cell" style="color:var(--romulan)">${esc(e.romulan)}</td><td class="form-cell tag">${e.proto ? "*" + esc(e.proto) : esc(e.parts)}</td><td><span class="chip-s">${esc(STATUS_LABEL[e.status] || e.status)}</span>${e.source ? `<br><span class="tag">${esc(e.source)}</span>` : ""}</td><td class="tag">${esc(e.exception || e.notes)}</td></tr>`).join("")
+  }</tbody>`;
+}
+["#lq", "#lf-field", "#lf-pos", "#lf-status"].forEach(sel => $(sel).addEventListener("input", renderLexicon));
+function renderInterlinear() {
+  const bySent = {}; DATA.interlinear.forEach(w => (bySent[w.sentence] = bySent[w.sentence] || []).push(w));
+  const conf = c => `<span class="pill ${c === "high" ? "pass" : c === "low" ? "fail" : "mid"}">${esc(c)}</span>`;
+  $("#interlinear").innerHTML = `<thead><tr><th>Canon line</th><th>Word</th><th>Standard</th><th>Meaning</th><th>Confidence</th><th>Note</th></tr></thead><tbody>${
+    Object.entries(bySent).map(([sid, ws]) => { const e = ENTRY_BY_ID[sid] || {}; return ws.map((w, i) => `<tr>${i === 0 ? `<td rowspan="${ws.length}"><span class="form-cell">${esc(e.form || sid)}</span><br><em class="tag">${esc(e.gloss || "")}</em><br><span class="tag">${esc(e.source || "")}</span></td>` : ""}<td class="form-cell">${esc(w.word)}</td><td class="form-cell"><strong>${esc(w.standard)}</strong></td><td>${esc(w.gloss)}</td><td>${conf(w.confidence)}</td><td class="tag">${esc(w.note)}</td></tr>`).join(""); }).join("")
+  }</tbody>`;
+}
+
+/* ---------- glosser ---------- */
+/* One table set per language. Romulan uses living Romulan words first (era Romulan), then inherited reflexes. */
+function affixList(entries, col) {
+  const by = new Map();
+  entries.forEach(e => { const f = (e[col] || "").replace(/^-|-$/g, ""); if (!f) return; if (!by.has(f)) by.set(f, []); by.get(f).push(e); });
+  return [...by].map(([form, es]) => ({ form, e: es.length === 1 ? es[0] : { gloss: es.map(x => shortGloss(x)).join(" / ") } }));
+}
+function buildTables(lang) {
+  const cols = lang === "r" ? ["romulan"] : ["vulcan", "ceremonial"];
+  const ordered = lang === "r" ? [...LEX.filter(e => e.era === "Romulan"), ...LEX.filter(e => e.era !== "Romulan")] : LEX;
+  const free = new Map();
+  ordered.forEach(e => { if (!["suffix", "prefix"].includes(e.pos)) { for (const c of cols) { const f = e[c]; if (f) { const k = f.toLowerCase(); if (!free.has(k)) free.set(k, []); if (!free.get(k).includes(e)) free.get(k).push(e); } } } });
+  const col = cols[0];
+  const suffixes = affixList(ordered.filter(e => e.pos === "suffix" || ["toward", "kam"].includes(e.key)), col).sort((a, b) => b.form.length - a.form.length);
+  const prefixes = affixList(ordered.filter(e => e.pos === "prefix" || e.key === "t'"), col).sort((a, b) => b.form.length - a.form.length);
+  if (lang === "v") prefixes.push({ form: "fi'", e: { gloss: "on, toward (Classical preposition; later the ending -fi)" } });
+  return { free, suffixes, prefixes };
+}
+const TABLES = {};
+let LANG = "v", FREE, SUFFIXES, PREFIXES;
+function setLang(l) {
+  LANG = l;
+  if (!TABLES[l]) TABLES[l] = buildTables(l);
+  ({ free: FREE, suffixes: SUFFIXES, prefixes: PREFIXES } = TABLES[l]);
+  NAME_ENDINGS = SUFFIXES.filter(x => ["fi", "kam", "wizh"].includes(x.form));
+}
+const NAMES = new Set(DATA.canon.filter(r => r.type === "name").map(r => r.form.toLowerCase()).concat(LEX.filter(e => e.pos === "name").map(e => e.vulcan), ["spock", "spohkh", "michael", "tucker", "saavik"]));
+let NAME_ENDINGS = [];
+const FIRST_PERSON = { form: "ish", e: { gloss: "I (first-person ending on wim, canon wimish)", vulcan: "-ish" } };
+const shortGloss = e => {
+  const m = e.gloss.match(/^[-\w']*\s*\((.+)\)$/);
+  if (m && /^[-]/.test(e.gloss)) return m[1].replace(/\s*(noun |verb )?suffix\b/g, "").replace(/\s*for nouns/, "").trim();
+  return e.gloss.replace(/\s*\((?:noun |verb )?suffix[^)]*\)/, "").replace(/^-/, "");
+};
+setLang("v");
+function tidy(w) {
+  if (LANG === "r") return w.toLowerCase();
+  return w.toLowerCase().replace(/ck/g, "k").replace(/^gh/, "g").replace(/oy/g, "oi").replace(/([aeo])h(?![aeiou])/g, "$1").replace(/c(?!h)/g, "k");
+}
+function analyzeWord(raw, first) {
+  const exact = raw.toLowerCase();   // canon spellings kept as exceptions (sehlat, kal-toh) match before tidying
+  if (FREE.has(exact) && !(/^[A-Z]/.test(raw) && !first)) return [{ part: exact, gloss: FREE.get(exact).map(shortGloss).join(" / "), kind: "word" }];
+  const w = tidy(raw);
+  const isName = /^[A-Z]/.test(raw) && (!first || /^T'/.test(raw) || !FREE.has(w));
+  if (FREE.has(w)) return [{ part: w, gloss: FREE.get(w).map(shortGloss).join(" / "), kind: "word" }];
+  if (FREE.has(w.replace(/-/g, ""))) { const j = w.replace(/-/g, ""); return [{ part: j, gloss: FREE.get(j).map(shortGloss).join(" / "), kind: "word" }]; }
+  if (w.includes("-")) {
+    const pieces = raw.split("-"), out = [];
+    pieces.forEach((pc, i) => {
+      const suf = i > 0 && SUFFIXES.find(x => x.form === tidy(pc));
+      if (i === 0 && /^[A-Z]/.test(pc) && (!first || NAMES.has(tidy(pc))) && !FREE.has(tidy(pc))) { out.push({ part: pc, gloss: "(name)", kind: "name" }); return; }
+      if (suf) out.push({ part: "-" + tidy(pc), gloss: shortGloss(suf.e), kind: "ending" });
+      else out.push(...analyzeWord(pc, first && i === 0));
+    });
+    return out;
+  }
+  for (const pre of PREFIXES) {
+    if (w.startsWith(pre.form) && /^[A-Z]/.test(raw.slice(pre.form.length)))
+      return [{ part: pre.form + "-", gloss: shortGloss(pre.e), kind: "ending" }, { part: raw.slice(pre.form.length), gloss: "(name)", kind: "name" }];
+    if (w.startsWith(pre.form) && w.length > pre.form.length) {
+      const rest = analyzeWord(w.slice(pre.form.length));
+      if (rest.every(r => r.kind !== "unknown")) return [{ part: pre.form + "-", gloss: shortGloss(pre.e), kind: "ending" }, ...rest];
+    }
+  }
+  if (/^[A-Z]/.test(raw) && (!first || NAMES.has(w))) {
+    for (const suf of NAME_ENDINGS) if (w.endsWith(suf.form) && w.length > suf.form.length + 2) return [{ part: raw.slice(0, raw.length - suf.form.length), gloss: "(name)", kind: "name" }, { part: "-" + suf.form, gloss: shortGloss(suf.e), kind: "ending" }];
+    return [{ part: raw, gloss: "(name)", kind: "name" }];
+  }
+  const sufs = w.startsWith("wim") ? [FIRST_PERSON, ...SUFFIXES] : SUFFIXES;
+  for (const suf of sufs) {
+    if (w.endsWith(suf.form) && w.length > suf.form.length + 1) {
+      const stem = raw.slice(0, raw.length - suf.form.length);
+      const head = analyzeWord(stem, first);
+      if (head.every(r => r.kind !== "unknown")) return [...head, { part: "-" + suf.form, gloss: shortGloss(suf.e), kind: "ending" }];
+    }
+  }
+  if (/^[A-Z]/.test(raw) && (!first || /^T'/.test(raw))) return [{ part: raw, gloss: "(name)", kind: "name" }];
+  return [{ part: w, gloss: "not in the dictionary yet", kind: "unknown" }];
+}
+function renderGloss() {
+  const text = $("#g-in").value.trim();
+  const tokens = text.replace(/[.?!,;:…]+/g, " ").split(/\s+/).filter(Boolean);
+  const multi = [...FREE.keys()].filter(k => k.includes(" "));
+  const rows = []; let i = 0;
+  while (i < tokens.length) {
+    const two = tidy(tokens[i] + " " + (tokens[i + 1] || ""));
+    if (tokens[i + 1] && multi.includes(two)) { rows.push({ raw: tokens[i] + " " + tokens[i + 1], parts: [{ part: two, gloss: FREE.get(two).map(shortGloss).join(" / "), kind: "word" }] }); i += 2; continue; }
+    rows.push({ raw: tokens[i], parts: analyzeWord(tokens[i], i === 0) }); i++;
+  }
+  const known = rows.filter(r => r.parts.every(p => p.kind !== "unknown")).length;
+  $("#g-summary").innerHTML = rows.length ? `<span><strong>${known}</strong> of <strong>${rows.length}</strong> words understood</span>` : "";
+  $("#g-out").innerHTML = `<thead><tr><th>As typed</th><th>Pieces</th><th>Meaning</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td class="form-cell">${esc(r.raw)}</td><td class="form-cell">${r.parts.map(p => `<span${p.kind === "unknown" ? ' class="err"' : ""}>${esc(p.part)}</span>`).join(" ")}</td><td>${r.parts.map(p => `<span${p.kind === "unknown" ? ' class="err"' : p.kind === "ending" ? ' class="tag"' : ""}>${esc(p.gloss)}</span>`).join(" + ")}</td></tr>`).join("")
+  }</tbody>`;
+}
+const G_EXAMPLES = (DATA.examples || []).map(e => [e.vulcan, e.english]);
+$("#g-examples").innerHTML = G_EXAMPLES.map(([v, en]) => `<button class="chip" data-g="${esc(v)}" title="${esc(en)}">${esc(en)}</button>`).join("");
+$("#g-examples").addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (b) { $("#g-lang").value = "v"; setLang("v"); $("#g-in").value = b.dataset.g; renderGloss(); } });
+$("#g-lang").addEventListener("change", e => { setLang(e.target.value); renderGloss(); });
+$("#g-in").addEventListener("input", renderGloss);
+function glossTokens(text) {
+  return text.replace(/[.?!,;:…()]+/g, " ").split(/\s+/).filter(Boolean);
+}
+function phraseKnown(text) {
+  const t = glossTokens(text), multi = [...FREE.keys()].filter(k => k.includes(" "));
+  let i = 0, bad = [];
+  while (i < t.length) {
+    const two = tidy(t[i] + " " + (t[i + 1] || ""));
+    if (t[i + 1] && multi.includes(two)) { i += 2; continue; }
+    if (analyzeWord(t[i]).some(p => p.kind === "unknown")) bad.push(t[i]);
+    i++;
+  }
+  return bad;
+}
+function renderPhrasebook() {
+  const PB = DATA.phrasebook || [];
+  let ok = 0, cat = "";
+  const rows = PB.map(p => {
+    const keep = LANG; setLang(p.lang || "v"); const bad = phraseKnown(p.vulcan); setLang(keep); if (!bad.length) ok++;
+    const head = p.category !== cat ? `<tr><th colspan="3">${esc(p.category)}</th></tr>` : ""; cat = p.category;
+    return head + `<tr data-pb="${esc(p.vulcan)}" data-lang="${esc(p.lang || "v")}" style="cursor:pointer"><td class="form-cell">${esc(p.vulcan)}</td><td>${esc(p.english)}</td><td class="muted">${bad.length ? `<span class="err">missing: ${esc(bad.join(", "))}</span>` : esc(p.notes || "")}</td></tr>`;
+  }).join("");
+  $("#pb-summary").innerHTML = `<span><strong>${ok}</strong> of <strong>${PB.length}</strong> phrases fully understood</span>`;
+  $("#pb-out").innerHTML = `<thead><tr><th>Phrase</th><th>English</th><th>Note</th></tr></thead><tbody>${rows}</tbody>`;
+}
+$("#pb-out").addEventListener("click", e => { const r = e.target.closest("[data-pb]"); if (r) { $("#g-lang").value = r.dataset.lang; setLang(r.dataset.lang); $("#g-in").value = r.dataset.pb; renderGloss(); window.scrollTo({ top: 0, behavior: "smooth" }); } });
+
+/* ---------- routing ---------- */
+const VIEWS = ["derive", "dictionary", "glosser", "rules", "corpus", "concepts", "sounds"];
+function route() {
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "derive";
+  VIEWS.forEach(n => { $("#view-" + n).hidden = n !== v; });
+  document.querySelectorAll("nav.tabs a").forEach(a => { if (a.dataset.view === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+}
+window.addEventListener("hashchange", route);
+
+renderRules(); renderTests(); renderCorpus(); renderConcepts(); renderLexicon(); renderInterlinear(); renderGloss(); renderPhrasebook(); renderDerive(); renderSounds(); route();
+</script>

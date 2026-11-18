@@ -1,0 +1,2361 @@
+{
+ "about": "The Vulcan course plan. Units teach 3-6 new items each, words before phrases before sentences. Every Vulcan form is a {key} template rendered from lexicon/lexicon.csv by tools/build_course.py, so the course always matches the dictionary. Item ids are derived from the template, so progress survives reordering units. 'errors' are spot-the-mistake drills: the right template, one or more wrong ones, and why.",
+ "levels": [
+  {
+   "id": "foundations",
+   "title": "Foundations",
+   "about": "Greetings, people, description, basic sentences, questions, evidentials, honorifics and naming feelings. From lessons 1 to 8."
+  },
+  {
+   "id": "conversation",
+   "title": "Conversation",
+   "about": "Living among others: receiving a guest, confiding, the training hall and the deep desert, then life between bondmates: homecoming, comfort in the night, mending a quarrel, the private name and parting. Built from the Phrasebook scenes."
+  },
+  {
+   "id": "literary",
+   "title": "Literary and Ceremonial",
+   "about": "Vulcan tales and how they are told, sayings that compress them, then the Teachings, ceremonial Vulcan, emotive and Classical forms, and reading fiction."
+  },
+  {
+   "id": "academy",
+   "title": "Academy",
+   "about": "Science Academy prose: the formal register, technical and philosophical vocabulary, argument and citation.",
+   "planned": true
+  }
+ ],
+ "units": [
+  {
+   "id": "greet",
+   "title": "Greetings",
+   "lesson": 1,
+   "tip": "A formal greeting has a fixed reply. Answer t'nar with t'nar jaral, and the blessing with peace and long life.",
+   "items": [
+    {
+     "t": "{t'nar}",
+     "en": "greetings (formal opening)"
+    },
+    {
+     "t": "{jaral}",
+     "en": "likewise (the reply)"
+    },
+    {
+     "t": "{dif-tor e smusma}",
+     "en": "live long and prosper"
+    },
+    {
+     "t": "{sochya} eh {dif}",
+     "en": "peace and long life (the reply)"
+    },
+    {
+     "t": "{t'nar} {jaral}.",
+     "en": "Greetings, likewise."
+    },
+    {
+     "t": "{t'nar} {pahk} {sarat} {y'rani}.",
+     "en": "Greetings; I extend regard to your house."
+    }
+   ],
+   "errors": [
+    {
+     "en": "The reply to \"live long and prosper\"",
+     "right": "{sochya} eh {dif}.",
+     "wrong": [
+      "{dif-tor e smusma}.",
+      "{t'nar} {jaral}."
+     ],
+     "why": "Echoing the blessing back is a human habit. The formal reply is peace and long life."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "courtesy",
+   "title": "Courtesy",
+   "lesson": 1,
+   "tip": "Yes and no stand at the front, then the courtesy word.",
+   "items": [
+    {
+     "t": "{thanks}",
+     "en": "thank you"
+    },
+    {
+     "t": "{yes}",
+     "en": "yes"
+    },
+    {
+     "t": "{no}",
+     "en": "no"
+    },
+    {
+     "t": "{welcome}",
+     "en": "welcome"
+    },
+    {
+     "t": "{farewell}",
+     "en": "farewell"
+    },
+    {
+     "t": "{pardon}",
+     "en": "pardon, excuse me"
+    },
+    {
+     "t": "{yes}, {thanks}.",
+     "en": "Yes, thank you."
+    },
+    {
+     "t": "{no}, {thanks}.",
+     "en": "No, thank you."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "requests",
+   "title": "Please",
+   "lesson": 1,
+   "tip": "Please comes first and the verb comes last. Everything else sits between them.",
+   "items": [
+    {
+     "t": "{request}",
+     "en": "please (opens a request)"
+    },
+    {
+     "t": "{again}",
+     "en": "again"
+    },
+    {
+     "t": "{say}",
+     "en": "say"
+    },
+    {
+     "t": "{speak}",
+     "en": "speak"
+    },
+    {
+     "t": "{slow}",
+     "en": "slow"
+    },
+    {
+     "t": "{request} {again} {say}.",
+     "en": "Please say it again."
+    },
+    {
+     "t": "{request} {slow}-{adverbial} {speak}.",
+     "en": "Please speak slowly."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Please say it again.",
+     "right": "{request} {again} {say}.",
+     "wrong": [
+      "{request} {say} {again}.",
+      "{again} {request} {say}."
+     ],
+     "why": "Please opens the request and the verb closes it."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "people",
+   "title": "This one, that one",
+   "lesson": 2,
+   "tip": "Vulcans say \"this one\" for I and \"that one\" for he or she. Identity uses wim, with -ish for I.",
+   "items": [
+    {
+     "t": "{nash-ve}",
+     "en": "I (\"this one\")"
+    },
+    {
+     "t": "{tu}",
+     "en": "you"
+    },
+    {
+     "t": "{ish-ve}",
+     "en": "he, she (\"that one\")"
+    },
+    {
+     "t": "{healer}",
+     "en": "healer"
+    },
+    {
+     "t": "{healer} {be}ish.",
+     "en": "I am a healer."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "names",
+   "title": "Names",
+   "lesson": 2,
+   "tip": "The possessor follows the noun: name my, name your.",
+   "items": [
+    {
+     "t": "{name}",
+     "en": "name"
+    },
+    {
+     "t": "{my}",
+     "en": "my"
+    },
+    {
+     "t": "{your}",
+     "en": "your"
+    },
+    {
+     "t": "{name} {my} Sorel.",
+     "en": "My name is Sorel."
+    },
+    {
+     "t": "{name} {your} T'Pring.",
+     "en": "Your name is T'Pring."
+    }
+   ],
+   "errors": [
+    {
+     "en": "My name is Sorel.",
+     "right": "{name} {my} Sorel.",
+     "wrong": [
+      "{my} {name} Sorel.",
+      "{name} {my} {be} Sorel."
+     ],
+     "why": "The possessor follows the noun, and a description needs no verb."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "this-that",
+   "title": "Good and bad",
+   "lesson": 2,
+   "tip": "No verb \"to be\" in a description: \"this good\" means \"this is good.\"",
+   "items": [
+    {
+     "t": "{nash}",
+     "en": "this"
+    },
+    {
+     "t": "{ish}",
+     "en": "that"
+    },
+    {
+     "t": "{good}",
+     "en": "good"
+    },
+    {
+     "t": "{bad}",
+     "en": "bad"
+    },
+    {
+     "t": "{nash} {good}.",
+     "en": "This is good."
+    },
+    {
+     "t": "{ish} {bad}.",
+     "en": "That is bad."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "house",
+   "title": "The house",
+   "lesson": 2,
+   "tip": "Noun, then adjective, then possessor: house old my is \"my old house.\"",
+   "items": [
+    {
+     "t": "{house}",
+     "en": "house"
+    },
+    {
+     "t": "{big}",
+     "en": "big"
+    },
+    {
+     "t": "{small}",
+     "en": "small"
+    },
+    {
+     "t": "{old}",
+     "en": "old"
+    },
+    {
+     "t": "{new}",
+     "en": "new"
+    },
+    {
+     "t": "{house} {old}.",
+     "en": "The house is old."
+    },
+    {
+     "t": "{house} {my} {small}.",
+     "en": "My house is small."
+    },
+    {
+     "t": "{house} {old} {my}",
+     "en": "my old house"
+    }
+   ],
+   "errors": [
+    {
+     "en": "my old house",
+     "right": "{house} {old} {my}",
+     "wrong": [
+      "{my} {old} {house}",
+      "{house} {my} {old}"
+     ],
+     "why": "As a phrase, the adjective comes right after the noun and the possessor last. House my old would be a sentence: \"my house is old.\""
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "seeing",
+   "title": "Seeing and wanting",
+   "lesson": 3,
+   "tip": "Subject, object, verb. A definite object takes -wizh.",
+   "items": [
+    {
+     "t": "{see}",
+     "en": "see"
+    },
+    {
+     "t": "{ship}",
+     "en": "ship"
+    },
+    {
+     "t": "{want}",
+     "en": "want"
+    },
+    {
+     "t": "{food}",
+     "en": "food"
+    },
+    {
+     "t": "{water}",
+     "en": "water"
+    },
+    {
+     "t": "{nash-ve} {ship}-{object-wizh} {see}.",
+     "en": "I see the ship."
+    },
+    {
+     "t": "{nash-ve} {food} {want}.",
+     "en": "I want food."
+    }
+   ],
+   "errors": [
+    {
+     "en": "I see the ship.",
+     "right": "{nash-ve} {ship}-{object-wizh} {see}.",
+     "wrong": [
+      "{nash-ve} {see} {ship}-{object-wizh}.",
+      "{nash-ve} {ship} {see}-{object-wizh}."
+     ],
+     "why": "The verb comes last, and -wizh attaches to the object, never the verb."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "eating",
+   "title": "Eating and drinking",
+   "lesson": 3,
+   "tip": "-pil on the verb means it is happening now: \"is drinking.\"",
+   "items": [
+    {
+     "t": "{eat}",
+     "en": "eat"
+    },
+    {
+     "t": "{drink}",
+     "en": "drink"
+    },
+    {
+     "t": "{nash-ve} {water} {drink}-{ongoing}.",
+     "en": "I am drinking water."
+    },
+    {
+     "t": "{ish-ve} {eat}-{ongoing}.",
+     "en": "He is eating."
+    },
+    {
+     "t": "{tu} {food} {want}.",
+     "en": "You want food."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "coming",
+   "title": "Coming and going",
+   "lesson": 3,
+   "tip": "-un marks the past. Dungi before the verb marks the future. -fi means toward.",
+   "items": [
+    {
+     "t": "{come}",
+     "en": "come"
+    },
+    {
+     "t": "{go}",
+     "en": "go"
+    },
+    {
+     "t": "{here}",
+     "en": "here"
+    },
+    {
+     "t": "{now}",
+     "en": "now"
+    },
+    {
+     "t": "{tomorrow}",
+     "en": "tomorrow"
+    },
+    {
+     "t": "{ish-ve} {here}{toward} {come}-{past-un}.",
+     "en": "He came here."
+    },
+    {
+     "t": "{tomorrow} {tu} {dungi} {go}.",
+     "en": "Tomorrow you will go."
+    },
+    {
+     "t": "{tu} {ship}-{object-wizh} {see}-{past-un}.",
+     "en": "You saw the ship."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Tomorrow you will go.",
+     "right": "{tomorrow} {tu} {dungi} {go}.",
+     "wrong": [
+      "{tomorrow} {tu} {go} {dungi}.",
+      "{tu} {go}-{past-un} {tomorrow}."
+     ],
+     "why": "Dungi stands right before the verb. -un is the past, not the future."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "asking",
+   "title": "Asking",
+   "lesson": 4,
+   "tip": "Question words go first. A yes-or-no question opens with kuth. Answer by repeating the verb.",
+   "items": [
+    {
+     "t": "{what}",
+     "en": "what"
+    },
+    {
+     "t": "{who}",
+     "en": "who"
+    },
+    {
+     "t": "{where}",
+     "en": "where"
+    },
+    {
+     "t": "{question}",
+     "en": "yes-or-no question marker"
+    },
+    {
+     "t": "{understand}",
+     "en": "understand"
+    },
+    {
+     "t": "{what} {name} {your}?",
+     "en": "What is your name?"
+    },
+    {
+     "t": "{where} {tu} {go}-{ongoing}?",
+     "en": "Where are you going?"
+    },
+    {
+     "t": "{question} {tu} {understand}?",
+     "en": "Do you understand?"
+    },
+    {
+     "t": "{who} {ish-ve}?",
+     "en": "Who is he?"
+    }
+   ],
+   "errors": [
+    {
+     "en": "Do you understand?",
+     "right": "{question} {tu} {understand}?",
+     "wrong": [
+      "{tu} {question} {understand}?",
+      "{tu} {understand} {question}?"
+     ],
+     "why": "Kuth opens a yes-or-no question."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "knowing",
+   "title": "How you know",
+   "lesson": 4,
+   "tip": "An evidential ends the sentence: ho if you saw it, aukh if you concluded it, k'en if you were told.",
+   "items": [
+    {
+     "t": "{ev-seen}",
+     "en": "I saw it (evidential)"
+    },
+    {
+     "t": "{ev-inferred}",
+     "en": "I conclude it (evidential)"
+    },
+    {
+     "t": "{ev-reported}",
+     "en": "I was told it (evidential)"
+    },
+    {
+     "t": "{ship} {here}{toward} {come}-{past-un} {ev-seen}.",
+     "en": "The ship came here. (I saw it.)"
+    },
+    {
+     "t": "{ship} {here}{toward} {come}-{past-un} {ev-inferred}.",
+     "en": "The ship came here. (I conclude.)"
+    },
+    {
+     "t": "{ish-ve} {come}-{past-un} {ev-reported}.",
+     "en": "He came. (I was told.)"
+    }
+   ],
+   "errors": [
+    {
+     "en": "He came. (I was told.)",
+     "right": "{ish-ve} {come}-{past-un} {ev-reported}.",
+     "wrong": [
+      "{ev-reported} {ish-ve} {come}-{past-un}.",
+      "{ish-ve} {come}-{past-un} {ev-seen}."
+     ],
+     "why": "The evidential ends the sentence, and it must match how you know: told is k'en, seen is ho."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "comparing",
+   "title": "Comparing",
+   "lesson": 5,
+   "tip": "X, then Y t'ei, then li (more) or osh (less), then the quality.",
+   "items": [
+    {
+     "t": "{hot}",
+     "en": "hot"
+    },
+    {
+     "t": "{cold}",
+     "en": "cold"
+    },
+    {
+     "t": "{fast}",
+     "en": "fast"
+    },
+    {
+     "t": "{than}",
+     "en": "than"
+    },
+    {
+     "t": "{more}",
+     "en": "more"
+    },
+    {
+     "t": "{less}",
+     "en": "less"
+    },
+    {
+     "t": "{most}",
+     "en": "most"
+    },
+    {
+     "t": "{nash} {ish} {than} {more} {cold}.",
+     "en": "This is colder than that."
+    },
+    {
+     "t": "{most} {fast}",
+     "en": "the fastest"
+    }
+   ],
+   "errors": [
+    {
+     "en": "This is colder than that.",
+     "right": "{nash} {ish} {than} {more} {cold}.",
+     "wrong": [
+      "{nash} {than} {ish} {more} {cold}.",
+      "{nash} {more} {cold} {than} {ish}."
+     ],
+     "why": "T'ei follows the thing being compared against, as in Japanese kore wa are yori: \"this, that-than.\""
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "counting",
+   "title": "Counting",
+   "lesson": 5,
+   "tip": "Numbers follow the noun, and they are regular: ten-one is eleven, two-ten is twenty.",
+   "items": [
+    {
+     "t": "{ten}",
+     "en": "ten"
+    },
+    {
+     "t": "{eleven}",
+     "en": "eleven"
+    },
+    {
+     "t": "{twenty}",
+     "en": "twenty"
+    },
+    {
+     "t": "{hundred}",
+     "en": "a hundred"
+    },
+    {
+     "t": "{how-many}",
+     "en": "how many"
+    },
+    {
+     "t": "{ship}-{plural} {twenty}.",
+     "en": "Twenty ships."
+    },
+    {
+     "t": "{how-many} {ship}-{plural}?",
+     "en": "How many ships?"
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "building",
+   "title": "Building words",
+   "lesson": 6,
+   "tip": "Learn the pieces and the vocabulary multiplies: -ve is the person, -puhl the place, -uth the act.",
+   "items": [
+    {
+     "t": "{learn}",
+     "en": "learn"
+    },
+    {
+     "t": "{student}",
+     "en": "student (\"learning one\")"
+    },
+    {
+     "t": "{school}",
+     "en": "school (\"learning place\")"
+    },
+    {
+     "t": "{learning}",
+     "en": "learning (the act)"
+    },
+    {
+     "t": "{hospital}",
+     "en": "hospital (\"healing place\")"
+    },
+    {
+     "t": "{healing}",
+     "en": "healing (the act)"
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "honor",
+   "title": "Speaking up, speaking down",
+   "lesson": 7,
+   "tip": "Raise the other with -mush or cheil; lower yourself with -fum. Between t'hy'la, use none of it.",
+   "items": [
+    {
+     "t": "{vocative}",
+     "en": "respected… (before a title)"
+    },
+    {
+     "t": "{formal}",
+     "en": "formal sentence ending"
+    },
+    {
+     "t": "{not}",
+     "en": "not"
+    },
+    {
+     "t": "{t'hy'la}",
+     "en": "t'hy'la: bond-kin (friend, sibling, lover)"
+    },
+    {
+     "t": "{vocative} {healer}, {request} {come}.",
+     "en": "Respected healer, please come."
+    },
+    {
+     "t": "{nash-ve} {not} {understand}-{humble}.",
+     "en": "This one does not understand."
+    },
+    {
+     "t": "{tu} {t'hy'la} {my}.",
+     "en": "You are my t'hy'la."
+    }
+   ],
+   "errors": [
+    {
+     "en": "You are my t'hy'la.",
+     "right": "{tu} {t'hy'la} {my}.",
+     "wrong": [
+      "{tu} {t'hy'la} {my} {formal}.",
+      "{you-honored} {t'hy'la} {my}."
+     ],
+     "why": "Between t'hy'la, plain speech is itself the honor. Formal endings and honored address put distance where there should be none."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "feeling",
+   "title": "Naming a feeling",
+   "lesson": 8,
+   "tip": "A Vulcan does not say \"I am afraid.\" They say \"fear is in me,\" and close with kon: noted.",
+   "items": [
+    {
+     "t": "{anger}",
+     "en": "anger"
+    },
+    {
+     "t": "{fear}",
+     "en": "fear"
+    },
+    {
+     "t": "{grief}",
+     "en": "grief"
+    },
+    {
+     "t": "{joy}",
+     "en": "joy"
+    },
+    {
+     "t": "{in}",
+     "en": "in"
+    },
+    {
+     "t": "{noting}",
+     "en": "noted (closes an emotion statement)"
+    },
+    {
+     "t": "{fear} {in} {nash-ve} {noting}.",
+     "en": "There is fear in me. Noted."
+    },
+    {
+     "t": "{ish-ve} {anger} {ev-inferred}.",
+     "en": "He is angry, I conclude."
+    }
+   ],
+   "errors": [
+    {
+     "en": "There is fear in me. Noted.",
+     "right": "{fear} {in} {nash-ve} {noting}.",
+     "wrong": [
+      "{nash-ve} {fear}.",
+      "{nash-ve} {fear} {noting}."
+     ],
+     "why": "Standard Vulcan never makes the self the one who feels. The feeling is in you, observed and noted."
+    },
+    {
+     "en": "He is angry, I conclude.",
+     "right": "{ish-ve} {anger} {ev-inferred}.",
+     "wrong": [
+      "{ish-ve} {anger}.",
+      "{ish-ve} {anger} {ev-seen}."
+     ],
+     "why": "Another person's feeling is never stated bare. You can only conclude it, so it takes aukh."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "touch",
+   "title": "Asking leave",
+   "lesson": 8,
+   "tip": "A Vulcan asks leave before any touch, even of a child.",
+   "items": [
+    {
+     "t": "{touch-hum}",
+     "en": "touch (asking leave)"
+    },
+    {
+     "t": "{grant-leave}",
+     "en": "you have leave"
+    },
+    {
+     "t": "{ev-melded}",
+     "en": "known by touch (evidential)"
+    },
+    {
+     "t": "{request} {nash-ve} {touch-hum}?",
+     "en": "May this one touch you?"
+    },
+    {
+     "t": "{request} {forgive-display}.",
+     "en": "Please forgive the display."
+    },
+    {
+     "t": "{joy} {in} {nash-ve} {noting}.",
+     "en": "There is joy in me. Noted."
+    }
+   ],
+   "level": "foundations"
+  },
+  {
+   "id": "c-guest",
+   "title": "Receiving a guest",
+   "from": "Phrasebook scene: a guest arrives",
+   "level": "conversation",
+   "tip": "In the desert, water comes before any word. A host who does not offer it has insulted the guest.",
+   "items": [
+    {
+     "t": "{guest-gift}",
+     "en": "guest-gift"
+    },
+    {
+     "t": "{water-first}",
+     "en": "the water-first: water offered before any word"
+    },
+    {
+     "t": "{introduce}",
+     "en": "introduce (\"share names\")"
+    },
+    {
+     "t": "{reputation}",
+     "en": "reputation (\"name-voice\")"
+    },
+    {
+     "t": "{favor}",
+     "en": "a favor, a debt of kindness"
+    },
+    {
+     "t": "{welcome}. {water}-{object-wizh} {take}.",
+     "en": "Welcome. Take water."
+    },
+    {
+     "t": "{request} {sit}. {hortative} {introduce}.",
+     "en": "Please sit. Let us share names."
+    },
+    {
+     "t": "{reputation} {clan} {your} {big} {ev-reported}.",
+     "en": "Your House's reputation is great, I am told."
+    },
+    {
+     "t": "{water} {shared}, {life} {shared}.",
+     "en": "Water shared is life shared."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Your House's reputation is great, I am told.",
+     "right": "{reputation} {clan} {your} {big} {ev-reported}.",
+     "wrong": [
+      "{reputation} {clan} {your} {big} {ev-seen}.",
+      "{reputation} {your} {clan} {big} {ev-reported}."
+     ],
+     "why": "A reputation is hearsay, so it takes k'en. The possessor follows what it owns: the House is yours."
+    }
+   ]
+  },
+  {
+   "id": "c-whisper",
+   "title": "The heart-whisper",
+   "from": "Phrasebook scene: a heart-whisper",
+   "level": "conversation",
+   "tip": "A heart-whisper may be told only to bond-kin. Told to anyone else, the same words are rumor.",
+   "items": [
+    {
+     "t": "{confide-heart}",
+     "en": "confide a heart-matter about someone absent"
+    },
+    {
+     "t": "{heart-whisper}",
+     "en": "a heart-whisper"
+    },
+    {
+     "t": "{confidant}",
+     "en": "confidant (\"heart-keeper\")"
+    },
+    {
+     "t": "{rumor}",
+     "en": "rumor, gossip"
+    },
+    {
+     "t": "{keep-confidence}",
+     "en": "keep a confidence"
+    },
+    {
+     "t": "{attraction} {in} {nash-ve} {noting}.",
+     "en": "There is attraction in me. Noted."
+    },
+    {
+     "t": "{who}{toward}?",
+     "en": "Toward whom?"
+    },
+    {
+     "t": "{attraction} {in} {ish-ve} {also} {ev-inferred}.",
+     "en": "There is attraction in her too, I conclude."
+    },
+    {
+     "t": "{request} {keep-confidence}.",
+     "en": "Please keep the confidence."
+    }
+   ],
+   "errors": [
+    {
+     "en": "There is attraction in her, I conclude.",
+     "right": "{attraction} {in} {ish-ve} {ev-inferred}.",
+     "wrong": [
+      "{attraction} {in} {ish-ve}.",
+      "{attraction} {in} {ish-ve} {ev-melded}."
+     ],
+     "why": "Another person's feeling is never stated bare. You concluded it from what you saw, so aukh. Tekh would mean you had touched her mind."
+    }
+   ]
+  },
+  {
+   "id": "c-hall",
+   "title": "The training hall",
+   "from": "Phrasebook scene: the training hall",
+   "level": "conversation",
+   "tip": "Students rank by when they began. A junior asking leave puts kup first and lowers themself with -fum.",
+   "items": [
+    {
+     "t": "{bow-greet}",
+     "en": "bow the head in greeting"
+    },
+    {
+     "t": "{master-n}",
+     "en": "master"
+    },
+    {
+     "t": "{senior-student}",
+     "en": "senior student (\"before-companion\")"
+    },
+    {
+     "t": "{junior-student}",
+     "en": "junior student (\"after-companion\")"
+    },
+    {
+     "t": "{spar}",
+     "en": "spar (\"hands joined\")"
+    },
+    {
+     "t": "{stance}",
+     "en": "stance"
+    },
+    {
+     "t": "{vocative} {master-n}.",
+     "en": "Respected master."
+    },
+    {
+     "t": "{kup} {nash-ve} {spar}-{humble}?",
+     "en": "May this one spar?"
+    },
+    {
+     "t": "{fight-form} {thousand}, {strike} {one}.",
+     "en": "A thousand forms, one strike."
+    }
+   ],
+   "errors": [
+    {
+     "en": "May this one spar?",
+     "right": "{kup} {nash-ve} {spar}-{humble}?",
+     "wrong": [
+      "{kup} {nash-ve} {spar}?",
+      "{nash-ve} {spar}-{humble} {kup}?"
+     ],
+     "why": "A junior asking the master lowers themself with -fum, and kup, \"may,\" comes first in a request for leave."
+    }
+   ]
+  },
+  {
+   "id": "c-desert",
+   "title": "Lost in the desert",
+   "from": "Phrasebook scene: lost in the deep desert",
+   "level": "conversation",
+   "tip": "Say how you know: a storm read from the wind is aukh, a cave you can see is ho.",
+   "items": [
+    {
+     "t": "{water-skin}",
+     "en": "water-skin"
+    },
+    {
+     "t": "{ration-v}",
+     "en": "ration (verb)"
+    },
+    {
+     "t": "{storm-shelter}",
+     "en": "storm shelter"
+    },
+    {
+     "t": "{night-fire}",
+     "en": "night-fire"
+    },
+    {
+     "t": "{thirsty}",
+     "en": "thirsty"
+    },
+    {
+     "t": "{question} {oasis} {near}?",
+     "en": "Is the oasis near?"
+    },
+    {
+     "t": "{no}. {storm} {come}-{ongoing} {ev-inferred}.",
+     "en": "No. A sandstorm is coming, I conclude."
+    },
+    {
+     "t": "{request} {water}-{object-wizh} {ration-v}.",
+     "en": "Ration the water."
+    },
+    {
+     "t": "{desert} {nothing} {forgive}.",
+     "en": "The desert forgives nothing."
+    }
+   ],
+   "errors": [
+    {
+     "en": "There, a cave. I see it.",
+     "right": "{there}, {cave} {ev-seen}.",
+     "wrong": [
+      "{there}, {cave} {ev-inferred}.",
+      "{there}, {cave} {ev-reported}."
+     ],
+     "why": "You can see the cave, so ho. Aukh is for what you conclude, k'en for what you were told."
+    },
+    {
+     "en": "The desert forgives nothing.",
+     "right": "{desert} {nothing} {forgive}.",
+     "wrong": [
+      "{desert} {nothing} {not} {forgive}."
+     ],
+     "why": "One negative per clause: nothing already carries it."
+    }
+   ]
+  },
+  {
+   "id": "c-home",
+   "title": "Coming home",
+   "from": "Phrasebook scene: a homecoming",
+   "level": "conversation",
+   "tip": "Standard Vulcans report what the bond feels, as evidence with tekh, instead of displaying a feeling. \"The bond-silence was long\" means \"I missed you.\"",
+   "items": [
+    {
+     "t": "{bond-silence}",
+     "en": "bond-silence: where a bonded mind is no longer felt"
+    },
+    {
+     "t": "{bond-warmth}",
+     "en": "bond-warmth: a bondmate felt through the bond"
+    },
+    {
+     "t": "{bond-ache}",
+     "en": "bond-ache: the pain of long distance"
+    },
+    {
+     "t": "{miss}",
+     "en": "miss (someone absent)"
+    },
+    {
+     "t": "{bond-reach}",
+     "en": "reach for someone through the bond"
+    },
+    {
+     "t": "{bond-silence} {long}.",
+     "en": "The bond-silence was long. (I missed you.)"
+    },
+    {
+     "t": "{missing} {in} {nash-ve} {noting}.",
+     "en": "I missed you. (There was missing in me. Noted.)"
+    },
+    {
+     "t": "{now} {bond-warmth} {ev-melded}.",
+     "en": "Now there is warmth. I feel it through the bond."
+    },
+    {
+     "t": "{hortative} {share-silence}.",
+     "en": "Let us share silence."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Now there is warmth. I feel it through the bond.",
+     "right": "{now} {bond-warmth} {ev-melded}.",
+     "wrong": [
+      "{now} {bond-warmth} {ev-seen}.",
+      "{now} {bond-warmth} {ev-reported}."
+     ],
+     "why": "The bond is felt, not seen or heard about: tekh, the evidential of touch and the bond."
+    }
+   ]
+  },
+  {
+   "id": "c-night",
+   "title": "In the night",
+   "from": "Phrasebook scene: in the night",
+   "level": "conversation",
+   "tip": "Even between bondmates, a Vulcan asks leave before touching. Name the fear, then state the fact.",
+   "items": [
+    {
+     "t": "{nightmare}",
+     "en": "nightmare (\"fear-dream\")"
+    },
+    {
+     "t": "{comfort-touch}",
+     "en": "a comforting touch, given with leave"
+    },
+    {
+     "t": "{watch-over}",
+     "en": "watch over a sleeper"
+    },
+    {
+     "t": "{lullaby}",
+     "en": "lullaby (\"sleep-song\")"
+    },
+    {
+     "t": "{softly}",
+     "en": "softly"
+    },
+    {
+     "t": "{kup} {nash-ve} {tu}-{object-wizh} {comfort}-{humble}?",
+     "en": "May this one comfort you?"
+    },
+    {
+     "t": "{fear} {in} {tu} {noting}. {tu} {safe}.",
+     "en": "There is fear in you. Noted. You are safe."
+    },
+    {
+     "t": "{request} {remain}.",
+     "en": "Please stay."
+    },
+    {
+     "t": "{nash-ve} {dungi} {remain}.",
+     "en": "I will stay."
+    }
+   ],
+   "errors": [
+    {
+     "en": "There is fear in you. Noted.",
+     "right": "{fear} {in} {tu} {noting}.",
+     "wrong": [
+      "{tu} {fearful}.",
+      "{fear} {tu} {in} {noting}."
+     ],
+     "why": "Calling someone fearful labels them. Standard names the feeling as present in them, with tok before the one who feels it and kon at the end."
+    }
+   ]
+  },
+  {
+   "id": "c-mend",
+   "title": "Mending a quarrel",
+   "from": "Phrasebook scene: mending a quarrel",
+   "level": "conversation",
+   "tip": "Apologize with -fum. Offering the hand ends the quarrel, because holding hands is intimate among Vulcans.",
+   "items": [
+    {
+     "t": "{heart-wound}",
+     "en": "a hurt to the feelings"
+    },
+    {
+     "t": "{hurt-feelings}",
+     "en": "hurt (someone's feelings)"
+    },
+    {
+     "t": "{reconcile}",
+     "en": "reconcile, make peace"
+    },
+    {
+     "t": "{forgiven}",
+     "en": "forgiven"
+    },
+    {
+     "t": "{nash-ve} {tu}-{object-wizh} {hurt-feelings}-{past-un} {ev-inferred}.",
+     "en": "I hurt you, I conclude."
+    },
+    {
+     "t": "{apologize}-{humble}.",
+     "en": "This one apologizes."
+    },
+    {
+     "t": "{hortative} {reconcile}.",
+     "en": "Let us make peace."
+    },
+    {
+     "t": "{hand} {your}-{object-wizh} {give}.",
+     "en": "Give me your hand."
+    },
+    {
+     "t": "{tu} {stubborn}, {tag-agree}.",
+     "en": "You're stubborn, aren't you."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Give me your hand.",
+     "right": "{hand} {your}-{object-wizh} {give}.",
+     "wrong": [
+      "{hand}-{object-wizh} {your} {give}.",
+      "{your} {hand}-{object-wizh} {give}."
+     ],
+     "why": "The possessor follows the noun, and -wizh goes on the last word of the object phrase."
+    }
+   ]
+  },
+  {
+   "id": "c-name",
+   "title": "The private name",
+   "from": "Phrasebook scene: the private name",
+   "level": "conversation",
+   "tip": "A bondmate's private name is the given name with -pi. Standard says \"I hold you in regard\"; Classical says \"I cherish you.\" Both mean I love you.",
+   "items": [
+    {
+     "t": "{intimate-name}",
+     "en": "private name, used only by a bondmate"
+    },
+    {
+     "t": "{hold-hands}",
+     "en": "hold hands"
+    },
+    {
+     "t": "{lower-shields}",
+     "en": "lower one's shields"
+    },
+    {
+     "t": "{unshielded}",
+     "en": "unshielded, vulnerable"
+    },
+    {
+     "t": "{feel-safe}",
+     "en": "feel safe, be at ease"
+    },
+    {
+     "t": "{cherish}",
+     "en": "cherish"
+    },
+    {
+     "t": "Sorel-{endear}.",
+     "en": "Sorel, dear one."
+    },
+    {
+     "t": "{nash-ve} {with} {tu} {feel-safe}.",
+     "en": "With you I feel safe."
+    },
+    {
+     "t": "{nash-ve} {tu}-{object-wizh} {cherish}.",
+     "en": "I cherish you."
+    }
+   ],
+   "errors": [
+    {
+     "en": "I hold you in regard. (I love you.)",
+     "right": "{nash-ve} {tu}-{object-wizh} {hold-regard}.",
+     "wrong": [
+      "{nash-ve} {hold-regard} {tu}-{object-wizh}.",
+      "{tu} {nash-ve}-{object-wizh} {hold-regard}."
+     ],
+     "why": "Subject, object, verb, and the one held in regard carries -wizh. The last one says \"you hold me in regard.\""
+    }
+   ]
+  },
+  {
+   "id": "c-part",
+   "title": "Before a parting",
+   "from": "Phrasebook scene: before a parting",
+   "level": "conversation",
+   "tip": "Time comes first in the sentence, and the future marker dungi sits right before the verb.",
+   "items": [
+    {
+     "t": "{worry-about}",
+     "en": "worry about someone (\"carry worry\")"
+    },
+    {
+     "t": "{reassure}",
+     "en": "reassure (\"tell safe\")"
+    },
+    {
+     "t": "{keepsake}",
+     "en": "keepsake (\"memory-thing\")"
+    },
+    {
+     "t": "{homesickness}",
+     "en": "homesickness"
+    },
+    {
+     "t": "{tomorrow} {nash-ve} {dungi} {go}.",
+     "en": "Tomorrow I go."
+    },
+    {
+     "t": "{nash-ve} {tu}-{object-wizh} {worry-about}.",
+     "en": "I carry worry for you."
+    },
+    {
+     "t": "{safe}-{adverbial} {return}.",
+     "en": "Return safely."
+    },
+    {
+     "t": "{nash-ve} {tu}-{object-wizh} {dungi} {wait}.",
+     "en": "I will wait for you."
+    },
+    {
+     "t": "{home} {distant}, {koon} {near}.",
+     "en": "Far from home, near in the bond."
+    }
+   ],
+   "errors": [
+    {
+     "en": "I will wait for you.",
+     "right": "{nash-ve} {tu}-{object-wizh} {dungi} {wait}.",
+     "wrong": [
+      "{nash-ve} {dungi} {tu}-{object-wizh} {wait}.",
+      "{dungi} {nash-ve} {tu}-{object-wizh} {wait}."
+     ],
+     "why": "Dungi sits directly before the verb, after the object."
+    }
+   ]
+  },
+  {
+   "id": "l-tale",
+   "title": "Telling a tale",
+   "from": "Vulcan tale form",
+   "level": "literary",
+   "tip": "A tale opens with k'en, because the teller did not see it happen, and ends with a question. The listener draws the lesson, with aukh.",
+   "items": [
+    {
+     "t": "{story}",
+     "en": "story, tale"
+    },
+    {
+     "t": "{storyteller}",
+     "en": "storyteller"
+    },
+    {
+     "t": "{long-ago}",
+     "en": "long ago"
+    },
+    {
+     "t": "{tail}",
+     "en": "tail"
+    },
+    {
+     "t": "{catch}",
+     "en": "catch (what one has chased)"
+    },
+    {
+     "t": "{long-ago} {ev-reported}.",
+     "en": "Long ago, it is told."
+    },
+    {
+     "t": "{story} {end}.",
+     "en": "The tale ends."
+    },
+    {
+     "t": "{what} {tu} {conclude}?",
+     "en": "What do you conclude?"
+    },
+    {
+     "t": "{sehlat} {relative} {tail} {his-her}-{object-wizh} {eat}-{past-un}",
+     "en": "the sehlat who ate its tail"
+    }
+   ],
+   "errors": [
+    {
+     "en": "Long ago, it is told.",
+     "right": "{long-ago} {ev-reported}.",
+     "wrong": [
+      "{long-ago} {ev-seen}.",
+      "{long-ago} {ev-inferred}."
+     ],
+     "why": "A tale is reported, not seen or worked out. The teller opens with k'en and does not vouch for it."
+    },
+    {
+     "en": "the sehlat who ate its tail",
+     "right": "{sehlat} {relative} {tail} {his-her}-{object-wizh} {eat}-{past-un}",
+     "wrong": [
+      "{sehlat} {tail} {his-her}-{object-wizh} {eat}-{past-un} {relative}",
+      "{relative} {sehlat} {tail} {his-her}-{object-wizh} {eat}-{past-un}"
+     ],
+     "why": "Lith follows the noun it describes, and the relative clause keeps subject-object-verb order."
+    }
+   ]
+  },
+  {
+   "id": "l-verse",
+   "title": "Journeys and trials",
+   "from": "Vulcan tale form",
+   "level": "literary",
+   "tip": "Long tales are sung in verses, a few each night. Falor's Journey has 348, and every verse closes on the refrain.",
+   "items": [
+    {
+     "t": "{verse}",
+     "en": "verse"
+    },
+    {
+     "t": "{refrain}",
+     "en": "refrain"
+    },
+    {
+     "t": "{journey}",
+     "en": "journey"
+    },
+    {
+     "t": "{enlightenment}",
+     "en": "enlightenment (\"mind-dawn\")"
+    },
+    {
+     "t": "{teaching-tale}",
+     "en": "teaching tale"
+    },
+    {
+     "t": "{kaswan}",
+     "en": "kahs-wan, the maturity ordeal"
+    },
+    {
+     "t": "Falor {walk}-{ongoing}.",
+     "en": "Falor walks on."
+    },
+    {
+     "t": "{fear}-{object-wizh} {look}-{past-un}, {set-aside}-{past-un}.",
+     "en": "He looked at his fear, and set it aside."
+    },
+    {
+     "t": "{kaswan} {your} {complete}.",
+     "en": "Your kahs-wan is complete."
+    }
+   ],
+   "errors": [
+    {
+     "en": "Falor walks on.",
+     "right": "Falor {walk}-{ongoing}.",
+     "wrong": [
+      "Falor {walk}-{past-un}.",
+      "Falor {walk}-{ongoing}-{past-un}."
+     ],
+     "why": "The refrain is in the ongoing present, -pil, so each night the journey is still going on. -un would end it."
+    }
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "ambassador",
+   "title": "The ambassador",
+   "after": "knowing",
+   "setting": "A Vulcan ambassador meets a Starfleet officer who is still learning.",
+   "lines": [
+    {
+     "who": "Ambassador",
+     "t": "{t'nar} {pahk} {sarat} {y'rani}.",
+     "en": "Greetings; I extend regard to your house."
+    },
+    {
+     "who": "Officer",
+     "t": "{t'nar} {jaral}. {question} {tu} {language} {t'}Vulkan {speak}?",
+     "en": "Greetings, likewise. Do you speak Vulcan?"
+    },
+    {
+     "who": "Ambassador",
+     "t": "{yes}. {tu} {speak} {ev-inferred}.",
+     "en": "Yes. You speak it, I observe."
+    },
+    {
+     "who": "Officer",
+     "t": "{nash-ve} {learn}-{ongoing}. {request} {slow}-{adverbial} {speak}.",
+     "en": "I am learning. Please speak slowly."
+    },
+    {
+     "who": "Ambassador",
+     "t": "{how} {work} {your}?",
+     "en": "How goes your work?"
+    },
+    {
+     "who": "Officer",
+     "t": "{work} {my} {well}, {thanks}.",
+     "en": "My work goes well, thank you."
+    },
+    {
+     "who": "Ambassador",
+     "t": "{question} {tu} {tea} {want}?",
+     "en": "Would you like tea?"
+    },
+    {
+     "who": "Officer",
+     "t": "{yes}, {thanks}.",
+     "en": "Yes, thank you."
+    }
+   ],
+   "questions": [
+    {
+     "q": "How does the ambassador know the officer speaks Vulcan?",
+     "right": "She concludes it from hearing her (aukh)",
+     "wrong": [
+      "She saw it written down (ho)",
+      "Someone told her (k'en)"
+     ]
+    },
+    {
+     "q": "What does the ambassador ask about instead of \"how are you\"?",
+     "right": "The officer's work",
+     "wrong": [
+      "The officer's feelings",
+      "The officer's family"
+     ]
+    },
+    {
+     "q": "What does the officer accept?",
+     "right": "Tea",
+     "wrong": [
+      "Food",
+      "A seat"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "supper",
+   "title": "A family supper",
+   "after": "counting",
+   "setting": "Supper at home. Short sentences, subjects dropped.",
+   "lines": [
+    {
+     "who": "Mother",
+     "t": "{meal} {ready}. {request} {sit}.",
+     "en": "The meal is ready. Please sit."
+    },
+    {
+     "who": "Mother",
+     "t": "{soup} {hot}. {slow}-{adverbial} {eat}.",
+     "en": "The soup is hot. Eat slowly."
+    },
+    {
+     "who": "Son",
+     "t": "{nash-ve} {hungry}.",
+     "en": "I am hungry."
+    },
+    {
+     "who": "Father",
+     "t": "{request} {tea}-{object-wizh} {pour}.",
+     "en": "Please pour the tea."
+    },
+    {
+     "who": "Father",
+     "t": "{question} {tu} {today} {school}-{toward} {go}-{past-un}?",
+     "en": "Did you go to school today?"
+    },
+    {
+     "who": "Son",
+     "t": "{yes}. {teacher} {lesson} {new}-{object-wizh} {teach}-{past-un}.",
+     "en": "Yes. The teacher taught a new lesson."
+    },
+    {
+     "who": "Father",
+     "t": "{what} {lesson}?",
+     "en": "What lesson?"
+    },
+    {
+     "who": "Son",
+     "t": "{astronomy}. {sun} {big} {nome} {than} {more} {hot}.",
+     "en": "Astronomy. The great sun is hotter than all."
+    },
+    {
+     "who": "Father",
+     "t": "{fascinating}.",
+     "en": "Fascinating."
+    }
+   ],
+   "questions": [
+    {
+     "q": "Why does the mother tell her son to eat slowly?",
+     "right": "The soup is hot",
+     "wrong": [
+      "He is late for school",
+      "There is not much food"
+     ]
+    },
+    {
+     "q": "What did the son learn today?",
+     "right": "Astronomy",
+     "wrong": [
+      "Logic",
+      "Healing"
+     ]
+    },
+    {
+     "q": "\"Nash-ve tuhkukhuk\" states hunger plainly. Why is that acceptable in Standard Vulcan?",
+     "right": "Hunger is a bodily state, not an emotional display",
+     "wrong": [
+      "Children are allowed to show feelings",
+      "It is said in the humble register"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "briefing",
+   "title": "The briefing",
+   "after": "counting",
+   "setting": "On the bridge of a Vulcan ship. Every report says how the speaker knows.",
+   "lines": [
+    {
+     "who": "Captain",
+     "t": "{what} {sensor}-{plural} {see}-{past-un}?",
+     "en": "What did the sensors see?"
+    },
+    {
+     "who": "Science officer",
+     "t": "{ship} {new} {here}{toward} {come}-{ongoing} {ev-seen}.",
+     "en": "A new ship is coming here. Observed."
+    },
+    {
+     "who": "Captain",
+     "t": "{question} {dangerous}?",
+     "en": "Is it dangerous?"
+    },
+    {
+     "who": "Science officer",
+     "t": "{perhaps}. {weapon}-{plural} {have} {ev-inferred}.",
+     "en": "Perhaps. It has weapons, I conclude."
+    },
+    {
+     "who": "Captain",
+     "t": "{shield}-{object-wizh} {activate}.",
+     "en": "Activate the shields."
+    },
+    {
+     "who": "Helm",
+     "t": "{understood}. {when} {dungi} {arrive}?",
+     "en": "Understood. When will it arrive?"
+    },
+    {
+     "who": "Science officer",
+     "t": "{soon}.",
+     "en": "Soon."
+    },
+    {
+     "who": "Captain",
+     "t": "{signal}-{object-wizh} {send}: {t'nar} {pahk} {sarat} {y'rani}.",
+     "en": "Send a signal: greetings, I extend regard to your house."
+    },
+    {
+     "who": "Communications",
+     "t": "{signal} {perfect-ki}{send}.",
+     "en": "The signal has been sent."
+    },
+    {
+     "who": "Captain",
+     "t": "{logical}.",
+     "en": "Logical."
+    }
+   ],
+   "questions": [
+    {
+     "q": "The science officer says the ship has weapons. How does she know?",
+     "right": "She concludes it from the readings (aukh)",
+     "wrong": [
+      "She saw the weapons on her instruments (ho)",
+      "The helm told her (k'en)"
+     ]
+    },
+    {
+     "q": "What does the captain do before sending a greeting?",
+     "right": "Raises the shields",
+     "wrong": [
+      "Asks the helm to retreat",
+      "Calls the ambassador"
+     ]
+    },
+    {
+     "q": "Which greeting goes out in the signal?",
+     "right": "The formal t'nar opening",
+     "wrong": [
+      "Live long and prosper",
+      "Welcome"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "family-lesson",
+   "title": "A family lesson",
+   "after": "touch",
+   "setting": "A child speaks the old way. Her grandmother teaches the Standard one.",
+   "lines": [
+    {
+     "who": "Child",
+     "t": "{nash-ve} {rage}!",
+     "en": "I'm furious!"
+    },
+    {
+     "who": "Grandmother",
+     "t": "{no}. {anger} {in} {tu}. {request} {noting} {say}.",
+     "en": "No. There is anger in you. Say \"noted.\""
+    },
+    {
+     "who": "Child",
+     "t": "{anger} {in} {nash-ve} {noting}.",
+     "en": "There is anger in me. Noted."
+    },
+    {
+     "who": "Grandmother",
+     "t": "{good}. {gishun}?",
+     "en": "Good. Why?"
+    },
+    {
+     "who": "Child",
+     "t": "{younger-sibling} {my} {nash-ve}-{object-wizh} {taunt}-{past-un}.",
+     "en": "My younger sibling taunted me."
+    },
+    {
+     "who": "Grandmother",
+     "t": "{taunt} {illogical}. {but} {rage} {also} {illogical}.",
+     "en": "Taunting is illogical. But rage is illogical too."
+    },
+    {
+     "who": "Child",
+     "t": "{nash-ve} {younger-sibling} {my}-{object-wizh} {forgive}.",
+     "en": "I forgive my younger sibling."
+    },
+    {
+     "who": "Grandmother",
+     "t": "{request} {nash-ve} {touch-hum}?",
+     "en": "May this one touch you?"
+    },
+    {
+     "who": "Child",
+     "t": "{grant-leave}.",
+     "en": "You have leave."
+    },
+    {
+     "who": "Grandmother",
+     "t": "{now} {equanimity} {in} {tu} {ev-melded}.",
+     "en": "Now there is calm in you. I know it by touch."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What is wrong with the child's first sentence, by Standard rules?",
+     "right": "She makes herself the one who feels instead of naming the feeling",
+     "wrong": [
+      "She forgot the evidential",
+      "She used the past tense"
+     ]
+    },
+    {
+     "q": "Why does the grandmother ask leave before touching her own grandchild?",
+     "right": "Leave is asked before any touch, even of a child",
+     "wrong": [
+      "The child is angry",
+      "She is a stranger to the child"
+     ]
+    },
+    {
+     "q": "How does the grandmother know the child is calm?",
+     "right": "By touch (tekh)",
+     "wrong": [
+      "She concludes it (aukh)",
+      "The child told her (k'en)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "water-first",
+   "title": "The water-first",
+   "after": "c-guest",
+   "setting": "A Starfleet officer visits a desert household in the Forge.",
+   "lines": [
+    {
+     "who": "Host",
+     "t": "{welcome}. {water}-{object-wizh} {take}.",
+     "en": "Welcome. Take water."
+    },
+    {
+     "who": "Officer",
+     "t": "{thanks}. {nash-ve} {guest-gift}-{object-wizh} {bring}-{past-un}.",
+     "en": "Thank you. I have brought a guest-gift."
+    },
+    {
+     "who": "Host",
+     "t": "{request} {sit}. {hortative} {introduce}.",
+     "en": "Please sit. Let us share names."
+    },
+    {
+     "who": "Officer",
+     "t": "{name} {my} Hana. {nash-ve} {komihn}.",
+     "en": "My name is Hana. I am Human."
+    },
+    {
+     "who": "Host",
+     "t": "{name} {my} Sorek. {clan} {my} Suvek.",
+     "en": "My name is Sorek. My House is Suvek."
+    },
+    {
+     "who": "Host",
+     "t": "{tu} {language} {t'}Vulkan {speak} {ev-inferred}.",
+     "en": "You speak Vulcan, I observe."
+    },
+    {
+     "who": "Officer",
+     "t": "{nash-ve} {learn}-{ongoing}.",
+     "en": "I am learning."
+    },
+    {
+     "who": "Host",
+     "t": "{water} {shared}, {life} {shared}.",
+     "en": "Water shared is life shared."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does the host offer before anything else?",
+     "right": "Water",
+     "wrong": [
+      "Tea",
+      "A seat"
+     ]
+    },
+    {
+     "q": "What has the officer brought?",
+     "right": "A guest-gift",
+     "wrong": [
+      "Water",
+      "A letter of introduction"
+     ]
+    },
+    {
+     "q": "What does \"let us share names\" begin?",
+     "right": "The introductions",
+     "wrong": [
+      "The meal",
+      "The farewell"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heart-keeper",
+   "title": "The heart-keeper",
+   "after": "c-whisper",
+   "setting": "Two t'hy'la, late in the evening. Sorel has something to confide.",
+   "lines": [
+    {
+     "who": "Sorel",
+     "t": "{attraction} {in} {nash-ve} {noting}.",
+     "en": "There is attraction in me. Noted."
+    },
+    {
+     "who": "Taren",
+     "t": "{who}{toward}?",
+     "en": "Toward whom?"
+    },
+    {
+     "who": "Sorel",
+     "t": "T'Lara{toward}.",
+     "en": "Toward T'Lara."
+    },
+    {
+     "who": "Taren",
+     "t": "{question} {ish-ve} {know}?",
+     "en": "Does she know?"
+    },
+    {
+     "who": "Sorel",
+     "t": "{no}. {nash-ve} {not} {tell}-{past-un}.",
+     "en": "No. I have not told her."
+    },
+    {
+     "who": "Taren",
+     "t": "{ish-ve} {tu}-{object-wizh} {look}-{ongoing} {ev-seen}.",
+     "en": "She watches you. I have seen it."
+    },
+    {
+     "who": "Taren",
+     "t": "{attraction} {in} {ish-ve} {also} {ev-inferred}.",
+     "en": "There is attraction in her too, I conclude."
+    },
+    {
+     "who": "Sorel",
+     "t": "{request} {keep-confidence}.",
+     "en": "Please keep the confidence."
+    },
+    {
+     "who": "Taren",
+     "t": "{nash-ve} {dungi} {keep-confidence}.",
+     "en": "I will keep it."
+    }
+   ],
+   "questions": [
+    {
+     "q": "How does Taren know T'Lara watches Sorel?",
+     "right": "Taren has seen it (ho)",
+     "wrong": [
+      "T'Lara said so (k'en)",
+      "Taren melded with her (tekh)"
+     ]
+    },
+    {
+     "q": "Has Sorel told T'Lara?",
+     "right": "No",
+     "wrong": [
+      "Yes",
+      "He asked Taren to tell her"
+     ]
+    },
+    {
+     "q": "Why may Sorel tell this to Taren?",
+     "right": "Taren is bond-kin; told to anyone else it would be rumor",
+     "wrong": [
+      "Taren is T'Lara's sibling",
+      "Taren is a healer"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storm",
+   "title": "The storm",
+   "after": "c-desert",
+   "setting": "A guide and a traveler, two days into a desert crossing that has gone wrong.",
+   "lines": [
+    {
+     "who": "Guide",
+     "t": "{water-skin}-{plural} {two} {remain}.",
+     "en": "Two water-skins remain."
+    },
+    {
+     "who": "Traveler",
+     "t": "{question} {oasis} {near}?",
+     "en": "Is the oasis near?"
+    },
+    {
+     "who": "Guide",
+     "t": "{no}. {storm} {come}-{ongoing} {ev-inferred}.",
+     "en": "No. A sandstorm is coming, I conclude."
+    },
+    {
+     "who": "Guide",
+     "t": "{request} {water}-{object-wizh} {ration-v}.",
+     "en": "Ration the water."
+    },
+    {
+     "who": "Traveler",
+     "t": "{where} {storm-shelter}?",
+     "en": "Where is shelter?"
+    },
+    {
+     "who": "Guide",
+     "t": "{there}, {cave} {ev-seen}.",
+     "en": "There, a cave. I see it."
+    },
+    {
+     "who": "Guide",
+     "t": "{night-fire}-{object-wizh} {light-v}. {signal-fire} {also}.",
+     "en": "Light a night-fire. A signal fire too."
+    },
+    {
+     "who": "Traveler",
+     "t": "{nash-ve} {thirsty}.",
+     "en": "I am thirsty."
+    },
+    {
+     "who": "Guide",
+     "t": "{desert} {nothing} {forgive}. {slow}-{adverbial} {drink}.",
+     "en": "The desert forgives nothing. Drink slowly."
+    }
+   ],
+   "questions": [
+    {
+     "q": "How does the guide know a storm is coming?",
+     "right": "He concludes it, from the wind (aukh)",
+     "wrong": [
+      "He can see it (ho)",
+      "Someone told him (k'en)"
+     ]
+    },
+    {
+     "q": "Where do they shelter?",
+     "right": "In a cave",
+     "wrong": [
+      "At the oasis",
+      "Behind the water-skins"
+     ]
+    },
+    {
+     "q": "Why light a second fire?",
+     "right": "As a signal",
+     "wrong": [
+      "For cooking",
+      "To hold back the storm"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "come-back",
+   "title": "Come back",
+   "after": "c-part",
+   "setting": "T'Rena leaves on a long mission. Sorel sees her off, and months later she returns.",
+   "lines": [
+    {
+     "who": "T'Rena",
+     "t": "{tomorrow} {nash-ve} {dungi} {go}.",
+     "en": "Tomorrow I go."
+    },
+    {
+     "who": "Sorel",
+     "t": "{nash-ve} {tu}-{object-wizh} {worry-about}.",
+     "en": "I carry worry for you."
+    },
+    {
+     "who": "T'Rena",
+     "t": "{request} {worry}-{object-wizh} {set-aside}.",
+     "en": "Please set the worry aside."
+    },
+    {
+     "who": "Sorel",
+     "t": "{safe}-{adverbial} {return}.",
+     "en": "Return safely."
+    },
+    {
+     "who": "T'Rena",
+     "t": "{keepsake} {my}-{object-wizh} {take}.",
+     "en": "Take my keepsake."
+    },
+    {
+     "who": "Sorel",
+     "t": "{nash-ve} {tu}-{object-wizh} {dungi} {wait}.",
+     "en": "I will wait for you."
+    },
+    {
+     "who": "Sorel, months later",
+     "t": "{tu} {return}-{past-un}.",
+     "en": "You have returned."
+    },
+    {
+     "who": "T'Rena",
+     "t": "{return}-{past-un}. {bond-silence} {long}.",
+     "en": "I have. The bond-silence was long."
+    },
+    {
+     "who": "Sorel",
+     "t": "{missing} {in} {nash-ve} {noting}.",
+     "en": "I missed you. (There was missing in me. Noted.)"
+    },
+    {
+     "who": "T'Rena",
+     "t": "{now} {bond-warmth} {ev-melded}.",
+     "en": "Now there is warmth. I feel it through the bond."
+    },
+    {
+     "who": "Sorel",
+     "t": "{hortative} {share-silence}.",
+     "en": "Let us share silence."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does T'Rena give Sorel before she leaves?",
+     "right": "A keepsake",
+     "wrong": [
+      "A guest-gift",
+      "Her private name"
+     ]
+    },
+    {
+     "q": "What is T'Rena telling Sorel when she says the bond-silence was long?",
+     "right": "She missed him",
+     "wrong": [
+      "The bond has broken",
+      "She chose not to reach for him"
+     ]
+    },
+    {
+     "q": "How does T'Rena know there is warmth now?",
+     "right": "Through the bond (tekh)",
+     "wrong": [
+      "She sees Sorel smile (ho)",
+      "Sorel tells her (k'en)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sehlat-tail",
+   "title": "The sehlat who ate its tail",
+   "after": "l-tale",
+   "setting": "A teaching tale for small children, told to explain the saying Spock uses in SNW \"The Sehlat Who Ate Its Tail.\"",
+   "lines": [
+    {
+     "who": "Teller",
+     "t": "{long-ago} {sehlat} {young} {one} {live}-{past-un} {ev-reported}.",
+     "en": "Long ago, it is told, there lived a young sehlat."
+    },
+    {
+     "who": "Teller",
+     "t": "{each} {day} {sehlat} {tail} {his-her}-{object-wizh} {see}-{past-un}.",
+     "en": "Every day the sehlat saw its own tail."
+    },
+    {
+     "who": "Teller",
+     "t": "{sehlat} {comp} {tail} {food} {think}-{past-un}.",
+     "en": "The sehlat thought that the tail was food."
+    },
+    {
+     "who": "Teller",
+     "t": "{sehlat} {tail}-{object-wizh} {chase}-{past-un}: {day} {one}, {day} {two}, {day} {three}.",
+     "en": "The sehlat chased the tail: one day, two days, three days."
+    },
+    {
+     "who": "Teller",
+     "t": "{not} {eat}-{past-un}. {not} {drink}-{past-un}. {not} {rest}-{past-un}.",
+     "en": "It did not eat. It did not drink. It did not rest."
+    },
+    {
+     "who": "Teller",
+     "t": "{elder} {one} {sehlat}-{object-wizh} {ask}-{past-un}: {gishun} {tu} {chase}-{ongoing}?",
+     "en": "An elder asked the sehlat: \"Why are you chasing it?\""
+    },
+    {
+     "who": "Sehlat",
+     "t": "{nash-ve} {hungry}. {food} {near} {ev-seen}.",
+     "en": "\"I am hungry. Food is near. I see it.\""
+    },
+    {
+     "who": "Teller",
+     "t": "{day} {four}, {sehlat} {tail} {his-her}-{object-wizh} {catch}-{past-un}.",
+     "en": "On the fourth day, the sehlat caught its tail."
+    },
+    {
+     "who": "Teller",
+     "t": "{sehlat} {tail}-{object-wizh} {bite}-{past-un}. {pain} {big}.",
+     "en": "It bit the tail. The pain was great."
+    },
+    {
+     "who": "Teller",
+     "t": "{sehlat} {sit}-{past-un}. {tail} {short}. {stomach} {empty}.",
+     "en": "The sehlat sat down. Its tail was short. Its stomach was empty."
+    },
+    {
+     "who": "Elder",
+     "t": "{tu} {self}-{object-wizh} {hunt}-{past-un}.",
+     "en": "\"You hunted yourself.\""
+    },
+    {
+     "who": "Teller",
+     "t": "{story} {end}. {what} {tu} {conclude}?",
+     "en": "The tale ends. What do you conclude?"
+    },
+    {
+     "who": "Child",
+     "t": "{sehlat} {tail}-{object-wizh} {see}-{past-un}, {but} {not} {understand}-{past-un}, {ev-inferred}.",
+     "en": "The sehlat saw its tail, but did not understand what it saw. I conclude."
+    }
+   ],
+   "questions": [
+    {
+     "q": "Why does the sehlat say food is near?",
+     "right": "It saw its own tail (ho) and took it for food",
+     "wrong": [
+      "Someone told it so (k'en)",
+      "It smelled prey on the wind"
+     ]
+    },
+    {
+     "q": "What did the sehlat hunt, in the end?",
+     "right": "Itself",
+     "wrong": [
+      "A le-matya",
+      "The elder's food"
+     ]
+    },
+    {
+     "q": "Who says what the tale means?",
+     "right": "The listener, by drawing a conclusion with aukh",
+     "wrong": [
+      "The teller, at the start",
+      "The elder, in a saying"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "falor",
+   "title": "Falor's Journey",
+   "after": "l-verse",
+   "setting": "A parent sings the opening verses of Falor's Journey, a tale of enlightenment in 348 verses, the tale Tuvok sings to frightened children in VOY \"Innocence\". A few verses are sung each night, closing with the night verse.",
+   "lines": [
+    {
+     "who": "Verse 1",
+     "t": "Falor {home} {his-her}-{object-wizh} {depart}-{past-un}. {path} {long}, {night} {long}. Falor {walk}-{ongoing}.",
+     "en": "Falor left his home. The path was long, the night was long. Falor walks on."
+    },
+    {
+     "who": "Verse 2",
+     "t": "Falor {desert}-{object-wizh} {cross}-{past-un}. {sand} {hot}, {water-skin} {empty}. Falor {walk}-{ongoing}.",
+     "en": "Falor crossed the desert. The sand was hot, the water-skin empty. Falor walks on."
+    },
+    {
+     "who": "Verse 3",
+     "t": "Falor {heya}-{object-wizh} {climb}-{past-un}. {wind} {cold}, {star}-{plural} {near}. Falor {walk}-{ongoing}.",
+     "en": "Falor climbed the mountain. The wind was cold, the stars near. Falor walks on."
+    },
+    {
+     "who": "Verse 4",
+     "t": "Falor {fear} {his-her}-{object-wizh} {meet}-{past-un}. {fear}-{object-wizh} {look}-{past-un}, {set-aside}-{past-un}. Falor {walk}-{ongoing}.",
+     "en": "Falor met his fear. He looked at it, and set it aside. Falor walks on."
+    },
+    {
+     "who": "Verse 5",
+     "t": "Falor {teacher}-{object-wizh} {ask}-{past-un}: {where} {truth}? {teacher} {answer}-{past-un}: {walk}. Falor {walk}-{ongoing}.",
+     "en": "Falor asked a teacher: \"Where is truth?\" The teacher answered: \"Walk.\" Falor walks on."
+    },
+    {
+     "who": "Night verse",
+     "t": "{night} {come}-{past-un}. {rest}, {wan}-{kam}. Falor {tomorrow} {dungi} {walk}.",
+     "en": "Night has come. Rest, little one. Falor will walk tomorrow."
+    },
+    {
+     "who": "Verse 348",
+     "t": "Falor {home}{toward} {return}-{past-un}. {home} {same}; Falor {not} {same}. {journey} {end}.",
+     "en": "Falor returned home. The home was the same; Falor was not. The journey ends."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What does Falor do after every trial?",
+     "right": "He walks on",
+     "wrong": [
+      "He returns home",
+      "He rests"
+     ]
+    },
+    {
+     "q": "What does Falor do with his fear?",
+     "right": "He looks at it and sets it aside",
+     "wrong": [
+      "He runs from it",
+      "He fights it"
+     ]
+    },
+    {
+     "q": "In the last verse, what has changed?",
+     "right": "Falor, not his home",
+     "wrong": [
+      "His home",
+      "Nothing"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kahs-wan",
+   "title": "The kahs-wan",
+   "after": "l-verse",
+   "setting": "A teaching tale told to children before their own kahs-wan, the maturity ordeal in the desert that young Spock faces in TAS \"Yesteryear.\"",
+   "lines": [
+    {
+     "who": "Teller",
+     "t": "{long-ago} {wan} {one} {kaswan}{toward} {go}-{past-un} {ev-reported}.",
+     "en": "Long ago, it is told, a child went out for the kahs-wan."
+    },
+    {
+     "who": "Teller",
+     "t": "{wan} {water-skin} {one} {carry}-{past-un}. {kaswan} {alone}.",
+     "en": "She carried one water-skin. The kahs-wan is faced alone."
+    },
+    {
+     "who": "Teller",
+     "t": "{day} {three}, {wan} {stranger} {wounded}-{object-wizh} {find}-{past-un}.",
+     "en": "On the third day, she found a wounded stranger."
+    },
+    {
+     "who": "Stranger",
+     "t": "{nash-ve} {thirsty}.",
+     "en": "\"I am thirsty.\""
+    },
+    {
+     "who": "Teller",
+     "t": "{wan} {water-skin}-{object-wizh} {look}-{past-un}. {water} {not} {enough}.",
+     "en": "The child looked at her water-skin. The water was not enough."
+    },
+    {
+     "who": "Teller",
+     "t": "{but} {wan} {stranger}{toward} {water}-{object-wizh} {give}-{past-un}.",
+     "en": "But she gave water to the stranger."
+    },
+    {
+     "who": "Teller",
+     "t": "{stranger} {wan}{toward} {water-finding}-{object-wizh} {teach}-{past-un}.",
+     "en": "The stranger taught her water-finding."
+    },
+    {
+     "who": "Teller",
+     "t": "{day} {seven}, {stranger} {die}-{past-un}. {wan} {cairn}-{object-wizh} {build}-{past-un}.",
+     "en": "On the seventh day, the stranger died. The child built a cairn."
+    },
+    {
+     "who": "Teller",
+     "t": "{day} {ten}, {wan} {home}{toward} {return}-{past-un}.",
+     "en": "On the tenth day, she returned home."
+    },
+    {
+     "who": "Elders",
+     "t": "{question} {tu} {alone} {survive}-{past-un}?",
+     "en": "\"Did you survive alone?\""
+    },
+    {
+     "who": "Child",
+     "t": "{no}. {nash-ve} {water}-{object-wizh} {share}-{past-un}. {stranger} {nash-ve}{toward} {water-finding}-{object-wizh} {teach}-{past-un}.",
+     "en": "\"No. I shared my water. The stranger taught me water-finding.\""
+    },
+    {
+     "who": "Elders",
+     "t": "{kaswan} {your} {complete}.",
+     "en": "\"Your kahs-wan is complete.\""
+    },
+    {
+     "who": "Teller",
+     "t": "{story} {end}. {what} {tu} {conclude}?",
+     "en": "The tale ends. What do you conclude?"
+    },
+    {
+     "who": "Listener",
+     "t": "{water} {shared}, {life} {shared}, {ev-inferred}.",
+     "en": "Water shared is life shared. I conclude."
+    }
+   ],
+   "questions": [
+    {
+     "q": "What did the child give the stranger?",
+     "right": "Water",
+     "wrong": [
+      "Food",
+      "Her water-skin"
+     ]
+    },
+    {
+     "q": "What did the stranger give her in return?",
+     "right": "The skill of water-finding",
+     "wrong": [
+      "A map of the desert",
+      "His own water-skin"
+     ]
+    },
+    {
+     "q": "Why do the elders call her kahs-wan complete, though she was not alone?",
+     "right": "She kept the desert way: water shared is life shared",
+     "wrong": [
+      "She came back on the tenth day",
+      "She built a cairn"
+     ]
+    }
+   ]
+  }
+ ]
+}

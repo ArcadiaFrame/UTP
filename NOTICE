@@ -1,0 +1,37 @@
+UTP and the Vulcan language family
+Copyright 2026 ArcadiaFrame
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+The license covers the code and the original material in this repository:
+the engine, the tools, the sound laws, the built and generated words, the
+grammar design, the guides and the example texts.
+
+Star Trek
+---------
+Star Trek and all related names, characters, places, terms and on-screen
+dialogue are trademarks and copyrights of Paramount (CBS Studios Inc. and
+Paramount Pictures). Canon words appear here only so the constructed
+language can agree with them; this license grants no rights in them. This
+is an unofficial, non-commercial fan reference work. It is not endorsed by,
+sponsored by or affiliated with Paramount, CBS Studios or any Star Trek
+licensee. The Klingon language and dictionary are the work of Marc Okrand.
+
+Sources and credits
+-------------------
+- Romulan: vocabulary and grammar notes follow Diane Duane's Rihannsu novels
+  and the Rihannsu glossary (ROMBAS) she has shared freely with fans. Credit
+  for those words is hers.
+- Novel vocabulary: Diane Duane (Spock's World, The Romulan Way), Jean Lorrah
+  (k'diwa, adun, adun'a), and the other novelists cited in
+  vulcan-conlang/corpus/novel.csv.
+- Fan vocabulary: words from the Vulcan Language Dictionary (Vulcan Language
+  Institute) and fandom are credited entry by entry in the dictionary's
+  source column and in vulcan-conlang/analysis/audit-canon-fandom.md.
+- Meaning registry: utp/concepts/concepts.csv is derived from Concepticon
+  3.4 (List, Tjuka, Blum, Kučerová, Ugarte, Rzymski, Greenhill and Forkel,
+  eds., Max Planck Institute for Evolutionary Anthropology), licensed CC BY
+  4.0. Details in utp/concepts/ATTRIBUTION.md.
+- Speech: the UTP talks to Kokoro-FastAPI (remsky) and the Kokoro-82M model,
+  which are separate projects under their own licenses and are not included.
+
+Built with help from Claude (Anthropic).

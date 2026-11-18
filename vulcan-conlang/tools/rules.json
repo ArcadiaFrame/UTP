@@ -1,0 +1,353 @@
+{
+  "proto": {
+    "about": "Proto-Vulcan notation. ʼ (U+02BC) marks an ejective stop; ' is a glottal stop. Long vowels are written ee and oo. uh is schwa. There are no voiced stops: b, d and g arise later from nt-, mp- and nk-.",
+    "units": [
+      "kʼ",
+      "tʼ",
+      "pʼ",
+      "kh",
+      "sh",
+      "zh",
+      "th",
+      "lh",
+      "ch",
+      "uh",
+      "ee",
+      "oo",
+      "ai",
+      "au",
+      "ei",
+      "p",
+      "t",
+      "k",
+      "q",
+      "f",
+      "s",
+      "h",
+      "v",
+      "m",
+      "n",
+      "l",
+      "r",
+      "w",
+      "y",
+      "a",
+      "e",
+      "i",
+      "o",
+      "u",
+      "'"
+    ],
+    "vowels": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u",
+      "uh",
+      "ee",
+      "oo",
+      "ai",
+      "au",
+      "ei"
+    ],
+    "onset_clusters": [
+      "kl",
+      "kr",
+      "pl",
+      "pr",
+      "tr",
+      "khl",
+      "khr",
+      "fl",
+      "fr",
+      "shl",
+      "vr",
+      "vl",
+      "sp",
+      "st",
+      "sk",
+      "sm",
+      "sn",
+      "sl",
+      "sr",
+      "sw",
+      "kth",
+      "nt",
+      "mp",
+      "nk",
+      "ntr",
+      "mpl"
+    ],
+    "finals": [
+      "k",
+      "t",
+      "p",
+      "q",
+      "l",
+      "n",
+      "r",
+      "m",
+      "s",
+      "sh",
+      "kh",
+      "lh",
+      "f",
+      "v",
+      "kʼ",
+      "tʼ",
+      "th",
+      "zh"
+    ]
+  },
+  "branches": {
+    "ceremonial": {
+      "label": "Ceremonial",
+      "about": "Classical Vulcan as frozen in ritual: the speech of T'Pau and the Gol masters.",
+      "rules": [
+        {
+          "id": "C1",
+          "pattern": "(?<=.)ai",
+          "replace": "ei",
+          "note": "*ai raises to ei after the first sound (word-initial ai- stays, as in aifa)",
+          "era": "Classical"
+        },
+        {
+          "id": "C2",
+          "pattern": "ʼ",
+          "replace": "'",
+          "note": "Ejectives are written with the apostrophe; still pronounced as ejectives in ritual",
+          "era": "Classical"
+        },
+        {
+          "id": "C3",
+          "pattern": "^nt",
+          "replace": "d",
+          "note": "Initial nt- becomes d",
+          "era": "Classical"
+        },
+        {
+          "id": "C4",
+          "pattern": "^mp",
+          "replace": "b",
+          "note": "Initial mp- becomes b",
+          "era": "Classical"
+        },
+        {
+          "id": "C5",
+          "pattern": "^nk",
+          "replace": "g",
+          "note": "Initial nk- becomes g",
+          "era": "Classical"
+        },
+        {
+          "id": "C6",
+          "pattern": "nk",
+          "replace": "ng",
+          "note": "Medial nk becomes ng",
+          "era": "Classical"
+        },
+        {
+          "id": "C7",
+          "pattern": "lnt",
+          "replace": "ld",
+          "note": "lnt simplifies to ld",
+          "era": "Classical"
+        },
+        {
+          "id": "C8",
+          "pattern": "nt$",
+          "replace": "d",
+          "note": "Final nt becomes d",
+          "era": "Classical"
+        }
+      ]
+    },
+    "vulcan": {
+      "label": "Standard Vulcan",
+      "inherits": "ceremonial",
+      "about": "Everyday Vulcan of the 23rd and 24th centuries. Inherits every Classical law, then smooths in the 2240s.",
+      "rules": [
+        {
+          "id": "S1",
+          "pattern": "q",
+          "replace": "k",
+          "note": "Uvular q merges with k (the 2240s smoothing)",
+          "era": "Standard, 2240s"
+        },
+        {
+          "id": "S2",
+          "pattern": "lh",
+          "replace": "l",
+          "note": "Lateral fricative lh softens to l (the 2240s smoothing)",
+          "era": "Standard, 2240s"
+        }
+      ]
+    },
+    "romulan": {
+      "label": "Romulan",
+      "about": "Branches off before the Classical laws: the exiles rebuilt their speech from Old High Vulcan and aged it their own way.",
+      "rules": [
+        {
+          "id": "R0a",
+          "pattern": "kʼ",
+          "replace": "kh",
+          "note": "Ejective kʼ becomes breathy kh",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0b",
+          "pattern": "tʼ",
+          "replace": "th",
+          "note": "Ejective tʼ becomes th",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0c",
+          "pattern": "pʼ",
+          "replace": "fv",
+          "note": "Ejective pʼ becomes fv",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0d",
+          "pattern": "q",
+          "replace": "qh",
+          "note": "Uvular q becomes breathy qh",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0e",
+          "pattern": "lh",
+          "replace": "ll",
+          "note": "Lateral lh is kept, written ll as in Welsh",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0j",
+          "pattern": "^nt",
+          "replace": "n",
+          "note": "Initial nt- becomes n-",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0i",
+          "pattern": "^nk",
+          "replace": "h",
+          "note": "Initial nk- becomes h-",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0f",
+          "pattern": "^mp",
+          "replace": "mn",
+          "note": "Initial mp- becomes mn- (as in mnhei'sahe)",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0g",
+          "pattern": "nt",
+          "replace": "nn",
+          "note": "nt becomes nn",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R0h",
+          "pattern": "nk",
+          "replace": "nh",
+          "note": "nk becomes nh",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R1a",
+          "pattern": "^sr",
+          "replace": "hr",
+          "note": "Initial sr- becomes hr-",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R1",
+          "pattern": "^s(?=[aeiouh])",
+          "replace": "r",
+          "note": "Initial s becomes r before a vowel or h: exile rhotacism, the Latinate turn",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R2a",
+          "pattern": "^(\\w)e",
+          "replace": "$1i",
+          "note": "e raises to i in the first syllable",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R2b",
+          "pattern": "ek$",
+          "replace": "ik",
+          "note": "e raises to i before final k",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R3",
+          "pattern": "ai",
+          "replace": "a",
+          "note": "*ai flattens to a",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R4",
+          "pattern": "ak$",
+          "replace": "ann",
+          "note": "Final -ak (participle) becomes -ann",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R5",
+          "pattern": "ani(l)",
+          "replace": "a'$1",
+          "note": "Medial -ani- before l syncopates to a glottal",
+          "era": "Post-Sundering"
+        },
+        {
+          "id": "R6",
+          "pattern": "([aeiou][^aeiou\\s'-]+)e(?![aeiu])",
+          "replace": "$1ae",
+          "note": "e after the first syllable breaks to ae",
+          "era": "Romulan reform"
+        },
+        {
+          "id": "R7",
+          "pattern": "([aeiou][^aeiou\\s'-]+)o(?![aeiu])",
+          "replace": "$1oa",
+          "note": "o after the first syllable breaks to oa",
+          "era": "Romulan reform"
+        }
+      ]
+    }
+  },
+  "tests": [
+    {
+      "proto": "*sehaik",
+      "gloss": "declared",
+      "ceremonial": "seheik",
+      "romulan": "rihann",
+      "kind": "attested pair",
+      "source": "The Romulan Way (Duane)"
+    },
+    {
+      "proto": "*manil arek",
+      "gloss": "swift death",
+      "ceremonial": "manil arek",
+      "romulan": "ma'l arik",
+      "kind": "attested pair",
+      "source": "Vulcan's Soul: Epiphany"
+    },
+    {
+      "proto": "*t'hy'la",
+      "gloss": "friend, brother, lover",
+      "vulcan": "t'hy'la",
+      "romulan": "t'hy'la",
+      "kind": "shared sacred term; Romulan form predicted",
+      "source": "Star Trek: TMP novelization"
+    }
+  ]
+}

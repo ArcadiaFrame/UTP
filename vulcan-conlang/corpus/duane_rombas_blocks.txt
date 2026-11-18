@@ -1,0 +1,34 @@
+# Diane Duane's Rihannsu word-generator building blocks (DATA statements, 1996).
+# Source: https://www.dianeduane.com/outofambit/wp-content/uploads/2024/06/ROMBAS-Screen-Output-program.txt
+# Duane shared the program freely and gave permission to pass it on (Out of Ambit, 2024 repost).
+# Used here as the phonotactic reference for the Romulan branch. Rows alternate onset/consonant
+# slots (R*, C*) and vowel slots (V*), ten options each, as the program reads them.
+R2: H' Ae D' W U N' R' O V Ll
+V1: ae A i' a Eh e T' I u' s
+C1: s ll R m k t h r rr
+V2: ae ea ei e a iu o ie i
+C2: v mn kh d hv fv r t
+V3: eo i ae ie ai au a ei ah
+C3: - th k lh d bh d' dr ht
+V4: ao a aeu u ae oa i s
+C4: ll lh dt' ht th kh l' nn n
+V5: i ea ia E ei ta' ra- ei
+C5: 'rh rh jh kj lh nv tr hw fv
+V6: 'h ae oi iy u ei eh s'h i
+C6: nn hw d nv mn dh rh ll' sw
+V7: e' ia ie iy ih ae io ai ui
+C7: lmn l mn - h'n t ss hv hs hr
+V8: ae y ei ie a'e u iu ou aa
+C8: hj hf wh rrh bh j y
+V9: a i ih i'h e ea aa ae u aeih
+C9: llu dh kh rh wh mn
+V10: ae ei iu oa ei o oi ue
+C10: e ii a ee eu i o iu uu
+V11: 'ss l' k'h hw rr r rr' mm t'd 'hh
+C11: uy ae e i 'i 'u 'u iae eu a
+V12: qh vh fv nh d e hh k a t
+C12: ae hl iu -a ss -t r- nn 'nh ai
+V13: dl dl rh nnh rai th dh- yrh aith qh
+C13: iu iu hu ha la se mo tha kha dha
+V14: m t r q s f v h z y
+V15: a i t e e ae ai ia ia ou

@@ -1,0 +1,304 @@
+{
+  "name": "Vulcan language family",
+  "language": "Standard Vulcan",
+  "format": "utp-pack/1",
+  "about": "Proto-Vulcan and its branches: Ceremonial (Classical as frozen in ritual), Standard Vulcan, and Romulan. One family pack, because the branches share one proto-language and one file of sound laws. The pack only points at the live files in vulcan-conlang/; it never moves or changes them.",
+  "root": "../../..",
+  "files": {
+    "sound_laws": "vulcan-conlang/tools/rules.json",
+    "lexicon": "vulcan-conlang/lexicon/lexicon.csv",
+    "meanings": "vulcan-conlang/lexicon/meanings.csv"
+  },
+  "helpers": {
+    "orthography": {
+      "module": "vulcan-conlang/tools/phon.py",
+      "function": "standardize",
+      "about": "The one spelling standard for Standard Vulcan (ck > k, oy > oi, English-style ah/eh/oh > a/e/o ...)"
+    },
+    "reading": {
+      "module": "vulcan-conlang/tools/phon.py",
+      "function": "ipa",
+      "about": "IPA-style reading of a Standard Vulcan form"
+    }
+  },
+  "speech": {
+    "about": "Spoken through Kokoro-FastAPI from the IPA reading, never from English-style spelling. Kokoro has no ɬ (Romulan ll, old lh) and no ejectives: ɬ is said as ʃl and an ejective as a stop plus a glottal stop. Stress is an open question; first-syllable stress is a placeholder.",
+    "from": "reading",
+    "voice": "bm_george",
+    "map": {
+      "ɬ": "ʃl"
+    },
+    "stress": "first"
+  },
+  "grammar": {
+    "vulcan": {
+      "about": "Standard Vulcan, from vulcan-conlang/docs/grammar.md and the phrasebook. Keys are dictionary keys.",
+      "clause": [
+        "subject",
+        "adverbs",
+        "object",
+        "goal",
+        "content",
+        "verb",
+        "evidence",
+        "formal"
+      ],
+      "np_order": [
+        "head",
+        "mods",
+        "num",
+        "of",
+        "poss"
+      ],
+      "front_aux_in_questions": true,
+      "identity_1sg": {
+        "key": "be",
+        "ending": "ish"
+      },
+      "pronouns": {
+        "1sg": "nash-ve",
+        "2sg": "tu",
+        "3sg": "ish-ve",
+        "1pl": "we",
+        "2hon": "you-honored"
+      },
+      "possessives": {
+        "1sg": "my",
+        "2sg": "your",
+        "3sg": "his-her",
+        "1pl": "our"
+      },
+      "wh": {
+        "what": "what",
+        "who": "who",
+        "where": "where",
+        "when": "when",
+        "why": "gishun",
+        "how": "how",
+        "how-many": "how-many"
+      },
+      "markers": {
+        "object": {
+          "key": "object-wizh",
+          "attach": "hyphen",
+          "drop_if_indefinite": true
+        },
+        "toward": {
+          "key": "toward",
+          "attach": "suffix"
+        },
+        "plural": {
+          "key": "plural",
+          "attach": "hyphen"
+        },
+        "ongoing": {
+          "key": "ongoing",
+          "attach": "hyphen"
+        },
+        "past": {
+          "key": "past-un",
+          "attach": "hyphen"
+        },
+        "completed": {
+          "key": "perfect-ki",
+          "attach": "prefix"
+        },
+        "honorific": {
+          "key": "honorific",
+          "attach": "hyphen"
+        },
+        "humble": {
+          "key": "humble",
+          "attach": "hyphen"
+        },
+        "adverbial": {
+          "key": "adverbial",
+          "attach": "hyphen"
+        },
+        "of": {
+          "key": "t'",
+          "attach": "prefix"
+        },
+        "future": "dungi",
+        "negative": "not",
+        "never": "worla",
+        "in": "in",
+        "noting": "noting",
+        "formal": "formal",
+        "comp": "comp",
+        "if": "if",
+        "vocative": "vocative",
+        "question": "question",
+        "request": "request",
+        "hortative": "hortative",
+        "modal": {
+          "ability": "kup",
+          "duty": "must"
+        },
+        "evidence": {
+          "seen": "ev-seen",
+          "inferred": "ev-inferred",
+          "reported": "ev-reported",
+          "touch": "ev-melded"
+        }
+      }
+    },
+    "romulan": {
+      "about": "Romulan inherits the Vulcan grammar; it has no evidentials, marks rank on the predicate, and pluralizes with -nsu (grammar.md section 11).",
+      "inherits": "vulcan",
+      "markers": {
+        "evidence": {},
+        "plural": {
+          "key": "r-plur",
+          "attach": "suffix"
+        }
+      },
+      "mode": {
+        "up": "r-up",
+        "down": "r-down",
+        "level": "r-even",
+        "up-q": "r-up-q",
+        "down-q": "r-down-q"
+      }
+    }
+  },
+  "derivation": {
+    "branches": [
+      "vulcan",
+      "ceremonial",
+      "romulan"
+    ],
+    "standard": "vulcan",
+    "kinds": {
+      "compound": "compound",
+      "loan": "loan"
+    },
+    "loan_branch": "vulcan",
+    "coined_in_branch": {
+      "Romulan": "romulan"
+    },
+    "join_rules": [
+      {
+        "pattern": "(?<!u)([aeio])h\\+(?=[aeiouh])",
+        "replace": "\\1+",
+        "branches": [
+          "vulcan"
+        ],
+        "note": "a screen spelling's final length-h drops before a fused ending (sarlah + uth > sarlauth); uh is a vowel, not a length mark"
+      },
+      {
+        "pattern": "(?<=[aeo])([iu])\\+\\1",
+        "replace": "\\1+",
+        "note": "a diphthong absorbs a like vowel (kau + uth > kauth, sharshei + ik > sharsheik)"
+      }
+    ]
+  },
+  "phonotactics": {
+    "transparent": [
+      "'"
+    ],
+    "no_initial": [
+      "'"
+    ],
+    "max_medial_cluster": 2,
+    "final_cluster": false
+  },
+  "eras": [
+    {
+      "id": "Tribal",
+      "rank": 0
+    },
+    {
+      "id": "Classical",
+      "rank": 1
+    },
+    {
+      "id": "Unified",
+      "rank": 2
+    },
+    {
+      "id": "Standard",
+      "rank": 3
+    },
+    {
+      "id": "Romulan",
+      "rank": 3,
+      "branch": "romulan"
+    }
+  ],
+  "typology": {
+    "vulcan": {
+      "source": "vulcan-conlang/docs/grammar.md",
+      "word_order": "SOV, evidential particle clause-final",
+      "pro_drop": "subject and object drop when context makes them clear",
+      "noun_phrase": {
+        "adjective": "N-Adj",
+        "numeral": "N-Num",
+        "possessor": "N-Poss",
+        "genitive": "N t' Gen",
+        "relative_clause": "N lith Rel"
+      },
+      "adpositions": "prepositions; direction toward is the suffix -fi",
+      "question_words": "clause-initial",
+      "polar_questions": "auxiliary fronted, or initial particle kuth",
+      "auxiliaries": "Aux-V (kup, shul, wo, sei, dungi before the verb)",
+      "negation": "preverbal particle suhk; one negative per clause",
+      "comparison": "standard of comparison before the quality (X Y t'ei li/osh ADJ)",
+      "alignment": "nominative-accusative",
+      "object_marking": "differential: -wizh on the last word of a definite or human object; may drop for an indefinite thing in casual speech",
+      "morphology": {
+        "type": "agglutinative",
+        "affixes": "mostly suffixing; prefix ki'- marks completed"
+      },
+      "tense_aspect": "bare present, -pil ongoing, -un past, ki'- completed, dungi future",
+      "copula": "none in descriptions; wim for identity",
+      "evidentials": {
+        "ho": "observed directly",
+        "aukh": "concluded by logic",
+        "k'en": "was told",
+        "tekh": "known through meld or touch"
+      },
+      "obligatory_marking": [
+        "another person's emotion needs an evidential (Standard)"
+      ],
+      "speech_levels": "-mush honorific, -fum humble, cheil before a title, ihk-ve honored you, final suh formal; all drop between t'hy'la",
+      "experiencer": "Standard: the emotion is the subject and the speaker a location (Sik tok nash-ve kon); Classical: the experiencer is the subject",
+      "pronoun_we": "ekh, with no inclusive/exclusive split",
+      "prosody": {
+        "tone": "open",
+        "stress": "open"
+      },
+      "script": "open"
+    },
+    "romulan": {
+      "source": "vulcan-conlang/docs/grammar.md section 11",
+      "inherits": "vulcan",
+      "rank_marking": "mode endings on every predicate: -'nra said up to a superior, -ha down to an inferior",
+      "copula": "aihr- 'this is'",
+      "noun_number": "-ha singular, -nsu plural",
+      "evidentials": "none; hwil marks 'not to be repeated', khnai 'it is whispered'"
+    }
+  },
+  "open_questions": [
+    {
+      "id": "disharmony",
+      "question": "Standard Vulcan is verb-final but has prepositions, noun-before-genitive, noun-before-relative and auxiliary-before-verb. Most verb-final languages have the opposite on each (Persian is the real-world model for Vulcan's mix). Why?",
+      "proposal": "Classical or Tribal Vulcan was consistently head-final; the suffixes -fi and -wizh are its fossilized postpositions. Not adopted."
+    },
+    {
+      "id": "inclusive-we",
+      "question": "Should ekh split into an inclusive and an exclusive 'we'?",
+      "proposal": "Not adopted."
+    },
+    {
+      "id": "prosody",
+      "question": "Stress or pitch accent, and does any branch develop tone as the apostrophe consonants weaken?",
+      "proposal": "Not adopted."
+    },
+    {
+      "id": "script",
+      "question": "Script type for each era, and the era at which spelling froze.",
+      "proposal": "Not adopted."
+    }
+  ]
+}

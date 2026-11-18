@@ -1,0 +1,53 @@
+sentence,word,standard,gloss,confidence,note
+c058,Gishen,gishen,expected,high,"as expected"
+c058,worla,worla,never,high,
+c058,ihk-banut,ihk-banut,that person (he),medium,"ihk 'that (yonder)' + banut 'person'"
+c059,Wakli,wakli,what,medium,question word opening the sentence
+c059,ak'wikman,ak'wikman,surprise(s),medium,
+c059,ot-lan,otlan,lieutenant (officer rank),medium,title used as address
+c060,Ish-veh,ish-ve,that one (he),high,
+c060,ni,ni,so,high,
+c060,komihn,komihn,Human,high,loan from English
+c061,Kling,kling,nobody,high,
+c061,akhlami,akhlami,among us,medium,
+c061,buhfik,buhfik,perfect,high,
+c061,Saavik-kam,Saavik-kam,little Saavik (affectionate),high,-kam diminutive
+c062,wimish,wimish,I am,medium,"wim 'be' + -ish, possibly a first-person ending"
+c062,Kup-stariben,kup-stariben,can speak,high,"kup 'can' + stariben 'speak'"
+c063,Dom,dom,"so, thus",high,
+c063,ki'sarlah,ki'sarla,it has come,medium,"sarla 'come'; ki' possibly 'it' or a completed-action marker"
+c064,Dungi,dungi,will (future),high,
+c064,tu,tu,you,high,
+c064,sahrafel,sarafel,trust,high,
+c065,Chaya,chaya,thanks,medium,inferred from the reply 'You're welcome'
+c071,Pash tah,pash ta,good night,medium,"pash 'rest' + ta 'well' (gloss from script)"
+c073,Ghishun,gishun,why,high,
+c073,tanfi,tanfi,here (to this place),medium,"tan 'here' + -fi 'toward'"
+c073,bosh,bosh,he,medium,casual pronoun
+c073,dwener,dwener,is (present),low,
+c074,Pod,pod,commander (title),medium,precedes the name Tucker
+c074,avalde,avalde,colleague,medium,shares vald- with valdewizh
+c074,keru,keru,my,medium,
+c074,Vulkanfi,vulkanfi,to Vulcan,high,-fi 'toward'
+c074,tozhi,tozhi,visit,medium,
+c074,dawru,dawru,wanted,medium,
+c075,valdewizh,valdewizh,colleague (as object),medium,
+c075,sukfi,sukfi,home (toward),medium,"suk 'home' + -fi"
+c075,lorun,lorun,brought,medium,"lor 'bring' + -un, possibly past"
+c076,Tulek,tulek,vessel,medium,
+c078,glomahk,glomak,plant,medium,
+c078,sivusi,sivusi,dead,medium,
+c051,Nahp,nap,thoughts,high,
+c051,hif-bi,hif-bi,give them,medium,"hif 'give' (ceremonial)"
+c052,Kashkau,kashkau,our minds (joined),high,
+c052,wuhkuh,wuhkuh,together,medium,ceremonial
+c052,teretuhr,teretuhr,as one,medium,ceremonial
+c055,vravshal,vravshal,not yet,medium,ceremonial
+c055,srashiv,srashiv,attained,medium,ceremonial
+c049,Dakh,dakh,our,medium,ceremonial
+c049,orfikkel,orfikkel,ancestors,medium,ceremonial
+c049,aushfamaluhr,aushfamaluhr,animal passions,medium,ceremonial
+c049,shaukaush,shaukaush,cast out,medium,ceremonial
+c049,fi'aifa,fi' aifa,on these,medium,"fi' 'toward, on' + aifa 'these' (also VLI)"
+c049,mazhiv,mazhiv,sands,medium,ceremonial
+c047,smusma,smusma,prosper,high,

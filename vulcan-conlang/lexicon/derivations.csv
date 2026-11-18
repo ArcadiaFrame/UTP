@@ -1,0 +1,1732 @@
+key,gloss,pos,field,era,register,parts,basis
+aunt-uncle,aunt or uncle (a parent's sibling),noun,kin,Tribal,everyday,{parent}-{sibling},"descriptive: Swedish far-bror ""father-brother"""
+cousin,cousin (a clan-sibling),noun,kin,Classical,everyday,{clan}-{sibling},clan societies class cousins as siblings (Hawaiian and Iroquois systems)
+niece-nephew,niece or nephew (a sibling's child),noun,kin,Tribal,everyday,{sibling}-{wan},"canon wan ""child"""
+twin,twin,noun,kin,Tribal,everyday,{pair}-{wan},pair-child: JA futa-go
+in-law,"in-law, kin by bond",noun,kin,Classical,everyday,{koon}-{family},bond-family: canon koon
+heir,heir,noun,kin,Classical,everyday,{legacy}-{ve},LA heres
+speaker,speaker,noun,kin,Classical,everyday,{speak}-{ve},
+listener,listener,noun,kin,Classical,everyday,{listen}-{ve},
+guardian,"guardian, protector",noun,kin,Classical,everyday,{guard}-{ve},
+fighter,"fighter, warrior",noun,kin,Classical,everyday,{fight}-{ve},
+killer,killer,noun,kin,Classical,everyday,{kill}-{ve},
+thinker,thinker,noun,kin,Classical,everyday,{think}-{ve},
+dreamer,dreamer,noun,kin,Classical,everyday,{dream}-{ve},
+worker,worker,noun,kin,Classical,everyday,{work}-{ve},
+player,player,noun,kin,Classical,everyday,{play}-{ve},
+dancer,dancer,noun,kin,Classical,everyday,{dance}-{ve},
+keeper,"keeper, custodian",noun,kin,Classical,everyday,{keep}-{ve},
+owner,owner,noun,kin,Classical,everyday,{have}-{ve},JA mochi-nushi
+giver,giver,noun,kin,Classical,everyday,{give}-{ve},
+liar,liar,noun,kin,Classical,everyday,{deceive}-{ve},
+mediator,"mediator, go-between",noun,kin,Classical,everyday,{between}-{ve},"JA naka-dachi ""between-stander"""
+survivor,survivor,noun,kin,Classical,everyday,{endure}-{ve},
+wanderer,wanderer,noun,kin,Classical,everyday,{walk}-{ve},
+guide,guide,noun,kin,Classical,everyday,{path}-{ve},path one
+translator,translator,noun,kin,Classical,everyday,{translate}-{ve},
+negotiator,negotiator,noun,kin,Classical,everyday,{negotiate}-{ve},
+investigator,investigator,noun,kin,Classical,everyday,{investigate}-{ve},
+inventor,"inventor, maker",noun,kin,Classical,everyday,{create}-{ve},
+founder,founder,noun,kin,Classical,everyday,{start}-{ve},
+witness-n,a witness,noun,kin,Classical,everyday,{witness}-{ve},LA testis
+helper,helper,noun,kin,Classical,everyday,{help}-{ve},
+follower,"follower, disciple",noun,kin,Classical,everyday,{follow}-{ve},
+ruler,ruler,noun,kin,Classical,everyday,{rule-v}-{ve},
+conqueror,conqueror,noun,kin,Classical,everyday,{conquer}-{ve},
+messenger,messenger,noun,kin,Classical,everyday,{send}-{word}-{ve},one who sends words
+seer,"seer, one who sees before",noun,ritual,Classical,everyday,{before}-{see}-{ve},LA prae-videre; the pre-Surak orders
+bedroom,"bedroom, sleeping chamber",noun,place,Classical,everyday,{sleep}+{place-suf},
+dining-hall,dining hall,noun,place,Classical,everyday,{eat}+{place-suf},
+workshop,workshop,noun,place,Classical,everyday,{work}+{place-suf},
+hospital,"hospital, place of healing",noun,place,Classical,everyday,{vo}+{place-suf},"canon vo ""heal"": JA byou-in"
+cemetery,burial ground,noun,place,Classical,everyday,{dead}+{place-suf},"canon sivusi ""dead"""
+shrine,"shrine, place of prayer",noun,place,Classical,everyday,{pray}+{place-suf},
+meditation-hall,meditation chamber,noun,place,Classical,everyday,{meditate}+{place-suf},
+observatory,observatory,noun,place,Classical,everyday,{star}-{see}+{place-suf},star-seeing place
+training-ground,training ground,noun,place,Classical,everyday,{fight}+{place-suf},
+arena,"arena, place of challenge",noun,place,Classical,everyday,{kal}+{place-suf},"canon kal ""challenge"", as in kal-if-fee"
+harbor,"harbor, dock",noun,place,Classical,everyday,{dock}+{place-suf},
+granary,granary,noun,place,Classical,everyday,{grain}+{place-suf},LA granarium
+stable,stable (for beasts),noun,place,Classical,everyday,{beast}+{place-suf},LA stabulum
+inn,"inn, guest house",noun,place,Classical,everyday,{guest}+{place-suf},JA ryo-kan
+court,court of law,noun,place,Classical,everyday,{justice}+{place-suf},JA sai-ban-sho
+council-hall,council hall,noun,place,Classical,everyday,{council}+{place-suf},
+nursery,"nursery, children's room",noun,place,Classical,everyday,{wan}+{place-suf},
+storehouse,storehouse,noun,place,Classical,everyday,{keep}+{place-suf},JA kura
+clock,"clock, timepiece",noun,artifact,Classical,everyday,{hour}+{instrument},"JA to-kei ""time-measure"""
+scale-w,"weighing scale, balance",noun,artifact,Classical,everyday,{weight}+{instrument},
+compass,"compass, navigation instrument",noun,artifact,Standard,everyday,{navigate}+{instrument},
+universal-translator,universal translator,noun,artifact,Standard,everyday,{translate}+{instrument},
+recorder,"recorder, log device",noun,artifact,Standard,everyday,{record}+{instrument},
+scanner,"scanner, tricorder",noun,artifact,Standard,everyday,{scan}+{instrument},
+heater,heater,noun,artifact,Classical,everyday,{heat}+{instrument},
+cooler,cooler,noun,artifact,Standard,everyday,{cold}+{instrument},
+stylus,"stylus, pen",noun,artifact,Classical,everyday,{write}+{instrument},JA hik-ki-gu
+brush,brush (for painting),noun,artifact,Classical,everyday,{paint}+{instrument},
+ladder,ladder,noun,artifact,Classical,everyday,{climb}+{instrument},
+plow,plow,noun,artifact,Classical,everyday,{dig}+{instrument},
+loom,loom,noun,artifact,Classical,everyday,{weave}+{instrument},
+fan,fan,noun,artifact,Classical,everyday,{wind}+{instrument},
+lens,lens,noun,artifact,Classical,everyday,{light}-{glass},light-glass
+creation,creation,noun,discipline,Classical,everyday,{create}+{action},
+destruction,destruction,noun,discipline,Classical,everyday,{destroy}+{action},
+preservation,preservation,noun,discipline,Classical,everyday,{preserve}+{action},
+restoration,restoration,noun,discipline,Classical,everyday,{restore}+{action},
+transformation,transformation,noun,discipline,Classical,everyday,{transform}+{action},
+development,development,noun,discipline,Classical,everyday,{develop}+{action},
+improvement,improvement,noun,discipline,Classical,everyday,{improve}+{action},
+learning,"learning, education",noun,discipline,Classical,everyday,{learn}+{action},
+prediction,prediction,noun,discipline,Classical,everyday,{predict}+{action},
+recognition,recognition,noun,discipline,Classical,everyday,{recognize}+{action},
+translation,translation,noun,discipline,Classical,everyday,{translate}+{action},
+communication,communication,noun,discipline,Classical,everyday,{communicate}+{action},
+interpretation,interpretation,noun,discipline,Classical,everyday,{interpret}+{action},
+investigation,investigation,noun,discipline,Classical,everyday,{investigate}+{action},
+verification,verification,noun,discipline,Classical,everyday,{verify}+{action},
+comparison,comparison,noun,discipline,Classical,everyday,{compare}+{action},
+definition,definition,noun,discipline,Classical,everyday,{define}+{action},
+debate-n,a debate,noun,discipline,Classical,everyday,{debate}+{action},
+denial,denial,noun,discipline,Classical,everyday,{deny}+{action},
+confession,confession,noun,discipline,Classical,everyday,{confess}+{action},
+expectation,expectation,noun,discipline,Classical,everyday,{expect}+{action},
+plan-n,a plan,noun,discipline,Classical,everyday,{plan}+{action},
+assumption,assumption,noun,discipline,Classical,everyday,{assume}+{action},
+attack-n,an attack,noun,discipline,Classical,everyday,{attack}+{action},
+defense,defense,noun,discipline,Classical,everyday,{defend}+{action},
+escape-n,an escape,noun,discipline,Classical,everyday,{escape}+{action},
+rescue-n,a rescue,noun,discipline,Classical,everyday,{rescue}+{action},
+protection,protection,noun,discipline,Classical,everyday,{protect}+{action},
+acceptance,acceptance,noun,discipline,Classical,everyday,{accept}+{action},
+refusal,refusal,noun,discipline,Classical,everyday,{refuse}+{action},
+division,division,noun,discipline,Classical,everyday,{divide}+{action},
+addition,addition,noun,discipline,Classical,everyday,{add}+{action},
+separation,separation,noun,discipline,Classical,everyday,{separate}+{action},
+union,"union, joining",noun,discipline,Classical,everyday,{unite}+{action},
+meditation,meditation,noun,discipline,Classical,everyday,{meditate}+{action},
+healing,healing,noun,discipline,Classical,everyday,{vo}+{action},
+melding,"melding, a meld",noun,discipline,Classical,everyday,{meld}+{action},
+movement,movement,noun,discipline,Classical,everyday,{go}+{action},
+change-n,a change,noun,discipline,Classical,everyday,{change}+{action},
+use-n,"use, usage",noun,discipline,Classical,everyday,{use}+{action},
+help-n,"help, aid",noun,discipline,Classical,everyday,{help}+{action},
+deception,"deception, a lie",noun,discipline,Classical,everyday,{deceive}+{action},
+punishment,punishment,noun,discipline,Classical,everyday,{punish}+{action},
+theft,theft,noun,discipline,Classical,everyday,{steal}+{action},
+killing,killing,noun,discipline,Classical,everyday,{kill}+{action},
+strength,strength,noun,discipline,Classical,everyday,{strong}+{abstract},
+weakness,weakness,noun,discipline,Classical,everyday,{weak}+{abstract},
+size,size,noun,discipline,Classical,everyday,{big}+{abstract},
+brightness,brightness,noun,discipline,Classical,everyday,{bright}+{abstract},
+goodness,goodness,noun,discipline,Classical,everyday,{good}+{abstract},
+evil,"evil, badness",noun,discipline,Classical,everyday,{bad}+{abstract},
+kindness,"kindness, gentleness",noun,discipline,Classical,everyday,{gentle}+{abstract},
+bravery,bravery,noun,discipline,Classical,everyday,{brave}+{abstract},
+honesty,honesty,noun,discipline,Classical,everyday,{honest}+{abstract},
+patience,patience,noun,discipline,Classical,everyday,{patient}+{abstract},
+foolishness,foolishness,noun,discipline,Classical,everyday,{nirak}+{abstract},
+clarity,clarity,noun,discipline,Classical,everyday,{clear}+{abstract},
+precision,precision,noun,discipline,Classical,everyday,{precise}+{abstract},
+equality,equality,noun,discipline,Classical,everyday,{equal}+{abstract},
+similarity,similarity,noun,discipline,Classical,everyday,{similar}+{abstract},
+importance,importance,noun,discipline,Classical,everyday,{important}+{abstract},
+necessity,necessity,noun,discipline,Classical,everyday,{necessary}+{abstract},
+sacredness,sacredness,noun,discipline,Classical,everyday,{sacred}+{abstract},
+secrecy,secrecy,noun,discipline,Classical,everyday,{secret}+{abstract},
+rarity,rarity,noun,discipline,Classical,everyday,{rare}+{abstract},
+readiness,readiness,noun,discipline,Classical,everyday,{ready}+{abstract},
+coldness,"coldness, cold",noun,discipline,Classical,everyday,{cold}+{abstract},
+warmth,warmth,noun,discipline,Classical,everyday,{warm}+{abstract},
+dryness,dryness,noun,discipline,Classical,everyday,{dry}+{abstract},
+friendship,friendship,noun,discipline,Classical,everyday,{friend}+{abstract},
+enmity,enmity,noun,discipline,Classical,everyday,{enemy}+{abstract},
+childhood,childhood,noun,discipline,Classical,everyday,{wan}+{abstract},
+old-age,old age,noun,discipline,Classical,everyday,{old}+{abstract},
+humanity,"humanity, Human nature",noun,discipline,Classical,everyday,{komihn}+{abstract},"canon komihn ""Human"""
+careful,careful,adjective,quality,Classical,everyday,{attention}+{adjectival},
+careless,careless,adjective,quality,Classical,everyday,{without}-{attention},
+helpful,helpful,adjective,quality,Classical,everyday,{help}+{adjectival},
+harmful,harmful,adjective,quality,Classical,everyday,{injury}+{adjectival},
+peaceful,peaceful,adjective,quality,Classical,everyday,{peace-e}+{adjectival},
+violent,violent,adjective,quality,Classical,everyday,{force}+{adjectival},"LA violentus < vis ""force"""
+honorable,honorable,adjective,quality,Classical,everyday,{honor}+{adjectival},
+shameful,shameful,adjective,quality,Classical,everyday,{shame}+{adjectival},
+fearful,fearful,adjective,quality,Classical,everyday,{fear}+{adjectival},
+joyful,joyful,adjective,quality,Classical,everyday,{joy}+{adjectival},
+sorrowful,sorrowful,adjective,quality,Classical,everyday,{grief}+{adjectival},
+painful,painful,adjective,quality,Classical,everyday,{pain}+{adjectival},
+angry,angry,adjective,quality,Classical,everyday,{anger}+{adjectival},
+meaningful,meaningful,adjective,quality,Classical,everyday,{meaning}+{adjectival},
+lawful,lawful,adjective,quality,Classical,everyday,{law}+{adjectival},
+unlawful,unlawful,adjective,quality,Classical,everyday,{without}-{law},
+known,known,adjective,quality,Classical,everyday,{know}+{participle-ik},canon -ik
+unknown,unknown,adjective,quality,Classical,everyday,{without}-{know}+{participle-ik},
+hidden,hidden,adjective,quality,Classical,everyday,{hide}+{participle-ik},
+broken,broken,adjective,quality,Classical,everyday,{break}+{participle-ik},
+lost,lost,adjective,quality,Classical,everyday,{lose}+{participle-ik},
+chosen,chosen,adjective,quality,Classical,everyday,{choose}+{participle-ik},
+forbidden,forbidden,adjective,quality,Classical,everyday,{forbid}+{participle-ik},
+wounded,wounded,adjective,quality,Classical,everyday,{injure}+{participle-ik},
+bonded,bonded,adjective,quality,Classical,everyday,{koon}+{participle-ik},"canon koon ""bond"""
+melded,melded,adjective,quality,Classical,everyday,{meld}+{participle-ik},
+trained,trained,adjective,quality,Classical,everyday,{teach}+{participle-ik},
+educated,"educated, learned",adjective,quality,Classical,everyday,{learn}+{participle-ik},
+living,"living, alive",adjective,quality,Classical,everyday,{live}+{adjectival},
+visible,visible,adjective,quality,Classical,everyday,{see}+{adjectival},
+invisible,invisible,adjective,quality,Classical,everyday,{without}-{see}+{adjectival},
+golden,golden,adjective,quality,Classical,everyday,{gold}+{adjectival},
+gray,gray,adjective,quality,Classical,everyday,{ash}+{adjectival},ash-coloured; Berlin-Kay stage VII
+orange,orange,adjective,quality,Classical,everyday,{sky}+{adjectival},"culture: Vulcan's sky is orange-red, so orange is 'sky-coloured'"
+warm-v,"warm, heat (verb)",verb,making,Classical,everyday,{warm}-{tor},
+cool-v,cool (verb),verb,making,Classical,everyday,{cool}-{tor},
+dry-v,dry (verb),verb,making,Classical,everyday,{dry}-{tor},
+wet-v,"wet, moisten",verb,making,Classical,everyday,{wet}-{tor},
+empty-v,empty (verb),verb,making,Classical,everyday,{empty}-{tor},
+strengthen,strengthen,verb,making,Classical,everyday,{strong}-{tor},
+weaken,weaken,verb,making,Classical,everyday,{weak}-{tor},
+simplify,simplify,verb,making,Classical,everyday,{simple}-{tor},LA simpli-ficare
+name-v,name (verb),verb,making,Classical,everyday,{name}-{tor},
+record-v,record (verb),verb,making,Classical,everyday,{record}-{tor},
+balance-v,balance (verb),verb,making,Classical,everyday,{balance}-{tor},
+harmonize,harmonize,verb,making,Classical,everyday,{harmony}-{tor},
+poison,poison (verb),verb,making,Classical,everyday,{venom}-{tor},
+sanctify,sanctify,verb,making,Classical,everyday,{sacred}-{tor},LA sancti-ficare
+honor-v,honor (verb),verb,making,Classical,everyday,{honor}-{tor},
+calm-v,"calm, soothe",verb,making,Classical,everyday,{calm}-{tor},
+sadden,sadden,verb,making,Classical,everyday,{grief}+{causative},
+gladden,gladden,verb,making,Classical,everyday,{joy}+{causative},
+shame-v,shame (verb),verb,making,Classical,everyday,{shame}+{causative},
+kiss,"kiss (the Human way, with the mouth)",verb,making,Classical,everyday,{mouth}-{touch},"mouth-touch, beside the Vulcan finger-touch"
+hug,"embrace, hug",verb,making,Classical,everyday,{arm}-{hold},
+stab,stab,verb,making,Classical,everyday,{blade}-{pierce},
+uncover,uncover,verb,making,Classical,everyday,{without}-{cover},
+renew,renew,verb,making,Classical,everyday,{again}-{new}-{tor},LA re-novare
+reconsider,reconsider,verb,making,Classical,everyday,{again}-{consider},
+eleven,eleven,number,number,Classical,everyday,{ten}-{one},"ten-one: regular, as JA juu-ichi"
+twelve,twelve,number,number,Classical,everyday,{ten}-{two},"ten-two: regular, as JA juu-ichi"
+thirteen,thirteen,number,number,Classical,everyday,{ten}-{three},"ten-three: regular, as JA juu-ichi"
+fourteen,fourteen,number,number,Classical,everyday,{ten}-{four},"ten-four: regular, as JA juu-ichi"
+fifteen,fifteen,number,number,Classical,everyday,{ten}-{five},"ten-five: regular, as JA juu-ichi"
+sixteen,sixteen,number,number,Classical,everyday,{ten}-{six},"ten-six: regular, as JA juu-ichi"
+seventeen,seventeen,number,number,Classical,everyday,{ten}-{seven},"ten-seven: regular, as JA juu-ichi"
+eighteen,eighteen,number,number,Classical,everyday,{ten}-{eight},"ten-eight: regular, as JA juu-ichi"
+nineteen,nineteen,number,number,Classical,everyday,{ten}-{nine},"ten-nine: regular, as JA juu-ichi"
+twenty,twenty,number,number,Classical,everyday,{two}-{ten},two-ten: as JA ni-juu
+thirty,thirty,number,number,Classical,everyday,{three}-{ten},three-ten: as JA ni-juu
+forty,forty,number,number,Classical,everyday,{four}-{ten},four-ten: as JA ni-juu
+fifty,fifty,number,number,Classical,everyday,{five}-{ten},five-ten: as JA ni-juu
+sixty,sixty,number,number,Classical,everyday,{six}-{ten},six-ten: as JA ni-juu
+seventy,seventy,number,number,Classical,everyday,{seven}-{ten},seven-ten: as JA ni-juu
+eighty,eighty,number,number,Classical,everyday,{eight}-{ten},eight-ten: as JA ni-juu
+ninety,ninety,number,number,Classical,everyday,{nine}-{ten},nine-ten: as JA ni-juu
+second-o,second (ordinal),adjective,number,Classical,everyday,{two}+{ordinal},
+third-o,third (ordinal),adjective,number,Classical,everyday,{three}+{ordinal},
+fourth-o,fourth (ordinal),adjective,number,Classical,everyday,{four}+{ordinal},
+fifth-o,fifth (ordinal),adjective,number,Classical,everyday,{five}+{ordinal},
+sixth-o,sixth (ordinal),adjective,number,Classical,everyday,{six}+{ordinal},
+seventh-o,seventh (ordinal),adjective,number,Classical,everyday,{seven}+{ordinal},
+eighth-o,eighth (ordinal),adjective,number,Classical,everyday,{eight}+{ordinal},
+ninth-o,ninth (ordinal),adjective,number,Classical,everyday,{nine}+{ordinal},
+tenth,tenth,adjective,number,Classical,everyday,{ten}+{ordinal},
+third-part,a third (fraction),number,number,Classical,everyday,{three}-{part},three-part: JA san-bun
+quarter,quarter (fraction),number,number,Classical,everyday,{four}-{part},four-part
+ability,ability,noun,mind,Classical,everyday,{kup}+{abstract},"canon kup ""can"": LA habilitas, JA nou-ryoku"
+intelligence,intelligence,noun,mind,Classical,everyday,{kash}-{strong}+{abstract},mind-strength
+talent,"talent, gift",noun,mind,Classical,everyday,{birth}-{skill},birth-skill: JA sai-nou
+memorize,memorize,verb,mind,Classical,everyday,{memory}-{tor},
+err,"err, make a mistake",verb,mind,Classical,everyday,{mistake}-{tor},
+reason-v,reason (verb),verb,mind,Classical,everyday,{reason}-{tor},
+sage,sage,noun,kin,Classical,everyday,{wise}-{ve},wise one
+solution,solution,noun,mind,Classical,everyday,{solve}+{action},
+realization,realization,noun,mind,Classical,everyday,{realize}+{action},
+guess-n,a guess,noun,mind,Classical,everyday,{guess}+{action},
+study-n,"study, a course of learning",noun,mind,Classical,everyday,{study}+{action},
+skilled,skilled,adjective,quality,Classical,everyday,{skill}+{adjectival},
+unskilled,unskilled,adjective,quality,Classical,everyday,{without}-{skill},
+intelligent,intelligent,adjective,quality,Classical,everyday,{kash}-{strong},mind-strong
+logically,logically,adverb,function,Classical,everyday,{kthia}+{adjectival}+{adverbial},
+clearly,clearly,adverb,function,Classical,everyday,{clear}+{adverbial},
+quickly,quickly,adverb,function,Classical,everyday,{fast}+{adverbial},
+carefully,carefully,adverb,function,Classical,everyday,{attention}+{adjectival}+{adverbial},
+quietly,quietly,adverb,function,Classical,everyday,{quiet}+{adverbial},
+precisely,precisely,adverb,function,Classical,everyday,{precise}+{adverbial},
+grammar,grammar,noun,speech,Classical,everyday,{word}-{order},word-order
+sentence-g,sentence (in grammar),noun,speech,Classical,everyday,{word}+{collective},a body of words
+alphabet,"alphabet, script",noun,speech,Classical,everyday,{letter}+{collective},canon reshek is its third letter
+lecture,"lecture, discourse",noun,speech,Classical,everyday,{teach}-{speak}+{action},
+praise-n,praise,noun,speech,Classical,everyday,{praise}+{action},
+blame-n,blame,noun,speech,Classical,everyday,{blame}+{action},
+quarrel-n,a quarrel,noun,speech,Classical,everyday,{quarrel}+{action},
+insult,insult,noun,speech,Classical,everyday,{shame}-{word},shame-word
+insult-v,insult (verb),verb,speech,Classical,everyday,{shame}-{word}-{tor},
+flatter,flatter,verb,speech,Classical,everyday,{sweet}-{speak},sweet-speak: JA o-seji
+thank-v,thank (verb),verb,speech,Classical,everyday,{thanks}-{tor},canon chaya + -tor
+rumor,"rumor, gossip",noun,speech,Classical,everyday,{whisper}+{action},a whispering
+silence-v,"silence, hush (verb)",verb,speech,Classical,everyday,{silence}-{tor},
+vocabulary,vocabulary,noun,speech,Classical,everyday,{word}+{collective}+{abstract},
+dictionary,dictionary,noun,speech,Classical,everyday,{word}-{scroll},word-scroll: JA ji-sho
+fluent,fluent,adjective,speech,Classical,everyday,{flow}+{adjectival},flowing: LA fluens
+silent,silent,adjective,quality,Classical,everyday,{silence}+{adjectival},
+spoken,spoken,adjective,speech,Classical,everyday,{speak}+{participle-ik},
+written,written,adjective,speech,Classical,everyday,{write}+{participle-ik},
+unspoken,unspoken,adjective,speech,Classical,everyday,{without}-{speak}+{participle-ik},the Rule of Silences: a'Tha
+status,"status, social standing",noun,rank,Classical,everyday,{rank}+{abstract},
+nobility,"nobility, the great Houses",noun,rank,Classical,everyday,{fal}+{collective},"canon fal ""noble, high"""
+commoner,commoner,noun,rank,Classical,everyday,{common}-{ve},
+inherit,inherit,verb,kin,Classical,everyday,{legacy}-{take},
+inheritance,inheritance,noun,kin,Classical,everyday,{legacy}-{take}+{action},
+marry,"marry, bond",verb,bond,Classical,everyday,{koon}-{tor},"canon koon ""bond"""
+divorce,dissolve a bond,verb,bond,Classical,everyday,{without}-{koon}-{tor},
+adopt,"adopt, foster",verb,kin,Classical,everyday,{ward}-{tor},make one a ward
+raise-child,"raise, bring up (a child)",verb,kin,Classical,everyday,{grow}+{causative},make grow
+funeral,"funeral, death rite",noun,ritual,Classical,everyday,{arek}-{ut},"canon arek ""death"" + ut ""rite"", as koon-ut"
+naming-rite,naming rite,noun,ritual,Classical,everyday,{name}-{ut},"canon ut ""rite"""
+mourning,mourning,noun,ritual,Classical,everyday,{mourn}+{action},
+sharing,sharing,noun,bond,Classical,everyday,{share}+{action},
+payment,payment,noun,rank,Classical,everyday,{pay}+{action},
+exchange,exchange,noun,rank,Classical,everyday,{trade}-{kau},trade joined
+host-v,"host, receive guests",verb,kin,Classical,everyday,{host}-{tor},
+celebration,"celebration, observance",noun,ritual,Classical,everyday,{festival}+{action},
+mend,mend,verb,making,Classical,everyday,{cloth}-{repair},cloth-repair
+lock-v,lock (verb),verb,making,Classical,everyday,{lock}-{tor},
+unlock,unlock,verb,making,Classical,everyday,{without}-{lock}-{tor},
+extinguish,put out (a fire),verb,making,Classical,everyday,{far}-{stop-v},"canon far ""fire"""
+light-v,light (a lamp or fire),verb,making,Classical,everyday,{kar}-{far},"canon kar ""kindle"" + far ""fire"""
+undress,undress,verb,artifact,Classical,everyday,{without}-{dress},
+bathe,bathe,verb,making,Classical,everyday,{self}-{wash},wash oneself
+store-v,"store, put away",verb,making,Classical,everyday,{keep}-{put},
+cooking,"cooking, cuisine",noun,food,Classical,everyday,{cook}+{action},
+housework,"housework, chores",noun,making,Classical,everyday,{house}-{work}+{action},
+clothing,"clothing, garments",noun,artifact,Classical,everyday,{robe}+{collective},
+furniture,furniture,noun,artifact,Classical,everyday,{house}-{thing}+{collective},
+patient-n,patient (a sick person),noun,life,Classical,everyday,{ill}-{ve},"JA kan-ja ""suffering one"""
+symptom,symptom,noun,life,Classical,everyday,{illness}-{signal},illness-sign: JA shou-jou
+diagnose,diagnose,verb,life,Classical,everyday,{illness}-{define},define the illness
+diagnosis,diagnosis,noun,life,Classical,everyday,{illness}-{define}+{action},
+recover,"recover, get well",verb,life,Classical,everyday,{again}-{healthy},
+recovery,recovery,noun,life,Classical,everyday,{again}-{healthy}+{action},
+surgeon,surgeon,noun,life,Classical,everyday,{cut}-{vo}-{ve},cutting healer: JA ge-ka-i
+bandage,bandage,noun,life,Classical,everyday,{wound}-{cloth},wound-cloth
+remedy,remedy,noun,life,Classical,everyday,{vo}-{thing},healing thing
+painless,painless,adjective,life,Classical,everyday,{without}-{pain},
+contagious,contagious,adjective,life,Classical,everyday,{touch}-{illness}+{adjectival},"touch-sick: culture, touch spreads illness and mind alike"
+feverish,feverish,adjective,life,Classical,everyday,{tow}+{adjectival},"canon tow ""fever"""
+bleeding,bleeding,noun,life,Classical,everyday,{bleed}+{action},
+breathing,"breathing, respiration",noun,life,Classical,everyday,{breathe}+{action},
+heartbeat,heartbeat,noun,body,Classical,everyday,{heart}-{strike},heart-strike
+sleepless,sleepless,adjective,life,Classical,everyday,{without}-{sleep},
+weary,"exhausted, spent",adjective,life,Classical,everyday,{tired}-{tired},reduplication for intensity: JA hetoheto
+lecturer,lecturer,noun,kin,Classical,everyday,{lecture}-{ve},
+flatterer,flatterer,noun,kin,Classical,everyday,{flatter}-{ve},
+mocker,mocker,noun,kin,Classical,everyday,{mock}-{ve},
+researcher,researcher,noun,kin,Classical,everyday,{study}-{ve},
+pebble,pebble,noun,nature,Classical,everyday,{stone}-{kam},"canon -kam ""little"" (Saavik-kam)"
+stream,"stream, brook",noun,nature,Classical,everyday,{river}-{kam},"canon -kam ""little"" (Saavik-kam)"
+twig,twig,noun,nature,Classical,everyday,{branch}-{kam},"canon -kam ""little"" (Saavik-kam)"
+seedling,seedling,noun,nature,Classical,everyday,{plant}-{kam},"canon -kam ""little"" (Saavik-kam)"
+cub,"cub, young beast",noun,nature,Classical,everyday,{beast}-{kam},"canon -kam ""little"" (Saavik-kam)"
+chick,"chick, young bird",noun,nature,Classical,everyday,{bird}-{kam},"canon -kam ""little"" (Saavik-kam)"
+cottage,"cottage, small house",noun,nature,Classical,everyday,{house}-{kam},"canon -kam ""little"" (Saavik-kam)"
+hillock,hillock,noun,nature,Classical,everyday,{hill}-{kam},"canon -kam ""little"" (Saavik-kam)"
+pond,pond,noun,nature,Classical,everyday,{lake}-{kam},"canon -kam ""little"" (Saavik-kam)"
+sehlat-cub,sehlat cub,noun,nature,Classical,everyday,{sehlat}-{kam},"canon -kam ""little"" (Saavik-kam)"
+fragment,"fragment, piece",noun,nature,Classical,everyday,{part}-{kam},"canon -kam ""little"" (Saavik-kam)"
+moment-kam,instant,noun,nature,Classical,everyday,{moment}-{kam},"canon -kam ""little"" (Saavik-kam)"
+flame,flame,noun,nature,Classical,everyday,{far}-{kam},"canon -kam ""little"" (Saavik-kam)"
+spark,spark,noun,nature,Classical,everyday,{light}-{kam},"canon -kam ""little"" (Saavik-kam)"
+horizon,horizon,noun,nature,Classical,everyday,{sky}-{border},sky-border: JA chi-hei-sen
+sunrise,sunrise,noun,nature,Classical,everyday,{sun}-{rise}+{action},
+sunset,sunset,noun,nature,Classical,everyday,{sun}-{fall}+{action},
+starlight,starlight,noun,nature,Classical,everyday,{star}-{light},
+daylight,daylight,noun,nature,Classical,everyday,{day}-{light},
+earthquake,earthquake,noun,nature,Classical,everyday,{ground}-{shake},"JA ji-shin ""earth-shake"""
+landslide,"rockfall, landslide",noun,nature,Classical,everyday,{stone}-{fall},
+flash-flood,flash flood,noun,nature,Classical,everyday,{rain}-{river},culture: rain on the desert comes as a sudden river
+dust-devil,"dust devil, whirlwind",noun,nature,Classical,everyday,{wind}-{dust}-{turn},
+sandbar,dune ridge,noun,nature,Classical,everyday,{dune}-{line},
+spin,"spin, whirl",verb,nature,Classical,everyday,{turn}-{turn},"reduplication for repeated action, as JA kuru-kuru"
+shimmer,"shimmer, heat haze",noun,nature,Classical,everyday,{heat}-{shake},heat-shake
+cross,"cross, go across",verb,motion,Classical,everyday,{across}-{go},
+pass-through,pass through,verb,motion,Classical,everyday,{through}-{go},
+descend,"descend, go down",verb,motion,Classical,everyday,{down}-{go},LA de-scendere
+ascend,"ascend, go up",verb,motion,Classical,everyday,{up}-{go},LA a-scendere
+retreat,"retreat, withdraw",verb,motion,Classical,everyday,{away}-{go},
+advance,"advance, go forward",verb,motion,Classical,everyday,{front}-{go},
+drag,"drag, haul",verb,motion,Classical,everyday,{ground}-{pull},
+wander,"wander, roam",verb,motion,Classical,everyday,{without}-{path}-{walk},walking without a path
+surround,surround,verb,motion,Classical,everyday,{around}-{stand},
+gather-in,"collect, bring together",verb,motion,Classical,everyday,{kau}-{bring},
+departure-hour,time of departure,noun,motion,Classical,everyday,{depart}-{hour},
+flight,flight (of a ship or bird),noun,motion,Classical,everyday,{fly}+{action},
+chase-n,pursuit,noun,motion,Classical,everyday,{chase}+{action},
+escape-route,"way out, exit",noun,motion,Classical,everyday,{outside}-{path},
+entrance,"entrance, way in",noun,motion,Classical,everyday,{in}-{path},
+crossing,"crossing, ford",noun,motion,Classical,everyday,{across}-{go}+{place-suf},
+rider,rider,noun,motion,Classical,everyday,{ride}-{ve},
+fugitive,fugitive,noun,motion,Classical,everyday,{flee}-{ve},
+hunted,"hunted, pursued",adjective,motion,Classical,everyday,{chase}+{participle-ik},
+buy,buy,verb,rank,Classical,everyday,{price}-{take},"take for a price; LA emere ""take"""
+sell,sell,verb,rank,Classical,everyday,{price}-{give},"give for a price; LA ven-dere ""give for sale"""
+seller,"seller, vendor",noun,rank,Classical,everyday,{price}-{give}-{ve},
+buyer,buyer,noun,rank,Classical,everyday,{price}-{take}-{ve},
+cheap,cheap,adjective,rank,Classical,everyday,{price}-{low},JA yasui
+expensive,expensive,adjective,rank,Classical,everyday,{price}-{high},"JA takai ""high"""
+treasure,treasure,noun,rank,Classical,everyday,{gold}+{collective},
+loan,loan,noun,rank,Classical,everyday,{lend}+{action},
+owe,owe,verb,rank,Classical,everyday,{debt}-{have},have a debt
+thief,thief,noun,rank,Classical,everyday,{steal}-{ve},
+profit,profit,noun,rank,Classical,everyday,{trade}-{gain},
+loss,loss,noun,rank,Classical,everyday,{lack}+{action},a lacking
+ownership,ownership,noun,rank,Classical,everyday,{have}-{ve}+{abstract},
+possession,"a possession, belonging",noun,rank,Classical,everyday,{have}-{thing},
+poor-person,pauper,noun,rank,Classical,everyday,{poor}-{ve},
+wealthy-person,wealthy person,noun,rank,Classical,everyday,{rich}-{ve},
+free-of-charge,"costing nothing, free of charge",adjective,rank,Classical,everyday,{without}-{price},
+payment-due,"bill, amount owed",noun,rank,Classical,everyday,{debt}-{number},
+hot-season,the hot season,noun,time,Classical,everyday,{heat}-{pon},"culture: a desert year turns on heat and storms, not on four temperate seasons"
+cold-season,the cold season,noun,time,Classical,everyday,{cold}-{pon},
+storm-season,the storm season,noun,time,Classical,everyday,{storm}-{pon},
+bloom-season,the bloom season (the brief rains),noun,time,Classical,everyday,{flower}-{pon},
+present-time,the present,noun,time,Classical,everyday,{now}+{abstract},
+eternity,eternity,noun,time,Classical,everyday,{always}+{abstract},
+daily,"daily, each day",adverb,time,Classical,everyday,{each}-{day},JA mai-nichi
+yearly,yearly,adverb,time,Classical,everyday,{each}-{year},
+nightly,nightly,adverb,time,Classical,everyday,{each}-{night},
+hourly,hourly,adverb,time,Classical,everyday,{each}-{hour},
+daytime,daytime,noun,time,Classical,everyday,{day}-{pon},
+nighttime,nighttime,noun,time,Classical,everyday,{night}-{pon},
+delay,delay (verb),verb,time,Classical,everyday,{late}-{tor},make late
+delay-n,a delay,noun,time,Classical,everyday,{late}-{tor}+{action},
+anniversary,anniversary,noun,time,Classical,everyday,{year}-{again}-{come},the year come again
+birthday,day of birth,noun,time,Classical,everyday,{birth}-{day},
+ancient-era,antiquity,noun,time,Classical,everyday,{old}-{era},
+new-era,a new age,noun,time,Classical,everyday,{new}-{era},
+timeless,timeless,adjective,time,Classical,everyday,{without}-{pon},
+lifetime,lifetime,noun,time,Classical,everyday,{life}-{pon},
+generation-span,lifespan,noun,time,Classical,everyday,{life}-{length},
+frequent,frequent,adjective,time,Classical,everyday,{often}+{adjectival},
+sudden-ly,suddenly,adverb,time,Classical,everyday,{sudden}+{adverbial},
+eventually,"in the end, eventually",adverb,time,Classical,everyday,{end}-{in},
+top,"top, summit",noun,place,Classical,everyday,{high}-{part},
+bottom,bottom,noun,place,Classical,everyday,{low}-{part},
+circle,circle,noun,place,Classical,everyday,{round}-{line},
+gap,"gap, opening",noun,place,Classical,everyday,{between}-{empty},
+center-v,center (verb),verb,place,Classical,everyday,{middle}-{put},
+central-part,"core, heart of a thing",noun,place,Classical,everyday,{middle}-{part},
+distance-far,the far distance,noun,place,Classical,everyday,{distant}-{place},
+nearness,"nearness, proximity",noun,place,Classical,everyday,{near}+{abstract},
+area,"area, expanse",noun,place,Classical,everyday,{surface}+{abstract},
+direction,direction,noun,place,Classical,everyday,{course}-{line},
+position,"position, place held",noun,place,Classical,everyday,{stand}+{place-suf},
+border-line,boundary line,noun,place,Classical,everyday,{border}-{line},
+upward,upward,adverb,place,Classical,everyday,{up}+{toward},
+downward,downward,adverb,place,Classical,everyday,{down}+{toward},
+homeward,homeward,adverb,place,Classical,everyday,{home}+{toward},"canon suk + -fi, as sukfi"
+crowd,crowd,noun,number,Classical,everyday,{people-n}+{collective},
+band-group,"company, troupe",noun,number,Classical,everyday,{kau}+{collective},
+plenty,"plenty, abundance",noun,number,Classical,everyday,{enough}-{more},
+single,"single, only one",adjective,number,Classical,everyday,{one}+{adjectival},
+double-v,double (verb),verb,number,Classical,everyday,{two}-{tor},
+triple,threefold,adjective,number,Classical,everyday,{three}+{adjectival},
+countless,countless,adjective,number,Classical,everyday,{without}-{number},"JA mu-suu ""without number"""
+majority,"majority, the greater part",noun,number,Classical,everyday,{more}-{part},
+minority,"minority, the lesser part",noun,number,Classical,everyday,{less}-{part},
+trial,trial (in law),noun,law,Classical,everyday,{law}-{kas},"canon kas ""ordeal, trial"", as in kas-wan"
+verdict,verdict,noun,law,Classical,everyday,{justice}-{word},"LA vere-dictum ""true word"""
+execute,execute (in law),verb,law,Classical,everyday,{law}-{kill},
+appeal,appeal (in law),verb,law,Classical,everyday,{again}-{ask},LA ap-pellare
+advocate,"advocate, lawyer",noun,law,Classical,everyday,{law}-{speak}-{ve},law-speaker
+defendant,the accused,noun,law,Classical,everyday,{accuse}+{participle-ik}-{ve},the accused one
+accuser,accuser,noun,law,Classical,everyday,{accuse}-{ve},
+injured-party,the injured party,noun,law,Classical,everyday,{injure}+{participle-ik}-{ve},
+fine-penalty,"fine, penalty payment",noun,law,Classical,everyday,{punish}-{price},
+oath-breaker,oath-breaker,noun,law,Classical,everyday,{oath}-{break}-{ve},
+spy,spy,noun,law,Classical,everyday,{secret}-{see}-{ve},secret-seeing one
+legal-right,rights (as a body),noun,law,Classical,everyday,{right-n}+{collective},
+lawgiver,lawgiver,noun,law,Classical,everyday,{law}-{give}-{ve},
+constitution,"founding law, constitution",noun,law,Classical,everyday,{start}-{law},founding law
+obey-v,"obey, abide by",verb,law,Classical,everyday,{law}-{follow},follow the law
+disobey,disobey,verb,law,Classical,everyday,{without}-{heed},
+evidence-v,prove,verb,law,Classical,everyday,{proof}-{tor},
+legality,legality,noun,law,Classical,everyday,{law}+{adjectival}+{abstract},
+armor,armor,noun,conflict,Classical,everyday,{chest}-{shield},chest-shield
+fortress,fortress,noun,conflict,Classical,everyday,{guard}+{place-suf},
+strategy,strategy,noun,conflict,Classical,everyday,{war}-{way},war-way: JA sen-ryaku
+tactic,tactic,noun,conflict,Classical,everyday,{fight}-{way},
+general,general (commander of an army),noun,conflict,Classical,everyday,{army}-{head},army-head
+admiral,admiral,noun,conflict,Classical,everyday,{fleet}-{head},fleet-head
+scout,scout,noun,conflict,Classical,everyday,{front}-{see}-{ve},ahead-seeing one
+ambush,ambush,noun,conflict,Classical,everyday,{hide}+{participle-ik}-{attack},hidden attack
+archer,archer,noun,conflict,Classical,everyday,{bow-w}-{ve},
+spearman,spear-bearer,noun,conflict,Classical,everyday,{spear}-{ve},
+energy-weapon,"energy weapon, phaser",noun,conflict,Classical,everyday,{energy}-{weapon},
+warfare,warfare,noun,conflict,Classical,everyday,{war}+{abstract},
+warlike,warlike,adjective,conflict,Classical,everyday,{war}+{adjectival},the pre-Surak temper
+peacemaker,peacemaker,noun,conflict,Classical,everyday,{peace-e}-{tor}-{ve},Surak's emissaries
+disarm,disarm,verb,conflict,Classical,everyday,{without}-{weapon}-{tor},
+captive,captive,noun,conflict,Classical,everyday,{take}+{participle-ik}-{ve},taken one
+raid-v,raid (verb),verb,conflict,Classical,everyday,{raid}-{tor},
+battlefield,battlefield,noun,conflict,Classical,everyday,{battle}+{place-suf},
+priest,"priest, rite-keeper",noun,ritual,Classical,everyday,{ut}-{ve},"canon ut ""rite"""
+ascetic,"ascetic, monk",noun,ritual,Classical,everyday,{silence}-{ve},one of silence
+monastery,"monastery, retreat",noun,ritual,Classical,everyday,{silence}+{place-suf},as Gol
+pilgrimage,pilgrimage,noun,ritual,Classical,everyday,{pilgrim}+{action},
+vision,vision,noun,ritual,Classical,everyday,{see}+{action},
+prophecy,prophecy,noun,ritual,Classical,everyday,{before}-{see}+{action},
+purity,purity,noun,ritual,Classical,everyday,{clean}+{abstract},
+purify,purify,verb,ritual,Classical,everyday,{clean}+{abstract}-{tor},make pure
+awakening,awakening,noun,ritual,Classical,everyday,{wake}+{action},
+time-of-awakening,the Time of Awakening (Surak's era),noun,ritual,Classical,everyday,{wake}+{action}-{pon},canon era name
+hall-ancient-thought,the Hall of Ancient Thought,noun,ritual,Classical,everyday,{hall} t'+{ancient}-{nap},"canon: Mount Seleya, where katras are kept; canon nap ""thought"""
+mystic,mystic,noun,ritual,Classical,everyday,{mystery}-{ve},
+heretic,heretic,noun,ritual,Classical,everyday,{heresy}-{ve},
+believer,believer,noun,ritual,Classical,everyday,{believe}-{ve},
+faithful,faithful,adjective,ritual,Classical,everyday,{faith}+{adjectival},
+divine,divine,adjective,ritual,Classical,everyday,{deity}+{adjectival},
+afterlife,afterlife,noun,ritual,Classical,everyday,{after}-{life},
+immortal,immortal,adjective,ritual,Classical,everyday,{without}-{death}+{adjectival},
+blessing,blessing,noun,ritual,Classical,everyday,{good}-{word},good-word: LA bene-dictio
+curse-n,a curse,noun,ritual,Classical,everyday,{curse-v}+{action},
+prayer,prayer,noun,ritual,Classical,everyday,{pray}+{action},
+fasting,fasting,noun,ritual,Classical,everyday,{without}-{eat}+{action},
+transgression,"transgression, sin",noun,ritual,Classical,everyday,{violate}+{action},
+katra-keeper,katra-bearer,noun,ritual,Classical,everyday,{katra}-{keep}-{ve},canon katra
+meditative,meditative,adjective,ritual,Classical,everyday,{meditate}+{adjectival},
+starfleet,Starfleet,noun,making,Standard,everyday,{star}-{fleet},"calque ""star-fleet"""
+starbase,starbase,noun,making,Standard,everyday,{star}-{station},
+earth,"Earth, the Human world",noun,making,Standard,everyday,{komihn}-{world},"Human-world, on the loan komihn"
+alien,"alien, offworlder",noun,making,Standard,everyday,{other}-{world}-{ve},other-world one
+first-contact,first contact,noun,making,Standard,everyday,{first}-{meeting},
+replicator,replicator,noun,making,Standard,everyday,{again}-{create}+{instrument},recreating instrument
+holodeck,holodeck,noun,making,Standard,everyday,{false}-{world}+{place-suf},false-world place
+database,database,noun,making,Standard,everyday,{record}+{collective},
+network,network,noun,making,Standard,everyday,{line}+{collective},
+frequency,frequency (of a signal),noun,making,Standard,everyday,{wave}-{number},
+channel,"channel, comm line",noun,making,Standard,everyday,{signal}-{path},
+encrypt,encrypt,verb,making,Standard,everyday,{secret}-{word}-{tor},
+decrypt,decrypt,verb,making,Standard,everyday,{without}-{secret}-{tor},
+android,"android, robot",noun,making,Standard,everyday,{machine}-{person},machine-person
+artificial,artificial,adjective,making,Standard,everyday,{create}+{participle-ik},made
+warp-drive,warp drive,noun,making,Standard,everyday,{warp-field}-{engine},
+star-system,star system,noun,making,Standard,everyday,{star}+{collective},
+diplomacy,diplomacy,noun,making,Standard,everyday,{treaty}-{ve}+{abstract},
+science-officer,science officer,noun,making,Standard,everyday,{inquiry}-{officer},
+ship-captain,starship captain,noun,making,Standard,everyday,{ship}-{head},
+crewman,crewmember,noun,making,Standard,everyday,{crew}-{ve},
+beam,beam (transport),verb,making,Standard,everyday,{transporter}-{tor},
+interstellar,interstellar,adjective,making,Standard,everyday,{between}-{star}+{adjectival},LA inter stellas
+offworld,offworld,adverb,making,Standard,everyday,{outside}-{world},
+homeworld,homeworld,noun,making,Standard,everyday,{home}-{world},
+medicine-field,"medical science, the science of healing",noun,discipline,Unified,everyday,{inquiry} t'+{vo},inquiry of healing
+engineering,engineering,noun,discipline,Unified,everyday,{inquiry} t'+{machine},canon pattern mik t'X
+psychology,psychology,noun,discipline,Unified,everyday,{inquiry} t'+{consciousness},canon pattern mik t'X
+linguistics,linguistics,noun,discipline,Unified,everyday,{inquiry} t'+{language},inquiry of language: this project
+geology,geology,noun,discipline,Unified,everyday,{inquiry} t'+{stone},canon pattern mik t'X
+xenobiology,xenobiology,noun,discipline,Unified,everyday,{inquiry} t'+{other}-{life},canon pattern mik t'X
+anthropology,anthropology,noun,discipline,Unified,everyday,{inquiry} t'+{people-n},canon pattern mik t'X
+archaeology,archaeology,noun,discipline,Unified,everyday,{inquiry} t'+{ruin},canon pattern mik t'X
+sociology,sociology,noun,discipline,Unified,everyday,{inquiry} t'+{society},canon pattern mik t'X
+economics,economics,noun,discipline,Unified,everyday,{inquiry} t'+{trade},canon pattern mik t'X
+agriculture,agriculture,noun,discipline,Unified,everyday,{inquiry} t'+{soil},canon pattern mik t'X
+botany,botany,noun,discipline,Unified,everyday,{inquiry} t'+{plant},canon pattern mik t'X
+zoology,zoology,noun,discipline,Unified,everyday,{inquiry} t'+{beast},canon pattern mik t'X
+cosmology,cosmology,noun,discipline,Unified,everyday,{inquiry} t'+{void},canon pattern mik t'X
+ethics,ethics,noun,discipline,Unified,everyday,{inquiry} t'+{right-n},canon pattern mik t'X
+vokau-act,the act of remembering,noun,mind,Classical,everyday,{vokau}+{action},regular action noun
+vokau-er,one who remembers,noun,kin,Classical,everyday,{vokau}-{ve},regular person noun with canon ve
+fal-ness,nobleness,noun,discipline,Classical,everyday,{fal}+{abstract},regular quality noun
+pan-act,the act of rejoining,noun,mind,Classical,everyday,{pan}+{action},regular action noun
+pan-er,one who rejoins,noun,kin,Classical,everyday,{pan}-{ve},regular person noun with canon ve
+buhfik-ness,perfectness,noun,discipline,Classical,everyday,{buhfik}+{abstract},regular quality noun
+gishen-ness,expectedness,noun,discipline,Classical,everyday,{gishen}+{abstract},regular quality noun
+kar-act,the act of kindling,noun,fire,Classical,everyday,{kar}+{action},regular action noun
+hear-act,the act of hearing,noun,perception,Classical,everyday,{hear}+{action},regular action noun
+speak-act,the act of speaking,noun,speech,Classical,everyday,{speak}+{action},regular action noun
+ask-er,one who asks,noun,kin,Classical,everyday,{ask}-{ve},regular person noun with canon ve
+answer-er,one who answers,noun,kin,Classical,everyday,{answer}-{ve},regular person noun with canon ve
+come-act,the act of coming,noun,motion,Classical,everyday,{come}+{action},regular action noun
+walk-act,the act of walking,noun,motion,Classical,everyday,{walk}+{action},regular action noun
+run-act,the act of running,noun,motion,Classical,everyday,{run}+{action},regular action noun
+stand-act,the act of standing,noun,motion,Classical,everyday,{stand}+{action},regular action noun
+sit-act,the act of sitting,noun,motion,Classical,everyday,{sit}+{action},regular action noun
+sleep-act,the act of sleeping,noun,life,Classical,everyday,{sleep}+{action},regular action noun
+drink-act,the act of drinking,noun,food,Classical,everyday,{drink}+{action},regular action noun
+drink-er,one who drinks,noun,kin,Classical,everyday,{drink}-{ve},regular person noun with canon ve
+live-act,the act of living,noun,life,Classical,everyday,{live}+{action},regular action noun
+die-act,the act of dying,noun,death,Classical,everyday,{die}+{action},regular action noun
+fight-act,the act of fighting,noun,conflict,Classical,everyday,{fight}+{action},regular action noun
+burn-act,the act of burning,noun,fire,Classical,everyday,{burn}+{action},regular action noun
+hold-act,the act of holding,noun,making,Classical,everyday,{hold}+{action},regular action noun
+hold-er,one who holds,noun,kin,Classical,everyday,{hold}-{ve},regular person noun with canon ve
+find-act,the act of finding,noun,perception,Classical,everyday,{find}+{action},regular action noun
+search-act,the act of searching,noun,perception,Classical,everyday,{search}+{action},regular action noun
+forget-act,the act of forgetting,noun,mind,Classical,everyday,{forget}+{action},regular action noun
+forget-er,one who forgets,noun,kin,Classical,everyday,{forget}-{ve},regular person noun with canon ve
+trust-act,the act of trusting,noun,bond,Classical,everyday,{trust}+{action},regular action noun
+trust-er,one who trusts,noun,kin,Classical,everyday,{trust}-{ve},regular person noun with canon ve
+meditate-er,one who meditates,noun,kin,Classical,everyday,{meditate}-{ve},regular person noun with canon ve
+small-ness,smallness,noun,discipline,Classical,everyday,{small}+{abstract},regular quality noun
+short-ness,shortness,noun,discipline,Classical,everyday,{short}+{abstract},regular quality noun
+hot-ness,hotness,noun,discipline,Classical,everyday,{hot}+{abstract},regular quality noun
+new-ness,newness,noun,discipline,Classical,everyday,{new}+{abstract},regular quality noun
+false-ness,falseness,noun,discipline,Classical,everyday,{false}+{abstract},regular quality noun
+whole-ness,wholeness,noun,discipline,Classical,everyday,{whole}+{abstract},regular quality noun
+red-ness,redness,noun,discipline,Classical,everyday,{red}+{abstract},regular quality noun
+white-ness,whiteness,noun,discipline,Classical,everyday,{white}+{abstract},regular quality noun
+black-ness,blackness,noun,discipline,Classical,everyday,{black}+{abstract},regular quality noun
+bring-act,the act of bringing,noun,motion,Classical,everyday,{bring}+{action},regular action noun
+rest-act,the act of resting,noun,life,Classical,everyday,{rest}+{action},regular action noun
+dead-ness,deadness,noun,discipline,Classical,everyday,{dead}+{abstract},regular quality noun
+wait-act,the act of waiting,noun,time,Classical,everyday,{wait}+{action},regular action noun
+same-ness,sameness,noun,discipline,Classical,everyday,{same}+{abstract},regular quality noun
+eat-er,one who eats,noun,kin,Classical,everyday,{eat}-{ve},regular person noun with canon ve
+measure-er,one who measures,noun,kin,Classical,everyday,{measure}-{ve},regular person noun with canon ve
+calculate-act,the act of calculating,noun,discipline,Classical,everyday,{calculate}+{action},regular action noun
+calculate-er,one who calculates,noun,kin,Classical,everyday,{calculate}-{ve},regular person noun with canon ve
+analyze-act,the act of analyzing,noun,discipline,Classical,everyday,{analyze}+{action},regular action noun
+analyze-er,one who analyzes,noun,kin,Classical,everyday,{analyze}-{ve},regular person noun with canon ve
+conclude-act,the act of concluding,noun,discipline,Classical,everyday,{conclude}+{action},regular action noun
+conclude-er,one who concludes,noun,kin,Classical,everyday,{conclude}-{ve},regular person noun with canon ve
+fascinating-ness,fascinatingness,noun,discipline,Classical,everyday,{fascinating}+{abstract},regular quality noun
+transmit-act,the act of transmitting,noun,speech,Classical,everyday,{transmit}+{action},regular action noun
+transmit-er,one who transmits,noun,kin,Classical,everyday,{transmit}-{ve},regular person noun with canon ve
+receive-act,the act of receiving,noun,making,Classical,everyday,{receive}+{action},regular action noun
+receive-er,one who receives,noun,kin,Classical,everyday,{receive}-{ve},regular person noun with canon ve
+command-v-er,one who commands,noun,kin,Classical,everyday,{command-v}-{ve},regular person noun with canon ve
+report-act,the act of reporting,noun,speech,Classical,everyday,{report}+{action},regular action noun
+report-er,one who reports,noun,kin,Classical,everyday,{report}-{ve},regular person noun with canon ve
+repair-act,the act of repairing,noun,making,Classical,everyday,{repair}+{action},regular action noun
+understand-act,the act of understanding,noun,mind,Classical,everyday,{understand}+{action},regular action noun
+understand-er,one who understands,noun,kin,Classical,everyday,{understand}-{ve},regular person noun with canon ve
+agree-er,one who agrees,noun,kin,Classical,everyday,{agree}-{ve},regular person noun with canon ve
+choose-er,one who chooses,noun,kin,Classical,everyday,{choose}-{ve},regular person noun with canon ve
+smell-act,the act of smelling,noun,perception,Classical,everyday,{smell}+{action},regular action noun
+taste-act,the act of tasting,noun,perception,Classical,everyday,{taste}+{action},regular action noun
+love-act,the act of loving,noun,bond,Classical,everyday,{love}+{action},regular action noun
+love-er,one who loves,noun,kin,Classical,everyday,{love}-{ve},regular person noun with canon ve
+open-act,the act of opening,noun,making,Classical,everyday,{open}+{action},regular action noun
+open-er,one who opens,noun,kin,Classical,everyday,{open}-{ve},regular person noun with canon ve
+close-act,the act of closing,noun,making,Classical,everyday,{close}+{action},regular action noun
+close-er,one who closes,noun,kin,Classical,everyday,{close}-{ve},regular person noun with canon ve
+cut-act,the act of cutting,noun,making,Classical,everyday,{cut}+{action},regular action noun
+cut-er,one who cuts,noun,kin,Classical,everyday,{cut}-{ve},regular person noun with canon ve
+wash-act,the act of washing,noun,making,Classical,everyday,{wash}+{action},regular action noun
+wash-er,one who washes,noun,kin,Classical,everyday,{wash}-{ve},regular person noun with canon ve
+write-act,the act of writing,noun,speech,Classical,everyday,{write}+{action},regular action noun
+read-act,the act of reading,noun,speech,Classical,everyday,{read}+{action},regular action noun
+read-er,one who reads,noun,kin,Classical,everyday,{read}-{ve},regular person noun with canon ve
+sing-act,the act of singing,noun,speech,Classical,everyday,{sing}+{action},regular action noun
+weep-act,the act of weeping,noun,emotion,Classical,everyday,{weep}+{action},regular action noun
+push-act,the act of pushing,noun,motion,Classical,everyday,{push}+{action},regular action noun
+pull-act,the act of pulling,noun,motion,Classical,everyday,{pull}+{action},regular action noun
+throw-act,the act of throwing,noun,motion,Classical,everyday,{throw}+{action},regular action noun
+laugh-act,the act of laughing,noun,emotion,Classical,everyday,{laugh}+{action},regular action noun
+unbidden-ness,unbiddenness,noun,discipline,Classical,everyday,{unbidden}+{abstract},regular quality noun
+grant-leave-act,the act of granting leave,noun,mind,Classical,everyday,{grant-leave}+{action},regular action noun
+grant-leave-er,one who grants leave,noun,kin,Classical,everyday,{grant-leave}-{ve},regular person noun with canon ve
+guard-act,the act of guarding,noun,conflict,Classical,everyday,{guard}+{action},regular action noun
+caress-act,the act of caressing,noun,bond,Classical,everyday,{caress}+{action},regular action noun
+caress-er,one who caresses,noun,kin,Classical,everyday,{caress}-{ve},regular person noun with canon ve
+initiate-v-act,the act of initiating,noun,ritual,Classical,everyday,{initiate-v}+{action},regular action noun
+initiate-v-er,one who initiates,noun,kin,Classical,everyday,{initiate-v}-{ve},regular person noun with canon ve
+pray-er,one who prays,noun,kin,Classical,everyday,{pray}-{ve},regular person noun with canon ve
+renounce-act,the act of renouncing,noun,discipline,Classical,everyday,{renounce}+{action},regular action noun
+renounce-er,one who renounces,noun,kin,Classical,everyday,{renounce}-{ve},regular person noun with canon ve
+rage-act,the act of raging,noun,emotion,Classical,everyday,{rage}+{action},regular action noun
+rejoice-act,the act of rejoicing,noun,emotion,Classical,everyday,{rejoice}+{action},regular action noun
+dread-act,the act of dreading,noun,emotion,Classical,everyday,{dread}+{action},regular action noun
+yearn-act,the act of yearning,noun,emotion,Classical,everyday,{yearn}+{action},regular action noun
+adore-act,the act of adoring,noun,emotion,Classical,everyday,{adore}+{action},regular action noun
+despise-act,the act of despising,noun,emotion,Classical,everyday,{despise}+{action},regular action noun
+boast-act,the act of boasting,noun,speech,Classical,everyday,{boast}+{action},regular action noun
+boast-er,one who boasts,noun,kin,Classical,everyday,{boast}-{ve},regular person noun with canon ve
+curse-v-er,one who curses,noun,kin,Classical,everyday,{curse-v}-{ve},regular person noun with canon ve
+swear-act,the act of swearing,noun,speech,Classical,everyday,{swear}+{action},regular action noun
+swear-er,one who swears,noun,kin,Classical,everyday,{swear}-{ve},regular person noun with canon ve
+taunt-act,the act of taunting,noun,emotion,Classical,everyday,{taunt}+{action},regular action noun
+elicit-act,the act of eliciting,noun,emotion,Classical,everyday,{elicit}+{action},regular action noun
+forgive-act,the act of forgiving,noun,emotion,Classical,everyday,{forgive}+{action},regular action noun
+set-aside-act,the act of setting aside,noun,discipline,Classical,everyday,{set-aside}+{action},regular action noun
+set-aside-er,one who sets aside,noun,kin,Classical,everyday,{set-aside}-{ve},regular person noun with canon ve
+acknowledge-act,the act of acknowledging,noun,discipline,Classical,everyday,{acknowledge}+{action},regular action noun
+acknowledge-er,one who acknowledges,noun,kin,Classical,everyday,{acknowledge}-{ve},regular person noun with canon ve
+suppress-act,the act of suppressing,noun,discipline,Classical,everyday,{suppress}+{action},regular action noun
+suppress-er,one who suppresses,noun,kin,Classical,everyday,{suppress}-{ve},regular person noun with canon ve
+violate-er,one who violates,noun,kin,Classical,everyday,{violate}-{ve},regular person noun with canon ve
+punish-er,one who punishes,noun,kin,Classical,everyday,{punish}-{ve},regular person noun with canon ve
+frighten-act,the act of frightening,noun,emotion,Classical,everyday,{frighten}+{action},regular action noun
+enrage-act,the act of enraging,noun,emotion,Classical,everyday,{enrage}+{action},regular action noun
+enough-ness,enoughness,noun,discipline,Classical,everyday,{enough}+{abstract},regular quality noun
+apologize-act,the act of apologizing,noun,speech,Classical,everyday,{apologize}+{action},regular action noun
+apologize-er,one who apologizes,noun,kin,Classical,everyday,{apologize}-{ve},regular person noun with canon ve
+say-er,one who says,noun,kin,Classical,everyday,{say}-{ve},regular person noun with canon ve
+tell-act,the act of telling,noun,speech,Classical,everyday,{tell}+{action},regular action noun
+tell-er,one who tells,noun,kin,Classical,everyday,{tell}-{ve},regular person noun with canon ve
+get-act,the act of getting,noun,making,Classical,everyday,{get}+{action},regular action noun
+get-er,one who gets,noun,kin,Classical,everyday,{get}-{ve},regular person noun with canon ve
+put-act,the act of putting,noun,making,Classical,everyday,{put}+{action},regular action noun
+put-er,one who puts,noun,kin,Classical,everyday,{put}-{ve},regular person noun with canon ve
+use-er,one who uses,noun,kin,Classical,everyday,{use}-{ve},regular person noun with canon ve
+show-act,the act of showing,noun,making,Classical,everyday,{show}+{action},regular action noun
+show-er,one who shows,noun,kin,Classical,everyday,{show}-{ve},regular person noun with canon ve
+call-act,the act of calling,noun,speech,Classical,everyday,{call}+{action},regular action noun
+call-er,one who calls,noun,kin,Classical,everyday,{call}-{ve},regular person noun with canon ve
+meet-er,one who meets,noun,kin,Classical,everyday,{meet}-{ve},regular person noun with canon ve
+enter-act,the act of entering,noun,motion,Classical,everyday,{enter}+{action},regular action noun
+return-act,the act of returning,noun,motion,Classical,everyday,{return}+{action},regular action noun
+follow-act,the act of following,noun,motion,Classical,everyday,{follow}+{action},regular action noun
+lead-act,the act of leading,noun,motion,Classical,everyday,{lead}+{action},regular action noun
+try-er,one who tries,noun,kin,Classical,everyday,{try}-{ve},regular person noun with canon ve
+finish-act,the act of finishing,noun,making,Classical,everyday,{finish}+{action},regular action noun
+finish-er,one who finishes,noun,kin,Classical,everyday,{finish}-{ve},regular person noun with canon ve
+continue-act,the act of continuing,noun,making,Classical,everyday,{continue}+{action},regular action noun
+continue-er,one who continues,noun,kin,Classical,everyday,{continue}-{ve},regular person noun with canon ve
+stop-v-act,the act of stopping,noun,making,Classical,everyday,{stop-v}+{action},regular action noun
+stop-v-er,one who stops,noun,kin,Classical,everyday,{stop-v}-{ve},regular person noun with canon ve
+allow-er,one who allows,noun,kin,Classical,everyday,{allow}-{ve},regular person noun with canon ve
+decide-er,one who decides,noun,kin,Classical,everyday,{decide}-{ve},regular person noun with canon ve
+change-er,one who changes,noun,kin,Classical,everyday,{change}-{ve},regular person noun with canon ve
+keep-act,the act of keeping,noun,making,Classical,everyday,{keep}+{action},regular action noun
+lose-er,one who loses,noun,kin,Classical,everyday,{lose}-{ve},regular person noun with canon ve
+win-er,one who wins,noun,kin,Classical,everyday,{win}-{ve},regular person noun with canon ve
+play-act,the act of playing,noun,making,Classical,everyday,{play}+{action},regular action noun
+pay-er,one who pays,noun,kin,Classical,everyday,{pay}-{ve},regular person noun with canon ve
+wear-act,the act of wearing,noun,making,Classical,everyday,{wear}+{action},regular action noun
+wear-er,one who wears,noun,kin,Classical,everyday,{wear}-{ve},regular person noun with canon ve
+listen-act,the act of listening,noun,making,Classical,everyday,{listen}+{action},regular action noun
+look-act,the act of looking,noun,making,Classical,everyday,{look}+{action},regular action noun
+look-er,one who looks,noun,kin,Classical,everyday,{look}-{ve},regular person noun with canon ve
+wake-er,one who wakes,noun,kin,Classical,everyday,{wake}-{ve},regular person noun with canon ve
+send-act,the act of sending,noun,making,Classical,everyday,{send}+{action},regular action noun
+send-er,one who sends,noun,kin,Classical,everyday,{send}-{ve},regular person noun with canon ve
+invite-er,one who invites,noun,kin,Classical,everyday,{invite}-{ve},regular person noun with canon ve
+greet-er,one who greets,noun,kin,Classical,everyday,{greet}-{ve},regular person noun with canon ve
+easy-ness,easiness,noun,discipline,Classical,everyday,{easy}+{abstract},regular quality noun
+difficult-ness,difficultness,noun,discipline,Classical,everyday,{difficult}+{abstract},regular quality noun
+correct-ness,correctness,noun,discipline,Classical,everyday,{correct}+{abstract},regular quality noun
+wrong-ness,wrongness,noun,discipline,Classical,everyday,{wrong}+{abstract},regular quality noun
+busy-ness,busyness,noun,discipline,Classical,everyday,{busy}+{abstract},regular quality noun
+tired-ness,tiredness,noun,discipline,Classical,everyday,{tired}+{abstract},regular quality noun
+dirty-ness,dirtiness,noun,discipline,Classical,everyday,{dirty}+{abstract},regular quality noun
+full-ness,fullness,noun,discipline,Classical,everyday,{full}+{abstract},regular quality noun
+fast-ness,fastness,noun,discipline,Classical,everyday,{fast}+{abstract},regular quality noun
+slow-ness,slowness,noun,discipline,Classical,everyday,{slow}+{abstract},regular quality noun
+early-ness,earliness,noun,discipline,Classical,everyday,{early}+{abstract},regular quality noun
+late-ness,lateness,noun,discipline,Classical,everyday,{late}+{abstract},regular quality noun
+low-ness,lowness,noun,discipline,Classical,everyday,{low}+{abstract},regular quality noun
+light-w-ness,lightness,noun,discipline,Classical,everyday,{light-w}+{abstract},regular quality noun
+hard-ness,hardness,noun,discipline,Classical,everyday,{hard}+{abstract},regular quality noun
+quiet-ness,quietness,noun,discipline,Classical,everyday,{quiet}+{abstract},regular quality noun
+loud-ness,loudness,noun,discipline,Classical,everyday,{loud}+{abstract},regular quality noun
+strange-ness,strangeness,noun,discipline,Classical,everyday,{strange}+{abstract},regular quality noun
+young-ness,youngness,noun,discipline,Classical,everyday,{young}+{abstract},regular quality noun
+last-ness,lastness,noun,discipline,Classical,everyday,{last}+{abstract},regular quality noun
+next-ness,nextness,noun,discipline,Classical,everyday,{next}+{abstract},regular quality noun
+boil-act,the act of boiling,noun,food,Classical,everyday,{boil}+{action},regular action noun
+boil-er,one who boils,noun,kin,Classical,everyday,{boil}-{ve},regular person noun with canon ve
+bake-act,the act of baking,noun,food,Classical,everyday,{bake}+{action},regular action noun
+bake-er,one who bakes,noun,kin,Classical,everyday,{bake}-{ve},regular person noun with canon ve
+pour-act,the act of pouring,noun,food,Classical,everyday,{pour}+{action},regular action noun
+pour-er,one who pours,noun,kin,Classical,everyday,{pour}-{ve},regular person noun with canon ve
+mix-act,the act of mixing,noun,food,Classical,everyday,{mix}+{action},regular action noun
+mix-er,one who mixes,noun,kin,Classical,everyday,{mix}-{ve},regular person noun with canon ve
+chew-act,the act of chewing,noun,food,Classical,everyday,{chew}+{action},regular action noun
+chew-er,one who chews,noun,kin,Classical,everyday,{chew}-{ve},regular person noun with canon ve
+swallow-act,the act of swallowing,noun,food,Classical,everyday,{swallow}+{action},regular action noun
+swallow-er,one who swallows,noun,kin,Classical,everyday,{swallow}-{ve},regular person noun with canon ve
+sweet-ness,sweetness,noun,discipline,Classical,everyday,{sweet}+{abstract},regular quality noun
+bitter-ness,bitterness,noun,discipline,Classical,everyday,{bitter}+{abstract},regular quality noun
+sour-ness,sourness,noun,discipline,Classical,everyday,{sour}+{abstract},regular quality noun
+raw-ness,rawness,noun,discipline,Classical,everyday,{raw}+{abstract},regular quality noun
+ripe-ness,ripeness,noun,discipline,Classical,everyday,{ripe}+{abstract},regular quality noun
+fresh-ness,freshness,noun,discipline,Classical,everyday,{fresh}+{abstract},regular quality noun
+cure-act,the act of curing,noun,life,Classical,everyday,{cure}+{action},regular action noun
+blind-ness,blindness,noun,discipline,Classical,everyday,{blind}+{abstract},regular quality noun
+deaf-ness,deafness,noun,discipline,Classical,everyday,{deaf}+{abstract},regular quality noun
+hunt-act,the act of hunting,noun,animal,Classical,everyday,{hunt}+{action},regular action noun
+scan-act,the act of scanning,noun,making,Classical,everyday,{scan}+{action},regular action noun
+scan-er,one who scans,noun,kin,Classical,everyday,{scan}-{ve},regular person noun with canon ve
+dock-act,the act of docking,noun,making,Classical,everyday,{dock}+{action},regular action noun
+dock-er,one who docks,noun,kin,Classical,everyday,{dock}-{ve},regular person noun with canon ve
+launch-act,the act of launching,noun,making,Classical,everyday,{launch}+{action},regular action noun
+launch-er,one who launches,noun,kin,Classical,everyday,{launch}-{ve},regular person noun with canon ve
+land-v-act,the act of landing,noun,making,Classical,everyday,{land-v}+{action},regular action noun
+land-v-er,one who lands,noun,kin,Classical,everyday,{land-v}-{ve},regular person noun with canon ve
+navigate-act,the act of navigating,noun,making,Classical,everyday,{navigate}+{action},regular action noun
+navigate-er,one who navigates,noun,kin,Classical,everyday,{navigate}-{ve},regular person noun with canon ve
+activate-act,the act of activating,noun,making,Classical,everyday,{activate}+{action},regular action noun
+disable-act,the act of disabling,noun,making,Classical,everyday,{disable}+{action},regular action noun
+disable-er,one who disables,noun,kin,Classical,everyday,{disable}-{ve},regular person noun with canon ve
+detect-act,the act of detecting,noun,making,Classical,everyday,{detect}+{action},regular action noun
+detect-er,one who detects,noun,kin,Classical,everyday,{detect}-{ve},regular person noun with canon ve
+intercept-act,the act of intercepting,noun,making,Classical,everyday,{intercept}+{action},regular action noun
+intercept-er,one who intercepts,noun,kin,Classical,everyday,{intercept}-{ve},regular person noun with canon ve
+lift-act,the act of lifting,noun,making,Classical,everyday,{lift}+{action},regular action noun
+lift-er,one who lifts,noun,kin,Classical,everyday,{lift}-{ve},regular person noun with canon ve
+drop-act,the act of dropping,noun,making,Classical,everyday,{drop}+{action},regular action noun
+drop-er,one who drops,noun,kin,Classical,everyday,{drop}-{ve},regular person noun with canon ve
+hide-act,the act of hiding,noun,making,Classical,everyday,{hide}+{action},regular action noun
+hide-er,one who hides,noun,kin,Classical,everyday,{hide}-{ve},regular person noun with canon ve
+protect-er,one who protects,noun,kin,Classical,everyday,{protect}-{ve},regular person noun with canon ve
+attack-er,one who attacks,noun,kin,Classical,everyday,{attack}-{ve},regular person noun with canon ve
+defend-er,one who defends,noun,kin,Classical,everyday,{defend}-{ve},regular person noun with canon ve
+rescue-er,one who rescues,noun,kin,Classical,everyday,{rescue}-{ve},regular person noun with canon ve
+save-act,the act of saving,noun,making,Classical,everyday,{save}+{action},regular action noun
+save-er,one who saves,noun,kin,Classical,everyday,{save}-{ve},regular person noun with canon ve
+warn-er,one who warns,noun,kin,Classical,everyday,{warn}-{ve},regular person noun with canon ve
+promise-er,one who promises,noun,kin,Classical,everyday,{promise}-{ve},regular person noun with canon ve
+refuse-er,one who refuses,noun,kin,Classical,everyday,{refuse}-{ve},regular person noun with canon ve
+accept-er,one who accepts,noun,kin,Classical,everyday,{accept}-{ve},regular person noun with canon ve
+borrow-act,the act of borrowing,noun,making,Classical,everyday,{borrow}+{action},regular action noun
+borrow-er,one who borrows,noun,kin,Classical,everyday,{borrow}-{ve},regular person noun with canon ve
+lend-er,one who lends,noun,kin,Classical,everyday,{lend}-{ve},regular person noun with canon ve
+count-act,the act of counting,noun,making,Classical,everyday,{count}+{action},regular action noun
+count-er,one who counts,noun,kin,Classical,everyday,{count}-{ve},regular person noun with canon ve
+divide-er,one who divides,noun,kin,Classical,everyday,{divide}-{ve},regular person noun with canon ve
+add-er,one who adds,noun,kin,Classical,everyday,{add}-{ve},regular person noun with canon ve
+join-er,one who joins,noun,kin,Classical,everyday,{join}-{ve},regular person noun with canon ve
+separate-er,one who separates,noun,kin,Classical,everyday,{separate}-{ve},regular person noun with canon ve
+fill-act,the act of filling,noun,making,Classical,everyday,{fill}+{action},regular action noun
+fill-er,one who fills,noun,kin,Classical,everyday,{fill}-{ve},regular person noun with canon ve
+hang-act,the act of hanging,noun,making,Classical,everyday,{hang}+{action},regular action noun
+hang-er,one who hangs,noun,kin,Classical,everyday,{hang}-{ve},regular person noun with canon ve
+tie-act,the act of tying,noun,making,Classical,everyday,{tie}+{action},regular action noun
+tie-er,one who ties,noun,kin,Classical,everyday,{tie}-{ve},regular person noun with canon ve
+fold-act,the act of folding,noun,making,Classical,everyday,{fold}+{action},regular action noun
+fold-er,one who folds,noun,kin,Classical,everyday,{fold}-{ve},regular person noun with canon ve
+sew-act,the act of sewing,noun,making,Classical,everyday,{sew}+{action},regular action noun
+sew-er,one who sews,noun,kin,Classical,everyday,{sew}-{ve},regular person noun with canon ve
+dig-act,the act of digging,noun,making,Classical,everyday,{dig}+{action},regular action noun
+plant-v-act,the act of planting,noun,making,Classical,everyday,{plant-v}+{action},regular action noun
+plant-v-er,one who plants,noun,kin,Classical,everyday,{plant-v}-{ve},regular person noun with canon ve
+harvest-act,the act of harvesting,noun,making,Classical,everyday,{harvest}+{action},regular action noun
+harvest-er,one who harvests,noun,kin,Classical,everyday,{harvest}-{ve},regular person noun with canon ve
+climb-act,the act of climbing,noun,making,Classical,everyday,{climb}+{action},regular action noun
+climb-er,one who climbs,noun,kin,Classical,everyday,{climb}-{ve},regular person noun with canon ve
+swim-act,the act of swimming,noun,making,Classical,everyday,{swim}+{action},regular action noun
+swim-er,one who swims,noun,kin,Classical,everyday,{swim}-{ve},regular person noun with canon ve
+jump-act,the act of jumping,noun,making,Classical,everyday,{jump}+{action},regular action noun
+jump-er,one who jumps,noun,kin,Classical,everyday,{jump}-{ve},regular person noun with canon ve
+dance-act,the act of dancing,noun,making,Classical,everyday,{dance}+{action},regular action noun
+kneel-act,the act of kneeling,noun,making,Classical,everyday,{kneel}+{action},regular action noun
+kneel-er,one who kneels,noun,kin,Classical,everyday,{kneel}-{ve},regular person noun with canon ve
+hurry-act,the act of hurrying,noun,making,Classical,everyday,{hurry}+{action},regular action noun
+hurry-er,one who hurries,noun,kin,Classical,everyday,{hurry}-{ve},regular person noun with canon ve
+gather-act,the act of gathering,noun,making,Classical,everyday,{gather}+{action},regular action noun
+gather-er,one who gathers,noun,kin,Classical,everyday,{gather}-{ve},regular person noun with canon ve
+scatter-act,the act of scattering,noun,making,Classical,everyday,{scatter}+{action},regular action noun
+scatter-er,one who scatters,noun,kin,Classical,everyday,{scatter}-{ve},regular person noun with canon ve
+freeze-act,the act of freezing,noun,making,Classical,everyday,{freeze}+{action},regular action noun
+freeze-er,one who freezes,noun,kin,Classical,everyday,{freeze}-{ve},regular person noun with canon ve
+melt-act,the act of melting,noun,making,Classical,everyday,{melt}+{action},regular action noun
+melt-er,one who melts,noun,kin,Classical,everyday,{melt}-{ve},regular person noun with canon ve
+shine-act,the act of shining,noun,making,Classical,everyday,{shine}+{action},regular action noun
+shine-er,one who shines,noun,kin,Classical,everyday,{shine}-{ve},regular person noun with canon ve
+arrange-act,the act of arranging,noun,making,Classical,everyday,{arrange}+{action},regular action noun
+prepare-act,the act of preparing,noun,making,Classical,everyday,{prepare}+{action},regular action noun
+clean-v-act,the act of cleaning,noun,making,Classical,everyday,{clean-v}+{action},regular action noun
+call-on-act,the act of calling on,noun,making,Classical,everyday,{call-on}+{action},regular action noun
+call-on-er,one who calls on,noun,kin,Classical,everyday,{call-on}-{ve},regular person noun with canon ve
+receive-guest-act,the act of welcoming in,noun,making,Classical,everyday,{receive-guest}+{action},regular action noun
+receive-guest-er,one who welcomes in,noun,kin,Classical,everyday,{receive-guest}-{ve},regular person noun with canon ve
+wet-ness,wetness,noun,discipline,Classical,everyday,{wet}+{abstract},regular quality noun
+sharp-ness,sharpness,noun,discipline,Classical,everyday,{sharp}+{abstract},regular quality noun
+dull-ness,dullness,noun,discipline,Classical,everyday,{dull}+{abstract},regular quality noun
+shallow-ness,shallowness,noun,discipline,Classical,everyday,{shallow}+{abstract},regular quality noun
+thick-ness,thickness,noun,discipline,Classical,everyday,{thick}+{abstract},regular quality noun
+thin-ness,thinness,noun,discipline,Classical,everyday,{thin}+{abstract},regular quality noun
+narrow-ness,narrowness,noun,discipline,Classical,everyday,{narrow}+{abstract},regular quality noun
+round-ness,roundness,noun,discipline,Classical,everyday,{round}+{abstract},regular quality noun
+flat-ness,flatness,noun,discipline,Classical,everyday,{flat}+{abstract},regular quality noun
+straight-ness,straightness,noun,discipline,Classical,everyday,{straight}+{abstract},regular quality noun
+rough-ness,roughness,noun,discipline,Classical,everyday,{rough}+{abstract},regular quality noun
+smooth-ness,smoothness,noun,discipline,Classical,everyday,{smooth}+{abstract},regular quality noun
+harsh-ness,harshness,noun,discipline,Classical,everyday,{harsh}+{abstract},regular quality noun
+ancient-ness,ancientness,noun,discipline,Classical,everyday,{ancient}+{abstract},regular quality noun
+common-ness,commonness,noun,discipline,Classical,everyday,{common}+{abstract},regular quality noun
+efficient-ness,efficientness,noun,discipline,Classical,everyday,{efficient}+{abstract},regular quality noun
+consider-act,the act of considering,noun,mind,Classical,everyday,{consider}+{action},regular action noun
+consider-er,one who considers,noun,kin,Classical,everyday,{consider}-{ve},regular person noun with canon ve
+examine-act,the act of examining,noun,mind,Classical,everyday,{examine}+{action},regular action noun
+examine-er,one who examines,noun,kin,Classical,everyday,{examine}-{ve},regular person noun with canon ve
+compare-er,one who compares,noun,kin,Classical,everyday,{compare}-{ve},regular person noun with canon ve
+describe-er,one who describes,noun,kin,Classical,everyday,{describe}-{ve},regular person noun with canon ve
+discuss-er,one who discusses,noun,kin,Classical,everyday,{discuss}-{ve},regular person noun with canon ve
+debate-er,one who debates,noun,kin,Classical,everyday,{debate}-{ve},regular person noun with canon ve
+argue-er,one who argues,noun,kin,Classical,everyday,{argue}-{ve},regular person noun with canon ve
+persuade-act,the act of persuading,noun,mind,Classical,everyday,{persuade}+{action},regular action noun
+persuade-er,one who persuades,noun,kin,Classical,everyday,{persuade}-{ve},regular person noun with canon ve
+deny-er,one who denies,noun,kin,Classical,everyday,{deny}-{ve},regular person noun with canon ve
+admit-act,the act of admitting,noun,mind,Classical,everyday,{admit}+{action},regular action noun
+admit-er,one who admits,noun,kin,Classical,everyday,{admit}-{ve},regular person noun with canon ve
+confess-er,one who confesses,noun,kin,Classical,everyday,{confess}-{ve},regular person noun with canon ve
+doubt-v-act,the act of doubting,noun,mind,Classical,everyday,{doubt-v}+{action},regular action noun
+imagine-er,one who imagines,noun,kin,Classical,everyday,{imagine}-{ve},regular person noun with canon ve
+intend-er,one who intends,noun,kin,Classical,everyday,{intend}-{ve},regular person noun with canon ve
+plan-er,one who plans,noun,kin,Classical,everyday,{plan}-{ve},regular person noun with canon ve
+expect-er,one who expects,noun,kin,Classical,everyday,{expect}-{ve},regular person noun with canon ve
+assume-er,one who assumes,noun,kin,Classical,everyday,{assume}-{ve},regular person noun with canon ve
+notice-act,the act of noticing,noun,mind,Classical,everyday,{notice}+{action},regular action noun
+notice-er,one who notices,noun,kin,Classical,everyday,{notice}-{ve},regular person noun with canon ve
+ignore-act,the act of ignoring,noun,mind,Classical,everyday,{ignore}+{action},regular action noun
+ignore-er,one who ignores,noun,kin,Classical,everyday,{ignore}-{ve},regular person noun with canon ve
+avoid-act,the act of avoiding,noun,mind,Classical,everyday,{avoid}+{action},regular action noun
+avoid-er,one who avoids,noun,kin,Classical,everyday,{avoid}-{ve},regular person noun with canon ve
+approach-act,the act of approaching,noun,mind,Classical,everyday,{approach}+{action},regular action noun
+represent-act,the act of representing,noun,mind,Classical,everyday,{represent}+{action},regular action noun
+express-act,the act of expressing,noun,mind,Classical,everyday,{express}+{action},regular action noun
+communicate-er,one who communicates,noun,kin,Classical,everyday,{communicate}-{ve},regular person noun with canon ve
+interpret-er,one who interprets,noun,kin,Classical,everyday,{interpret}-{ve},regular person noun with canon ve
+compete-act,the act of competing,noun,mind,Classical,everyday,{compete}+{action},regular action noun
+compete-er,one who competes,noun,kin,Classical,everyday,{compete}-{ve},regular person noun with canon ve
+succeed-er,one who succeeds,noun,kin,Classical,everyday,{succeed}-{ve},regular person noun with canon ve
+fail-er,one who fails,noun,kin,Classical,everyday,{fail}-{ve},regular person noun with canon ve
+develop-er,one who develops,noun,kin,Classical,everyday,{develop}-{ve},regular person noun with canon ve
+destroy-er,one who destroys,noun,kin,Classical,everyday,{destroy}-{ve},regular person noun with canon ve
+preserve-er,one who preserves,noun,kin,Classical,everyday,{preserve}-{ve},regular person noun with canon ve
+maintain-act,the act of maintaining,noun,mind,Classical,everyday,{maintain}+{action},regular action noun
+maintain-er,one who maintains,noun,kin,Classical,everyday,{maintain}-{ve},regular person noun with canon ve
+concentrate-act,the act of concentrating,noun,mind,Classical,everyday,{concentrate}+{action},regular action noun
+concentrate-er,one who concentrates,noun,kin,Classical,everyday,{concentrate}-{ve},regular person noun with canon ve
+endure-act,the act of enduring,noun,mind,Classical,everyday,{endure}+{action},regular action noun
+tolerate-act,the act of tolerating,noun,mind,Classical,everyday,{tolerate}+{action},regular action noun
+tolerate-er,one who tolerates,noun,kin,Classical,everyday,{tolerate}-{ve},regular person noun with canon ve
+respect-v-act,the act of respecting,noun,mind,Classical,everyday,{respect-v}+{action},regular action noun
+heed-act,the act of heeding,noun,mind,Classical,everyday,{heed}+{action},regular action noun
+heed-er,one who heeds,noun,kin,Classical,everyday,{heed}-{ve},regular person noun with canon ve
+forbid-act,the act of forbidding,noun,mind,Classical,everyday,{forbid}+{action},regular action noun
+forbid-er,one who forbids,noun,kin,Classical,everyday,{forbid}-{ve},regular person noun with canon ve
+reveal-act,the act of revealing,noun,mind,Classical,everyday,{reveal}+{action},regular action noun
+reveal-er,one who reveals,noun,kin,Classical,everyday,{reveal}-{ve},regular person noun with canon ve
+conceal-act,the act of concealing,noun,mind,Classical,everyday,{conceal}+{action},regular action noun
+conceal-er,one who conceals,noun,kin,Classical,everyday,{conceal}-{ve},regular person noun with canon ve
+govern-er,one who governs,noun,kin,Classical,everyday,{govern}-{ve},regular person noun with canon ve
+appoint-act,the act of appointing,noun,rank,Classical,everyday,{appoint}+{action},regular action noun
+appoint-er,one who appoints,noun,kin,Classical,everyday,{appoint}-{ve},regular person noun with canon ve
+conquer-act,the act of conquering,noun,rank,Classical,everyday,{conquer}+{action},regular action noun
+invade-act,the act of invading,noun,rank,Classical,everyday,{invade}+{action},regular action noun
+occupy-act,the act of occupying,noun,rank,Classical,everyday,{occupy}+{action},regular action noun
+occupy-er,one who occupies,noun,kin,Classical,everyday,{occupy}-{ve},regular person noun with canon ve
+free-v-act,the act of setting free,noun,rank,Classical,everyday,{free-v}+{action},regular action noun
+partition-act,the act of partitioning,noun,rank,Classical,everyday,{partition}+{action},regular action noun
+sign-act,the act of signing,noun,rank,Classical,everyday,{sign}+{action},regular action noun
+sign-er,one who signs,noun,kin,Classical,everyday,{sign}-{ve},regular person noun with canon ve
+ratify-act,the act of ratifying,noun,rank,Classical,everyday,{ratify}+{action},regular action noun
+ratify-er,one who ratifies,noun,kin,Classical,everyday,{ratify}-{ve},regular person noun with canon ve
+reconcile-act,the act of reconciling,noun,rank,Classical,everyday,{reconcile}+{action},regular action noun
+betray-er,"traitor, one who betrays",noun,kin,Classical,everyday,{betray}-{ve},regular person noun with canon ve
+swear-fealty-act,the act of swearing fealty,noun,rank,Classical,everyday,{swear-fealty}+{action},regular action noun
+pardon-v-act,the act of pardoning,noun,rank,Classical,everyday,{pardon-v}+{action},regular action noun
+pardon-v-er,one who pardons,noun,kin,Classical,everyday,{pardon-v}-{ve},regular person noun with canon ve
+sentence-act,the act of sentencing,noun,rank,Classical,everyday,{sentence}+{action},regular action noun
+sentence-er,one who sentences,noun,kin,Classical,everyday,{sentence}-{ve},regular person noun with canon ve
+arrest-act,the act of arresting,noun,rank,Classical,everyday,{arrest}+{action},regular action noun
+arrest-er,one who arrests,noun,kin,Classical,everyday,{arrest}-{ve},regular person noun with canon ve
+release-act,the act of releasing,noun,rank,Classical,everyday,{release}+{action},regular action noun
+release-er,one who releases,noun,kin,Classical,everyday,{release}-{ve},regular person noun with canon ve
+accuse-act,the act of accusing,noun,rank,Classical,everyday,{accuse}+{action},regular action noun
+paint-er,one who paints,noun,kin,Classical,everyday,{paint}-{ve},regular person noun with canon ve
+carve-er,one who carves,noun,kin,Classical,everyday,{carve}-{ve},regular person noun with canon ve
+compose-act,the act of composing,noun,making,Classical,everyday,{compose}+{action},regular action noun
+compose-er,one who composes,noun,kin,Classical,everyday,{compose}-{ve},regular person noun with canon ve
+recite-act,the act of reciting,noun,making,Classical,everyday,{recite}+{action},regular action noun
+recite-er,one who recites,noun,kin,Classical,everyday,{recite}-{ve},regular person noun with canon ve
+draw-act,the act of drawing,noun,making,Classical,everyday,{draw}+{action},regular action noun
+draw-er,one who draws,noun,kin,Classical,everyday,{draw}-{ve},regular person noun with canon ve
+sculpt-er,one who sculpts,noun,kin,Classical,everyday,{sculpt}-{ve},regular person noun with canon ve
+arid-ness,aridness,noun,discipline,Classical,everyday,{arid}+{abstract},regular quality noun
+quick-ness,quickness,noun,discipline,Classical,everyday,{quick}+{abstract},regular quality noun
+sudden-ness,suddenness,noun,discipline,Classical,everyday,{sudden}+{abstract},regular quality noun
+gradual-ness,gradualness,noun,discipline,Classical,everyday,{gradual}+{abstract},regular quality noun
+constant-a-ness,constantness,noun,discipline,Classical,everyday,{constant-a}+{abstract},regular quality noun
+complete-ness,completeness,noun,discipline,Classical,everyday,{complete}+{abstract},regular quality noun
+opposite-ness,oppositeness,noun,discipline,Classical,everyday,{opposite}+{abstract},regular quality noun
+central-ness,centralness,noun,discipline,Classical,everyday,{central}+{abstract},regular quality noun
+casual-ness,casualness,noun,discipline,Classical,everyday,{casual}+{abstract},regular quality noun
+trivial-ness,trivialness,noun,discipline,Classical,everyday,{trivial}+{abstract},regular quality noun
+adequate-ness,adequateness,noun,discipline,Classical,everyday,{adequate}+{abstract},regular quality noun
+excessive-ness,excessiveness,noun,discipline,Classical,everyday,{excessive}+{abstract},regular quality noun
+spit-act,the act of spitting,noun,body,Classical,everyday,{spit}+{action},regular action noun
+bite-act,the act of biting,noun,body,Classical,everyday,{bite}+{action},regular action noun
+scratch-act,the act of scratching,noun,body,Classical,everyday,{scratch}+{action},regular action noun
+squeeze-act,the act of squeezing,noun,making,Classical,everyday,{squeeze}+{action},regular action noun
+squeeze-er,one who squeezes,noun,kin,Classical,everyday,{squeeze}-{ve},regular person noun with canon ve
+rub-act,the act of rubbing,noun,making,Classical,everyday,{rub}+{action},regular action noun
+rub-er,one who rubs,noun,kin,Classical,everyday,{rub}-{ve},regular person noun with canon ve
+split-act,the act of splitting,noun,making,Classical,everyday,{split}+{action},regular action noun
+split-er,one who splits,noun,kin,Classical,everyday,{split}-{ve},regular person noun with canon ve
+strike-act,the act of striking,noun,conflict,Classical,everyday,{strike}+{action},regular action noun
+strike-er,one who strikes,noun,kin,Classical,everyday,{strike}-{ve},regular person noun with canon ve
+wipe-act,the act of wiping,noun,making,Classical,everyday,{wipe}+{action},regular action noun
+wipe-er,one who wipes,noun,kin,Classical,everyday,{wipe}-{ve},regular person noun with canon ve
+float-act,the act of floating,noun,motion,Classical,everyday,{float}+{action},regular action noun
+flow-act,the act of flowing,noun,nature,Classical,everyday,{flow}+{action},regular action noun
+swell-act,the act of swelling,noun,body,Classical,everyday,{swell}+{action},regular action noun
+turn-act,the act of turning,noun,motion,Classical,everyday,{turn}+{action},regular action noun
+recline-act,the act of lying down,noun,motion,Classical,everyday,{recline}+{action},regular action noun
+cover-act,the act of covering,noun,making,Classical,everyday,{cover}+{action},regular action noun
+cover-er,one who covers,noun,kin,Classical,everyday,{cover}-{ve},regular person noun with canon ve
+pierce-act,the act of piercing,noun,conflict,Classical,everyday,{pierce}+{action},regular action noun
+pierce-er,one who pierces,noun,kin,Classical,everyday,{pierce}-{ve},regular person noun with canon ve
+kick-act,the act of kicking,noun,body,Classical,everyday,{kick}+{action},regular action noun
+lick-act,the act of licking,noun,body,Classical,everyday,{lick}+{action},regular action noun
+blow-act,the act of blowing,noun,sky,Classical,everyday,{blow}+{action},regular action noun
+cool-ness,coolness,noun,discipline,Classical,everyday,{cool}+{abstract},regular quality noun
+rotten-ness,rottenness,noun,discipline,Classical,everyday,{rotten}+{abstract},regular quality noun
+warm-v-act,the act of warming,noun,making,Classical,everyday,{warm-v}+{action},regular action noun
+cool-v-act,the act of cooling,noun,making,Classical,everyday,{cool-v}+{action},regular action noun
+dry-v-act,the act of drying,noun,making,Classical,everyday,{dry-v}+{action},regular action noun
+wet-v-act,the act of wetting,noun,making,Classical,everyday,{wet-v}+{action},regular action noun
+empty-v-act,the act of emptying,noun,making,Classical,everyday,{empty-v}+{action},regular action noun
+strengthen-act,the act of strengthening,noun,making,Classical,everyday,{strengthen}+{action},regular action noun
+weaken-act,the act of weakening,noun,making,Classical,everyday,{weaken}+{action},regular action noun
+simplify-act,the act of simplifying,noun,making,Classical,everyday,{simplify}+{action},regular action noun
+name-v-act,the act of naming,noun,making,Classical,everyday,{name-v}+{action},regular action noun
+record-v-act,the act of recording,noun,making,Classical,everyday,{record-v}+{action},regular action noun
+balance-v-act,the act of balancing,noun,making,Classical,everyday,{balance-v}+{action},regular action noun
+harmonize-act,the act of harmonizing,noun,making,Classical,everyday,{harmonize}+{action},regular action noun
+poison-act,the act of poisoning,noun,making,Classical,everyday,{poison}+{action},regular action noun
+sanctify-act,the act of sanctifying,noun,making,Classical,everyday,{sanctify}+{action},regular action noun
+honor-v-act,the act of honoring,noun,making,Classical,everyday,{honor-v}+{action},regular action noun
+calm-v-act,the act of calming,noun,making,Classical,everyday,{calm-v}+{action},regular action noun
+sadden-act,the act of saddening,noun,making,Classical,everyday,{sadden}+{action},regular action noun
+gladden-act,the act of gladdening,noun,making,Classical,everyday,{gladden}+{action},regular action noun
+shame-v-act,the act of shaming,noun,making,Classical,everyday,{shame-v}+{action},regular action noun
+kiss-act,the act of kissing,noun,making,Classical,everyday,{kiss}+{action},regular action noun
+hug-act,the act of embracing,noun,making,Classical,everyday,{hug}+{action},regular action noun
+stab-act,the act of stabbing,noun,making,Classical,everyday,{stab}+{action},regular action noun
+uncover-act,the act of uncovering,noun,making,Classical,everyday,{uncover}+{action},regular action noun
+renew-act,the act of renewing,noun,making,Classical,everyday,{renew}+{action},regular action noun
+reconsider-act,the act of reconsidering,noun,making,Classical,everyday,{reconsider}+{action},regular action noun
+wonder-act,the act of wondering,noun,mind,Classical,everyday,{wonder}+{action},regular action noun
+wonder-er,one who wonders,noun,kin,Classical,everyday,{wonder}-{ve},regular person noun with canon ve
+guess-er,one who guesses,noun,kin,Classical,everyday,{guess}-{ve},regular person noun with canon ve
+solve-er,one who solves,noun,kin,Classical,everyday,{solve}-{ve},regular person noun with canon ve
+realize-er,one who realizes,noun,kin,Classical,everyday,{realize}-{ve},regular person noun with canon ve
+shout-act,the act of shouting,noun,speech,Classical,everyday,{shout}+{action},regular action noun
+shout-er,one who shouts,noun,kin,Classical,everyday,{shout}-{ve},regular person noun with canon ve
+whisper-er,one who whispers,noun,kin,Classical,everyday,{whisper}-{ve},regular person noun with canon ve
+praise-er,one who praises,noun,kin,Classical,everyday,{praise}-{ve},regular person noun with canon ve
+blame-er,one who blames,noun,kin,Classical,everyday,{blame}-{ve},regular person noun with canon ve
+quarrel-er,one who quarrels,noun,kin,Classical,everyday,{quarrel}-{ve},regular person noun with canon ve
+mock-act,the act of mocking,noun,speech,Classical,everyday,{mock}+{action},regular action noun
+share-er,one who shares,noun,kin,Classical,everyday,{share}-{ve},regular person noun with canon ve
+sweep-act,the act of sweeping,noun,making,Classical,everyday,{sweep}+{action},regular action noun
+sweep-er,one who sweeps,noun,kin,Classical,everyday,{sweep}-{ve},regular person noun with canon ve
+dress-act,the act of dressing,noun,artifact,Classical,everyday,{dress}+{action},regular action noun
+cough-act,the act of coughing,noun,body,Classical,everyday,{cough}+{action},regular action noun
+sneeze-act,the act of sneezing,noun,body,Classical,everyday,{sneeze}+{action},regular action noun
+dizzy-ness,dizziness,noun,discipline,Classical,everyday,{dizzy}+{abstract},regular quality noun
+faint-act,the act of fainting,noun,body,Classical,everyday,{faint}+{action},regular action noun
+vomit-act,the act of vomiting,noun,body,Classical,everyday,{vomit}+{action},regular action noun
+memorize-act,the act of memorizing,noun,mind,Classical,everyday,{memorize}+{action},regular action noun
+err-act,the act of erring,noun,mind,Classical,everyday,{err}+{action},regular action noun
+reason-v-act,the act of reasoning,noun,mind,Classical,everyday,{reason-v}+{action},regular action noun
+insult-v-act,the act of insulting,noun,speech,Classical,everyday,{insult-v}+{action},regular action noun
+flatter-act,the act of flattering,noun,speech,Classical,everyday,{flatter}+{action},regular action noun
+thank-v-act,the act of thanking,noun,speech,Classical,everyday,{thank-v}+{action},regular action noun
+silence-v-act,the act of silencing,noun,speech,Classical,everyday,{silence-v}+{action},regular action noun
+marry-act,the act of marrying,noun,bond,Classical,everyday,{marry}+{action},regular action noun
+adopt-act,the act of adopting,noun,kin,Classical,everyday,{adopt}+{action},regular action noun
+raise-child-act,the act of raising,noun,kin,Classical,everyday,{raise-child}+{action},regular action noun
+host-v-act,the act of hosting,noun,kin,Classical,everyday,{host-v}+{action},regular action noun
+mend-act,the act of mending,noun,making,Classical,everyday,{mend}+{action},regular action noun
+lock-v-act,the act of locking,noun,making,Classical,everyday,{lock-v}+{action},regular action noun
+unlock-act,the act of unlocking,noun,making,Classical,everyday,{unlock}+{action},regular action noun
+extinguish-act,the act of putting out,noun,making,Classical,everyday,{extinguish}+{action},regular action noun
+light-v-act,the act of lighting,noun,making,Classical,everyday,{light-v}+{action},regular action noun
+undress-act,the act of undressing,noun,artifact,Classical,everyday,{undress}+{action},regular action noun
+bathe-act,the act of bathing,noun,making,Classical,everyday,{bathe}+{action},regular action noun
+store-v-act,the act of storing,noun,making,Classical,everyday,{store-v}+{action},regular action noun
+shake-act,the act of shaking,noun,motion,Classical,everyday,{shake}+{action},regular action noun
+tremble-act,the act of trembling,noun,motion,Classical,everyday,{tremble}+{action},regular action noun
+sink-act,the act of sinking,noun,motion,Classical,everyday,{sink}+{action},regular action noun
+bury-act,the act of burying,noun,death,Classical,everyday,{bury}+{action},regular action noun
+crawl-act,the act of crawling,noun,motion,Classical,everyday,{crawl}+{action},regular action noun
+slide-act,the act of sliding,noun,motion,Classical,everyday,{slide}+{action},regular action noun
+roll-act,the act of rolling,noun,motion,Classical,everyday,{roll}+{action},regular action noun
+flee-act,the act of fleeing,noun,motion,Classical,everyday,{flee}+{action},regular action noun
+ride-act,the act of riding,noun,motion,Classical,everyday,{ride}+{action},regular action noun
+swing-act,the act of swinging,noun,motion,Classical,everyday,{swing}+{action},regular action noun
+bend-act,the act of bending,noun,motion,Classical,everyday,{bend}+{action},regular action noun
+stretch-act,the act of stretching,noun,motion,Classical,everyday,{stretch}+{action},regular action noun
+gain-act,the act of gaining,noun,rank,Classical,everyday,{gain}+{action},regular action noun
+gain-er,one who gains,noun,kin,Classical,everyday,{gain}-{ve},regular person noun with canon ve
+spin-act,the act of spinning,noun,nature,Classical,everyday,{spin}+{action},regular action noun
+cross-act,the act of crossing,noun,motion,Classical,everyday,{cross}+{action},regular action noun
+pass-through-act,the act of passing through,noun,motion,Classical,everyday,{pass-through}+{action},regular action noun
+descend-act,the act of descending,noun,motion,Classical,everyday,{descend}+{action},regular action noun
+ascend-act,the act of ascending,noun,motion,Classical,everyday,{ascend}+{action},regular action noun
+retreat-act,the act of retreating,noun,motion,Classical,everyday,{retreat}+{action},regular action noun
+advance-act,the act of advancing,noun,motion,Classical,everyday,{advance}+{action},regular action noun
+drag-act,the act of dragging,noun,motion,Classical,everyday,{drag}+{action},regular action noun
+wander-act,the act of wandering,noun,motion,Classical,everyday,{wander}+{action},regular action noun
+surround-act,the act of surrounding,noun,motion,Classical,everyday,{surround}+{action},regular action noun
+gather-in-act,the act of collecting,noun,motion,Classical,everyday,{gather-in}+{action},regular action noun
+buy-act,the act of buying,noun,rank,Classical,everyday,{buy}+{action},regular action noun
+sell-act,the act of selling,noun,rank,Classical,everyday,{sell}+{action},regular action noun
+center-v-act,the act of centering,noun,place,Classical,everyday,{center-v}+{action},regular action noun
+double-v-act,the act of doubling,noun,number,Classical,everyday,{double-v}+{action},regular action noun
+execute-act,the act of executing,noun,law,Classical,everyday,{execute}+{action},regular action noun
+appeal-act,the act of appealing,noun,law,Classical,everyday,{appeal}+{action},regular action noun
+obey-v-act,the act of obeying,noun,law,Classical,everyday,{obey-v}+{action},regular action noun
+disobey-act,the act of disobeying,noun,law,Classical,everyday,{disobey}+{action},regular action noun
+evidence-v-act,the act of proving,noun,law,Classical,everyday,{evidence-v}+{action},regular action noun
+disarm-act,the act of disarming,noun,conflict,Classical,everyday,{disarm}+{action},regular action noun
+raid-v-act,the act of raiding,noun,conflict,Classical,everyday,{raid-v}+{action},regular action noun
+purify-act,the act of purifying,noun,ritual,Classical,everyday,{purify}+{action},regular action noun
+encrypt-act,the act of encrypting,noun,making,Classical,everyday,{encrypt}+{action},regular action noun
+decrypt-act,the act of decrypting,noun,making,Classical,everyday,{decrypt}+{action},regular action noun
+beam-act,the act of beaming,noun,making,Classical,everyday,{beam}+{action},regular action noun
+carved,carved,adjective,quality,Classical,everyday,{carve}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+built,built,adjective,quality,Classical,everyday,{build}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+given,given,adjective,quality,Classical,everyday,{give}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+taken,taken,adjective,quality,Classical,everyday,{take}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+seen,seen,adjective,quality,Classical,everyday,{see}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+heard,heard,adjective,quality,Classical,everyday,{hear}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+sent,sent,adjective,quality,Classical,everyday,{send}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+opened,"opened, open",adjective,quality,Classical,everyday,{open}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+closed,"closed, shut",adjective,quality,Classical,everyday,{close}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+cut-ik,cut (participle),adjective,quality,Classical,everyday,{cut}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+burned,burned,adjective,quality,Classical,everyday,{burn}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+frozen,frozen,adjective,quality,Classical,everyday,{freeze}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+healed,healed,adjective,quality,Classical,everyday,{vo}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+drawn,drawn,adjective,quality,Classical,everyday,{draw}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+painted,painted,adjective,quality,Classical,everyday,{paint}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+woven,woven,adjective,quality,Classical,everyday,{weave}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+cooked,cooked,adjective,quality,Classical,everyday,{cook}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+boiled,boiled,adjective,quality,Classical,everyday,{boil}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+baked,baked,adjective,quality,Classical,everyday,{bake}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+washed,washed,adjective,quality,Classical,everyday,{wash}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+found,found,adjective,quality,Classical,everyday,{find}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+forgotten,forgotten,adjective,quality,Classical,everyday,{forget}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+remembered,remembered,adjective,quality,Classical,everyday,{vokau}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+permitted,permitted,adjective,quality,Classical,everyday,{allow}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+prepared,prepared,adjective,quality,Classical,everyday,{prepare}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+arranged,arranged,adjective,quality,Classical,everyday,{arrange}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+finished,finished,adjective,quality,Classical,everyday,{finish}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+begun,begun,adjective,quality,Classical,everyday,{karifar}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+filled,filled,adjective,quality,Classical,everyday,{fill}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+shared,shared,adjective,quality,Classical,everyday,{share}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+divided,divided,adjective,quality,Classical,everyday,{divide}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+united,united,adjective,quality,Classical,everyday,{unite}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+separated,separated,adjective,quality,Classical,everyday,{separate}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+saved,saved,adjective,quality,Classical,everyday,{save}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+rescued,rescued,adjective,quality,Classical,everyday,{rescue}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+protected,protected,adjective,quality,Classical,everyday,{protect}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+guarded,guarded,adjective,quality,Classical,everyday,{guard}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+killed,"killed, slain",adjective,quality,Classical,everyday,{kill}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+buried,buried,adjective,quality,Classical,everyday,{bury}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+born,born,adjective,quality,Classical,everyday,{birth}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+raised,"raised, brought up",adjective,quality,Classical,everyday,{raise-child}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+received,received,adjective,quality,Classical,everyday,{receive}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+sold,sold,adjective,quality,Classical,everyday,{sell}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+bought,bought,adjective,quality,Classical,everyday,{buy}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+stolen,stolen,adjective,quality,Classical,everyday,{steal}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+owned,owned,adjective,quality,Classical,everyday,{have}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+ruled,"ruled, governed",adjective,quality,Classical,everyday,{rule-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+conquered,conquered,adjective,quality,Classical,everyday,{conquer}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+freed,freed,adjective,quality,Classical,everyday,{free-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+exiled,exiled,adjective,quality,Classical,everyday,{exile}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+judged,judged,adjective,quality,Classical,everyday,{sentence}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+accused,accused,adjective,quality,Classical,everyday,{accuse}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+pardoned,pardoned,adjective,quality,Classical,everyday,{pardon-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+sealed,"sealed, locked",adjective,quality,Classical,everyday,{lock-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+named,named,adjective,quality,Classical,everyday,{name-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+recorded,recorded,adjective,quality,Classical,everyday,{record-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+measured,measured,adjective,quality,Classical,everyday,{measure}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+calculated,calculated,adjective,quality,Classical,everyday,{calculate}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+observed,observed,adjective,quality,Classical,everyday,{observe}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+proven,proven,adjective,quality,Classical,everyday,{evidence-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+translated,translated,adjective,quality,Classical,everyday,{translate}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+encrypted,encrypted,adjective,quality,Classical,everyday,{encrypt}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+repaired,repaired,adjective,quality,Classical,everyday,{repair}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+abandoned,abandoned,adjective,quality,Classical,everyday,{renounce}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+purified,purified,adjective,quality,Classical,everyday,{purify}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+sanctified,"sanctified, consecrated",adjective,quality,Classical,everyday,{sanctify}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+honored,honored,adjective,quality,Classical,everyday,{honor-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+praised,praised,adjective,quality,Classical,everyday,{praise}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+blamed,blamed,adjective,quality,Classical,everyday,{blame}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+mocked,mocked,adjective,quality,Classical,everyday,{mock}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+respected,respected,adjective,quality,Classical,everyday,{respect-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+trusted,trusted,adjective,quality,Classical,everyday,{trust}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+feared,feared,adjective,quality,Classical,everyday,{dread}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+desired,desired,adjective,quality,Classical,everyday,{yearn}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+forgiven,forgiven,adjective,quality,Classical,everyday,{forgive}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+invited,invited,adjective,quality,Classical,everyday,{invite}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+greeted,greeted,adjective,quality,Classical,everyday,{greet}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+welcomed,welcomed,adjective,quality,Classical,everyday,{receive-guest}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+married,"married, bonded",adjective,quality,Classical,everyday,{marry}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+adopted,"adopted, fostered",adjective,quality,Classical,everyday,{adopt}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+inherited,inherited,adjective,quality,Classical,everyday,{inherit}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+awakened,awakened,adjective,quality,Classical,everyday,{wake}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+melted,melted,adjective,quality,Classical,everyday,{melt}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+scattered,scattered,adjective,quality,Classical,everyday,{scatter}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+gathered,gathered,adjective,quality,Classical,everyday,{gather}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+hung,hung,adjective,quality,Classical,everyday,{hang}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+tied,"tied, bound",adjective,quality,Classical,everyday,{tie}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+folded,folded,adjective,quality,Classical,everyday,{fold}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+sewn,sewn,adjective,quality,Classical,everyday,{sew}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+dug,dug,adjective,quality,Classical,everyday,{dig}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+planted,planted,adjective,quality,Classical,everyday,{plant-v}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+harvested,harvested,adjective,quality,Classical,everyday,{harvest}+{participle-ik},"participle in canon -ik (seheik ""declared"")"
+nerve-pinch,the nerve pinch,noun,body,Classical,everyday,{neck}-{squeeze},neck-squeeze
+telepath,telepath,noun,mind,Classical,everyday,{kash}-{touch}-{ve},mind-touch one
+telepathic,telepathic,adjective,mind,Classical,everyday,{kash}-{touch}+{adjectival},
+touch-telepathy,touch telepathy,noun,mind,Classical,everyday,{touch}-{kash}+{abstract},
+mental,"mental, of the mind",adjective,mind,Classical,everyday,{kash}+{adjectival},"canon kash ""mind"""
+self-control,self-control,noun,discipline,Classical,everyday,{self}-{restraint},
+self-mastery,self-mastery,noun,discipline,Classical,everyday,{self}-{master}+{abstract},
+logic-school,school of logic,noun,discipline,Classical,everyday,{kthia}+{place-suf},canon kthia; as S'url
+logic-teacher,teacher of logic,noun,discipline,Classical,everyday,{kthia}-{teach}-{ve},
+plomeek-soup,plomeek soup,noun,food,Classical,everyday,{plomeek}-{soup},canon plomeek
+spice-tea,spiced tea,noun,food,Classical,everyday,{spice}-{tea},
+salute,the Vulcan salute,noun,bond,Classical,everyday,{hand}-{greet},"hand-greeting, in place of a touch"
+emotionless,without emotion,adjective,discipline,Classical,everyday,{without}-{emotion},the Kolinahr ideal
+passionate,passionate,adjective,emotion,Classical,everyday,{passion}+{adjectival},the pre-Surak and Romulan temper
+restrained,restrained,adjective,discipline,Classical,everyday,{restraint}+{adjectival},
+controlled,"controlled, mastered",adjective,discipline,Classical,everyday,{master}+{participle-ik},
+logician,logician,noun,discipline,Classical,everyday,{kthia}-{ve},
+gender,gender (form-kind),noun,kin,Classical,everyday,{form}-{kind-n},bodily form + kind
+masculine,masculine,adjective,kin,Classical,everyday,{man}+{adjectival},
+feminine,feminine,adjective,kin,Classical,everyday,{woman}+{adjectival},
+boy,boy,noun,kin,Classical,everyday,{man}-{kam},little man: canon -kam
+girl,girl,noun,kin,Classical,everyday,{woman}-{kam},little woman: canon -kam
+both-form,"androgynous, of both forms",adjective,kin,Classical,everyday,{both}-{form}+{adjectival},
+other-form,"nonbinary, of another form than man or woman",adjective,kin,Standard,everyday,{other}-{form}+{adjectival},IDIC: the Standard term
+katra-form,transgender person: one whose bodily form is brought to match the katra,noun,kin,Standard,everyday,{katra}-{form}-{ve},"culture: the katra is the self, and the form follows it"
+genitals-c,genitals,noun,body,Standard,clinical,{birth}-{part}+{collective},birth-parts
+penis-c,penis,noun,body,Standard,clinical,{man}-{part},male part
+vagina-c,vagina,noun,body,Standard,clinical,{woman}-{part},female part
+vulva-c,vulva,noun,body,Standard,clinical,{outside}-{woman}-{part},
+testicles-c,testicles,noun,body,Standard,clinical,{seed}-{vessel},"seed-vessel: canon tulek ""vessel"""
+semen,semen,noun,body,Standard,clinical,{seed}-{water},
+menstruation,menstruation,noun,body,Standard,clinical,{month}-{plak},month-blood: JA gek-kei
+anatomy,anatomy,noun,body,Standard,clinical,{inquiry} t'+{form},canon pattern mik t'X
+pregnancy,pregnancy,noun,body,Classical,everyday,{wan}-{carry}+{action},child-carrying
+pregnant,pregnant,adjective,body,Classical,everyday,{wan}-{carry}+{adjectival},
+childbirth,"childbirth, labor",noun,body,Classical,everyday,{birth}-{work}+{action},birth-work
+puberty,puberty,noun,body,Classical,everyday,{adult}-{become}+{action},becoming grown
+naked,naked,adjective,body,Classical,everyday,{without}-{robe},unrobed
+nudity,nudity,noun,body,Classical,everyday,{without}-{robe}+{abstract},
+modesty,modesty,noun,body,Classical,everyday,{cover}+{abstract},
+shameless,shameless,adjective,body,Classical,everyday,{without}-{shame},
+genitals-e,the self below (euphemism for the genitals),noun,body,Unified,euphemism,{under}-{self},
+intercourse-e,joined skin (euphemism for sexual union),noun,body,Unified,euphemism,{skin}-{kau},"on the canon pattern kash-kau ""minds joined"""
+pregnant-e,carrying a katra (euphemism for pregnant),adjective,body,Unified,euphemism,{katra}-{carry}+{adjectival},culture: the coming child is a coming katra
+toilet-e,the necessary place (euphemism for a toilet),noun,body,Unified,euphemism,{need}+{place-suf},"LA necessarium, the same euphemism"
+intercourse-c,sexual intercourse,noun,bond,Standard,clinical,{mating}+{action},
+consummate,consummate (a bond),verb,bond,Classical,everyday,{koon}-{finish},"canon koon ""bond"""
+arousal,arousal (kindled heat),noun,bond,Classical,everyday,{heat}-{kar}+{action},"canon kar ""kindle"": the fire metaphor of pon farr"
+aroused,aroused,adjective,bond,Classical,everyday,{heat}-{kar}+{participle-ik},
+lust,lust,noun,bond,Classical,everyday,{desire}-{heat},
+chaste,"chaste, celibate",adjective,bond,Classical,everyday,{without}-{mating}+{adjectival},the Gol ascetics
+chastity,"chastity, celibacy",noun,bond,Classical,everyday,{without}-{mating}+{adjectival}+{abstract},
+virgin,"virgin, one who has not mated",noun,bond,Classical,everyday,{without}-{mating}-{ve},
+lover-b,lover (bodily),noun,bond,Classical,everyday,{skin}-{companion},
+infidelity,"infidelity, betrayal of a bond",noun,bond,Classical,everyday,{koon}-{betray}+{action},
+attraction,"attraction, being drawn to another",noun,bond,Classical,everyday,{ka}+{abstract},"the novels' kah ""the pull of pon farr"", widened"
+drawn-men,drawn to men,adjective,bond,Classical,everyday,{man}-{pull}+{participle-ik},"orientation described, not named as an identity"
+drawn-women,drawn to women,adjective,bond,Classical,everyday,{woman}-{pull}+{participle-ik},
+drawn-both,drawn to both,adjective,bond,Classical,everyday,{both}-{pull}+{participle-ik},
+same-bond,a bond between two of one form,noun,bond,Classical,everyday,{same}-{koon},culture: a bond is a bond; IDIC
+other-bond,a bond between two of different form,noun,bond,Classical,everyday,{other}-{koon},
+flirt,"flirt, eye-play",noun,bond,Classical,everyday,{eye}-{play},"JA iro-me ""colour-eye"""
+coward,coward,noun,speech,Classical,vulgar,{fear}-{ve},
+houseless,"houseless, of no lineage (a grave insult)",adjective,speech,Classical,vulgar,{without}-{lineage},"culture: in a society of Houses, the worst thing to be"
+sehlat-dung,sehlat dung! (curse),interjection,speech,Classical,vulgar,{sehlat}-{dung},
+fire-and-sand,fire and sand! (an old oath),interjection,speech,Classical,vulgar,{far} {e} {sand},canon far and mazhiv
+half-breed,half-breed (offensive),noun,speech,Classical,vulgar,{half}-{plak},half-blood: the bullies' word in Star Trek (2009)
+mindless,"mindless, crazy",adjective,speech,Classical,colloquial,{without}-{kash},
+cracked,"cracked, crazy (slang)",adjective,speech,Classical,slang,{mind-break}+{participle-ik},
+buddy,"buddy, pal",noun,speech,Standard,colloquial,{friend}-{kam},little friend
+kid,kid,noun,speech,Standard,colloquial,{wan}-{kam},little child
+boss,"boss, the one in charge",noun,speech,Standard,colloquial,{head}-{ve},head one
+nope,"nope, absolutely not",interjection,speech,Standard,colloquial,{no}-{no},reduplication for emphasis
+really,"really, so very",adverb,speech,Standard,slang,{ni}-{ni},"canon ni ""very"", doubled"
+show-off,show-off: one who displays emotion (a Vulcan schoolyard taunt),noun,speech,Standard,slang,{display}-{ve},
+life-heat,life-heat: the warmth felt around a living person (the old name for the bio-field),noun,mind,Classical,everyday,{life}-{heat},folk term; Standard science identified it with the bioelectric field
+bio-field,the bioelectric life-field every living body carries,noun,mind,Standard,clinical,{life}-{energy}-{field-n},"canon: the bioelectric focal points, qui'lari"
+mind-salts,mind-salts: the old name for the brain's messenger chemicals,noun,mind,Classical,everyday,{kash}-{salt},"folk term, Classical healers"
+neurotransmitter,neurotransmitter,noun,body,Standard,clinical,{nerve}-{message}+{instrument},nerve-message carrier
+mind-wave,the mind's rhythm; a brainwave,noun,mind,Classical,everyday,{kash}-{wave},
+touch-exchange,the touch-exchange: what passes skin to skin in contact,noun,mind,Classical,everyday,{skin}-{exchange},the chemical channel
+field-channel,the field channel of contact (through the life-field),noun,mind,Unified,everyday,{energy}-{path},
+salt-channel,the chemical channel of contact (through skin and mind-salts),noun,mind,Unified,everyday,{salt}-{path},
+wave-channel,the wave channel of contact (through the mind's rhythm),noun,mind,Unified,everyday,{wave}-{path},
+attunement,attunement: bringing two minds' rhythms into one beat,noun,mind,Classical,everyday,{kash}-{wave}-{kau}+{action},mind-waves joined
+attune,attune (one mind to another),verb,mind,Classical,everyday,{wave}-{kau}-{tor},make the waves joined
+meld-point-touch,placing the fingertips on the meld points,noun,mind,Classical,everyday,{meld-point}-{touch},canon: fingertips at key points on the face
+receptive,"receptive, open to another mind",adjective,mind,Classical,everyday,{receive}+{adjectival},
+projective,"projective, sending outward",adjective,mind,Classical,everyday,{send}+{adjectival},
+mind-receive,receive another mind's contents,verb,mind,Classical,everyday,{kash}-{receive},the receptive act
+mind-send,send one's mind into another,verb,mind,Classical,everyday,{kash}-{send},the projective act
+mind-voice,"the mind's voice: speech without words, mind to mind",noun,mind,Classical,everyday,{kash}-{voice},"canon star ""voice"""
+surface-read,read the surface of a mind (passing thought),verb,mind,Classical,everyday,{surface}-{touch-read},
+emotion-read,sense another's feeling by touch,verb,mind,Classical,everyday,{emotion}-{touch-read},
+memory-read,read another's memory,verb,mind,Classical,everyday,{memory}-{touch-read},
+mind-probe,probe a mind: search it without merging,verb,mind,Classical,everyday,{kash}-{search},canon: the mind probe
+deep-probe,"deep probe, searching below the surface",noun,mind,Classical,everyday,{deep}-{kash}-{search}+{action},
+calm-send,lay calm on another mind,verb,mind,Classical,everyday,{calm}-{send},
+pain-block,block another's pain,verb,life,Classical,everyday,{pain}-{shield},
+pain-take,draw another's pain into oneself,verb,life,Classical,everyday,{pain}-{take},the healer's burden
+memory-share,"share a memory, mind to mind",verb,mind,Classical,everyday,{memory}-{share},
+memory-give,give a memory into another mind,verb,mind,Classical,everyday,{memory}-{give},
+memory-wipe,erase a memory,verb,mind,Classical,everyday,{memory}-{wipe},"canon: Spock's ""Forget"""
+mind-seed,plant a suggestion in a mind,verb,mind,Classical,everyday,{kash}-{seed}-{put},"planting a seed: canon, Mirror T'Pol"
+dream-share,share a dream,verb,mind,Classical,everyday,{dream}-{share},
+inner-wall,the inner wall: a mental barrier raised within,noun,mind,Classical,everyday,{in}-{wall},
+katra-give,pass a katra to another (katra transfer),verb,ritual,Classical,everyday,{katra}-{give},canon: Spock to McCoy
+other-meld,meld with an alien or non-humanoid mind,verb,mind,Classical,everyday,{other}-{meld},"canon: the Horta, the whales"
+far-touch,far-touch: contact with a mind at a distance,noun,mind,Classical,everyday,{distant}-{touch},canon: remnants of a meld allow distant contact
+bond-sense,feel a bondmate across distance,verb,bond,Classical,everyday,{koon}-{feel},
+bond-form,form a mental bond (as in childhood bonding),verb,bond,Classical,everyday,{kash}-{koon}-{tor},canon: the childhood bond
+bond-sever,sever a bond,verb,bond,Classical,everyday,{koon}-{cut},
+meld-ash,meld-ash: the residue a meld leaves in each mind,noun,mind,Classical,everyday,{meld}-{ash},canon: part of a katra can remain
+bleed-over,bleed-over: another's feeling flooding one's own,noun,mind,Classical,everyday,{emotion}-{flow}+{action},the danger of an untrained meld
+inner-reflection,inner reflection: the mind turned on itself,noun,discipline,Classical,everyday,{in}-{kash}-{look}+{action},the internal scope
+outer-reflection,outer reflection: reading another mind,noun,discipline,Classical,everyday,{outside}-{kash}-{look}+{action},the external scope
+group-reflection,group reflection: minds looking together,noun,discipline,Classical,everyday,{group}-{kash}-{look}+{action},the group scope
+self-meld,meld with oneself: deep meditation into one's own katra,noun,discipline,Classical,everyday,{self}-{meld},
+bridging,the bridging of minds: one melder linking several,noun,mind,Classical,everyday,{bridge}-{meld}+{action},canon: Tuvok's Bridging of Minds
+group-mind,a joined mind of many,noun,mind,Classical,everyday,{kash}+{collective},
+grade-open-hand,"the Open Hand: first grade, sensing through touch",noun,ritual,Classical,everyday,{open}-{hand},"grade 1 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-still-water,"the Still Water: second grade, receiving surface thought and feeling",noun,ritual,Classical,everyday,{calm}-{water},"grade 2 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-sending,"the Sending: third grade, projecting calm and simple thought",noun,ritual,Classical,everyday,{kash}-{send}+{action},"grade 3 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-joining,"the Joining: fourth grade, the full meld",noun,ritual,Classical,everyday,{kash}-{kau}+{action},"grade 4 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-deep,"the Deep: fifth grade, memory, healing and the edge of the katra",noun,ritual,Classical,everyday,{deep}-{kash},"grade 5 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-bridge,"the Bridge: sixth grade, linking several minds",noun,ritual,Classical,everyday,{bridge}-{kash},"grade 6 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+grade-carrying,"the Carrying: seventh grade, holding and passing a katra",noun,ritual,Classical,everyday,{katra}-{carry}+{action},"grade 7 of the Order of Communion, kept on in Surak's teaching and at Mount Seleya"
+master-melder,master melder (of the seventh grade),noun,ritual,Classical,everyday,{meld}-{master}-{ve},
+untrained-melder,untrained melder,noun,mind,Classical,everyday,{without}-{teach}+{participle-ik}-{meld}-{ve},"canon: Tolaris, and pa'nar"
+courtship,courtship,noun,bond,Classical,everyday,{koon}-{chase}+{action},"bond-pursuit: the desert hunt as the image of courting; LA petere 'seek', JA kyuu-ai 'seeking love'. Batch 21 audit: replaces an English pun on court (of law)"
+suitor,"suitor, admirer",noun,bond,Classical,everyday,{koon}-{chase}-{ve},one who pursues a bond. Batch 21 audit: replaces an English pun on court (of law)
+sweetheart,sweetheart,noun,bond,Classical,intimate,{heart}-{endear},"heart + the endearment ending, as said in Classical courtship. Batch 21 audit: replaces the English idiom sweet-heart"
+love-song,love song,noun,bond,Classical,everyday,{love}-{song},
+love-letter,love letter,noun,bond,Classical,everyday,{love}-{message},
+charming,charming,adjective,bond,Classical,everyday,{charm}+{adjectival},
+temptation,temptation,noun,bond,Classical,everyday,{tempt}+{action},
+blush,blush (a green flush),verb,bond,Classical,everyday,{plak}-{rise},blood rising: a Vulcan flush is green
+jealous,jealous,adjective,bond,Classical,everyday,{envy}+{adjectival},
+devotion,devotion,noun,bond,Classical,everyday,{heart}-{give}+{action},the giving of the heart
+heartbreak,heartbreak,noun,bond,Classical,everyday,{heart}-{break},
+elope,"elope, bond in secret",verb,bond,Classical,everyday,{koon}-{flee},bond-flee
+seduce,seduce,verb,bond,Classical,everyday,{tempt}-{lead},lead by temptation
+smiling,smiling,adjective,bond,Classical,everyday,{smile}+{participle-ik},
+admire,admire,verb,bond,Classical,everyday,{beauty}-{see},see the beauty
+tender-word,"endearment, a tender word",noun,bond,Classical,everyday,{soft}-{word},
+bicker,bicker,verb,emotion,Classical,everyday,{quarrel}-{quarrel},reduplication for repeated action
+contradict,contradict,verb,emotion,Classical,everyday,{other}-{say},say otherwise: LA contra-dicere
+rebuke,rebuke,noun,emotion,Classical,everyday,{scold}+{action},
+defiance,defiance,noun,emotion,Classical,everyday,{defy}+{action},
+resent,resent,verb,emotion,Classical,everyday,{grudge}-{tor},
+furious,furious,adjective,emotion,Classical,everyday,{rage}+{adjectival},
+annoyance,annoyance,noun,emotion,Classical,everyday,{annoy}+{action},
+annoying,annoying,adjective,emotion,Classical,everyday,{annoy}+{adjectival},
+sarcasm,sarcasm,noun,emotion,Classical,everyday,{false}-{praise},false praise
+gloat,gloat,verb,emotion,Classical,everyday,{victory}-{joy},
+quick-tempered,quick-tempered,adjective,emotion,Classical,everyday,{temper}+{adjectival},
+stubbornness,stubbornness,noun,emotion,Classical,everyday,{stubborn}+{abstract},
+arrogance,arrogance,noun,emotion,Classical,everyday,{arrogant}+{abstract},
+despair,despair,noun,emotion,Classical,everyday,{without}-{hope},without hope
+consolation,consolation,noun,emotion,Classical,everyday,{comfort}+{action},
+relieved,relieved,adjective,emotion,Classical,everyday,{relief}+{adjectival},
+hold-regard,"hold in regard (the Standard way to say ""I care for you"")",verb,bond,Standard,intimate,{pahk}-{tor},"canon pahk ""regard"""
+find-acceptable,find acceptable (Standard understatement for liking someone),verb,bond,Standard,intimate,{acceptable}-{tor},
+bond-ask,ask for a bond (the Standard proposal),verb,bond,Standard,formal,{koon}-{ask},in place of courting
+company-value,the value of one's company,noun,bond,Standard,intimate,{companion}-{good}+{abstract},"companion-goodness: said in place of ""I enjoy being with you"""
+disagree,disagree (the Standard form of a quarrel),verb,bond,Standard,everyday,{without}-{agree},
+note-objection,register an objection,verb,bond,Standard,formal,{other}-{opinion}-{tor},state another view
+impermanence,impermanence: nothing lasts,noun,discipline,Unified,everyday,{without}-{last}+{abstract},"analogue of Buddhist anicca; canon kaiidth, ""what is, is"", is its acceptance"
+impermanent,impermanent,adjective,discipline,Unified,everyday,{without}-{last}+{adjectival},
+no-mind,no-mind: action without the interference of thought or feeling,noun,discipline,Unified,everyday,{void}-{kash},analogue of Zen mushin; the state of the trained hand in kal-toh
+life-purpose,life-purpose: the reason one rises each day (one's place in the order of things),noun,discipline,Unified,everyday,{life}-{purpose},analogue of Japanese ikigai
+crack-beauty,"crack-beauty: the beauty of the imperfect, the worn and the mended",noun,discipline,Unified,everyday,{crack}-{beauty},"analogue of wabi-sabi and kintsugi; the opposite of canon buhfik, ""perfect"""
+moment-grief,moment-grief: the quiet sorrow for things that pass,noun,discipline,Unified,everyday,{moment}-{grief},"analogue of mono no aware; the one grief Surak allowed, because it is a perception, not a passion"
+silence-between,"the silence between: the meaningful pause in speech, music or action",noun,discipline,Unified,everyday,{silence}-{between},analogue of Japanese ma
+daily-refinement,daily refinement: improving a little each day,noun,discipline,Unified,everyday,{each}-{day}-{improve}+{action},analogue of kaizen
+new-mind,"new mind: the beginner's mind, open and without assumption",noun,discipline,Unified,everyday,{new}-{kash},analogue of shoshin
+remaining-mind,remaining mind: awareness held after an act is finished,noun,discipline,Unified,everyday,{remain}-{attention},analogue of zanshin
+sudden-insight,"sudden insight, an awakening in a moment",noun,discipline,Unified,everyday,{sudden}-{insight},analogue of satori
+logic-riddle,"logic-riddle: a puzzle with no solution, set to break habits of thought",noun,discipline,Unified,everyday,{kthia}-{riddle},analogue of the Zen koan; set by the masters of Gol
+middle-path,"the middle path, between passion and denial",noun,discipline,Unified,everyday,{middle}-{path},analogue of the Buddhist middle way; Surak against both the warlords and the Order of Silence
+stillness,stillness,noun,discipline,Unified,everyday,{stone}+{abstract},"""stone-ness"", the stillness of stone held in meditation (rebuilt Nov 2026; was built on kev ""still, yet"")"
+the-teachings,"the Teachings (of Surak), the body of his doctrine",noun,ritual,Unified,ceremonial,{teach}+{collective},canon: the Teachings of Surak
+breath-meditation,breath meditation: counting the breath,noun,discipline,Unified,everyday,{breath}-{count}-{meditation},
+flame-meditation,flame meditation: gazing on a lamp,noun,discipline,Unified,everyday,{flame}-{gaze}+{action},canon: Tuvok's meditation lamp
+walking-meditation,walking meditation,noun,discipline,Unified,everyday,{walk}-{meditation},
+mind-chant,"a meditation chant, repeated to still the mind",noun,discipline,Unified,everyday,{kash}-{chant},
+garden-of-stone,a stone garden for contemplation,noun,discipline,Unified,everyday,{stone}-{garden},analogue of the karesansui garden; canon: the stone gardens of Vulcan temples
+humaneness,"humaneness: right feeling between people, expressed as conduct",noun,discipline,Unified,everyday,{person}-{good}+{abstract},"analogue of Confucian ren; for Surak, care shown through action, not feeling"
+righteousness,righteousness: doing what duty requires,noun,discipline,Unified,everyday,{duty}-{correct}+{abstract},analogue of Confucian yi
+exemplary-person,"the exemplary person, whose conduct teaches",noun,discipline,Unified,everyday,{example}-{ve},analogue of the Confucian junzi
+ancestor-reverence,reverence for ancestors,noun,ritual,Unified,everyday,{ancestors}-{respect}+{action},
+rectify-names,rectify names: make words match the things they name,verb,speech,Unified,everyday,{name}-{correct}-{tor},analogue of Confucian zhengming; the root of Vulcan precision in speech
+high-command,the High Command (Vulcan government before 2161),noun,rank,Standard,formal,{high}-{command-v}+{action},"canon: the Vulcan High Command, dissolved after the Kir'Shara (2154)"
+surveillance,surveillance,noun,law,Standard,everyday,{hidden}-{observe}+{action},hidden watching
+surveil,keep under surveillance,verb,law,Standard,everyday,{hidden}-{observe},
+informer,informer,noun,law,Standard,everyday,{secret}-{tell}-{ve},secret-tell-one
+denounce,"denounce, name someone to the authorities",verb,law,Standard,everyday,{name}-{give},give a name
+dossier,"dossier, file on a person",noun,law,Standard,everyday,{person}-{record},
+watch-list,watch list,noun,law,Standard,everyday,{doubt}-{list},
+suspicion,suspicion,noun,law,Standard,everyday,{doubt}-{eye},the doubting eye
+suspicious,"suspicious, under suspicion",adjective,law,Standard,everyday,{doubt}-{eye}+{adjectival},
+suspect-n,a suspect,noun,law,Standard,everyday,{doubt}-{ve},
+interrogate,interrogate,verb,law,Standard,everyday,{force}-{ask},force-ask
+interrogation,interrogation,noun,law,Standard,everyday,{force}-{ask}+{action},
+interrogator,interrogator,noun,law,Standard,everyday,{force}-{ask}-{ve},
+classified,"classified, made secret",adjective,law,Standard,everyday,{secret}-{tor}+{participle-ik},
+censor,censor,verb,law,Standard,everyday,{word}-{cut},cut words
+censorship,censorship,noun,law,Standard,everyday,{word}-{cut}+{action},
+self-censorship,self-censorship: cutting one's own words before they are spoken,noun,law,Standard,everyday,{self}-{word}-{cut}+{action},
+propaganda,propaganda,noun,law,Standard,everyday,{government}-{word},government-word
+orthodoxy,"orthodoxy, the approved thought",noun,law,Standard,everyday,{correct}-{nap},correct-thought; heresy (titi) is the old word for its opposite
+dissent,dissent,noun,law,Standard,everyday,{other}-{think}+{action},thinking otherwise
+dissident,dissident,noun,law,Standard,everyday,{other}-{think}-{ve},
+re-education,re-education,noun,law,Standard,everyday,{again}-{teach}+{action},
+checkpoint,checkpoint,noun,law,Standard,everyday,{path}-{guard},path-guard
+identity-papers,identity papers,noun,law,Standard,everyday,{self}-{record},self-record
+listening-device,listening device,noun,law,Standard,everyday,{listen}+{instrument},
+paranoia,paranoia: suspicion of everyone,noun,mind,Standard,clinical,{doubt}-{dread},doubt-dread
+openness,openness: the Federation-era ideal of speaking freely,noun,quality,Standard,everyday,{open}+{abstract},"after 2161, the answer to self-censorship"
+woo,"court, woo: pursue a bond",verb,bond,Classical,everyday,{koon}-{chase},bond-pursue: the verb behind courtship
+confide-heart,confide a matter of the heart about one who is absent (spoken only between bond-kin),verb,bond,Classical,intimate,{heart}-{whisper},heart-whisper. Kin to rumor (a whispering): the same act told to the wrong ear becomes gossip
+heart-whisper,"a heart-whisper: a confidence of attraction or intended courtship, told among bond-kin about one not present",noun,bond,Classical,intimate,{heart}-{whisper}+{action},see confide-heart; Standard grammar still requires an evidential for the absent one's feeling
+confidant,"confidant, keeper of a heart-whisper",noun,bond,Classical,intimate,{heart}-{keep}-{ve},heart-keeper
+keep-confidence,"keep a confidence, hold a secret",verb,bond,Classical,everyday,{secret}-{keep},
+declare-feeling,declare one's feeling to the one desired (a love confession),verb,bond,Classical,intimate,{heart}-{tell},"heart-tell, said to the person, against confide-heart, said about them; JA kokuhaku"
+declaration-feeling,a declaration of feeling,noun,bond,Classical,intimate,{heart}-{tell}+{action},
+crush,"a crush, a hidden attraction",noun,bond,Classical,everyday,{hide}+{participle-ik}-{ka}+{abstract},
+unrequited,"unrequited, unanswered (of feeling)",adjective,bond,Classical,everyday,{without}-{answer}+{participle-ik},unanswered
+reject-suitor,"refuse a suitor, decline a bond",verb,bond,Classical,everyday,{koon}-{refuse},
+matchmaker,"matchmaker, go-between for a bond",noun,bond,Classical,everyday,{koon}-{between}-{ve},bond go-between: JA nakoudo
+bond-gift,"bond-gift, the gift exchanged at a betrothal",noun,bond,Classical,everyday,{koon}-{give}-{thing},
+estranged,"estranged, made distant",adjective,bond,Classical,everyday,{distant}-{tor}+{participle-ik},
+reunite,"reunite, meet again",verb,bond,Classical,everyday,{again}-{meet},LA re-unire
+reunion,reunion,noun,bond,Classical,everyday,{again}-{meet}+{action},
+devoted,devoted,adjective,bond,Classical,everyday,{heart}-{give}+{action}+{adjectival},
+jealousy,jealousy,noun,emotion,Classical,everyday,{envy}+{abstract},
+oath-sibling,"oath-sibling, one bound as kin by sworn oath",noun,kin,Classical,everyday,{oath}-{sibling},sworn kinship: the blood-brother bond of a warrior culture
+war-companion,companion-in-arms,noun,kin,Classical,everyday,{war}-{companion},
+foster-sibling,foster sibling,noun,kin,Classical,everyday,{ward}-{sibling},
+disciple-m,"disciple of a master, one raised in a school",noun,kin,Unified,everyday,{master-n}-{wan},"master's child: JA deshi, LA alumnus 'one nourished'"
+acquaintance,acquaintance,noun,kin,Classical,everyday,{know}+{participle-ik}-{ve},the known one
+introduce,introduce (people to one another),verb,speech,Classical,everyday,{name}-{share},share names
+introduction,introduction,noun,speech,Classical,everyday,{name}-{share}+{action},
+favor,"a favor, a kindness owed",noun,rank,Classical,everyday,{help}-{debt},"help-debt: JA on, the debt of kindness"
+reciprocity,"reciprocity, kindness returned",noun,rank,Classical,everyday,{again}-{come}-{give}+{action},return-giving
+reputation,"reputation, good name",noun,rank,Classical,everyday,{name}-{voice},name-voice: JA mei-sei; canon star 'voice'
+house-honor,the honor of a House,noun,rank,Classical,everyday,{clan}-{honor},
+lose-standing,"loss of standing, a fall in reputation",noun,rank,Classical,everyday,{name}-{fall}+{action},name-fall: JA kao wo tsubusu 'crush the face'
+expose,"lay bare, bring k'onar on someone (expose the inner self)",verb,emotion,Standard,everyday,{k'onar}-{tor},make k'onar
+compliment,compliment,noun,speech,Classical,everyday,{praise}-{word},praise-word
+acknowledge-success,acknowledge another's success (the Standard congratulation),verb,speech,Standard,formal,{succeed}+{action}-{acknowledge},in place of congratulating with feeling
+condolence,"condolence, grief-sharing",noun,speech,Classical,everyday,{grief}-{share}+{action},
+idle-talk,"idle talk, small talk",noun,speech,Classical,everyday,{empty}-star+i+mpen+{action},empty speaking; a Standard reproach
+interrupt,interrupt,verb,speech,Classical,everyday,{between}-star+i+mpen,"speak between: LA inter-rumpere, JA kuchi wo hasamu"
+eavesdrop,eavesdrop,verb,speech,Classical,everyday,{hide}+{participle-ik}-{hear},hidden hearing
+distrust,distrust,noun,emotion,Classical,everyday,{without}-{trust},
+rivalry,rivalry,noun,emotion,Classical,everyday,{rival}+{abstract},
+etiquette,"etiquette, the body of courtesies",noun,rank,Classical,everyday,{courtesy}+{collective},
+guest-gift,guest-gift (brought to a host),noun,rank,Classical,everyday,{guest}-{give}-{thing},
+water-first,the water-first: the cup of water offered to a guest before any word (desert custom),noun,rank,Classical,everyday,{water}-{one}+{ordinal},culture: in the desert the first courtesy is water
+water-skin,water-skin,noun,desert,Classical,everyday,{water}-{skin},
+water-cache,"water cache, hidden water store",noun,desert,Classical,everyday,{hide}+{participle-ik}-{water},
+ration-v,"ration, give out by measure",verb,desert,Classical,everyday,{measure}-{give},
+ration-n,"a ration, a measured share",noun,desert,Classical,everyday,{measure}+{participle-ik}-{food},measured food
+forage,"forage, search for food",verb,desert,Classical,everyday,{food}-{search},
+forager,forager,noun,desert,Classical,everyday,{food}-{search}-{ve},
+storm-shelter,"storm shelter, refuge from a sandstorm",noun,desert,Classical,everyday,{storm}-{shield},
+camp-n,"camp, a resting place for the night",noun,desert,Classical,everyday,{rest}+{place-suf},
+night-fire,"campfire, night-fire",noun,desert,Classical,everyday,{night}-{far},canon far 'fire'
+signal-fire,signal fire,noun,desert,Classical,everyday,{signal}-{far},
+cairn,"cairn, a stone trail marker",noun,desert,Classical,everyday,{stone}-{signal},stone-sign
+heat-sickness,"heat-sickness, heatstroke",noun,life,Classical,everyday,{heat}-{ill}+{abstract},JA netchuushou; not the English sun-stroke
+dehydration,dehydration,noun,life,Classical,everyday,{water}-{lack},
+frost-wound,"frostbite, cold-wound",noun,life,Classical,everyday,{frost}-{wound},JA toushou 'frozen wound'
+venom-cure,"antidote, venom-cure",noun,life,Classical,everyday,{venom}-{cure},
+venomous,venomous,adjective,animal,Classical,everyday,{venom}+{adjectival},
+bone-bind,"splint, bind a broken bone",verb,life,Classical,everyday,{bone}-{tie},
+blood-tie,"tourniquet, bind against bleeding",noun,life,Classical,everyday,{plak}-{tie},canon plak 'blood'
+snare,snare (a noose trap),noun,desert,Classical,everyday,{rope}-{trap},
+trail,"trail, footpath worn by walking",noun,desert,Classical,everyday,{foot}-{path},
+track-v,"track, follow a trail",verb,desert,Classical,everyday,{foot}-{path}-{follow},
+tracker,tracker,noun,desert,Classical,everyday,{foot}-{path}-{follow}-{ve},
+star-reading,"star-reading, finding the way by the stars",noun,desert,Classical,everyday,{star}-{read}+{action},
+water-finding,"water-finding, the art of locating hidden water",noun,desert,Classical,everyday,{water}-{find}+{action},
+desert-way,the desert way: the craft of surviving in the deep desert,noun,desert,Classical,everyday,{desert}-{way},
+survive,"survive, keep one's life",verb,life,Classical,everyday,{life}-{keep},life-keep
+survival,survival,noun,life,Classical,everyday,{life}-{keep}+{action},
+edible,edible,adjective,food,Classical,everyday,{eat}+{adjectival},
+inedible,inedible,adjective,food,Classical,everyday,{without}-{eat}+{adjectival},
+famine,famine,noun,food,Classical,everyday,{food}-{lack},
+nomad-clan,"nomad clan, a people of the path",noun,kin,Classical,everyday,{path}-{clan},culture: the desert clans who never settled
+caravan,"caravan, a line of pack-beasts",noun,desert,Classical,everyday,{carry}-{beast}-{line},
+night-cold,the night-cold of the desert,noun,desert,Classical,everyday,{night}-{cold},
+warlord,warlord,noun,rank,Classical,everyday,{war}-{lord},the pre-Surak lords of the Houses
+war-house,"war-house, a martial House",noun,rank,Classical,everyday,{war}-{clan},
+liege,"liege, oath-lord",noun,rank,Classical,formal,{oath}-{lord},
+sworn,"sworn, oath-bound",adjective,rank,Classical,everyday,{swear}+{participle-ik},
+superior,"superior, the one above (in rank)",noun,rank,Classical,everyday,{up}-{ve},JA me-ue 'eye-above'
+subordinate,"subordinate, the one below (in rank)",noun,rank,Classical,everyday,{down}-{ve},JA me-shita 'eye-below'
+chain-command,chain of command,noun,rank,Classical,everyday,{command-v}-{line},command-line
+war-band,war-band,noun,conflict,Classical,everyday,{war}-{group},
+squad,"squad, a small war-band",noun,conflict,Classical,everyday,{war}-{group}-{kam},little war-band
+vanguard,vanguard,noun,conflict,Classical,everyday,{front}-{group},
+rearguard,rearguard,noun,conflict,Classical,everyday,{behind}-{group},
+flank-n,flank (of an army),noun,conflict,Classical,everyday,{side}-{group},
+battle-order,"battle order, formation",noun,conflict,Classical,everyday,{fight}-{order},
+banner,"banner, House standard",noun,conflict,Classical,everyday,{clan}-{cloth},clan-cloth
+war-council,war council,noun,conflict,Classical,everyday,{war}-{council},
+war-cry,war cry,noun,conflict,Classical,everyday,{war}-{shout},
+recruit,"recruit, new soldier",noun,conflict,Classical,everyday,{new}-{war}-{ve},
+veteran,veteran,noun,conflict,Classical,everyday,{old}-{war}-{ve},
+lookout,"lookout, sentry on high ground",noun,conflict,Classical,everyday,{high}-{see}-{ve},
+night-watch,night watch,noun,conflict,Classical,everyday,{night}-{guard}+{action},
+ransom,ransom,noun,conflict,Classical,everyday,{take}+{participle-ik}-{ve}-{price},
+champion,"champion, one who fights in another's place",noun,conflict,Classical,everyday,{place}-{fight}-{ve},canon: the champion chosen in kal-if-fee
+duel-second,"duelist's second, aide in a challenge",noun,conflict,Classical,everyday,{kal}-{help}-{ve},challenge-helper
+duel,duel,noun,conflict,Classical,everyday,{kal}-{fight}+{action},"canon kal 'challenge', as in kal-if-fee"
+spare,"spare, show mercy",verb,conflict,Classical,everyday,{mercy}-{tor},
+concede,concede (a bout or challenge),verb,conflict,Classical,everyday,{kal}-{give},give up the challenge
+grand-master,grandmaster of a martial school,noun,discipline,Unified,honorific,{fal}-{master-n},"canon fal 'noble, high'"
+senior-student,"senior student, one who began before",noun,discipline,Classical,everyday,{before}-{companion},JA sen-pai 'before-companion'
+junior-student,"junior student, one who began after",noun,discipline,Classical,everyday,{after}-{companion},JA kou-hai 'after-companion'
+fight-form,"fighting form, a set pattern of moves practiced alone",noun,discipline,Classical,everyday,{fight}-{pattern},JA kata
+practice-n,"practice, drill",noun,discipline,Classical,everyday,{skill}-{build}+{action},"skill-building: LA exercitatio, JA keiko"
+practice-v,"practice, drill (verb)",verb,discipline,Classical,everyday,{skill}-{build},
+spar,spar,verb,discipline,Classical,everyday,{hand}-{kau},hands joined: JA kumite
+sparring,sparring,noun,discipline,Classical,everyday,{hand}-{kau}+{action},
+bout,"bout, a single contest",noun,discipline,Classical,everyday,{kal}+{action},
+stance,"stance, fighting posture",noun,discipline,Classical,everyday,{stand}-{form},standing form
+block-v,block (a strike),verb,discipline,Classical,everyday,{strike}-{stop-v},strike-stop
+counter-strike,counter-strike,noun,discipline,Classical,everyday,{answer}-{strike},answer-strike
+feint,feint,noun,discipline,Classical,everyday,{false}-{strike},false strike
+grapple,"grapple, close-hold fighting",verb,discipline,Classical,everyday,{hold}-{fight},
+bow-greet,"bow (the head, in greeting or respect)",verb,rank,Classical,everyday,{head}-{down},"distinct from bow-low, the Classical abasement"
+rank-belt,"rank-belt, the belt that shows a student's grade",noun,discipline,Classical,everyday,{rank}-{belt},
+rank-test,"rank test, grading examination",noun,discipline,Classical,everyday,{rank}-{test-n},
+promotion,"promotion, a rise in rank",noun,rank,Classical,everyday,{rank}-{rise}+{action},
+demotion,"demotion, a fall in rank",noun,rank,Classical,everyday,{rank}-{fall}+{action},
+presence,"presence (of a person, as the mind feels it)",noun,mind,Classical,everyday,{kash}-{near}+{abstract},mind-nearness: a touch-telepath feels a person as a mind close by
+bond-silence,"bond-silence, the stillness where a bonded mind is no longer felt (through distance or death)",noun,bond,Classical,everyday,{koon}-{silence},
+bond-warmth,"bond-warmth, a bondmate's presence felt through the bond",noun,bond,Classical,intimate,{koon}-{warm},
+bond-ache,"bond-ache, the pain of long distance in a bond",noun,bond,Classical,everyday,{koon}-{pain},"with bond-warmth and bond-silence, the three states of a bond at a distance"
+bond-reach,reach for someone through the bond,verb,bond,Classical,intimate,{koon}-{search},bond-search
+miss,miss (someone absent),verb,emotion,Classical,everyday,{distant}-{feel},feel the distance; compare French tu me manques 'you are lacking to me'
+missing,"missing someone, the longing for one who is absent",noun,emotion,Classical,everyday,{distant}-{feel}+{action},
+homesickness,homesickness,noun,emotion,Classical,everyday,{home}-{yearn}+{action},"German Heimweh 'home-pain', Japanese bokyo 'longing for home'"
+intimate-name,"private name, the name only a bondmate uses",noun,bond,Classical,intimate,{name}-{endear},the endearment ending on 'name'
+hold-hands,hold hands (intimate between Vulcans),verb,bond,Classical,intimate,{hand}-{hold},"the hands carry touch-telepathy, so holding them is intimate"
+comfort-touch,"a comforting touch, given with leave",noun,bond,Classical,everyday,{comfort}-{touch},
+share-silence,"share silence, be together without speaking",verb,bond,Classical,everyday,{silence}-{share},companionable silence as intimacy; compare Japanese ishin-denshin 'mind to mind'
+shared-silence,shared silence,noun,bond,Classical,everyday,{silence}-{share}+{action},
+lean-on,"rely on (someone), rest in their trust",verb,bond,Classical,everyday,{trust}-{rest},
+lower-shields,lower one's mental shields (to someone),verb,mind,Classical,intimate,{mind-shield}-{down},shield-down
+unshielded,"unshielded, open to another mind: vulnerable",adjective,mind,Classical,everyday,{without}-{mind-shield},"for a telepath, vulnerability is the absence of a shield"
+vulnerability,"vulnerability, being unshielded",noun,mind,Classical,everyday,{without}-{mind-shield}+{abstract},
+guard-heart,"guard one's heart, hold feeling back from another",verb,emotion,Classical,everyday,{heart}-{guard},
+bonding-day,the anniversary of a bonding,noun,ritual,Classical,everyday,{koon}-{day},
+cherish,"cherish, hold as precious",verb,emotion,Classical,everyday,{gold}+{collective}-{hold},Japanese taisetsu ni suru 'treat as precious'
+reassure,reassure,verb,speech,Classical,everyday,{safe}-{tell},tell safe
+reassurance,reassurance,noun,speech,Classical,everyday,{safe}-{tell}+{action},
+feel-safe,"feel safe, be at ease (with someone)",verb,emotion,Classical,everyday,{safe}-{feel},the Standard understatement for intimacy
+worry-about,worry about (someone),verb,emotion,Classical,everyday,{worry}-{carry},carry worry; compare Japanese ki ni kakeru 'hang on the mind'
+heart-wound,"a hurt to the feelings, done by another",noun,emotion,Classical,everyday,{heart}-{wound},
+hurt-feelings,hurt (someone's feelings),verb,emotion,Classical,everyday,{heart}-{injure},
+nightmare,nightmare,noun,mind,Tribal,everyday,{fear}-{dream},Japanese akumu 'bad dream'; fear-dream
+lullaby,lullaby,noun,kin,Tribal,everyday,{sleep}-{song},German Schlaflied 'sleep song'
+watch-over,watch over (a sleeper or the sick),verb,kin,Tribal,everyday,{sleep}-{guard},
+hearth,"hearth, the fire at the center of a home",noun,kin,Classical,everyday,{home}-{far},
+soft-hearted,"tender-hearted, kind",adjective,emotion,Classical,everyday,{soft}-{heart},Japanese kokoro-yasashii 'gentle of heart'
+fidelity,fidelity in a bond,noun,bond,Classical,everyday,{koon}-{loyal}+{abstract},
+shared-life,a shared life: what a bonding makes,noun,bond,Classical,everyday,{life}-{share}+{action},
+katra-trust,entrust one's katra to (someone): the deepest trust,verb,bond,Classical,everyday,{katra}-{trust},
+keepsake,keepsake,noun,bond,Classical,everyday,{memory}-{thing},memory-thing
+softly,"softly, gently",adverb,emotion,Classical,everyday,{soft}+{adverbial},
+catch,catch (what one has chased),verb,motion,Tribal,everyday,{chase}-{hold},chase-hold: seize what is pursued
+goal,"goal, aim",noun,mind,Classical,everyday,{path}-{end},"the end of a path; compare Greek telos 'end, purpose'"
+long-ago,"long ago, in ancient times",adverb,time,Classical,everyday,{ancient}-{pon},"the opening of a tale, with k'en"
+storyteller,storyteller,noun,speech,Classical,everyday,{story}-{tell}-{ve},
+teaching-tale,"teaching tale, a story told to teach",noun,speech,Classical,everyday,{lesson}-{story},Japanese kyokun-banashi 'lesson tale'
+enlightenment,enlightenment,noun,discipline,Classical,everyday,{kash}-{dawn},dawn of the mind; Sanskrit bodhi 'awakening'
+refrain,refrain (of a song),noun,speech,Classical,everyday,{verse}-{again},again-verse
+bodily,"bodily, of the body",adjective,body,Classical,everyday,{body}+{adjectival},
+tissue,tissue (of the body),noun,body,Standard,clinical,{body}-{cloth},body-cloth: EN tissue < French tissu 'woven cloth'
+organ,organ (of the body),noun,body,Standard,clinical,{body}-{part},body-part: JA zouki is the same idea
+body-system,"system (of the body): circulatory, nervous and so on",noun,body,Standard,clinical,{body}-{system},
+corpse,"corpse, a dead body",noun,death,Classical,everyday,{dead}-{body},
+fatty,"fatty, rich in fat",adjective,food,Classical,everyday,{fat}+{adjectival},
+intestinal,"intestinal, of the guts",adjective,body,Standard,clinical,{guts}+{adjectival},
+joint,joint (of bones),noun,body,Tribal,everyday,{bone}-{kau},"bones joined: canon kau, as kashkau"
+marrow,bone marrow,noun,body,Tribal,everyday,{bone}-{fat},"bone-fat: German Knochenmark, JA kotsuzui"
+tendon-sheath,tendon sheath,noun,body,Standard,clinical,{sinew}-{cover},
+pelvis,pelvis,noun,body,Classical,everyday,{hip}-{bowl},hip-bowl: LA pelvis 'basin'
+sternum,"sternum, breastbone",noun,body,Classical,everyday,{chest}-{bone},
+fracture,"fracture, a broken bone",noun,body,Classical,everyday,{bone}-{break},bone-break
+dislocate,dislocate (a joint),verb,body,Classical,everyday,{joint}-{separate},
+strain-n,strain (of a sinew or muscle),noun,body,Classical,everyday,{sinew}-{stretch}+{action},
+cramp,"cramp, spasm",noun,body,Classical,everyday,{muscle}-{seize-mind},
+grip,"grip, hold fast",verb,body,Classical,everyday,{hold}-{strong},hold strong
+navel-cord,umbilical cord,noun,body,Classical,everyday,{navel}-{rope},
+secretion,"secretion, what a gland gives out",noun,body,Standard,clinical,{gland}-{water},gland-water
+secrete,secrete,verb,body,Standard,clinical,{gland}-{flow},
+mucus,"mucus, protective membrane fluid",noun,body,Classical,everyday,{nose}-{oil},
+mucosa,"mucosa, mucous membrane",noun,body,Standard,clinical,{mucus}-{skin},
+scar-tissue,scar tissue,noun,body,Standard,clinical,{scar}-{tissue},
+heart-chamber,chamber of the heart,noun,body,Standard,clinical,{heart}-{room},heart-room
+heart-valve,valve of the heart,noun,body,Standard,clinical,{heart}-{door},heart-door
+artery,artery,noun,body,Classical,everyday,{heart}-{river},"heart-river: the outflow, beside kehei 'vein'"
+capillary,capillary,noun,body,Standard,clinical,{vein}-{kam},"little vessel: LA capillus 'hair', JA mousaikekkan 'hair-fine vessel'"
+blood-pressure,blood pressure,noun,body,Standard,clinical,{plak}-{pressure},
+circulation,circulation (of the blood),noun,body,Classical,everyday,{plak}-{around}-{flow}+{action},blood flowing around
+perfusion,"perfusion, blood reaching a tissue",noun,body,Standard,clinical,{plak}-{arrive}+{action},
+cardiac-arrest,cardiac arrest,noun,body,Standard,clinical,{heart}-{stop-v},
+heart-rhythm,"heart rhythm, cardiac rhythm",noun,body,Classical,everyday,{heart}-{rhythm},
+transfusion,transfusion,noun,body,Standard,clinical,{plak}-{give}+{action},blood-giving
+blood-type,blood type (canon: T-negative),noun,body,Standard,clinical,{plak}-{kind-n},blood-kind
+blood-plasma,plasma (of the blood),noun,body,Standard,clinical,{plak}-{water},blood-water
+blood-copper,"the copper carrier, the green oxygen-carrying protein of Vulcan blood",noun,body,Standard,clinical,{plak}-{copper},blood-copper: a Vulcan coinage; not Earth hemocyanin
+clot,"clot, blood clot",noun,body,Classical,everyday,{plak}-{stone},blood-stone
+clot-v,"clot, form a clot",verb,body,Classical,everyday,{plak}-{stone}-{become},
+hemorrhage,"hemorrhage, heavy bleeding",noun,body,Classical,everyday,{big}-{bleeding},
+anemia,"anemia, weak blood",noun,body,Standard,clinical,{plak}-{weak}+{abstract},
+copper-lack,copper deficiency,noun,body,Standard,clinical,{copper}-{lack},
+copper-poisoning,"copper toxicity, copper poisoning",noun,body,Standard,clinical,{copper}-{venom},
+iron-lack,iron deficiency,noun,body,Standard,clinical,{iron}-{lack},
+transfusion-match,compatible (for transfusion or transplant),adjective,body,Standard,clinical,{plak}-{kind-n}-{same}+{adjectival},of the same blood-kind
+rejection,rejection (by the immune system),noun,body,Standard,clinical,{body}-{refuse}+{action},the body's refusal
+immune-system,"immune system, the body's guard",noun,body,Standard,clinical,{body}-{guard},body-guard
+immunity,immunity,noun,body,Standard,clinical,{body}-{guard}+{abstract},
+pathogen,"pathogen, germ",noun,body,Standard,clinical,{illness}-{seed},"illness-seed: LA germen 'seed, sprout'"
+infection,infection,noun,body,Classical,everyday,{illness}-{enter}+{action},
+inflammation,inflammation,noun,body,Classical,everyday,{far}-{swell},"fire-swelling: LA inflammare 'set on fire', JA enshou 'flame-sign'"
+oxygen,oxygen,noun,body,Standard,clinical,{breath}-{element},"breath-element: German Sauerstoff, JA sanso are both coined, too"
+spent-breath,"spent breath, carbon dioxide",noun,body,Standard,clinical,{empty}-{breath},
+airway,airway,noun,body,Classical,everyday,{breath}-{path},
+inhale,"inhale, breathe in",verb,body,Classical,everyday,{in}-{breathe},
+exhale,"exhale, breathe out",verb,body,Classical,everyday,{outside}-{breathe},
+hold-breath,hold one's breath,verb,body,Classical,everyday,{breath}-{hold},
+gasp,gasp,verb,body,Classical,everyday,{breath}-{take},
+diaphragm,diaphragm,noun,body,Standard,clinical,{breath}-{wall},breath-wall
+sinus,sinus (of the nose),noun,body,Classical,everyday,{nose}-{cave},
+hypoxia,"hypoxia, oxygen starvation",noun,body,Standard,clinical,{oxygen}-{lack},
+breath-control,controlled breathing (as in meditation),noun,discipline,Unified,everyday,{breath}-{master}+{action},
+core-temperature,core temperature,noun,body,Standard,clinical,{middle}-{temperature},Vulcan core temperature is cooler than Human (setting decision TEMP-01); no figure fixed
+skin-temperature,skin temperature,noun,body,Standard,clinical,{skin}-{temperature},
+heat-balance,"thermoregulation, the body's heat balance",noun,body,Standard,clinical,{heat}-{balance},
+cold-sickness,"cold stress, cold-sickness",noun,life,Classical,everyday,{cold}-{illness},beside heat-sickness
+cold-sensitive,"cold-sensitive, suffering in cold",adjective,body,Classical,everyday,{cold}-{feel}+{adjectival},
+heat-tolerant,"heat-tolerant, enduring heat",adjective,body,Classical,everyday,{heat}-{endure}+{adjectival},
+urine,urine,noun,body,Classical,everyday,{urinate}-{water},
+bladder,bladder,noun,body,Classical,everyday,{urinate}-{bag},
+ureter,ureter,noun,body,Standard,clinical,{kidney}-{path},
+urethra,urethra,noun,body,Standard,clinical,{urine}-{path},
+nephron,"nephron, filtering unit of the kidney",noun,body,Standard,clinical,{kidney}-{kam},little kidney
+renal-filtering,"renal filtering, the kidney's cleaning of the blood",noun,body,Standard,clinical,{kidney}-{clean-v}+{action},
+electrolyte,"electrolyte, body-salt",noun,body,Standard,clinical,{body}-{salt},on the pattern of mind-salts
+water-balance,"water balance, fluid balance",noun,body,Classical,everyday,{water}-{balance},
+renal-failure,renal failure,noun,body,Standard,clinical,{kidney}-{fail}+{action},
+digest,digest,verb,body,Classical,everyday,{food}-{break},food-break: LA digerere 'take apart'
+digestion,digestion,noun,body,Classical,everyday,{food}-{break}+{action},
+absorb,"absorb, take in",verb,body,Classical,everyday,{in}-{drink},LA ab-sorbere 'drink in'
+absorption,absorption,noun,body,Classical,everyday,{in}-{drink}+{action},
+esophagus,"esophagus, gullet",noun,body,Classical,everyday,{food}-{path},
+saliva,saliva,noun,body,Classical,everyday,{mouth}-{water},
+bile,bile,noun,body,Classical,everyday,{liver}-{water},
+metabolism,metabolism,noun,body,Standard,clinical,{body}-{burn}+{action},body-burning: the fire image again
+nutrient,nutrient,noun,food,Standard,clinical,{body}-{food},
+fat-store,"fat store, the body's reserve",noun,body,Classical,everyday,{fat}-{storehouse},"'fast in, slow out': the reserve a Vulcan body spends slowly"
+bowel-movement,"bowel movement, defecation",noun,body,Standard,clinical,{guts}-{empty-v}+{action},
+fast-in-slow-out,"'fast in, slow out': the Vulcan energy economy",noun,body,Standard,clinical,{fast}-{in} {slow}-{outside},a setting term
+medicine-dose,dose (of a medicine),noun,life,Standard,clinical,{medicine}-{measure-n},
+sedative,sedative,noun,life,Standard,clinical,{calm}-{medicine},
+stimulant,stimulant,noun,life,Standard,clinical,{wake}-{medicine},
+analgesic,"analgesic, painkiller",noun,life,Standard,clinical,{pain}-{medicine},
+anesthetic,anesthetic,noun,life,Standard,clinical,{without}-{feel}-{medicine},
+intoxicant,intoxicant,noun,life,Classical,everyday,{drunk}-{thing},
+spinal-cord,spinal cord,noun,body,Standard,clinical,{spine}-{nerve},
+brainstem,brainstem,noun,body,Standard,clinical,{brain}-{root},brain-root: German Hirnstamm
+cerebellum,cerebellum,noun,body,Standard,clinical,{brain}-{kam},little brain: LA cerebellum is the same
+synapse,synapse,noun,body,Standard,clinical,{nerve}-{between},
+reflex,reflex,noun,body,Classical,everyday,{nerve}-{answer},
+receptor,receptor (sensory),noun,body,Standard,clinical,{nerve}-{receive},
+numb,numb,adjective,body,Classical,everyday,{without}-{feel},
+numbness,numbness,noun,body,Classical,everyday,{without}-{feel}+{abstract},
+proprioception,"proprioception, the body's sense of itself",noun,body,Standard,clinical,{self}-{feel}+{action},
+concussion,concussion,noun,body,Classical,everyday,{head}-{shake},
+memory-loss,"memory loss, amnesia",noun,mind,Classical,everyday,{memory}-{lack},
+neural-burn,"neural burn, nerve damage from overload",noun,body,Standard,clinical,{nerve}-{burn},a clinical term of the setting: damage from neural or telepathic overload
+psi-cortex,"the psi cortex, the brain's telepathic region",noun,mind,Standard,clinical,{kash}-{touch}-{brain},
+reproduction,reproduction,noun,body,Classical,everyday,{birth}-{tor}+{action},birth-making
+reproductive-system,reproductive system,noun,body,Standard,clinical,{birth}-{system},
+gonad,gonad,noun,body,Standard,clinical,{birth}-{gland},
+gamete,gamete,noun,body,Standard,clinical,{life}-{seed},
+fertility,fertility,noun,body,Classical,everyday,{fertile}+{abstract},ordinary fertility continues outside pon farr for both sexes (REP-01)
+infertility,infertility,noun,body,Classical,everyday,{barren}+{abstract},
+reproductive-readiness,reproductive readiness,noun,body,Standard,clinical,{birth}-{ready}+{abstract},
+sperm,"sperm, a sperm cell",noun,body,Standard,clinical,{seed}-{kam},little seed
+spermatic-duct,"spermatic duct, vas deferens",noun,body,Standard,clinical,{seed}-{path},
+epididymis,epididymis,noun,body,Standard,clinical,{seed}-{fold},seed-fold: the coiled duct
+ejaculation,ejaculation,noun,body,Standard,clinical,{seed}-{send}+{action},
+erection,erection,noun,body,Standard,clinical,{up}-{stand}+{action},standing up: LA erigere
+erectile-tissue,erectile tissue,noun,body,Standard,clinical,{plak}-{fill}-{tissue},blood-filling tissue
+protective-base,"the protective base: the soft proximal fold of the male organ, which can firm when aroused",noun,body,Standard,clinical,{shield}-{fold},"VUL-AND-002 / AND-01: responsive, non-locking. Fandom calls it the 'sheath'"
+distal-region,the distal region: the sensitive tip of the male organ,noun,body,Standard,clinical,{feel}-{point},
+retract,"retract, draw in",verb,body,Classical,everyday,{in}-{pull},
+retractile,"retractile, able to draw in",adjective,body,Standard,clinical,{in}-{pull}+{adjectival},
+extend,"extend, lengthen",verb,body,Classical,everyday,{long}-{tor},make long
+seed-cooling,the testes' cooling exchange (countercurrent vessels),noun,body,Standard,clinical,{seed}-{vessel}-{cool}+{action},
+ovary,ovary,noun,body,Standard,clinical,{egg}-{vessel},"egg-vessel, as seed-vessel for the testes"
+ovum,"ovum, egg cell",noun,body,Standard,clinical,{egg}-{kam},little egg
+follicle,follicle (of the ovary),noun,body,Standard,clinical,{egg}-{nest},egg-nest
+oviduct,oviduct,noun,body,Standard,clinical,{egg}-{path},
+cervix,cervix,noun,body,Standard,clinical,{womb}-{neck},womb-neck: LA cervix means 'neck'
+womb-lining,"uterine lining, the lining of the womb",noun,body,Standard,clinical,{womb}-{cloth},
+reabsorption,reabsorption (of the womb lining),noun,body,Standard,clinical,{again}-{in}-{drink}+{action},"scant, reabsorbed shedding is a working hypothesis, not universal"
+ovulation,ovulation,noun,body,Standard,clinical,{egg}-{release}+{action},
+induced-ovulation,induced ovulation (as in pon farr),noun,body,Standard,clinical,{pull}+{participle-ik}-{ovulation},drawn-out ovulation
+labial-folds,"labial folds, the protective outer folds",noun,body,Standard,clinical,{outside}-{woman}-{fold},
+conception,conception,noun,body,Classical,everyday,{life}-{kar}+{action},"the kindling of a life: canon kar 'kindle', the fire image"
+conceive,conceive (a child),verb,body,Classical,everyday,{life}-{kar},
+fertilization,fertilization,noun,body,Standard,clinical,{seed}-{egg}-{join}+{action},
+implantation,implantation,noun,body,Standard,clinical,{root}-{put}+{action},taking root
+embryo,embryo,noun,body,Standard,clinical,{seed}-{wan},seed-child
+fetus,fetus,noun,body,Standard,clinical,{womb}-{wan},womb-child
+placenta,placenta,noun,body,Standard,clinical,{wan}-{root},child-root: what feeds the child
+fetal-carrier,the fetal oxygen carrier,noun,body,Standard,clinical,{womb}-{wan}-{plak}-{copper},
+lactation,lactation,noun,body,Standard,clinical,{milk}-{give}+{action},
+nurse-v,"nurse, breastfeed",verb,body,Tribal,everyday,{milk}-{give},
+contraception,contraception,noun,body,Standard,clinical,{conception}-{shield},
+labor-v,"be in labor, give birth",verb,body,Classical,everyday,{birth}-{work},
+postpartum,"postpartum, after the birth",adjective,body,Standard,clinical,{after}-{birth}+{adjectival},
+maturity,"maturity, adulthood",noun,body,Classical,everyday,{adult}+{abstract},"puberty, fertility, first cycle and social adulthood are distinct (REP-03)"
+first-time,the first time: a Vulcan's first full pon farr,noun,body,Classical,euphemism,{first}-{pon},"pon 'time', as in pon farr; it follows physiological maturity, not a fixed age (REP-04)"
+long-cycle,"the long cycle, the roughly seven-year reproductive cycle",noun,body,Standard,clinical,{long}-{round}-{pon},long round-time
+cycle-gland,"the cycle gland, the specialized reproductive gland (location open)",noun,body,Standard,clinical,{pon}-{gland},VOY 'Nothing Human' names a Vulcan reproductive gland; its role here is setting design (REP-05)
+prodrome,"prodrome, the first signs of an approaching cycle",noun,body,Standard,clinical,{before}-{tow}-{signal},fore-fever sign
+fever-threshold,"the fever threshold, past which self-regulation fails",noun,body,Standard,clinical,{tow}-{threshold},(CRISIS-01)
+threshold,"threshold, sill",noun,place,Classical,everyday,{door}-{edge},"door-edge: LA limen, JA shikii are both a door-sill"
+decompensation,"decompensation, the failing of control",noun,body,Standard,clinical,{master}-{fall}+{action},control-fall
+fever-spiral,"the fever spiral, runaway escalation in plak tow",noun,body,Standard,clinical,{tow}-{spin},
+stabilize,stabilize,verb,life,Classical,everyday,{constant-a}-{tor},make steady
+stabilization,stabilization,noun,life,Classical,everyday,{constant-a}-{tor}+{action},
+resolve-fever,"resolve a cycle, end the episode",verb,body,Classical,everyday,{tow}-{finish},not necessarily conception or intercourse
+fever-resolution,resolution (of a cycle),noun,body,Classical,everyday,{tow}-{finish}+{action},
+after-rest,"the after-rest, the refractory phase after a cycle",noun,body,Classical,everyday,{after}-{rest},
+fever-scar,"fever-scar, sensitization after a poorly resolved cycle",noun,body,Classical,everyday,{tow}-{scar},a risk
+prevention,prevention,noun,life,Classical,everyday,{before}-{guard}+{action},
+co-regulate,"co-regulate, steady another's body through contact",verb,mind,Standard,clinical,{with}-{balance-v},
+co-regulation,co-regulation,noun,mind,Standard,clinical,{with}-{balance-v}+{action},
+bond-balance,"bond-balance, a bondmate's steadying through the bond",noun,bond,Classical,everyday,{koon}-{balance},the old word for bond co-regulation; not control: a bond does not compel
+healer-link,the healer's link: a temporary therapeutic co-regulation without a prior bond (a rare art),noun,mind,Classical,everyday,{vo}-{koon},"HEAL-01: rare, demanding, consent-bound"
+borrowed-bond,the borrowed bond (disparaging: healer co-regulation in place of a bondmate),noun,bond,Classical,colloquial,{borrow}-{koon},HEAL-02: many Houses still regard it as improper
+medical-stabilization,medical stabilization (without a meld),noun,life,Standard,clinical,{medicine}-{balance},
+informed-consent,informed consent,noun,law,Standard,clinical,{know}+{participle-ik}-{consent},known leave: canon-built neriv 'consent'
+surrogate-consent,consent given on another's behalf in an emergency,noun,law,Standard,clinical,{place}-{consent},
+emergency,emergency,noun,life,Classical,everyday,{sudden}-{danger},
+refuse-treatment,refusal of treatment,noun,law,Standard,clinical,{cure}-{refuse}+{action},
+aquifer,"aquifer, deep water under the land",noun,desert,Tribal,everyday,{deep}-{water},
+well-right,"well-right, the right to draw from a well",noun,law,Classical,everyday,{water-well}-{right-n},
+irrigation,irrigation,noun,desert,Classical,everyday,{water}-{lead}+{action},water-leading: JA kangai
+water-steward,"water-steward, keeper of a shared water",noun,desert,Classical,everyday,{water}-{keep}-{ve},
+water-share,"water-share, an allotment of water",noun,desert,Classical,everyday,{water}-{share}+{action},

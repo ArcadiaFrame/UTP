@@ -1,0 +1,307 @@
+id,category,template,vulcan,english,notes,lang
+p01,Greetings,{t'nar} {pahk} {sarat} {y'rani}.,T'nar pak sarat y'rani.,Greetings; I extend regard to your house.,"Canon line (ENT ""Fallen Hero""); formal opening",v
+p02,Greetings,{t'nar} {jaral}.,T'nar jaral.,"Greetings, likewise.",Canon reply,v
+p03,Greetings,{dif-tor} heh {prosper}.,Dif-tor heh smusma.,Live long and prosper.,Canon (liturgical spelling),v
+p04,Greetings,{sochya} eh {dif}.,Sochya eh dif.,Peace and long life.,Canon reply,v
+p05,Greetings,{welcome}.,Ev.,Welcome.,To a guest,v
+p06,Greetings,{farewell}.,Ook.,Farewell.,,v
+p07,Greetings,{pash ta}.,Pash ta.,Good night.,Canon,v
+p08,Courtesy,{thanks}.,Chaya.,Thank you.,,v
+p09,Courtesy,{pardon}.,Pok'.,Pardon; excuse me.,Formal register,v
+p10,Courtesy,{nash-ve} {apologize}.,Nash-ve keshir.,I apologize.,,v
+p11,Courtesy,{request} {again} {say}.,Kor kir pokok.,Please say it again.,Subject and object dropped: clear from context,v
+p12,Courtesy,{request} {slow}-{adverbial} {speak}.,Kor yeikuf-fu stariben.,Please speak slowly.,-fu makes an adverb,v
+p13,Courtesy,"{yes}, {thanks}.","Il, chaya.","Yes, thank you.",,v
+p14,Courtesy,"{no}, {thanks}.","Sa, chaya.","No, thank you.",,v
+p15,Understanding,{nash-ve} {not} {understand}.,Nash-ve suhk haska.,I do not understand.,suhk comes right before the verb,v
+p16,Understanding,{understand}.,Haska.,(I) understand.,Answer by echoing the verb,v
+p17,Understanding,{understood}.,Ush.,Understood.,,v
+p18,Understanding,{agreed}.,El.,Agreed.,,v
+p19,Understanding,{indeed}.,Tei.,Indeed.,,v
+p20,Understanding,{question} {tu} {language} {t'}Vulkan {speak}?,Kuth tu sitvokhhol t'Vulkan stariben?,Do you speak Vulcan?,kuth opens a yes-or-no question,v
+p21,Understanding,{nash-ve} {language} {your}-{object-wizh} {learn}-{ongoing}.,Nash-ve sitvokhhol sau-wizh haumok-pil.,I am learning your language.,-pil: ongoing action,v
+p55,Understanding,{ev-seen}.,Ho.,I saw it.,An evidential alone can answer,v
+p22,Questions,{what} {name} {your}?,Wakli gor sau?,What is your name?,"Question word first; no verb ""to be""",v
+p23,Questions,{name} {my} Sorel.,Gor keru Sorel.,My name is Sorel.,,v
+p24,Questions,{where} {tu} {go}-{ongoing}?,Fa tu lish-pil?,Where are you going?,,v
+p25,Questions,{gishun}?,Gishun?,Why?,,v
+p26,Questions,{when} {dungi} {tu} {come}?,Tun dungi tu sarla?,When will you come?,,v
+p27,Questions,{who} {ish-ve}?,Thuh ish-ve?,Who is he?,,v
+p28,Questions,{how-many} {hour}-{plural}?,Ar-ok' varen-k'oo?,How many hours?,,v
+p29,Questions,{how} {work} {your}?,Ar hukhnu sau?,How goes your work?,"The Vulcan ""how are you"": ask after work or health, never feelings",v
+p30,Questions,{work} {my} {well}.,Hukhnu keru ta.,My work goes well.,,v
+p31,Requests,{kup} {tu} {nash-ve}-{object-wizh} {help}?,Kup tu nash-ve-wizh neru?,Can you help me?,The auxiliary moves to the front,v
+p32,Requests,{nash-ve} {kup} {help}.,Nash-ve kup neru.,I can help.,,v
+p33,Requests,{request} {nash-ve}-{object-wizh} {follow}.,Kor nash-ve-wizh kokin.,Please follow me.,A command is the bare verb,v
+p34,Requests,{hortative} {go}.,Thu lish.,Let us go.,thu: let us,v
+p35,Requests,{not} {go}.,Suhk lish.,Do not go.,,v
+p36,Requests,{question} {tu} {tea} {want}?,Kuth tu sakam dawru?,Would you like tea?,-wizh may drop for an indefinite thing,v
+p37,Statements,{nash-ve} {here} {wait}-{ongoing}.,Nash-ve tan patak-pil.,I am waiting here.,,v
+p38,Statements,{ish-ve} {comp} {come}-{past-un} {say}-{past-un}.,Ish-ve meen sarla-un pokok-un.,He said that he had come.,meen opens what was said; the verb of saying comes last,v
+p39,Statements,{ish-ve} {come}-{past-un} {ev-reported}.,Ish-ve sarla-un k'en.,He came (I was told).,Reported evidential,v
+p40,Statements,"{if} {tu} {come}, {we} {kal-toh} {dungi} {play}.","K'u tu sarla, ekh kal-toh dungi nol.","If you come, we will play kal-toh.",The if-clause comes first,v
+p41,Statements,{nash} {ish} {than} {more} {logical}.,Nash ish t'ei li kthiauk.,This is more logical than that.,,v
+p42,Statements,{illogical}.,Suhk-kthiauk.,Illogical.,,v
+p43,Statements,{fascinating}.,Tuskash.,Fascinating.,,v
+p44,Statements,{but} {ish-ve} {worla} {come}.,Khe ish-ve worla sarla.,But he never comes.,worla replaces suhk,v
+p45,Statements,{we} {now} {eat}-{ongoing}.,Ekh tir sokzha-pil.,We are eating now.,,v
+p54,Statements,{nash-ve} {nothing} {know}.,Nash-ve suhk-wul tu'o.,I know nothing.,One negative per clause: aush replaces suhk,v
+p56,Statements,{nash-ve} {work}-{ongoing}-{past-un}.,Nash-ve hukhnu-pil-un.,I was working.,Aspect before tense,v
+p46,Dialogue,{t'nar} {pahk} {sarat} {y'rani}.,T'nar pak sarat y'rani.,(Ambassador) Greetings; I extend regard to your house.,A short exchange between a Vulcan ambassador and a Starfleet officer,v
+p47,Dialogue,{t'nar} {jaral}. {question} {tu} {language} {t'}Vulkan {speak}?,T'nar jaral. Kuth tu sitvokhhol t'Vulkan stariben?,"(Officer) Greetings, likewise. Do you speak Vulcan?",,v
+p48,Dialogue,{yes}. {tu} {speak} {ev-inferred}.,Il. Tu stariben aukh.,"(Ambassador) Yes. You speak it, I observe.",aukh: concluded from what she hears,v
+p49,Dialogue,{nash-ve} {learn}-{ongoing}. {request} {slow}-{adverbial} {speak}.,Nash-ve haumok-pil. Kor yeikuf-fu stariben.,(Officer) I am learning. Please speak slowly.,,v
+p50,Dialogue,{how} {work} {your}?,Ar hukhnu sau?,(Ambassador) How goes your work?,,v
+p51,Dialogue,"{work} {my} {well}, {thanks}.","Hukhnu keru ta, chaya.","(Officer) My work goes well, thank you.",,v
+p52,Dialogue,{question} {tu} {tea} {want}?,Kuth tu sakam dawru?,(Ambassador) Would you like tea?,,v
+p53,Dialogue,"{yes}, {thanks}.","Il, chaya.","(Officer) Yes, thank you.",,v
+p57,Scene: a meal,{meal} {ready}. {request} {sit}.,Shash kauhi. Kor hauthi.,(Mother) The meal is ready. Please sit.,"A family supper. Short sentences, subjects dropped",v
+p58,Scene: a meal,{soup} {hot}. {slow}-{adverbial} {eat}.,Lakh sinish. Yeikuf-fu sokzha.,(Mother) The soup is hot. Eat slowly.,A command to a child: the bare verb,v
+p59,Scene: a meal,{nash-ve} {hungry}.,Nash-ve tuhkukhuk.,(Son) I am hungry.,Hunger is a bodily state; stating it is not an emotional display,v
+p60,Scene: a meal,{request} {tea}-{object-wizh} {pour}.,Kor sakam-wizh ke'ik.,(Father) Please pour the tea.,,v
+p61,Scene: a meal,{question} {tu} {today} {school}-{toward} {go}-{past-un}?,Kuth tu et haumokpuhl-fi lish-un?,(Father) Did you go to school today?,,v
+p62,Scene: a meal,{yes}. {teacher} {lesson} {new}-{object-wizh} {teach}-{past-un}.,Il. Sharshei-ve airek kaun-wizh sharshei-un.,(Son) Yes. The teacher taught a new lesson.,sharsheipe: teach + -pe,v
+p63,Scene: a meal,{what} {lesson}?,Wakli airek?,(Father) What lesson?,,v
+p64,Scene: a meal,{astronomy}. {sun} {big} {nome} {than} {more} {hot}.,Mik t'mune. Vran t'omyan nome t'ei li sinish.,(Son) Astronomy. The great sun is hotter than all.,Comparison with t'ei li,v
+p65,Scene: a meal,{fascinating}.,Tuskash.,(Father) Fascinating.,,v
+p66,Scene: a briefing,{what} {sensor}-{plural} {see}-{past-un}?,Wakli nalsowash-k'oo kosha-un?,(Captain) What did the sensors see?,On the bridge. Question word first,v
+p67,Scene: a briefing,{ship} {new} {here}{toward} {come}-{ongoing} {ev-seen}.,Shelek kaun tanfi sarla-pil ho.,(Science officer) A new ship is coming here. Observed.,ho: seen on her own instruments,v
+p68,Scene: a briefing,{question} {dangerous}?,Kuth boruk?,(Captain) Is it dangerous?,,v
+p69,Scene: a briefing,{perhaps}. {weapon}-{plural} {have} {ev-inferred}.,Vuhn. Uhvuht-k'oo paka aukh.,"(Science officer) Perhaps. It has weapons, I conclude.",aukh: inferred from the readings,v
+p70,Scene: a briefing,{shield}-{object-wizh} {activate}.,Haushmik-wizh tekak-kar.,(Captain) Activate the shields.,,v
+p71,Scene: a briefing,{understood}. {when} {dungi} {arrive}?,Ush. Tun dungi t'afeik?,(Helm) Understood. When will it arrive?,,v
+p72,Scene: a briefing,{soon}.,Tash.,(Science officer) Soon.,,v
+p73,Scene: a briefing,{signal}-{object-wizh} {send}: {t'nar} {pahk} {sarat} {y'rani}.,Skak-wizh suluv: T'nar pak sarat y'rani.,"(Captain) Send a signal: greetings, I extend regard to your house.",,v
+p74,Scene: a briefing,{signal} {perfect-ki}{send}.,Skak ki'suluv.,(Communications) The signal has been sent.,ki'-: completed action,v
+p75,Scene: a briefing,{logical}.,Kthiauk.,(Captain) Logical.,,v
+p76,Scene: a family lesson,{nash-ve} {rage}!,Nash-ve skukh!,(Child) I'm furious!,"The child speaks the old way, as the one who feels",v
+p77,Scene: a family lesson,{no}. {anger} {in} {tu}. {request} {noting} {say}.,Sa. Sik tok tu. Kor kon pokok.,"(Grandmother) No. There is anger in you. Say ""noted.""",She teaches the Standard construction,v
+p78,Scene: a family lesson,{anger} {in} {nash-ve} {noting}.,Sik tok nash-ve kon.,(Child) There is anger in me. Noted.,,v
+p79,Scene: a family lesson,{good}. {gishun}?,Ukhiv. Gishun?,(Grandmother) Good. Why?,,v
+p80,Scene: a family lesson,{younger-sibling} {my} {nash-ve}-{object-wizh} {taunt}-{past-un}.,Tasas keru nash-ve-wizh ikik-un.,(Child) My younger sibling taunted me.,,v
+p81,Scene: a family lesson,{taunt} {illogical}. {but} {rage} {also} {illogical}.,Ikik suhk-kthiauk. Khe skukh voo suhk-kthiauk.,(Grandmother) Taunting is illogical. But rage is illogical too.,,v
+p82,Scene: a family lesson,{nash-ve} {younger-sibling} {my}-{object-wizh} {forgive}.,Nash-ve tasas keru-wizh ral.,(Child) I forgive my younger sibling.,-wizh on the last word of the object phrase,v
+p83,Scene: a family lesson,{request} {nash-ve} {touch-hum}?,Kor nash-ve usul?,(Grandmother) May this one touch you?,She asks leave even of a child,v
+p84,Scene: a family lesson,{grant-leave}.,Seekak.,(Child) You have leave.,,v
+p85,Scene: a family lesson,{now} {equanimity} {in} {tu} {ev-melded}.,Tir leveil tok tu tekh.,(Grandmother) Now there is calm in you. I know it by touch.,"tekh: known through touch, the one evidential she can now use",v
+p103,Scene: a family gathering,"{vocative} {aunt-uncle}, {welcome}.",,"(Child) Respected aunt, welcome.",cheil before a kin title: address up,v
+p104,Scene: a family gathering,{cousin}-{plural} {your} {here}{toward} {come}-{ongoing} {ev-seen}.,,(Aunt) Your cousins are coming here. I see them.,Cousins are clan-siblings: ketol-khano,v
+p105,Scene: a family gathering,{how-many} {cousin}-{plural}?,,(Child) How many cousins?,,v
+p106,Scene: a family gathering,{twelve}. {twin}-{plural} {two} {also}.,,"(Aunt) Twelve. Two of them twins, too.",Numbers are regular: ten-two = twelve. Number after the noun,v
+p107,Scene: a family gathering,{niece-nephew} {your} {be}ish.,,(Child) I am your nephew.,"wim + -ish, as canon Saavik wimish",v
+p108,Scene: a family gathering,{grandparent} {house}{toward} {arrive}-{past-un} {ev-reported}.,,"(Parent) Grandmother has reached the house, I am told.",k'en: reported,v
+p109,Scene: a family gathering,{hortative} {grandparent}-{object-wizh} {greet}.,,(Parent) Let us greet Grandmother.,,v
+p110,Scene: a family gathering,"{vocative} {grandparent}, {dif-tor e smusma}.",,"(Child) Honored grandmother, live long and prosper.",,v
+p111,Scene: a family gathering,{sochya} eh {dif}.,,(Grandmother) Peace and long life.,"Canon reply, liturgical spelling",v
+p112,Scene: a family gathering,{family} {our} {strong}.,,(Grandmother) Our family is strong.,No verb 'to be' with a quality,v
+p113,Scene: the market,{welcome}. {what} {tu} {want}?,,(Merchant) Welcome. What do you want?,At a market stall,v
+p114,Scene: the market,{request} {gespar}-{plural} {six}.,,"(Customer) Six gespar, please.","Canon gespar, a fruit",v
+p115,Scene: the market,{gespar}-{plural} {six}: {twenty} {isik}.,,(Merchant) Six gespar: twenty isik.,"Canon isik, a coin",v
+p116,Scene: the market,{twenty}? {gespar} {rare} {ev-inferred}.,,"(Customer) Twenty? Gespar must be rare, I conclude.",,v
+p117,Scene: the market,{indeed}. {drought} {water}-{object-wizh} {take}-{past-un}.,,(Merchant) Indeed. The drought took the water.,,v
+p118,Scene: the market,{eighteen}?,,(Customer) Eighteen?,Ten-eight,v
+p119,Scene: the market,{nineteen}. {word} {last} {my}.,,(Merchant) Nineteen. My last word.,,v
+p120,Scene: the market,{agreed}.,,(Customer) Agreed.,,v
+p121,Scene: the market,{gespar}-{plural}-{object-wizh} {scale-w}-{toward} {put}.,,(Merchant) Put the gespar on the scale.,scale: weight + instrument,v
+p122,Scene: the market,{thanks}.,,(Customer) Thank you.,,v
+p123,Scene: the healer,{where} {pain}?,,(Healer) Where is the pain?,A Vulcan healer and a Human officer in sickbay,v
+p124,Scene: the healer,{in} {head} {my}. {dizzy} {also}.,,"(Officer) In my head. Dizzy, too.",,v
+p125,Scene: the healer,{tu} {feverish} {ev-inferred}.,,"(Healer) You are feverish, I conclude.",aukh: concluded from the readings,v
+p126,Scene: the healer,{request} {breathe} {slow}{adverbial}.,,(Healer) Please breathe slowly.,,v
+p127,Scene: the healer,{scanner} {heartbeat}-{object-wizh} {measure}-{ongoing}.,,(Healer) The scanner is measuring your heartbeat.,,v
+p128,Scene: the healer,{question} {contagious}?,,(Officer) Is it contagious?,contagious: 'touch-sick',v
+p129,Scene: the healer,{no}. {symptom}-{plural} {simple}. {tu} {rest}-{object-wizh} {need}.,,(Healer) No. The symptoms are simple. You need rest.,,v
+p130,Scene: the healer,{remedy}-{object-wizh} {drink}. {tomorrow} {dungi} {recover}.,,(Healer) Drink the remedy. Tomorrow you will recover.,recover: kir- 'again' + healthy,v
+p131,Scene: the healer,{pain} {strong} {ev-inferred}. {request} {nash-ve} {touch-hum}?,,"(Healer) The pain is strong, I conclude. May this one touch you?",She asks leave before any touch,v
+p132,Scene: the healer,{grant-leave}.,,(Officer) You have leave.,,v
+p133,Scene: the healer,{now} {pain} {less} {ev-melded}.,,(Healer) Now the pain is less. I know it by touch.,tekh: the touch evidential,v
+p134,Scene: the healer,"{thanks}, {vocative} {healer}.",,"(Officer) Thank you, respected healer.",,v
+p135,Scene: the desert crossing,{storm-season} {soon} {come}. {hortative} {today} {depart}.,,(Guide) The storm season comes soon. Let us leave today.,A desert crossing with a guide,v
+p136,Scene: the desert crossing,{how-many} {day}-{plural}?,,(Traveler) How many days?,,v
+p137,Scene: the desert crossing,"{three}. {dune}-{plural}-{object-wizh} {cross}, {then} {canyon}{toward} {descend}.",,"(Guide) Three. We cross the dunes, then go down into the canyon.",cross: 'across-go'; descend: 'down-go',v
+p138,Scene: the desert crossing,{water}-{object-wizh} {carefully} {use}.,,(Guide) Use the water carefully.,,v
+p139,Scene: the desert crossing,{in} {horizon} {dust} {rise}-{ongoing} {ev-seen}.,,(Traveler) Dust is rising on the horizon. I see it.,horizon: 'sky-border',v
+p140,Scene: the desert crossing,{dust-devil}. {not} {dangerous}.,,(Guide) A dust devil. Not dangerous.,dust devil: 'wind-dust-turn',v
+p141,Scene: the desert crossing,"{before} {sunset}, {we} {oasis}{toward} {must} {arrive}.",,(Guide) Before sunset we must reach the oasis.,,v
+p142,Scene: the desert crossing,{in} {storm-season} {flash-flood}-{plural} {often} {come}.,,"(Guide) In the storm season, flash floods often come.",flash flood: 'rain-river',v
+p143,Scene: the desert crossing,{water} {ev-seen}!,,(Traveler) I see water!,,v
+p144,Scene: the desert crossing,{mirage}.,,(Guide) A mirage.,mirage: 'false water',v
+p145,Scene: the desert crossing,{oasis} {near} {ev-inferred}. {lizard}-{plural} {many}.,,"(Guide) The oasis is near, I conclude. Many lizards.",aukh: inferred from the signs,v
+p146,Scene: the trial,"{trial} {start}-{ongoing}. {accuser}, {speak}.",,"(Judge) The trial begins. Accuser, speak.",A hearing before a Vulcan court,v
+p147,Scene: the trial,{defendant} {secret}-{object-wizh} {steal}-{past-un} {ev-seen}.,,(Accuser) The accused stole the secret. I saw it.,ho: an eyewitness claim,v
+p148,Scene: the trial,{where} {proof}?,,(Advocate) Where is the proof?,,v
+p149,Scene: the trial,{recorder} {record-v}-{past-un}.,,(Accuser) The recorder recorded it.,,v
+p150,Scene: the trial,{request} {record}-{object-wizh} {show}.,,(Judge) Please show the record.,,v
+p151,Scene: the trial,{record} {false}. {spy} {create}-{past-un} {ev-inferred}.,,"(Advocate) The record is false. A spy made it, I conclude.","aukh: the advocate's inference, not a claim of sight",v
+p152,Scene: the trial,{we} {evidence}-{object-wizh} {must} {examine}.,,(Judge) We must examine the evidence.,,v
+p153,Scene: the trial,{verdict} {tomorrow}.,,"(Judge) The verdict, tomorrow.",,v
+p154,Scene: the trial,{nash-ve} {innocent}.,,(Accused) I am innocent.,innocent: 'without crime',v
+p155,Scene: the trial,{law} {innocent}-{object-wizh} {protect}. {kthia} {guilty}-{object-wizh} {find}.,,(Judge) The law protects the innocent. Logic finds the guilty.,,v
+p156,Scene: the school of logic,"{vocative} {logic-teacher}, {question} {emotionless} {possible}?",,"(Student) Respected teacher of logic, is it possible to be without emotion?",At a school of logic,v
+p157,Scene: the school of logic,{no}. {emotion} {exist}. {self-control} {possible}.,,(Teacher) No. Emotion exists. Self-control is possible.,,v
+p158,Scene: the school of logic,{gishun} {kolinahr}?,,(Student) Then why Kolinahr?,,v
+p159,Scene: the school of logic,{kolinahr} {emotion}-{object-wizh} {not} {destroy}. {self-mastery} {teach}.,,(Teacher) Kolinahr does not destroy emotion. It teaches self-mastery.,,v
+p160,Scene: the school of logic,{anger} {in} {nash-ve} {noting}.,,(Student) There is anger in me. Noted.,,v
+p161,Scene: the school of logic,{good}. {logician}-{plural} {feel}. {logician}-{plural} {restrained}.,,(Teacher) Good. Logicians feel. Logicians are restrained.,,v
+p162,Scene: cadet slang,"{hey}, {buddy}! {question} {tu} {okay-loan}?",,"(Cadet) Hey, buddy! You okay?","Two young Vulcans at the Academy, off duty",v
+p163,Scene: cadet slang,{nope}. {test-n} {really} {difficult}.,,(Cadet) Nope. The test was really hard.,sa-sa: emphatic no; ni-ni: 'so very',v
+p164,Scene: cadet slang,{illogical-s}! {tu} {study}-{past-un}.,,(Cadet) Illogical! You studied.,suhkthi: clipped from suhk-kthiauk,v
+p165,Scene: cadet slang,{boss} {nash-ve}-{object-wizh} {show-off} {call}-{past-un}.,,(Cadet) The instructor called me a show-off.,"show-off: 'displayer', one who shows emotion",v
+p166,Scene: cadet slang,{logical-s}. {tu} {laugh}-{past-un} {ev-reported}.,,"(Cadet) Solid. You laughed, I hear.",kthi: 'logical' as approval,v
+p167,Scene: cadet slang,{fire-and-sand}! {nash-ve} {not} {laugh}-{past-un}.,,(Cadet) Fire and sand! I did not laugh.,"an old oath, coarse",v
+p168,Scene: cadet slang,"{kid}, {anger} {in} {tu} {noting}.",,"(Passing elder) Child, there is anger in you. Noted.",The elder answers slang with the Standard form,v
+p169,Scene: a teaching meld,{request} {nash-ve} {touch-hum}?,,(Master) May this one touch you?,A master melder teaching an adept. Leave is asked even of a student,v
+p170,Scene: a teaching meld,{grant-leave}.,,(Adept) You have leave.,,v
+p171,Scene: a teaching meld,{field-channel} {first}. {life-heat}-{object-wizh} {feel}.,,(Master) The field channel first. Feel the life-heat.,Grade 1: the field alone,v
+p172,Scene: a teaching meld,{life-heat} {feel}-{ongoing}.,,(Adept) I feel the life-heat.,,v
+p173,Scene: a teaching meld,{now} {mind-wave}-{plural}-{object-wizh} {attune}.,,(Master) Now attune the mind-waves.,The wave channel,v
+p174,Scene: a teaching meld,{bleed-over}! {fear} {in} {nash-ve}.,,(Adept) Bleed-over! There is fear in me.,,v
+p175,Scene: a teaching meld,{inner-wall}-{object-wizh} {lift}.,,(Master) Raise the inner wall.,,v
+p176,Scene: a teaching meld,{fear} {my} {ev-melded}. {fear} {your} {not}.,,(Master) The fear is mine; I know it by touch. It is not yours.,tekh: known through the meld itself,v
+p177,Scene: a teaching meld,{understand}. {calm} {in} {nash-ve} {noting}.,,(Adept) Understood. There is calm in me. Noted.,,v
+p178,Scene: a teaching meld,{tu} {grade-still-water}-{object-wizh} {attain}-{past-un}.,,(Master) You have attained the Still Water.,Grade 2: canon srashiv 'attain',v
+p179,"Scene: courtship, then and now","{heart}-{endear}, {tu} {beautiful} {ni}, {tag-agree}.",,"(Suitor, Classical) My heart, you are so beautiful, are you not?",-{endear}: endearment; {tag-agree}: the teasing tag. Frank Classical courtship,v
+p180,"Scene: courtship, then and now",{nash-ve} {tu}-{object-wizh} {love}-{emphatic}.,,"(Suitor, Classical) I love you utterly.",-{emphatic}: feeling carried in the verb,v
+p181,"Scene: courtship, then and now","{evening} {nash-ve} {with} {tu} {walk}-{desiderative}, {coax}.",,"(Suitor, Classical) This evening I long to walk with you. Won't you?",-{desiderative}: longing; {coax}: the coaxing particle of courtship,v
+p182,"Scene: courtship, then and now","{oh}! {tu} {nash-ve}-{object-wizh} {tease}-{ongoing}, {suitor}-{pejorative}.",,"(Beloved, Classical) Oh! You are teasing me, you wretch of a suitor.","-{pejorative} used fondly, as lovers do",v
+p183,"Scene: courtship, then and now","{love-song} {sing}, {dare}.",,"(Beloved, Classical) Sing a love song, then. I dare you.",{dare}: the challenge particle,v
+p184,"Scene: courtship, then and now",{nash-ve} {tu}-{object-wizh} {hold-regard}.,,"(Bondmate, Standard) I hold you in regard.","The Standard form of the second line: the feeling is stated, not performed",v
+p185,"Scene: courtship, then and now",{nash-ve} {company-value} {your}-{object-wizh} {find-acceptable}.,,"(Bondmate, Standard) I find your company acceptable.",Understatement: among Vulcans this is a declaration,v
+p186,"Scene: courtship, then and now",{nash-ve} {tu}-{object-wizh} {bond-ask}.,,"(Suitor, Standard) I ask you for a bond.","The Standard proposal, in place of courting",v
+p187,"Scene: a quarrel, then and now","{tu} {wrong} {ni}, {nirak}-{pejorative}!",,"(Classical) You are dead wrong, you wretched fool!",-{pejorative} in earnest; a Classical quarrel,v
+p188,"Scene: a quarrel, then and now","{tu} {stubborn}, {tag-agree}.",,"(Classical) You are stubborn, aren't you.",{tag-agree} in argument: daring the other to deny it,v
+p189,"Scene: a quarrel, then and now",{nash-ve} {disagree}.,,(Standard) I disagree.,"The Standard quarrel: one word, no heat",v
+p190,"Scene: a quarrel, then and now",{nash-ve} {note-objection}.,,"(Standard, formal) I register an objection.",Council and Academy register,v
+p191,"Scene: a quarrel, then and now",{annoyance} {in} {tu} {noting}.,,"(Elder, Standard) There is annoyance in you. Noted.",{noting} names the feeling; naming it ends the quarrel,v
+p192,Sayings of the Teachings,{sand} {with} {wind} {not} {argue}.,,Sand does not argue with the wind.,Accept what cannot be changed. Surakian,v
+p193,Sayings of the Teachings,{cup} {full} {nothing} {receive}.,,A full cup receives nothing.,"Empty your assumptions to learn: {new-mind}, the new mind",v
+p194,Sayings of the Teachings,{storm}-{object-wizh} {name}: {storm} {wind} {only}.,,Name the storm: the storm is only wind.,Naming a feeling masters it; the logic of {noting},v
+p195,Sayings of the Teachings,{cup} {broken} {water} {hold}.,,A broken cup still holds water.,{crack-beauty}: the imperfect still serves,v
+p196,Sayings of the Teachings,{silence} {between} {word}-{plural} {say}.,,The silence between words speaks.,{silence-between}: the pause carries meaning,v
+p197,Sayings of the Teachings,"{each} {day}, {grain} {one}.",,"Each day, one grain.","{daily-refinement}: improve a little, every day",v
+p198,Sayings of the Teachings,"{name} {correct}, {nap} {correct}.",,"Correct names, correct thought.",{rectify-names}: the root of Vulcan precision,v
+p199,Sayings of the Teachings,{wall}-{plural} {ear}-{plural} {have}.,,The walls have ears.,"22nd century, under the High Command; said low",v
+p200,Scene: the meditation hall,{sit}. {breath}-{object-wizh} {count}.,,(Master) Sit. Count the breath.,{breath-meditation},v
+p201,Scene: the meditation hall,{new-mind}-{object-wizh} {hold}.,,(Master) Hold the new mind.,The beginner's mind,v
+p202,Scene: the meditation hall,{emotion} {in} {nash-ve} {noting}.,,(Student) There is feeling in me. Noted.,The student names the feeling rather than suppressing it,v
+p203,Scene: the meditation hall,{ish-ve} {moment-grief}. {kaiidth}.,,"(Master) That is moment-grief. What is, is.",Canon kaiidth answers {impermanence},v
+p204,Scene: the meditation hall,{what} {life-purpose} {my}?,,(Student) What is my life-purpose?,{life-purpose}: the Vulcan ikigai,v
+p205,Scene: the meditation hall,"{daily-refinement}. {each} {day}, {grain} {one}.",,"(Master) Daily refinement. Each day, one grain.","The answer is a practice, not a destination",v
+p206,"Scene: a checkpoint, 2150s",{identity-papers} {your}-{object-wizh} {show}.,,(Guard) Show your identity papers.,"High Command era, before 2154",v
+p207,"Scene: a checkpoint, 2150s",{what} {purpose} {your}?,,(Guard) What is your purpose?,,v
+p208,"Scene: a checkpoint, 2150s",{nash-ve} {mother} {my}-{object-wizh} {visit}-{ongoing} {sanctioned}.,,(Traveler) I am visiting my mother. (This may be said.),{sanctioned}: the approved-speech particle,v
+p209,"Scene: a checkpoint, 2150s",{question} {tu} {melder}?,,(Guard) Are you a melder?,In this era {melder} was a slur: melders were hunted,v
+p210,"Scene: a checkpoint, 2150s",{no}. {nash-ve} {loyal} {sanctioned}.,,(Traveler) No. I am loyal. (This is the approved account.),,v
+p211,"Scene: a checkpoint, 2150s",{ish-ve} {suspicious}. {dossier}-{object-wizh} {open}.,,"(Guard, aside) That one is suspicious. Open a dossier.",,v
+p212,"Scene: a checkpoint, 2150s",{wall}-{plural} {ear}-{plural} {have}.,,"(Traveler, later, to a friend) The walls have ears.",The saying of the surveillance years,v
+p213,"Scene: a checkpoint, 2150s",{v'shar} {listen}-{ongoing}.,,(Friend) The V'Shar is listening.,"Canon V'Shar, the security directorate",v
+p214,Scene: a heart-whisper,"{t'hy'la}, {nash-ve} {heart-whisper} {have}.",,"(A) T'hy'la, I carry a heart-whisper.",Between t'hy'la: no honorifics. A heart-whisper is told only among bond-kin,v
+p215,Scene: a heart-whisper,{speak}.,,(B) Speak.,A command is the bare verb,v
+p216,Scene: a heart-whisper,{attraction} {in} {nash-ve} {noting}.,,(A) There is attraction in me. Noted.,"The Standard way to name a feeling, even this one",v
+p217,Scene: a heart-whisper,{who}{toward}?,,(B) Toward whom?,-fi carries the direction of the feeling,v
+p218,Scene: a heart-whisper,T'Lara{toward}.,,(A) Toward T'Lara.,,v
+p219,Scene: a heart-whisper,{question} {ish-ve} {know}?,,(B) Does she know?,,v
+p220,Scene: a heart-whisper,{no}. {nash-ve} {not} {tell}-{past-un}.,,(A) No. I have not told her.,"Telling her would be {declare-feeling}, the declaration",v
+p221,Scene: a heart-whisper,{attraction} {in} {ish-ve} {also} {ev-inferred}.,,"(B) There is attraction in her too, I conclude.",Another's feeling is never stated bare: {ev-inferred},v
+p222,Scene: a heart-whisper,{ish-ve} {tu}-{object-wizh} {look}-{ongoing} {ev-seen}.,,(B) She watches you. I have seen it.,{ev-seen}: the evidence behind the conclusion,v
+p223,Scene: a heart-whisper,{request} {keep-confidence}.,,(A) Please keep the confidence.,,v
+p224,Scene: a heart-whisper,{confidant} {your} {be}ish.,,(B) I am your heart-keeper.,{confidant}: the one who holds a heart-whisper,v
+p225,Scene: lost in the deep desert,{water-skin}-{plural} {two} {remain}.,,(Guide) Two water-skins remain.,A desert crossing gone wrong,v
+p226,Scene: lost in the deep desert,{question} {oasis} {near}?,,(Traveler) Is the oasis near?,,v
+p227,Scene: lost in the deep desert,{no}. {storm} {come}-{ongoing} {ev-inferred}.,,"(Guide) No. A sandstorm is coming, I conclude.","Read from the wind, not seen: {ev-inferred}",v
+p228,Scene: lost in the deep desert,{request} {water}-{object-wizh} {ration-v}.,,(Guide) Ration the water.,,v
+p229,Scene: lost in the deep desert,{where} {storm-shelter}?,,(Traveler) Where is shelter?,,v
+p230,Scene: lost in the deep desert,"{there}, {cave} {ev-seen}.",,"(Guide) There, a cave. I see it.",,v
+p231,Scene: lost in the deep desert,{night-fire}-{object-wizh} {light-v}. {signal-fire} {also}.,,(Guide) Light a night-fire. A signal fire too.,,v
+p232,Scene: lost in the deep desert,{nash-ve} {thirsty}.,,(Traveler) I am thirsty.,Thirst is a bodily state; stating it is not a display,v
+p233,Scene: lost in the deep desert,{desert} {nothing} {forgive}. {slow}-{adverbial} {drink}.,,(Guide) The desert forgives nothing. Drink slowly.,"The saying, then the instruction",v
+p234,Scene: the training hall,{bow-greet}.,,(Master) Bow.,A school of the martial art; Classical and Unified usage,v
+p235,Scene: the training hall,{vocative} {master-n}.,,(Students) Respected master.,,v
+p236,Scene: the training hall,"{senior-student}, {fight-form}-{object-wizh} {show}.",,"(Master) Senior student, show the form.",{senior-student}: the one who began before,v
+p237,Scene: the training hall,{understood}.,,(Senior student) Understood.,,v
+p238,Scene: the training hall,"{junior-student}, {look}.",,"(Master) Junior student, watch.",{junior-student}: the one who began after,v
+p239,Scene: the training hall,{kup} {nash-ve} {spar}-{humble}?,,(Junior student) May this one spar?,The auxiliary moves to the front; -fum lowers the speaker,v
+p240,Scene: the training hall,{not} {now}. {stance} {your} {weak}.,,(Master) Not now. Your stance is weak.,,v
+p241,Scene: the training hall,"{each} {day}, {grain} {one}.",,"(Master) Each day, one grain.",The saying of daily refinement,v
+p242,Scene: the training hall,{understand}-{humble}.,,(Junior student) This one understands.,,v
+p243,Scene: the training hall,{good}. {training-ground}-{object-wizh} {clean-v}.,,(Master) Good. Clean the training hall.,The juniors clean the hall: the first lesson in rank,v
+p244,Scene: a guest arrives,{welcome}. {water}-{object-wizh} {take}.,,(Host) Welcome. Take water.,{water-first}: water before any word,v
+p245,Scene: a guest arrives,{thanks}. {nash-ve} {guest-gift}-{object-wizh} {bring}-{past-un}.,,(Guest) Thank you. I have brought a guest-gift.,,v
+p246,Scene: a guest arrives,{request} {sit}. {hortative} {introduce}.,,(Host) Please sit. Let us share names.,"{introduce}: ""share names""",v
+p247,Scene: a guest arrives,{name} {my} Sorek. {clan} {my} Suvek.,,(Guest) My name is Sorek. My House is Suvek.,,v
+p248,Scene: a guest arrives,{reputation} {clan} {your} {big} {ev-reported}.,,"(Host) Your House's reputation is great, I am told.","{reputation}: ""name-voice""; k'en, because it is hearsay",v
+p249,Scene: a guest arrives,{nash-ve} {favor}-{object-wizh} {not} {forget}-{humble}.,,(Guest) This one does not forget a favor.,{favor}: a debt of kindness,v
+p250,Scene: a guest arrives,"{water} {shared}, {life} {shared}.",,(Host) Water shared is life shared.,The host closes with the saying,v
+p251,Sayings of the desert and the House,"{water} {shared}, {life} {shared}.",,Water shared is life shared.,Hospitality: the {water-first},v
+p252,Sayings of the desert and the House,{desert} {nothing} {forgive}.,,The desert forgives nothing.,Survival. One negative per clause: {nothing} carries it,v
+p253,Sayings of the desert and the House,"{thirst} {guest}, {shame} {host}.",,A guest's thirst is the host's shame.,The possessor follows the noun,v
+p254,Sayings of the desert and the House,"{night-fire} {one}, {clan} {one}.",,"One fire, one clan.",Those who share a night-fire are kin until morning: nomad custom,v
+p255,Sayings of the desert and the House,"{fight-form} {thousand}, {strike} {one}.",,"A thousand forms, one strike.",Practice is for the single moment that matters,v
+p256,Sayings of the desert and the House,{senior-student} {path}-{object-wizh} {show}; {junior-student} {follow}.,,The senior shows the path; the junior follows.,The order of the training hall,v
+p257,Sayings of the desert and the House,{heart-whisper}-{object-wizh} {wind}{toward} {not} {give}.,,Do not give a heart-whisper to the wind.,"Told to the wrong ear, it becomes {rumor}",v
+p258,Scene: a homecoming,{tu} {return}-{past-un}.,,(A) You have returned.,"Bondmates, after a long separation",v
+p259,Scene: a homecoming,{return}-{past-un}. {bond-silence} {long}.,,(B) I have. The bond-silence was long.,{bond-silence}: the stillness where the other's mind should be,v
+p260,Scene: a homecoming,{missing} {in} {nash-ve} {noting}.,,(A) I missed you. (There was missing in me. Noted.),"Named, not displayed: the Standard way to say it",v
+p261,Scene: a homecoming,{each} {night} {nash-ve} {tu}-{object-wizh} {bond-reach}-{past-un}.,,(B) Each night I reached for you through the bond.,,v
+p262,Scene: a homecoming,{bond-ache} {ev-melded}.,,"(A) I felt the ache of it, through the bond.",tekh: known through touch or the bond,v
+p263,Scene: a homecoming,{now} {bond-warmth} {ev-melded}.,,(B) Now there is warmth. I feel it through the bond.,"{bond-warmth}, {bond-ache}, {bond-silence}: the three states of a bond at a distance",v
+p264,Scene: a homecoming,{hortative} {share-silence}.,,(A) Let us share silence.,"Between bondmates, silence together is the welcome",v
+p265,Scene: in the night,{tu} {wake}-{past-un}.,,(A) You woke.,A bondmate wakes from a nightmare,v
+p266,Scene: in the night,{nightmare}.,,(B) A nightmare.,,v
+p267,Scene: in the night,{kup} {nash-ve} {tu}-{object-wizh} {comfort}-{humble}?,,(A) May this one comfort you?,Leave is asked even between bondmates,v
+p268,Scene: in the night,{grant-leave}.,,(B) You have leave.,,v
+p269,Scene: in the night,{fear} {in} {tu} {noting}. {tu} {safe}.,,(A) There is fear in you. Noted. You are safe.,"Naming the fear, then the fact",v
+p270,Scene: in the night,{request} {remain}.,,(B) Please stay.,,v
+p271,Scene: in the night,{nash-ve} {dungi} {remain}. {nash-ve} {tu}-{object-wizh} {watch-over}.,,(A) I will stay. I will watch over you.,{watch-over}: guard a sleeper,v
+p272,Scene: in the night,{softly} {rest}.,,(A) Rest softly.,,v
+p273,Scene: mending a quarrel,{nash-ve} {tu}-{object-wizh} {hurt-feelings}-{past-un} {ev-inferred}.,,"(A) I hurt you, I conclude.","aukh: read from the other's silence, not from a meld",v
+p274,Scene: mending a quarrel,{heart-wound} {small}.,,(B) A small heart-wound.,,v
+p275,Scene: mending a quarrel,{apologize}-{humble}.,,(A) This one apologizes.,-fum lowers the speaker,v
+p276,Scene: mending a quarrel,{forgiven}.,,(B) Forgiven.,,v
+p277,Scene: mending a quarrel,{hortative} {reconcile}.,,(A) Let us make peace.,,v
+p278,Scene: mending a quarrel,{hand} {your}-{object-wizh} {give}.,,(B) Give me your hand.,Offering the hand ends the quarrel: {hold-hands} is intimate between Vulcans,v
+p279,Scene: mending a quarrel,"{tu} {stubborn}, {tag-agree}.",,"(A) You're stubborn, aren't you.",sheil: colloquial teasing,v
+p280,Scene: mending a quarrel,{nash-ve} {stubborn}. {tu} {also}.,,(B) I am stubborn. So are you.,,v
+p281,Scene: the private name,Sorel-{endear}.,,"(A) Sorel, dear one.","{intimate-name}: the name with -pi, used only by a bondmate",v
+p282,Scene: the private name,{intimate-name} {my}. {nash-ve} {lower-shields}.,,(B) My private name. I lower my shields.,,v
+p283,Scene: the private name,{tu} {unshielded} {ev-melded}.,,(A) You are unshielded. I feel it.,,v
+p284,Scene: the private name,{nash-ve} {with} {tu} {feel-safe}.,,(B) With you I feel safe.,{feel-safe}: the Standard understatement for intimacy,v
+p285,Scene: the private name,{nash-ve} {tu}-{object-wizh} {hold-regard}.,,(A) I hold you in regard.,"Standard: ""I love you""",v
+p286,Scene: the private name,{nash-ve} {tu}-{object-wizh} {cherish}.,,(B) I cherish you.,"Classical frankness, answering it",v
+p287,Scene: the private name,{hortative} {hold-hands}.,,(A) Let us hold hands.,,v
+p288,Scene: before a parting,{tomorrow} {nash-ve} {dungi} {go}.,,(A) Tomorrow I go.,A bondmate leaves on a long mission,v
+p289,Scene: before a parting,{nash-ve} {tu}-{object-wizh} {worry-about}.,,(B) I carry worry for you.,"{worry-about}: ""worry-carry""",v
+p290,Scene: before a parting,{request} {worry}-{object-wizh} {set-aside}.,,(A) Please set the worry aside.,,v
+p291,Scene: before a parting,{safe}-{adverbial} {return}.,,(B) Return safely.,,v
+p292,Scene: before a parting,{keepsake} {my}-{object-wizh} {take}.,,(A) Take my keepsake.,,v
+p293,Scene: before a parting,{nash-ve} {tu}-{object-wizh} {dungi} {wait}.,,(B) I will wait for you.,,v
+p294,Scene: before a parting,"{home} {distant}, {koon} {near}.",,"(A) Far from home, near in the bond.","The saying, as a farewell",v
+p295,Sayings of the bond,"{hand} {two}, {koon} {one}.",,"Two hands, one bond.",Said at a bonding,v
+p296,Sayings of the bond,"{home} {distant}, {koon} {near}.",,"Far from home, near in the bond.",A farewell between bondmates,v
+p297,Sayings of the bond,"{in} {shared-silence}, {word}-{plural}-{object-wizh} {not} {need}.",,"In shared silence, no words are needed.",{share-silence},v
+p298,Sayings of the bond,"{heart} {guarded}, {heart} {alone}.",,A guarded heart is a lonely heart.,Said to one who will not {lower-shields},v
+p299,Telling a tale,{long-ago} {ev-reported}.,,"Long ago, it is told.",Opens a tale. One k'en covers the whole telling,v
+p300,Telling a tale,{story} {end}.,,The tale ends.,Closes a tale; the teller speaks again as themself,v
+p301,Telling a tale,{what} {tu} {conclude}?,,What do you conclude?,The teller never states the lesson. The listener answers with {ev-inferred},v
+p302,Telling a tale,{sehlat} {relative} {tail} {his-her}-{object-wizh} {eat}-{past-un}.,,The sehlat who ate its tail.,Said of one whose own pursuit undoes them (SNW). The whole tale in one phrase,v
+p303,Telling a tale,Falor {walk}-{ongoing}.,,Falor walks on.,The refrain of Falor's Journey; said to one in the middle of a long task,v
+r01,Romulan,,Jolan tru.,Hello; farewell.,Canon greeting,r
+r02,Romulan,,Aefvadh.,Be welcome.,Duane,r
+r03,Romulan,,"Ie, rekkhai.","Yes, sir.","rekkhai: sir, upward address",r
+r04,Romulan,,"Ssuaj'nra, rekkhai.","Understood, sir.","-'nra: upward mode, said to a superior",r
+r05,Romulan,,Ssuaj-ha.,Understood. (said down to an inferior),-ha: downward mode. Duane glosses ssuaj-ha as said upward: open question,r
+r06,Romulan,,Ssuej-d'ifv?,Do you understand? (asked of an inferior),"The root vowel fronts, a > e, before a question ending",r
+r07,Romulan,,Mnek'nra.,Good. (said up to a superior),Duane,r
+r08,Romulan,,Mnekha.,Good. (said down to an inferior),Duane,r
+r09,Romulan,,Hnafirh-hna'h!,Look! Now!,hna'h: activation imperative,r
+r10,Romulan,,Khoi-hna'h!,Cease! Now!,,r
+r11,Romulan,,Aihrrihanha.,This is a Romulan.,aihr-: Romulan grew a copula out of a demonstrative; Vulcan has none,r
+r12,Romulan,,"Fvillha'ssei, aefvadh.","Praetorship, be welcome.","-'ssei: abstract address, as Roman 'your Clemency'",r
+r13,Romulan,,Tlhei.,My word. (I command it.),,r
+r14,Romulan,,"Hwaen, urru hrrau.","You there (Reman), go.",hwaen: downward only. No upward form exists for a Reman,r
+r15,Romulan,,Vaed hwil.,A secret. Not to be repeated.,"hwil: discretion particle. Romulan marks who may know, not how you know",r
+r16,Romulan,,Ma'l arik.,Swift death.,From Old Vulcan manil arek,r
+r17,Romulan,,Ssuaj.,Understood.,Qowat Milat candor speech: no mode ending at all,r
+r18,Romulan,,Aehn'ru! Mnaelh.,Darling! I am courting you.,"aehn'ru: darling; Romulan courtship is open and boastful, in the level mode between lovers",r
+r19,Romulan,,Fve'hna!,I dare you!,Romulan kept the challenge Vulcan reduced,r
+r20,Romulan,,"Khrrhae, ie? Llhoi!",Shall we quarrel? Fond fool!,llhoi: fond insult between equals and lovers,r

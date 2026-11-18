@@ -1,0 +1,83 @@
+{
+  "name": "Sample language family (test fixture)",
+  "language": "East Sample",
+  "format": "utp-pack/1",
+  "about": "A test fixture that proves the builder at full scale: two branches, the whole meaning registry, every template. Not a designed language; copy it as the starting point for a real one.",
+  "root": ".",
+  "files": {"sound_laws": "sound_laws.json", "lexicon": "build/lexicon.csv"},
+  "derivation": {
+    "branches": ["east", "west"],
+    "standard": "east",
+    "kinds": {"compound": "compound", "loan": "loan"},
+    "loan_branch": "east",
+    "coined_in_branch": {}
+  },
+  "phonotactics": {"transparent": [], "no_initial": [], "max_medial_cluster": 2, "final_cluster": false},
+  "eras": [
+    {"id": "Ancient", "rank": 0},
+    {"id": "Old", "rank": 1},
+    {"id": "Middle", "rank": 2},
+    {"id": "Modern", "rank": 3}
+  ],
+  "generator": {
+    "shapes": {
+      "noun": [["CVC", 30], ["CVCV", 25], ["CVCVC", 25], ["CCVC", 8], ["CVCCV", 7], ["VCVC", 5]],
+      "verb": [["CVC", 35], ["CVCV", 30], ["CVCVC", 20], ["CCVC", 8], ["VCV", 7]],
+      "adjective": [["CVCV", 30], ["CVC", 25], ["CVCVC", 25], ["VCVC", 10], ["CCVCV", 10]],
+      "short": [["CV", 40], ["VC", 20], ["CVC", 40]]
+    },
+    "harsh": ["k", "t", "g", "kr", "tr", "gr", "ch", "ts", "sk"],
+    "soft": ["l", "m", "n", "w", "y", "h", "s", "v"],
+    "field_tone": {"warfare-and-hunting": "harsh", "the-physical-world": "harsh", "emotions-and-values": "soft", "kinship": "soft"}
+  },
+  "build": {
+    "out": "build",
+    "id_prefix": "S",
+    "registry": {"tiers": [1, 2, 3], "exclude_pos": ["classifier"], "templates": "all"},
+    "meanings": "meanings.csv",
+    "compound_head": "last",
+    "compound_join": "-",
+    "affix_join": "+",
+    "affix_position": {"negative": "prefix"},
+    "blocklist": "../../concepts/english_labels.txt",
+    "reserved": []
+  },
+  "speech": {
+    "voice": "am_michael",
+    "from": "spelling",
+    "sounds": {"sh": "ʃ", "ch": "ʧ", "ts": "ʦ", "ng": "ŋ", "aa": "aː", "ii": "iː", "uu": "uː", "y": "j", "r": "ɾ"},
+    "stress": "first"
+  },
+  "grammar": {
+    "east": {
+      "about": "A plain SVO grammar with prepositions and modifiers before the noun: the opposite of Vulcan on most axes, to show one frame said two ways.",
+      "clause": ["subject", "verb", "object", "goal", "adverbs", "content", "evidence", "formal"],
+      "np_order": ["poss", "num", "mods", "head", "of"],
+      "front_aux_in_questions": false,
+      "pronouns": {"1sg": "i", "2sg": "you", "3sg": "he-or-she", "1pl": "we", "3pl": "they"},
+      "possessives": {"1sg": "my"},
+      "wh": {"what": "what", "who": "who", "where": "where", "when": "when", "why": "why", "how": "how", "how-many": "how-many"},
+      "markers": {
+        "toward": {"key": "g-toward", "attach": "before"},
+        "of": {"key": "g-of", "attach": "before"},
+        "plural": {"key": "g-plural", "attach": "suffix"},
+        "ongoing": {"key": "g-ongoing", "attach": "suffix"},
+        "past": {"key": "g-past", "attach": "suffix"},
+        "completed": {"key": "g-completed", "attach": "prefix"},
+        "honorific": {"key": "g-honorific", "attach": "suffix"},
+        "humble": {"key": "g-humble", "attach": "suffix"},
+        "adverbial": {"key": "g-adverbial", "attach": "suffix"},
+        "future": "g-future", "negative": "not", "never": "never", "in": "in", "comp": "g-comp", "if": "if",
+        "vocative": "g-vocative", "question": "g-question", "request": "g-request", "hortative": "g-hortative",
+        "modal": {"ability": "g-ability", "duty": "g-duty"},
+        "evidence": {}
+      }
+    }
+  },
+  "typology": {
+    "east": {"word_order": "SVO", "noun_phrase": {"adjective": "Adj-N", "genitive": "Gen-N", "relative_clause": "N-Rel"},
+             "adpositions": "prepositions", "alignment": "nominative-accusative",
+             "morphology": {"type": "agglutinative", "affixes": "suffixing; negative is a prefix"},
+             "prosody": {"tone": "none", "stress": "first syllable"}}
+  }
+}
