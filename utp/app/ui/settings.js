@@ -39,6 +39,10 @@ async function renderSettings() {
         <label class="row">Building uses <select id="role-build">${opts(SET.roles.build)}</select></label></div>
     </section>
     <section>
+      <div><h2>Appearance</h2><p class="lead">For this app and every Lab and course it opens. Pages opened on their own have the same switch at the top.</p></div>
+      <div class="row"><label class="row">Theme <select id="ap-theme">${Object.entries(THEMES).map(([k, t]) => `<option value="${k}" ${theme() === k ? "selected" : ""}>${k === "system" ? "Follow the system" : t}</option>`).join("")}</select></label></div>
+    </section>
+    <section>
       <div><h2>Speech</h2><p class="lead">Kokoro-FastAPI, for hearing words in the tutor and <span class="mono">utp.py say</span>. Optional.</p></div>
       <div class="form"><div class="grid2">
         <label>Kokoro address <input id="sp-url" value="${esc(SET.speech.url)}"></label>
@@ -149,6 +153,7 @@ function bindSettings() {
       await api("/api/connections/delete", {id}); renderSettings(); refreshModel();
     });
   });
+  $("#ap-theme").onchange = e => applyTheme(e.target.value);
   $("#role-chat").onchange = async e => { await api("/api/settings", {roles: {chat: e.target.value}}); renderSettings(); refreshModel(); };
   $("#role-build").onchange = async e => { await api("/api/settings", {roles: {build: e.target.value}}); renderSettings(); };
 

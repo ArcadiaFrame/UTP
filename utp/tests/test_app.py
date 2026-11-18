@@ -273,6 +273,11 @@ def main():
     check(made["id"] == "spare" and tested["ok"] and tested["model_found"] and "sk-spare" not in shown and '"key_set": true' in shown
           and made["id"] not in get("/api/settings") and "ws/writing" in roots and note["text"] == "hello" and chk["writable"] and fenced,
           "server settings: connections added, tested and deleted, keys never shown; extra folders listed and fenced in")
+    post("/api/settings", {"app": {"theme": "dark"}}, origin)
+    lab_page, app_page = get("/files/languages/testlang/lab/index.html"), get("/")
+    check('window.UTP_THEME="dark"' in lab_page and 'id="theme-toggle"' in lab_page and 'window.UTP_THEME="dark"' in app_page
+          and lab_page.index("UTP_THEME") < lab_page.index("<style"),
+          "theme: the saved light/dark choice reaches the app and every Lab and course before they paint")
     about = json.loads(get("/api/about"))
     check(about["repo"] == str(S.REPO) and about["python"], "server: the About section")
     srv.shutdown()

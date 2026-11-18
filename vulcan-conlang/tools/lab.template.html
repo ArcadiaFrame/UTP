@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>try{var t=window.UTP_THEME||localStorage.getItem("utp-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 /* Layout: one working column, a tab rail under the masthead, each view a single instrument panel.
    Two branch colours carry meaning everywhere: rust = Vulcan, green = Romulan. */
@@ -126,10 +127,16 @@ a.badge { font-size: 11.5px; font-weight: 600; color: var(--vulcan); border: 1px
 .workshop { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
 .toast { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 6px; font-size: 14px; }
 @media (prefers-reduced-motion: no-preference) { .branch .result { transition: color .2s; } }
+
+header:has(> .theme-toggle) { position: relative; }
+.theme-toggle { position: absolute; top: 0; right: 0; width: auto; margin: 0; font-size: 12.5px; padding: 3px 10px; border-radius: 999px; }
+header:has(> .theme-toggle) > h1 { padding-right: 130px; }
+@media print { .theme-toggle { display: none; } }
 </style>
 
 <div class="wrap">
   <header class="mast">
+    <button class="theme-toggle" id="theme-toggle" type="button" title="Light, dark, or follow the system"></button>
     <h1>Vuhlkansu Lab</h1>
     <p>Workbench for the Vulcan language family. Type a Proto-Vulcan form and watch the sound laws carry it into Vulcan and Romulan, edit the laws, browse the corpus they have to explain, and see which words hold meaning English cannot.</p>
     <div class="legend"><span><span class="swatch" style="background:var(--vulcan)"></span>Vulcan branch</span><span><span class="swatch" style="background:var(--romulan)"></span>Romulan branch</span><span><span class="swatch" style="background:var(--cer)"></span>Ceremonial (Classical, frozen in ritual)</span><span id="build-stamp"></span></div>
@@ -808,4 +815,29 @@ function route() {
 window.addEventListener("hashchange", route);
 
 renderRules(); renderTests(); renderCorpus(); renderConcepts(); renderLexicon(); renderInterlinear(); renderGloss(); renderPhrasebook(); renderDerive(); renderSounds(); route();
+</script>
+<script>
+/* Light, dark, or the system's setting: remembered in this browser, and in the UTP app's Settings when the app serves the page. */
+(function () {
+  var b = document.getElementById("theme-toggle"), root = document.documentElement;
+  var cur = function () { return root.dataset.theme || "system"; };
+  var show = function () { b.textContent = { system: "Theme: system", light: "Theme: light", dark: "Theme: dark" }[cur()]; };
+  b.onclick = function () {
+    var n = { system: "light", light: "dark", dark: "system" }[cur()];
+    if (n === "system") delete root.dataset.theme; else root.dataset.theme = n;
+    try { localStorage.setItem("utp-theme", n); } catch (e) {}
+    if (window.UTP_THEME) {
+      window.UTP_THEME = n;
+      fetch("/api/settings", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ app: { theme: n } }) }).catch(function () {});
+      try { parent.postMessage({ utpTheme: n }, location.origin); } catch (e) {}
+    }
+    show();
+  };
+  window.addEventListener("message", function (e) {
+    if (e.origin === location.origin && e.data && e.data.utpTheme) {
+      if (e.data.utpTheme === "system") delete root.dataset.theme; else root.dataset.theme = e.data.utpTheme; show();
+    }
+  });
+  show();
+})();
 </script>

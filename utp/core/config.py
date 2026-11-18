@@ -35,7 +35,7 @@ DEFAULTS = {
     "roles": {"chat": "local", "build": "local"},
     "speech": {"url": "http://localhost:8880", "voice": ""},
     "paths": {"languages": "", "workspaces": []},
-    "app": {"port": 8765, "open": "auto"},          # auto: the desktop window if it is installed, else the browser
+    "app": {"port": 8765, "open": "auto", "theme": "system"},          # auto: the desktop window if it is installed, else the browser
     "desktop": {"python": ""},
 }
 

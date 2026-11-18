@@ -38,6 +38,7 @@ The app also runs in its own window (Electron): `cd desktop && npm install && np
 **Settings** (bottom left in the app, or Ctrl/Cmd+, in the window) is one page for everything:
 
 - **Models:** as many connections as you like, local or hosted: Ollama, any OpenAI-compatible server (LM Studio, llama.cpp, vLLM, Open WebUI, OpenAI) or Anthropic's Claude. Add, edit, test, delete. One connection chats, another can build (for example, a local model to chat and Claude to grow the dictionary). The chat bar can switch connections for one conversation.
+- **Appearance:** light, dark, or follow the system, for the app and every Lab and course (each page also has its own switch at the top).
 - **Speech:** the Kokoro address and voice.
 - **Folders:** where new languages are made, and any other folders to show in the file list.
 - **Startup:** desktop window or browser, the port, which Python the window uses.

@@ -1,6 +1,6 @@
 /* UTP desktop shell: starts the UTP server (Python, standard library only) and shows it in a window.
    The window is the same app the browser shows; closing the window stops the server. */
-const { app, BrowserWindow, shell, dialog, Menu } = require("electron");
+const { app, BrowserWindow, shell, dialog, Menu, nativeTheme } = require("electron");
 const { spawn } = require("child_process");
 const path = require("path");
 const fs = require("fs");
@@ -10,7 +10,9 @@ const REPO = [path.join(process.resourcesPath || "", "repo"), path.resolve(__dir
   .find(p => fs.existsSync(path.join(p, "utp", "app", "server.py")));
 // Settings live in ~/.utp/config.json (or $UTP_HOME/config.json); the Settings page can name the Python to use.
 const CONFIG = path.join(process.env.UTP_HOME || path.join(require("os").homedir(), ".utp"), "config.json");
-function savedPython() { try { return (JSON.parse(fs.readFileSync(CONFIG, "utf8")).desktop || {}).python || null; } catch (e) { return null; } }
+function saved() { try { return JSON.parse(fs.readFileSync(CONFIG, "utf8")); } catch (e) { return {}; } }
+function savedPython() { return (saved().desktop || {}).python || null; }
+function syncTheme() { const t = (saved().app || {}).theme; nativeTheme.themeSource = ["light", "dark"].includes(t) ? t : "system"; }
 const PYTHONS = [process.env.UTP_PYTHON, savedPython(), ...(process.platform === "win32" ? ["py", "python", "python3"] : ["python3", "python"])].filter(Boolean);
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
 const pick = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : null; };
@@ -38,16 +40,18 @@ function startServer() {
 }
 
 async function createWindow() {
+  syncTheme();
   let port;
   try { port = await startServer(); }
   catch (e) { dialog.showErrorBox("UTP could not start", e.message); app.quit(); return; }
   win = new BrowserWindow({
-    width: 1360, height: 880, minWidth: 900, minHeight: 600, title: "UTP", backgroundColor: "#f6f5f2",
+    width: 1360, height: 880, minWidth: 900, minHeight: 600, title: "UTP", backgroundColor: nativeTheme.shouldUseDarkColors ? "#171514" : "#f6f5f2",
     icon: path.join(__dirname, "icon.png"),
     webPreferences: { preload: path.join(__dirname, "preload.js"), contextIsolation: true, nodeIntegration: false, sandbox: true },
   });
   const lang = pick("--language"), page = pick("--page");
   const hash = [lang && `lang=${encodeURIComponent(lang)}`, lang && page && `page=${page === "course" ? "course" : "lab"}`].filter(Boolean).join("&");
+  try { fs.watch(path.dirname(CONFIG), () => syncTheme()); } catch (e) { }
   win.loadURL(`http://127.0.0.1:${port}/` + (args.includes("--settings") ? "#settings" : hash ? "#" + hash : ""));
   // links to other sites open in the normal browser; the app's own pages stay in the window
   win.webContents.setWindowOpenHandler(({ url: u }) => {

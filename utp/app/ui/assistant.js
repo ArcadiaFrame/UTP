@@ -17,7 +17,7 @@
   #utp-a textarea{flex:1;resize:none;height:56px;border:1px solid #d9d5cf;border-radius:8px;padding:6px 8px;font:inherit;background:#fff;color:#1e1c1a}
   #utp-a button{border:1px solid #d9d5cf;background:#fff;color:#1e1c1a;border-radius:7px;padding:5px 10px;cursor:pointer;font:inherit}
   #utp-a button.p{background:#a3401e;border-color:#a3401e;color:#fff}
-  @media (prefers-color-scheme: dark){#utp-a,#utp-a textarea,#utp-a button,#utp-a header select{background:#22201e;color:#ece7e1;border-color:#37322e}#utp-a .u{background:#3a231a}}`;
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #utp-a,:root:not([data-theme="light"]) #utp-a textarea,:root:not([data-theme="light"]) #utp-a button:not(.p),:root:not([data-theme="light"]) #utp-a header select{background:#22201e;color:#ece7e1;border-color:#37322e}:root:not([data-theme="light"]) #utp-a .u{background:#3a231a}}:root[data-theme="dark"] #utp-a,:root[data-theme="dark"] #utp-a textarea,:root[data-theme="dark"] #utp-a button:not(.p),:root[data-theme="dark"] #utp-a header select{background:#22201e;color:#ece7e1;border-color:#37322e}:root[data-theme="dark"] #utp-a .u{background:#3a231a}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   const btn = document.createElement("button"); btn.id = "utp-a-btn"; btn.textContent = "Tutor";
   const box = document.createElement("div"); box.id = "utp-a"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "Tutor");

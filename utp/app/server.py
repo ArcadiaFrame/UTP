@@ -164,6 +164,13 @@ def system_prompt(language, mode, messages, files):
     return "\n\n".join(parts)
 
 
+def theme_tag():
+    t = C.load().get("app", {}).get("theme", "system")
+    t = t if t in ("system", "light", "dark") else "system"
+    return (f'<script>window.UTP_THEME={json.dumps(t)};'
+            f'if(UTP_THEME!=="system")document.documentElement.dataset.theme=UTP_THEME;</script>').encode()
+
+
 ASSISTANT_TAG = '<script>window.UTP_LANGUAGE={lang};</script><script src="/ui/assistant.js" defer></script>'
 
 
@@ -274,7 +281,10 @@ class Handler(BaseHTTPRequestHandler):
         p = p.resolve()
         if UI not in p.parents or not p.is_file():
             return self._error("not found", 404)
-        self._send(200, p.read_bytes(), (mimetypes.guess_type(p.name)[0] or "application/octet-stream") +
+        data = p.read_bytes()
+        if p.suffix == ".html":
+            data = re.sub(rb"(<head[^>]*>)", lambda m: m.group(1) + theme_tag(), data, count=1)
+        self._send(200, data, (mimetypes.guess_type(p.name)[0] or "application/octet-stream") +
                    ("; charset=utf-8" if p.suffix in (".html", ".js", ".css") else ""))
 
     def _file(self, rel):
@@ -287,6 +297,8 @@ class Handler(BaseHTTPRequestHandler):
             lang = language_of(p)
             tag = ASSISTANT_TAG.format(lang=json.dumps(lang)).encode()
             data = data.replace(b"</body>", tag + b"</body>", 1) if b"</body>" in data else data + tag
+            data = theme_tag() + data if not data.lstrip().lower().startswith(b"<!doctype") else \
+                re.sub(rb"(<head[^>]*>)", lambda m: m.group(1) + theme_tag(), data, count=1)
             ctype = "text/html; charset=utf-8"
         elif ctype.startswith("text/") or p.suffix in (".md", ".csv", ".json", ".py"):
             ctype = "text/plain; charset=utf-8"
