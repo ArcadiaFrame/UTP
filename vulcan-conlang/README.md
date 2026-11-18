@@ -12,7 +12,7 @@ A complete, historically layered Vulcan language built from canon: Proto-Vulcan 
 - *kroykah*, *Kolinahr*, *kahs-wan*, *k'oh-nar*, *sahrafel*, *sarlah*, *nahp*, *eh*
 - the person word *-veh* (*nash-veh*, *ish-veh*, *vo-veh*)
 
-Seventeen VLD and fandom words were added as variants, among them *ashayam*, *k'diwa*, *taluhk*, *adun* and *adun'a*, and *sa-mekh*. The dictionary files are current. The lessons, phrasebook, other guides, the Lab and the course still show the older spellings until the next render; that re-render follows the full VLD pass. When they disagree, **the dictionary wins**. See `analysis/audit-canon-fandom.md` and the changelog.
+Seventeen VLD and fandom words were added as variants, among them *ashayam*, *k'diwa*, *taluhk*, *adun* and *adun'a*, and *sa-mekh*. All guides, the phrasebook and the course plan were re-rendered on 18 Nov with the new spellings; the published Lab and course pages pick them up at their next republish. When anything disagrees, **the dictionary wins**. See `analysis/audit-canon-fandom.md` and the changelog.
 
 **Spelling spec (18 Nov 2026).** `docs/orthography.md` and `docs/morphology.md` now define how Vulcan is spelled and how words are built; the checker enforces the hyphen-versus-fusion rule. 23 more forms changed, among them *-auuth* → *-auth* (*sekauth*), *fest'au* and *shekahol* "stillness".
 
