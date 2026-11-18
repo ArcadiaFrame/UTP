@@ -9,29 +9,22 @@ model through Model, so switching between a hosted model and a local one is one 
                                                              llama.cpp, vLLM, Open WebUI (…/api)
   anthropic  https://api.anthropic.com         required      Claude
 
-Settings are read in this order, first found wins:
-  1. arguments to Model(...)
-  2. environment: UTP_LLM_PROVIDER, UTP_LLM_URL, UTP_LLM_MODEL, UTP_LLM_KEY
-     (ANTHROPIC_API_KEY / OPENAI_API_KEY are used as the key for their provider)
-  3. ~/.utp/config.json  {"provider": ..., "url": ..., "model": ..., "keys": {"anthropic": ..., "openai": ...}}
-     (the app's Settings screen writes this file, readable only by you)
-  4. the defaults: Ollama on this machine
+Settings (utp/core/config.py, ~/.utp/config.json) hold any number of connections, and say which one
+chats and which one builds. Environment variables override them: UTP_LLM_PROVIDER, UTP_LLM_URL,
+UTP_LLM_MODEL, UTP_LLM_KEY (or ANTHROPIC_API_KEY / OPENAI_API_KEY).
 Standard library only.
 """
 import http.client
 import json
 import os
-import pathlib
 import re
 import urllib.error
+import urllib.parse
 import urllib.request
 
-CONFIG = pathlib.Path(os.environ.get("UTP_HOME", pathlib.Path.home() / ".utp")) / "config.json"
-PROVIDERS = {
-    "ollama": {"url": "http://localhost:11434/v1", "model": "qwen3.5:9b", "key": False},
-    "openai": {"url": "https://api.openai.com/v1", "model": "gpt-4o-mini", "key": True},
-    "anthropic": {"url": "https://api.anthropic.com", "model": "claude-sonnet-5-5", "key": True},
-}
+from . import config as C
+
+PROVIDERS = C.PROVIDERS
 ANTHROPIC_VERSION = "2023-06-01"
 THINK = re.compile(r"<think>.*?</think>", re.S)
 
@@ -41,53 +34,42 @@ class ModelError(Exception):
 
 
 def load_config():
-    try:
-        return json.loads(CONFIG.read_text())
-    except Exception:
-        return {}
+    return C.load()
 
 
 def save_config(cfg):
-    """Write the settings file, readable only by its owner (it may hold API keys)."""
-    CONFIG.parent.mkdir(parents=True, exist_ok=True)
-    old = load_config()
-    keys = {**old.get("keys", {}), **{k: v for k, v in cfg.get("keys", {}).items() if v}}
-    for k, v in cfg.get("keys", {}).items():
-        if v == "":                                   # an explicit empty string removes a key
-            keys.pop(k, None)
-    merged = {**old, **{k: v for k, v in cfg.items() if k != "keys"}, "keys": keys}
-    CONFIG.write_text(json.dumps(merged, indent=1))
-    try:
-        os.chmod(CONFIG, 0o600)
-    except OSError:
-        pass
-    return merged
+    """Older form {provider, url, model, keys: {provider: key}}: set the connection the roles use."""
+    current = C.load()
+    conn = C.connection(role="chat", cfg=current)
+    prov = cfg.get("provider") or conn["provider"]
+    same = prov == conn["provider"]
+    new = {"id": conn["id"] if same else None, "name": conn["name"] if same else PROVIDERS[prov]["label"], "provider": prov,
+           "url": cfg.get("url") or (conn["url"] if same else ""), "model": cfg.get("model") or (conn["model"] if same else "")}
+    key = (cfg.get("keys") or {}).get(prov)
+    cid = C.upsert_connection(new, key=key)
+    C.update({"roles": {"chat": cid, "build": cid}})
+    return public_config()
 
 
 def public_config():
-    """Settings for display: which keys are set, never the keys themselves."""
-    m = Model()
-    cfg = load_config()
-    return {"provider": m.provider, "url": m.url, "model": m.model,
-            "keys": {p: bool(cfg.get("keys", {}).get(p) or os.environ.get(f"{p.upper()}_API_KEY"))
-                     for p in ("anthropic", "openai")},
-            "providers": PROVIDERS}
+    return C.public()
 
 
 class Model:
-    def __init__(self, url=None, model=None, key=None, provider=None, timeout=300):
-        cfg = load_config()
+    def __init__(self, url=None, model=None, key=None, provider=None, timeout=300, connection=None, role="chat"):
         env = os.environ
-        self.provider = (provider or env.get("UTP_LLM_PROVIDER") or cfg.get("provider")
-                         or ("anthropic" if "anthropic.com" in (url or env.get("UTP_LLM_URL", "")) else "ollama"))
+        c = C.connection(connection, role)
+        self.connection = c.get("id", "")
+        self.provider = provider or env.get("UTP_LLM_PROVIDER") or (
+            "anthropic" if "anthropic.com" in (url or env.get("UTP_LLM_URL", "")) else None) or c["provider"]
         if self.provider not in PROVIDERS:
             raise ModelError(f"unknown provider '{self.provider}' (use {', '.join(PROVIDERS)})")
         d = PROVIDERS[self.provider]
-        same = cfg.get("provider", self.provider) == self.provider     # a saved url/model belongs to its provider
-        self.url = (url or env.get("UTP_LLM_URL") or (cfg.get("url") if same else None) or d["url"]).rstrip("/")
-        self.model = model or env.get("UTP_LLM_MODEL") or (cfg.get("model") if same else None) or d["model"]
+        same = self.provider == c["provider"]              # a connection's url, model and key belong to its provider
+        self.url = (url or env.get("UTP_LLM_URL") or (c.get("url") if same else None) or d["url"]).rstrip("/")
+        self.model = model or env.get("UTP_LLM_MODEL") or (c.get("model") if same else None) or d["model"]
         self.key = (key or env.get("UTP_LLM_KEY") or env.get(f"{self.provider.upper()}_API_KEY")
-                    or cfg.get("keys", {}).get(self.provider, ""))
+                    or (c.get("key") if same else "") or "")
         self.timeout = timeout
 
     def __repr__(self):
@@ -125,8 +107,11 @@ class Model:
         out = self._json("/v1/models" if self.provider == "anthropic" else "/models")
         return [m.get("id") or m.get("name") for m in out.get("data", out.get("models", []))]
 
+    def needs_key(self):
+        return C.needs_key(self.provider, self.url)
+
     def available(self):
-        if PROVIDERS[self.provider]["key"] and not self.key:
+        if self.needs_key() and not self.key:
             return False
         try:
             self.models()

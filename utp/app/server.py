@@ -29,8 +29,9 @@ sys.path.insert(0, str(REPO))
 
 from utp.core import expand as X  # noqa: E402
 from utp.core import interlingua as I  # noqa: E402
+from utp.core import config as C  # noqa: E402
 from utp.core import learn, llm, models as M, newlang  # noqa: E402
-from utp.core.pack import LANGUAGES, Pack, available  # noqa: E402
+from utp.core.pack import Pack, available, languages_dir  # noqa: E402
 
 UI = HERE / "ui"
 HIDDEN = {".git", "__pycache__", "node_modules", ".DS_Store", "dist", "out"}
@@ -38,27 +39,37 @@ EDITABLE = {".md", ".csv", ".json", ".txt"}
 MAX_READ = 2_000_000
 RUNNABLE = {"build", "new", "expand", "apply", "sentences", "topics", "lab", "course", "card", "stats", "packs",
             "derive", "root", "tree", "profile", "context", "render", "parse", "models", "export", "propose", "curate"}
-OUTSIDE = LANGUAGES.resolve() != (REPO / "languages").resolve()      # languages kept outside the repository
+
+
+def roots():
+    """The folders the app may show: the repository, the languages folder, and your workspaces.
+    Paths the page sees: "<repo path>", "languages/<…>", "ws/<name>/<…>"."""
+    r = {"": REPO, "languages": languages_dir().resolve()}
+    for w in C.workspaces():
+        r["ws/" + w["name"]] = w["path"].resolve()
+    return r
 
 
 def resolve(rel):
-    """A path the app may show: inside the repository, or inside the languages folder."""
-    rel = (rel or "").strip("/")
-    if rel == "languages" or rel.startswith("languages/"):
-        base, rest = LANGUAGES.resolve(), rel[len("languages"):].strip("/")
-    else:
-        base, rest = REPO, rel
+    """A path the app may show, from the page's form of it; anything else is refused."""
+    rel = (rel or "").replace("\\", "/").strip("/")
+    base, rest = REPO, rel
+    for prefix, folder in sorted(roots().items(), key=lambda kv: -len(kv[0])):
+        if prefix and (rel == prefix or rel.startswith(prefix + "/")):
+            base, rest = folder, rel[len(prefix):].strip("/")
+            break
     p = (base / rest).resolve()
     if p != base and base not in p.parents:
-        raise PermissionError("outside the project")
+        raise PermissionError("outside the folders this app may show")
     return p
 
 
 def relpath(p):
     p = pathlib.Path(p).resolve()
-    lang = LANGUAGES.resolve()
-    if p == lang or lang in p.parents:
-        return "languages/" + str(p.relative_to(lang)).replace(os.sep, "/") if p != lang else "languages"
+    for prefix, folder in sorted(roots().items(), key=lambda kv: -len(kv[0])):
+        if prefix and (p == folder or folder in p.parents):
+            rest = str(p.relative_to(folder)).replace(os.sep, "/")
+            return prefix if rest == "." else f"{prefix}/{rest}"
     return str(p.relative_to(REPO)).replace(os.sep, "/")
 
 
@@ -216,6 +227,7 @@ class Handler(BaseHTTPRequestHandler):
             if u.path.startswith("/files/"):
                 return self._file(urllib.parse.unquote(u.path[7:]))
             route = {"/api/health": self.health, "/api/languages": lambda q: self._json({"languages": languages()}),
+                     "/api/settings": lambda q: self._json(C.public()), "/api/about": self.about,
                      "/api/tree": self.tree, "/api/file": self.read_file, "/api/config": self.get_config,
                      "/api/models": self.list_models, "/api/batches": self.batches, "/api/batch": self.batch}.get(u.path)
             if not route:
@@ -240,12 +252,17 @@ class Handler(BaseHTTPRequestHandler):
                      "/api/render": self.render, "/api/expand": self.expand, "/api/apply": self.apply,
                      "/api/sentences": self.sentences, "/api/sentences/add": self.sentences_add,
                      "/api/topics": self.topics, "/api/new": self.new, "/api/run": self.run,
-                     "/api/rebuild": self.rebuild}.get(u.path)
+                     "/api/rebuild": self.rebuild, "/api/settings": self.set_settings,
+                     "/api/connections": self.save_connection, "/api/connections/delete": self.delete_connection,
+                     "/api/connections/test": self.test_connection, "/api/speech/test": self.test_speech,
+                     "/api/paths/check": self.check_path, "/api/shortcut": self.shortcut}.get(u.path)
             if not route:
                 return self._error("not found", 404)
             route(body)
         except M.ModelError as e:
             self._error(e, 502)
+        except ValueError as e:
+            self._error(e, 400)
         except PermissionError as e:
             self._error(e, 403)
         except Exception as e:
@@ -276,20 +293,25 @@ class Handler(BaseHTTPRequestHandler):
         self._send(200, data, ctype)
 
     def tree(self, q):
-        p = resolve(q.get("path", ""))
+        rel = q.get("path", "")
+        p = resolve(rel)
         entries = []
         if p.is_dir():
-            kids = list(p.iterdir())
-            if p == REPO and OUTSIDE:
-                kids.append(LANGUAGES)
-            for c in sorted(kids, key=lambda c: (not c.is_dir(), c.name.lower())):
-                if c.name in HIDDEN or (c.name.startswith(".") and c.name not in (".gitignore",)):
+            kids = [(c, None) for c in p.iterdir()]
+            if not rel:                                   # the top: the repository, plus folders that live elsewhere
+                lang = languages_dir().resolve()
+                if lang.parent != REPO:
+                    kids.append((lang, "languages"))
+                for w in C.workspaces():
+                    kids.append((w["path"], w["label"]))
+            for c, label in sorted(kids, key=lambda k: (k[1] is not None, not k[0].is_dir(), k[0].name.lower())):
+                if c.name in HIDDEN or (c.name.startswith(".") and c.name != ".gitignore" and label is None):
                     continue
                 if not c.exists():
                     continue
-                entries.append({"name": c.name if c != LANGUAGES else "languages", "path": relpath(c),
-                                "dir": c.is_dir(), "size": c.stat().st_size if c.is_file() else None})
-        self._json({"path": relpath(p) if p != REPO else "", "entries": entries})
+                entries.append({"name": label or c.name, "path": relpath(c), "dir": c.is_dir(),
+                                "size": c.stat().st_size if c.is_file() else None, "root": label is not None})
+        self._json({"path": rel, "entries": entries})
 
     def read_file(self, q):
         p = resolve(q["path"])
@@ -313,7 +335,9 @@ class Handler(BaseHTTPRequestHandler):
     # ---------- model ----------
     def health(self, q):
         m = M.Model()
-        self._json({"ok": True, "provider": m.provider, "model": f"{m.model} ({m.provider})", "repo": str(REPO)})
+        b = M.Model(role="build")
+        self._json({"ok": True, "provider": m.provider, "model": f"{m.model} ({m.provider})", "connection": m.connection,
+                    "build": f"{b.model} ({b.provider})", "repo": str(REPO), "config": str(C.path())})
 
     def get_config(self, q):
         self._json(M.public_config())
@@ -327,14 +351,73 @@ class Handler(BaseHTTPRequestHandler):
 
     def list_models(self, q):
         try:
-            self._json({"models": M.Model(provider=q.get("provider") or None).models()})
+            self._json({"models": M.Model(connection=q.get("connection") or None,
+                                          role=q.get("role") or "chat").models()})
         except M.ModelError as e:
             self._json({"models": [], "error": str(e)})
+
+    # ---------- settings ----------
+    def set_settings(self, b):
+        if "paths" in b:
+            for w in b["paths"].get("workspaces", []):
+                if not pathlib.Path(w.get("path", "")).expanduser().is_dir():
+                    raise ValueError(f"not a folder: {w.get('path')}")
+            lang = b["paths"].get("languages")
+            if lang:
+                pathlib.Path(lang).expanduser().mkdir(parents=True, exist_ok=True)
+        C.update(b)
+        self._json(C.public())
+
+    def save_connection(self, b):
+        cid = C.upsert_connection(b["connection"], key=b.get("key"))
+        if b.get("roles"):
+            C.update({"roles": {r: cid for r in b["roles"] if r in C.ROLES}})
+        self._json({"id": cid, "settings": C.public()})
+
+    def delete_connection(self, b):
+        C.delete_connection(b["id"])
+        self._json(C.public())
+
+    def test_connection(self, b):
+        """Test a saved connection, or a draft from the form (its key, or the saved one if blank)."""
+        d = b.get("connection") or {}
+        saved = C.connection(d.get("id")) if d.get("id") else {}
+        key = b.get("key") or (saved.get("key") if saved.get("provider") == d.get("provider") else "") or None
+        try:
+            m = M.Model(provider=d.get("provider"), url=d.get("url") or None, model=d.get("model") or None, key=key,
+                        connection=d.get("id"), timeout=15)
+            if m.needs_key() and not m.key:
+                return self._json({"ok": False, "problem": "this server needs an API key"})
+            names = m.models()
+            self._json({"ok": True, "models": names, "model_found": m.model in names})
+        except Exception as e:
+            self._json({"ok": False, "problem": str(e)})
+
+    def test_speech(self, b):
+        from utp.core.speech import Kokoro
+        k = Kokoro(b.get("url") or None)
+        self._json({"ok": k.available(), "url": k.url})
+
+    def about(self, q):
+        from utp.app.launch import electron
+        self._json({"repo": str(REPO), "python": sys.executable, "python_version": sys.version.split()[0],
+                    "desktop_installed": bool(electron()), "mode": os.environ.get("UTP_MODE", "browser"),
+                    "port": self.server.server_port})
+
+    def shortcut(self, b):
+        from utp.app.launch import install_shortcuts
+        self._json({"made": install_shortcuts()})
+
+    def check_path(self, b):
+        p = pathlib.Path(b.get("path", "")).expanduser()
+        self._json({"path": str(p), "exists": p.exists(), "dir": p.is_dir(),
+                    "writable": os.access(p if p.exists() else p.parent, os.W_OK),
+                    "languages": sorted(x.parent.name for x in p.glob("*/pack.json")) if p.is_dir() else []})
 
     def chat(self, b):
         messages = [m for m in b.get("messages", []) if m.get("role") in ("user", "assistant") and m.get("content")]
         system = system_prompt(b.get("language"), b.get("mode", "assistant"), messages, b.get("files"))
-        model = M.Model()
+        model = M.Model(connection=b.get("connection") or None, role="chat")
         self._sse_start()
         try:
             for piece in model.stream([{"role": "system", "content": system}] + messages):
@@ -387,7 +470,7 @@ class Handler(BaseHTTPRequestHandler):
     # ---------- growing a language ----------
     def expand(self, b):
         pack = Pack(b["language"])
-        path, rows = X.propose_batch(pack, b["topic"], M.Model(), n=int(b.get("n", 30)), extra=b.get("extra", ""))
+        path, rows = X.propose_batch(pack, b["topic"], M.Model(role="build"), n=int(b.get("n", 30)), extra=b.get("extra", ""))
         self._json({"name": path.stem, "path": relpath(path), "rows": rows})
 
     def batches(self, q):
@@ -435,7 +518,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def sentences(self, b):
         pack = Pack(b["language"])
-        ok, bad = X.propose_sentences(pack, b["topic"], M.Model(), n=int(b.get("n", 8)))
+        ok, bad = X.propose_sentences(pack, b["topic"], M.Model(role="build"), n=int(b.get("n", 8)))
         self._json({"ok": ok, "bad": bad})
 
     def sentences_add(self, b):
@@ -447,7 +530,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def topics(self, b):
         pack = Pack(b["language"])
-        self._json({"topics": X.suggest_topics(pack, M.Model() if b.get("ai") else None)})
+        self._json({"topics": X.suggest_topics(pack, M.Model(role="build") if b.get("ai") else None)})
 
     def new(self, b):
         self._sse_start()

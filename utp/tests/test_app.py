@@ -134,10 +134,28 @@ def main():
           and sent[3]["system"] == "be brief" and sent[3]["messages"] == [{"role": "user", "content": "hi"}],
           "anthropic: x-api-key and anthropic-version headers, system prompt moved to the top level")
     M.save_config({"provider": "anthropic", "url": base, "model": "mock-a", "keys": {"anthropic": "sk-secret"}})
+    from utp.core import config as C
     pub = M.public_config()
-    check(M.Model().provider == "anthropic" and pub["keys"]["anthropic"] is True and "sk-secret" not in json.dumps(pub)
-          and oct(os.stat(M.CONFIG).st_mode)[-3:] == "600",
-          "settings file: provider and key saved (owner-only), the key never shown")
+    chat = [c for c in pub["connections"] if c["id"] == pub["roles"]["chat"]][0]
+    check(M.Model().provider == "anthropic" and chat["key_set"] is True and "sk-secret" not in json.dumps(pub)
+          and oct(os.stat(C.path()).st_mode)[-3:] == "600" and str(C.path()).startswith(str(TMP)),
+          "settings file: provider and key saved (owner-only, in UTP_HOME), the key never shown")
+    local = C.upsert_connection({"name": "Home box", "provider": "openai", "url": base + "/v1", "model": "mock-b"})
+    C.update({"roles": {"build": local}})
+    check(M.Model(role="build").model == "mock-b" and M.Model(role="chat").provider == "anthropic"
+          and M.Model(connection=local).models() == ["mock-a", "mock-b"] and not C.needs_key("openai", base)
+          and C.needs_key("openai", "https://api.openai.com/v1"),
+          "settings: several connections, one to chat and another to build; a home server needs no key")
+    C.update({"roles": {"build": pub["roles"]["chat"]}})
+    C.delete_connection(local)
+    v1 = TMP / "home-v1"
+    v1.mkdir()
+    (v1 / "config.json").write_text(json.dumps({"provider": "openai", "url": "http://x:1/v1", "model": "m1", "keys": {"openai": "k1"}}))
+    os.environ["UTP_HOME"] = str(v1)
+    old = C.load()
+    os.environ["UTP_HOME"] = str(TMP / "home")
+    check(old["version"] == 2 and old["connections"][0]["model"] == "m1" and list(old["secrets"].values()) == ["k1"],
+          "settings: an old (version 1) settings file is carried over")
 
     # 2. a new language
     from utp.core import Pack, expand as X, newlang
@@ -234,7 +252,38 @@ def main():
         except urllib.error.HTTPError as e:
             guards.append(e.code in (400, 403))
     check(all(guards), f"server guards: paths outside the project, non-UTP commands and cross-site posts refused {guards}")
+    origin = {"Origin": app}
+    made = json.loads(post("/api/connections", {"connection": {"name": "Spare", "provider": "openai", "url": base + "/v1", "model": "mock-a"},
+                                                "key": "sk-spare"}, origin))
+    tested = json.loads(post("/api/connections/test", {"connection": {"id": made["id"], "provider": "openai", "url": base + "/v1", "model": "mock-a"}}, origin))
+    shown = get("/api/settings")
+    post("/api/connections/delete", {"id": made["id"]}, origin)
+    ws = TMP / "writing"
+    ws.mkdir()
+    (ws / "notes.md").write_text("hello")
+    post("/api/settings", {"paths": {"workspaces": [{"name": "Writing", "path": str(ws)}]}}, origin)
+    roots = [e["path"] for e in json.loads(get("/api/tree"))["entries"] if e["root"]]
+    note = json.loads(get("/api/file?path=ws/writing/notes.md"))
+    chk = json.loads(post("/api/paths/check", {"path": str(ws)}, origin))
+    try:
+        get("/api/file?path=ws/writing/../../../etc/passwd")
+        fenced = False
+    except urllib.error.HTTPError as e:
+        fenced = e.code in (400, 403)
+    check(made["id"] == "spare" and tested["ok"] and tested["model_found"] and "sk-spare" not in shown and '"key_set": true' in shown
+          and made["id"] not in get("/api/settings") and "ws/writing" in roots and note["text"] == "hello" and chk["writable"] and fenced,
+          "server settings: connections added, tested and deleted, keys never shown; extra folders listed and fenced in")
+    about = json.loads(get("/api/about"))
+    check(about["repo"] == str(S.REPO) and about["python"], "server: the About section")
     srv.shutdown()
+
+    # 5b. double-click launchers in each language folder
+    from utp.app import launch
+    bat = (TMP / "languages" / "webmade" / "Open Webmade.bat").read_bytes()
+    cmd = TMP / "languages" / "webmade" / "Open Webmade.command"
+    check(b'set "REPO=' in bat and b"\r\n" in bat and os.access(cmd, os.X_OK) and (TMP / "languages" / "webmade" / "open.py").exists()
+          and not launch.running(1),
+          "launchers: each language folder gets Open <Language>.command / .bat and open.py")
 
     # 6. Vulcan's own pipeline, on a copy of the repository
     copy = TMP / "repo"

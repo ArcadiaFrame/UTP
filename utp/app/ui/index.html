@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UTP</title>
 <link rel="stylesheet" href="/ui/app.css">
+<link rel="icon" href="/ui/favicon.png">
 <script src="/ui/vendor/marked.min.js"></script>
 <script src="/ui/vendor/purify.min.js"></script>
 </head>
@@ -24,7 +25,7 @@
       <div class="tree" id="tree" role="tree"></div>
     </div>
     <div class="side-foot">
-      <button class="ghost" id="settings-btn"><span class="dot" id="model-dot"></span><span id="model-label">Model…</span></button>
+      <button class="ghost" id="settings-btn" title="Settings: models, speech, folders, startup"><span class="dot" id="model-dot"></span><span id="model-label">Model…</span><span class="gear" aria-hidden="true">Settings</span></button>
     </div>
   </aside>
 
@@ -33,6 +34,7 @@
     <section class="view" id="chat-view">
       <div class="chat-bar">
         <label>Language <select id="chat-lang"><option value="">None</option></select></label>
+        <label>Model <select id="chat-conn" title="Which connection answers in this chat"></select></label>
         <label>Mode <select id="chat-mode"><option value="assistant">Assistant</option><option value="tutor">Tutor</option><option value="translator">Translator</option></select></label>
         <div class="chips" id="attached"></div>
       </div>
@@ -52,26 +54,11 @@
       </form>
     </section>
     <section class="view" id="file-view" hidden></section>
+    <section class="view" id="settings-view" hidden></section>
   </main>
 </div>
 
-<dialog id="settings">
-  <form method="dialog" class="dlg" id="settings-form">
-    <h2>Model</h2>
-    <p class="muted">Used by the chat, the Lab's tutor, and every model-assisted tool. Keys are saved only on this machine (~/.utp/config.json).</p>
-    <fieldset class="seg" id="provider-seg">
-      <legend>Provider</legend>
-      <label><input type="radio" name="provider" value="ollama"> Ollama <span class="muted">local</span></label>
-      <label><input type="radio" name="provider" value="openai"> OpenAI-compatible <span class="muted">LM Studio, llama.cpp, OpenAI</span></label>
-      <label><input type="radio" name="provider" value="anthropic"> Anthropic <span class="muted">Claude</span></label>
-    </fieldset>
-    <label>Server address <input id="cfg-url" autocomplete="off"></label>
-    <label>Model <input id="cfg-model" list="model-list" autocomplete="off"><datalist id="model-list"></datalist></label>
-    <label id="key-row">API key <input id="cfg-key" type="password" autocomplete="off" placeholder="unchanged"></label>
-    <p class="muted" id="cfg-status"></p>
-    <div class="dlg-actions"><button type="button" id="cfg-test">Test connection</button><span class="spacer"></span><button value="cancel">Cancel</button><button class="primary" id="cfg-save" value="save">Save</button></div>
-  </form>
-</dialog>
+
 
 <dialog id="newlang">
   <form method="dialog" class="dlg" id="newlang-form">
@@ -93,5 +80,6 @@
 </dialog>
 
 <script src="/ui/app.js"></script>
+<script src="/ui/settings.js"></script>
 </body>
 </html>

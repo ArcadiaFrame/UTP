@@ -13,7 +13,7 @@ languages/<name>/
   docs/             grammar card and guides
   lab/index.html    the language's Lab           (utp.py lab, after each build)
   course/           the language's course         (utp.py course, after each build)
-  open.py           opens the UTP app on this language (python3 open.py)
+  Open <Name>.command / .bat / open.py   double-click (macOS / Windows) or run: the app, on this language
   README.md, DESIGN.md
 """
 import json
@@ -21,7 +21,7 @@ import pathlib
 import re
 import shutil
 
-from .pack import LANGUAGES, Pack
+from .pack import Pack, languages_dir
 
 ORDERS = {
     # clause order, noun-phrase order, how the direction/possession markers attach
@@ -75,7 +75,7 @@ def create(name, language=None, order="SOV", branches=("standard",), eras=("Anci
     order = order.upper()
     if order not in ORDERS:
         raise ValueError(f"word order: one of {', '.join(ORDERS)}")
-    base = pathlib.Path(where) if where else LANGUAGES
+    base = pathlib.Path(where) if where else languages_dir()
     home = base / name
     if home.exists() and any(home.iterdir()) and not force:
         raise FileExistsError(f"{home} already exists")
@@ -156,7 +156,8 @@ def create(name, language=None, order="SOV", branches=("standard",), eras=("Anci
     (home / "DESIGN.md").write_text(DESIGN.format(language=language, order=order, eras=", ".join(eras),
                                                   branches=", ".join(branches)))
     (home / "README.md").write_text(README.format(language=language, name=name))
-    shutil.copy(pathlib.Path(__file__).resolve().parent.parent / "app" / "open_template.py", home / "open.py")
+    from ..app.launch import write_language_launchers
+    write_language_launchers(home, name, language)
     return home
 
 
@@ -206,7 +207,7 @@ Made with the UTP. Every file below is generated from `pack.json`, `sound_laws.j
 
 | Do this | Command (from the repository's top folder) |
 |---|---|
-| Open the app on this language | `python3 languages/{name}/open.py` |
+| Open the app on this language | double-click `Open {language}.command` (macOS) or `Open {language}.bat` (Windows), or `python3 languages/{name}/open.py` |
 | Rebuild the dictionary, Lab and course | `python3 utp/utp.py build {name}` |
 | Ask a model for a batch of new words on a topic | `python3 utp/utp.py expand {name} "kinship and the household" --n 40` |
 | Approve a batch (mark `approve` = yes in the CSV), then | `python3 utp/utp.py apply {name} languages/{name}/batches/<file>.csv` |

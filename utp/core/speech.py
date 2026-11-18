@@ -9,7 +9,7 @@ OpenAI-compatible POST /v1/audio/speech with a voice for that language.
 Everything here is optional and stdlib-only: with no server running, phonemes()
 still works (and `utp.py say --dry` shows what would be sent).
 
-  UTP_KOKORO_URL   default http://localhost:8880
+  UTP_KOKORO_URL, or Settings > Speech in the app; default http://localhost:8880
 """
 import json
 import os
@@ -67,7 +67,8 @@ def phonemes(pack, form):
 
 class Kokoro:
     def __init__(self, url=None, timeout=60):
-        self.url = (url or os.environ.get("UTP_KOKORO_URL", "http://localhost:8880")).rstrip("/")
+        from .config import kokoro_url
+        self.url = (url or kokoro_url()).rstrip("/")
         self.timeout = timeout
 
     def _post(self, path, payload):

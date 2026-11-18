@@ -15,11 +15,14 @@ Growing a language with a model (nothing joins the language until you approve it
   python3 utp/utp.py sentences nerani "greetings" [--n 10]   course sentences, checked by a round trip
   python3 utp/utp.py lab nerani | course nerani   regenerate the Lab or course page
 
-Model settings (Anthropic, OpenAI-compatible, or Ollama; saved in ~/.utp/config.json)
+Settings (also on the app's Settings page; saved in ~/.utp/config.json)
   python3 utp/utp.py config                    show the settings
-  python3 utp/utp.py config --provider anthropic --model claude-sonnet-5-5 --key sk-ant-...
-  python3 utp/utp.py config --provider ollama --url http://localhost:11434/v1 --model qwen3.5:9b
-  python3 utp/utp.py models                    the models the server offers
+  python3 utp/utp.py config --name "Claude" --provider anthropic --model claude-sonnet-5-5 --key sk-ant-... [--role build]
+  python3 utp/utp.py config --name "Desktop" --provider ollama --url http://desktop.local:11434/v1 --model qwen3.5:9b --role chat
+        a named connection, added or changed; --role chat|build|both picks what it does (default: both)
+  python3 utp/utp.py config --languages ~/Conlangs --workspace ~/Writing --kokoro http://localhost:8880
+  python3 utp/utp.py models [--role build]     the models a connection's server offers
+  python3 utp/utp.py shortcut                  a desktop and menu shortcut that opens the app with a double-click
 
 Language packs
   python3 utp/utp.py packs                     list language packs
@@ -79,9 +82,9 @@ def cmd_build(pack, a):
     return 1 if errors else 0
 
 
-def model_or_fail():
+def model_or_fail(role="build"):
     from utp.core.models import Model
-    m = Model()
+    m = Model(role=role)
     if not m.available():
         print(f"No model answering: {m}. Set one with: utp.py config --provider ... (see utp.py --help)")
         return None
@@ -128,7 +131,7 @@ def main(argv):
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--n", type=int)
     for opt in ("language", "order", "branches", "eras", "consonants", "vowels", "about",
-                "provider", "model", "key", "url", "page"):
+                "provider", "model", "key", "url", "page", "name", "role", "languages", "workspace", "kokoro"):
         ap.add_argument(f"--{opt}")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--ai", action="store_true")
@@ -143,21 +146,59 @@ def main(argv):
         from utp.app import server
         return server.main(["--port", str(a.port), "--open"] + (["--language", a.pack] if a.pack else []))
     if a.cmd in ("config", "models"):
-        from utp.core import models as M
+        from utp.core import config as C, models as M
         if a.cmd == "config":
-            if any((a.provider, a.model, a.key, a.url)):
-                cfg = {k: v for k, v in (("provider", a.provider), ("model", a.model), ("url", a.url)) if v}
-                if a.key is not None:
-                    cfg["keys"] = {a.provider or M.Model().provider: a.key}
-                M.save_config(cfg)
-            print(json.dumps(M.public_config(), indent=1)[:2000])
+            if any((a.provider, a.model, a.key is not None, a.url, a.name)):
+                roles = ["chat", "build"] if (a.role or "both") == "both" else [a.role]
+                if a.name:
+                    cid = next((c["id"] for c in C.load()["connections"] if c["name"] == a.name), None)
+                    base = C.connection(cid) if cid else {}
+                    prov = a.provider or base.get("provider") or "ollama"
+                    same = prov == base.get("provider")
+                    cid = C.upsert_connection({"id": cid, "name": a.name, "provider": prov,
+                                               "url": a.url or (base.get("url") if same else ""),
+                                               "model": a.model or (base.get("model") if same else "")}, key=a.key)
+                    C.update({"roles": {r: cid for r in roles}})
+                else:
+                    cfg = {k: v for k, v in (("provider", a.provider), ("model", a.model), ("url", a.url)) if v}
+                    if a.key is not None:
+                        cfg["keys"] = {a.provider or M.Model().provider: a.key}
+                    M.save_config(cfg)
+            patch = {}
+            if a.languages:
+                patch["paths"] = {"languages": str(pathlib.Path(a.languages).expanduser().resolve())}
+            if a.workspace:
+                ws = C.load()["paths"]["workspaces"] + [{"name": pathlib.Path(a.workspace).name,
+                                                         "path": str(pathlib.Path(a.workspace).expanduser().resolve())}]
+                patch.setdefault("paths", {})["workspaces"] = ws
+            if a.kokoro:
+                patch["speech"] = {"url": a.kokoro}
+            if patch:
+                C.update(patch)
+            pub = C.public()
+            print(f"settings: {pub['config_path']}")
+            for c in pub["connections"]:
+                roles = [r for r, v in pub["roles"].items() if v == c["id"]]
+                print(f"  {c['name']:24} {c['provider']:10} {c['model']:24} {c['url']}"
+                      f"{'  key set' if c['key_set'] else ''}{'  [' + ', '.join(roles) + ']' if roles else ''}")
+            print(f"  languages: {pub['languages_dir']}")
+            for w in pub["paths"]["workspaces"]:
+                print(f"  workspace: {w['path']}")
+            print(f"  speech:    {pub['speech']['url']}")
+            if pub["env_overrides"]:
+                print(f"  (overridden by environment: {', '.join(pub['env_overrides'])})")
             return 0
         try:
-            print("\n".join(M.Model().models()))
+            print("\n".join(M.Model(role=a.role or "chat").models()))
             return 0
         except M.ModelError as e:
             print(e)
             return 1
+    if a.cmd == "shortcut":
+        from utp.app import launch
+        for line in launch.install_shortcuts():
+            print(line)
+        return 0
     if a.cmd == "new":
         from utp.core import newlang
         try:

@@ -19,6 +19,6 @@ or **+ New** in the app. A language folder holds everything about it:
 | `build/` | The dictionary (`lexicon.csv`, `dictionary.md`, `english.md`) and its check report |
 | `docs/grammar-card.md` | The grammar on one card, for people and models |
 | `lab/index.html`, `course/index.html` | The Lab and course, rebuilt with the dictionary (not kept in git; the app builds them on first open) |
-| `open.py` | Opens the UTP app on this language |
+| `Open <Language>.command`, `Open <Language>.bat`, `open.py` | Double-click to open the UTP app on this language (macOS, Windows; `python3 open.py` anywhere). `--lab` or `--course` open those directly |
 
 Vulcan lives in `vulcan-conlang/`, built by its own tools; the UTP reads it through `utp/packs/vulcan/`.

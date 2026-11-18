@@ -22,6 +22,10 @@ Any assistant that can read a GitHub link can use the language. Point it at `vul
 
 Python 3.8 or newer, nothing else to install.
 
+**Double-click** `Start UTP.command` (macOS), `Start UTP.bat` (Windows) or `start-utp.sh` (Linux). Each language folder has its own `Open <Language>` file that opens the app straight on that language. Once it's running, **Settings → Startup → Make desktop and menu shortcuts** puts UTP in your Applications folder, Start menu or app launcher.
+
+From a terminal:
+
 ```
 python3 utp/utp.py app                          # the app: chat, languages, files, Labs and courses, in your browser
 python3 utp/utp.py new nerani --language Nerani --order SOV   # a new language, with its Lab and course
@@ -29,9 +33,16 @@ python3 utp/utp.py expand vulcan "weather and the sky"        # a model proposes
 python3 utp/tests/test_vulcan_pack.py           # the engine reproduces the Vulcan dictionary exactly
 ```
 
-The app also runs in its own window: `cd desktop && npm install && npm start`.
+The app also runs in its own window (Electron): `cd desktop && npm install && npm start`. With Node.js installed, the double-click files use the window automatically.
 
-**Models:** one setting for everything, local or hosted: Ollama, any OpenAI-compatible server (LM Studio, llama.cpp, vLLM, OpenAI) or Anthropic's Claude. Choose under **Model** in the app, or `python3 utp/utp.py config --provider ...`. With a local model nothing leaves your machine. Setup details: `utp/OFFLINE.md`.
+**Settings** (bottom left in the app, or Ctrl/Cmd+, in the window) is one page for everything:
+
+- **Models:** as many connections as you like, local or hosted: Ollama, any OpenAI-compatible server (LM Studio, llama.cpp, vLLM, Open WebUI, OpenAI) or Anthropic's Claude. Add, edit, test, delete. One connection chats, another can build (for example, a local model to chat and Claude to grow the dictionary). The chat bar can switch connections for one conversation.
+- **Speech:** the Kokoro address and voice.
+- **Folders:** where new languages are made, and any other folders to show in the file list.
+- **Startup:** desktop window or browser, the port, which Python the window uses.
+
+Everything is saved in `~/.utp/config.json`, readable only by you; API keys never reach the page. `python3 utp/utp.py config` does the same from a terminal. With a local model nothing leaves your machine. Setup details: `utp/OFFLINE.md`.
 
 ## Status
 

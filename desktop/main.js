@@ -8,7 +8,10 @@ const fs = require("fs");
 // The repository: next to this folder when run from source, or bundled as "repo" in a packaged app.
 const REPO = [path.join(process.resourcesPath || "", "repo"), path.resolve(__dirname, "..")]
   .find(p => fs.existsSync(path.join(p, "utp", "app", "server.py")));
-const PYTHONS = process.env.UTP_PYTHON ? [process.env.UTP_PYTHON] : process.platform === "win32" ? ["py", "python", "python3"] : ["python3", "python"];
+// Settings live in ~/.utp/config.json (or $UTP_HOME/config.json); the Settings page can name the Python to use.
+const CONFIG = path.join(process.env.UTP_HOME || path.join(require("os").homedir(), ".utp"), "config.json");
+function savedPython() { try { return (JSON.parse(fs.readFileSync(CONFIG, "utf8")).desktop || {}).python || null; } catch (e) { return null; } }
+const PYTHONS = [process.env.UTP_PYTHON, savedPython(), ...(process.platform === "win32" ? ["py", "python", "python3"] : ["python3", "python"])].filter(Boolean);
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
 const pick = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : null; };
 let server = null, win = null;
@@ -16,11 +19,10 @@ let server = null, win = null;
 function startServer() {
   return new Promise((resolve, reject) => {
     const extra = [];
-    if (pick("--language")) extra.push("--language", pick("--language"));
     const tryNext = i => {
-      if (i >= PYTHONS.length) return reject(new Error("Python 3 was not found. Install Python 3.8 or newer, or set UTP_PYTHON to its path."));
+      if (i >= PYTHONS.length) return reject(new Error("Python 3 was not found. Install Python 3.8 or newer, or put its path in Settings > Startup (saved in " + CONFIG + ")."));
       const p = spawn(PYTHONS[i], [path.join(REPO, "utp", "app", "server.py"), "--port", "0", "--print-port", ...extra],
-                      { cwd: REPO, env: { ...process.env, PYTHONUNBUFFERED: "1" } });
+                      { cwd: REPO, env: { ...process.env, PYTHONUNBUFFERED: "1", UTP_MODE: "desktop window" } });
       let out = "", done = false;
       p.on("error", () => { if (!done) { done = true; tryNext(i + 1); } });
       p.stdout.on("data", d => {
@@ -41,24 +43,29 @@ async function createWindow() {
   catch (e) { dialog.showErrorBox("UTP could not start", e.message); app.quit(); return; }
   win = new BrowserWindow({
     width: 1360, height: 880, minWidth: 900, minHeight: 600, title: "UTP", backgroundColor: "#f6f5f2",
+    icon: path.join(__dirname, "icon.png"),
     webPreferences: { preload: path.join(__dirname, "preload.js"), contextIsolation: true, nodeIntegration: false, sandbox: true },
   });
   const lang = pick("--language"), page = pick("--page");
-  let url = `http://127.0.0.1:${port}/` + (lang ? `#lang=${encodeURIComponent(lang)}` : "");
-  win.loadURL(url);
+  const hash = [lang && `lang=${encodeURIComponent(lang)}`, lang && page && `page=${page === "course" ? "course" : "lab"}`].filter(Boolean).join("&");
+  win.loadURL(`http://127.0.0.1:${port}/` + (args.includes("--settings") ? "#settings" : hash ? "#" + hash : ""));
   // links to other sites open in the normal browser; the app's own pages stay in the window
   win.webContents.setWindowOpenHandler(({ url: u }) => {
     if (u.startsWith(`http://127.0.0.1:${port}/`)) return { action: "allow" };
     shell.openExternal(u); return { action: "deny" };
   });
   win.webContents.on("will-navigate", (e, u) => { if (!u.startsWith(`http://127.0.0.1:${port}/`)) { e.preventDefault(); shell.openExternal(u); } });
-  if (page && lang) win.webContents.once("did-finish-load", () =>
-    win.webContents.executeJavaScript(`setTimeout(() => runCommand("/${page === "course" ? "course" : "lab"} ${lang}"), 600)`));
 }
 
+const openSettings = () => { if (win) win.webContents.executeJavaScript("openSettings()"); };
+const settingsItem = { label: "Settings…", accelerator: "CmdOrCtrl+,", click: openSettings };
 Menu.setApplicationMenu(Menu.buildFromTemplate([
-  ...(process.platform === "darwin" ? [{ role: "appMenu" }] : []),
-  { role: "fileMenu" }, { role: "editMenu" }, { role: "viewMenu" }, { role: "windowMenu" },
+  ...(process.platform === "darwin" ? [{ label: app.name, submenu: [{ role: "about" }, { type: "separator" }, settingsItem,
+    { type: "separator" }, { role: "hide" }, { role: "hideOthers" }, { role: "unhide" }, { type: "separator" }, { role: "quit" }] }] : []),
+  { label: "File", submenu: [...(process.platform === "darwin" ? [] : [settingsItem, { type: "separator" }]),
+    { label: "Open in browser", click: () => win && shell.openExternal(win.webContents.getURL()) }, { type: "separator" },
+    process.platform === "darwin" ? { role: "close" } : { role: "quit" }] },
+  { role: "editMenu" }, { role: "viewMenu" }, { role: "windowMenu" },
 ]));
 app.whenReady().then(createWindow);
 app.on("window-all-closed", () => app.quit());

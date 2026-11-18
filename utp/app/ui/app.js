@@ -102,8 +102,9 @@ function drawTabs() {
 }
 function activate(id) {
   S.active = id; drawTabs();
-  $("#chat-view").hidden = id !== "chat"; $("#file-view").hidden = id === "chat";
-  if (id !== "chat") renderFile(id);
+  $("#chat-view").hidden = id !== "chat"; $("#file-view").hidden = id === "chat" || id === "settings";
+  $("#settings-view").hidden = id !== "settings";
+  if (id === "settings") renderSettings(); else if (id !== "chat") renderFile(id);
 }
 $("#tabs").addEventListener("click", e => {
   const c = e.target.closest("[data-close]");
@@ -202,7 +203,7 @@ async function sendChat(text) {
   addMsg("user", esc(text)); S.history.push({role: "user", content: text});
   const d = addMsg("assistant", '<div class="md cursor"></div>'), box = d.querySelector(".md"); let reply = "";
   try {
-    await stream("/api/chat", {messages: S.history, language: S.lang || null, mode: S.mode, files: S.attached}, ev => {
+    await stream("/api/chat", {messages: S.history, language: S.lang || null, mode: S.mode, files: S.attached, connection: S.connection || null}, ev => {
       if (ev.text) { reply += ev.text; box.innerHTML = md(reply); box.classList.add("cursor"); $("#messages").scrollTop = 1e9; }
     });
   } catch (e) { box.innerHTML = `<p class="note">The model did not answer: ${esc(e.message)}. Check <b>Model</b> at the bottom left.</p>`; }
@@ -270,41 +271,24 @@ $("#input").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shift
 document.addEventListener("click", e => { const b = e.target.closest("[data-cmd]"); if (b) runCommand(b.dataset.cmd); });
 $("#new-chat").onclick = () => { S.history = []; $("#messages").innerHTML = ""; activate("chat"); $("#input").focus(); };
 
-/* ---------- settings ---------- */
-let CFG = null;
+/* ---------- model status (the Settings page itself is in settings.js) ---------- */
 async function refreshModel() {
   try {
     const h = await api("/api/health"); $("#model-label").textContent = h.model;
     const m = await api("/api/models"); $("#model-dot").className = "dot " + (m.error ? "bad" : "ok");
     $("#model-dot").title = m.error || "connected";
   } catch (e) { $("#model-dot").className = "dot bad"; }
+  loadConnections();
 }
-function fillProvider(p, keepFields) {
-  const d = CFG.providers[p];
-  if (!keepFields) { $("#cfg-url").value = d.url; $("#cfg-model").value = d.model; }
-  $("#key-row").hidden = !d.key && p !== "openai";
-  $("#cfg-key").placeholder = CFG.keys[p] ? "saved (leave empty to keep)" : (p === "openai" ? "only if the server needs one" : "paste your key");
-  api(`/api/models?provider=${p}`).then(r => { $("#model-list").innerHTML = r.models.map(m => `<option value="${esc(m)}">`).join(""); }).catch(() => {});
+async function loadConnections() {
+  try {
+    const s = await api("/api/settings");
+    const chat = s.roles.chat;
+    $("#chat-conn").innerHTML = s.connections.map(c => `<option value="${esc(c.id)}" ${c.id === (S.connection || chat) ? "selected" : ""}>${esc(c.name)}${c.id === chat ? " (default)" : ""}</option>`).join("");
+  } catch (e) { }
 }
-$("#settings-btn").onclick = async () => {
-  CFG = await api("/api/config");
-  document.querySelectorAll("[name=provider]").forEach(r => r.checked = r.value === CFG.provider);
-  $("#cfg-url").value = CFG.url; $("#cfg-model").value = CFG.model; $("#cfg-key").value = ""; $("#cfg-status").textContent = "";
-  fillProvider(CFG.provider, true); $("#settings").showModal();
-};
-$("#provider-seg").onchange = e => fillProvider(e.target.value);
-async function saveSettings() {
-  const provider = document.querySelector("[name=provider]:checked").value;
-  const body = {provider, url: $("#cfg-url").value.trim(), model: $("#cfg-model").value.trim()};
-  if ($("#cfg-key").value) body.key = $("#cfg-key").value.trim();
-  CFG = {...CFG, ...(await api("/api/config", body))}; refreshModel();
-}
-$("#cfg-save").onclick = async e => { e.preventDefault(); await saveSettings(); $("#settings").close(); };
-$("#cfg-test").onclick = async () => {
-  $("#cfg-status").textContent = "Saving and testing…"; await saveSettings();
-  const r = await api(`/api/models`);
-  $("#cfg-status").textContent = r.error ? `No connection: ${r.error}` : `Connected: ${r.models.length} models offered.`;
-};
+$("#chat-conn").onchange = e => { S.connection = e.target.value; };
+$("#settings-btn").onclick = () => openSettings();
 
 /* ---------- new language ---------- */
 function openNewLanguage() { $("#newlang-log").hidden = true; $("#newlang").showModal(); }
@@ -327,6 +311,11 @@ $("#newlang-go").onclick = async () => {
   drawTabs();
   await Promise.all([loadLanguages(), loadTree("", $("#tree"))]);
   refreshModel();
-  const m = location.hash.match(/lang=([\w-]+)/); if (m) { selectLanguage(m[1]); const l = S.langs.find(x => x.id === m[1]); if (l) revealFolder(l.home); }
+  const m = location.hash.match(/lang=([\w-]+)/);
+  if (m) {
+    selectLanguage(m[1]); const l = S.langs.find(x => x.id === m[1]); if (l) revealFolder(l.home);
+    const pg = location.hash.match(/page=(lab|course)/); if (pg) runCommand(`/${pg[1]} ${m[1]}`);
+  }
+  if (/settings/.test(location.hash)) openSettings();
   $("#input").focus();
 })();

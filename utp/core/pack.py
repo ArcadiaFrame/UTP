@@ -18,7 +18,12 @@ from .sca import SoundLaws
 
 PACKS = pathlib.Path(__file__).resolve().parent.parent / "packs"
 REPO = PACKS.parent.parent
-LANGUAGES = pathlib.Path(os.environ.get("UTP_LANGUAGES", REPO / "languages"))     # languages made with utp.py new
+
+
+def languages_dir():
+    """Where languages made with utp.py new live: $UTP_LANGUAGES, the Settings page, or languages/."""
+    from .config import languages_dir as d
+    return d()
 
 
 def _load_function(path, name):
@@ -32,7 +37,7 @@ class Pack:
     def __init__(self, name_or_dir):
         d = pathlib.Path(name_or_dir)
         if not (d.is_dir() and (d / "pack.json").exists()):
-            d = next((base / str(name_or_dir) for base in (PACKS, LANGUAGES)
+            d = next((base / str(name_or_dir) for base in (PACKS, languages_dir())
                       if (base / str(name_or_dir) / "pack.json").exists()), PACKS / str(name_or_dir))
         self.dir = d.resolve()
         self.id = self.dir.name
@@ -88,5 +93,5 @@ class Pack:
 
 def available():
     """Every pack: the engine's own (utp/packs) and the languages made with utp.py new (languages/)."""
-    names = {p.parent.name for p in PACKS.glob("*/pack.json")} | {p.parent.name for p in LANGUAGES.glob("*/pack.json")}
+    names = {p.parent.name for p in PACKS.glob("*/pack.json")} | {p.parent.name for p in languages_dir().glob("*/pack.json")}
     return sorted(names)
