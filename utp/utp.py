@@ -1,4 +1,25 @@
-"""UTP command line. Everything works offline; the model and speech commands need a local server.
+"""UTP command line. Everything works offline; the model commands need a model (local or hosted).
+
+The app (chat, files, Labs and courses in one window)
+  python3 utp/utp.py app [--port 8765]         open the UTP app in your browser (or use desktop/ for Electron)
+
+New languages
+  python3 utp/utp.py new nerani --language "Nerani" --order SOV --branches high,low \
+        --eras Ancient,Old,Middle,Modern --consonants "p t k m n s l r w y h sh" --vowels "a e i o u"
+                                               folder, settings, first dictionary, Lab and course in languages/nerani/
+
+Growing a language with a model (nothing joins the language until you approve it)
+  python3 utp/utp.py topics nerani [--ai]      what to grow next
+  python3 utp/utp.py expand nerani "weather and the sky" [--n 30]   a checked batch -> languages/nerani/batches/
+  python3 utp/utp.py apply nerani <batch.csv>  add the rows marked approve=yes, rebuild everything
+  python3 utp/utp.py sentences nerani "greetings" [--n 10]   course sentences, checked by a round trip
+  python3 utp/utp.py lab nerani | course nerani   regenerate the Lab or course page
+
+Model settings (Anthropic, OpenAI-compatible, or Ollama; saved in ~/.utp/config.json)
+  python3 utp/utp.py config                    show the settings
+  python3 utp/utp.py config --provider anthropic --model claude-sonnet-5-5 --key sk-ant-...
+  python3 utp/utp.py config --provider ollama --url http://localhost:11434/v1 --model qwen3.5:9b
+  python3 utp/utp.py models                    the models the server offers
 
 Language packs
   python3 utp/utp.py packs                     list language packs
@@ -23,7 +44,7 @@ Models and speech (optional, local)
   python3 utp/utp.py propose sample [--n 40]   a model proposes derivations; writes proposals.csv to review
   python3 utp/utp.py curate sample [--n 200]   a model flags template meanings that make no sense
   python3 utp/utp.py apply sample proposals.csv   apply the rows you marked approve=yes, then rebuild
-  python3 utp/utp.py say vulcan "Sik tok nash-ve kon" [--voice bm_george] [--out x.wav] [--dry]
+  python3 utp/utp.py say vulcan "Sik tok nash-veh kon" [--voice bm_george] [--out x.wav] [--dry]
   python3 utp/tutor.py drill|talk ...         lessons (see tutor.py)
 """
 import argparse
@@ -47,7 +68,24 @@ def cmd_build(pack, a):
     print(f"{len(rows)} entries, {len(errors)} errors, {len(warnings)} warnings -> {out}")
     for e in errors[:20]:
         print("  ", *e)
+    if not a.dry:                              # the language's Lab, course and grammar card follow every build
+        from utp.core import learn
+        from utp.core.llm import grammar_card
+        pack = Pack(pack.dir)
+        (pack.home / "docs").mkdir(exist_ok=True)
+        (pack.home / "docs" / "grammar-card.md").write_text(grammar_card(pack))
+        for p in learn.build_all(pack, rows):
+            print(f"wrote {p}")
     return 1 if errors else 0
+
+
+def model_or_fail():
+    from utp.core.models import Model
+    m = Model()
+    if not m.available():
+        print(f"No model answering: {m}. Set one with: utp.py config --provider ... (see utp.py --help)")
+        return None
+    return m
 
 
 def cmd_apply(pack, a):
@@ -89,11 +127,53 @@ def main(argv):
     ap.add_argument("--out")
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--n", type=int)
+    for opt in ("language", "order", "branches", "eras", "consonants", "vowels", "about",
+                "provider", "model", "key", "url", "page"):
+        ap.add_argument(f"--{opt}")
+    ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--ai", action="store_true")
+    ap.add_argument("--force", action="store_true")
     a = ap.parse_args(argv)
     a.file = a.rest[0] if a.rest else None
     if a.cmd == "packs":
         for name in available():
             print(f"{name:12} {Pack(name).name}")
+        return 0
+    if a.cmd == "app":
+        from utp.app import server
+        return server.main(["--port", str(a.port), "--open"] + (["--language", a.pack] if a.pack else []))
+    if a.cmd in ("config", "models"):
+        from utp.core import models as M
+        if a.cmd == "config":
+            if any((a.provider, a.model, a.key, a.url)):
+                cfg = {k: v for k, v in (("provider", a.provider), ("model", a.model), ("url", a.url)) if v}
+                if a.key is not None:
+                    cfg["keys"] = {a.provider or M.Model().provider: a.key}
+                M.save_config(cfg)
+            print(json.dumps(M.public_config(), indent=1)[:2000])
+            return 0
+        try:
+            print("\n".join(M.Model().models()))
+            return 0
+        except M.ModelError as e:
+            print(e)
+            return 1
+    if a.cmd == "new":
+        from utp.core import newlang
+        try:
+            home = newlang.create(a.pack, language=a.language, order=a.order or "SOV",
+                                  branches=(a.branches or "standard").split(","),
+                                  eras=(a.eras or "Ancient,Old,Middle,Modern").split(","),
+                                  consonants=a.consonants or newlang.DEFAULT_CONSONANTS,
+                                  vowels=a.vowels or newlang.DEFAULT_VOWELS, about=a.about or "", force=a.force)
+        except (ValueError, FileExistsError) as e:
+            print(f"Not created: {e}")
+            return 1
+        print(f"created {home}")
+        if not a.dry:
+            rows, errors, warnings = newlang.first_build(home)
+            print(f"first build: {len(rows)} entries, {len(errors)} errors -> {home / 'build'}; Lab and course written")
+            print(f"next: edit {home / 'DESIGN.md'}, then python3 {home / 'open.py'}")
         return 0
     pack = Pack(a.pack)
     text = " ".join(a.rest)
@@ -160,7 +240,44 @@ def main(argv):
             flags = L.curate(pack, pack.rows(), model, limit=a.n or 200, out=out)
             print(f"{len(flags)} meanings flagged -> {out}. Mark approve=yes, then: utp.py apply {a.pack} {out}")
     elif a.cmd == "apply":
+        head = open(a.file).readline()
+        if "status" in head and "kind" in head:          # a batch from utp.py expand
+            from utp.core import expand as X
+            added, errors = X.apply_batch(pack, a.file)
+            print(f"{added} words added, {len(errors)} build errors")
+            for e in errors[:20]:
+                print("  ", *e)
+            return 1 if errors else 0
         cmd_apply(pack, a)
+    elif a.cmd in ("expand", "sentences", "topics"):
+        from utp.core import expand as X
+        if a.cmd == "topics" and not a.ai:
+            print("\n".join(X.suggest_topics(pack)))
+            return 0
+        model = model_or_fail()
+        if not model:
+            return 1
+        if a.cmd == "topics":
+            print("\n".join(X.suggest_topics(pack, model)))
+        elif a.cmd == "expand":
+            path, rows = X.propose_batch(pack, text, model, n=a.n or 30)
+            ok = sum(r["status"] == "proposed" for r in rows)
+            print(f"{ok} proposals to review, {len(rows) - ok} rejected with reasons -> {path}")
+            print(f"Mark approve=yes on the rows to keep, then: utp.py apply {a.pack} {path}")
+        else:
+            ok, bad = X.propose_sentences(pack, text, model, n=a.n or 10)
+            path, added = X.add_sentences(pack, [dict(s, topic=text) for s in ok])
+            for s in ok:
+                print(f"  {s['v']}   {s['en']}")
+            for s in bad:
+                print(f"  rejected: {s['en']} ({s['why']})")
+            print(f"{added} sentences added -> {path}")
+            from utp.core import learn
+            learn.build_course(pack)
+    elif a.cmd in ("lab", "course"):
+        from utp.core import learn
+        out = learn.build_lab(pack) if a.cmd == "lab" else learn.build_course(pack)
+        print(f"wrote {out}" if out else f"{pack.id} has its own course (see its folder)")
     elif a.cmd == "say":
         from utp.core.speech import Kokoro, phonemes
         ph, dropped = phonemes(pack, text)

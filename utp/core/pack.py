@@ -7,6 +7,7 @@ typology profile. The core only ever reads a pack's files: it never writes to
 them, so a pack can point at a language's live working files safely.
 """
 import csv
+import os
 import importlib.util
 import json
 import pathlib
@@ -16,6 +17,8 @@ from .phonotactics import Phonotactics
 from .sca import SoundLaws
 
 PACKS = pathlib.Path(__file__).resolve().parent.parent / "packs"
+REPO = PACKS.parent.parent
+LANGUAGES = pathlib.Path(os.environ.get("UTP_LANGUAGES", REPO / "languages"))     # languages made with utp.py new
 
 
 def _load_function(path, name):
@@ -28,7 +31,11 @@ def _load_function(path, name):
 class Pack:
     def __init__(self, name_or_dir):
         d = pathlib.Path(name_or_dir)
-        self.dir = (d if d.is_dir() else PACKS / str(name_or_dir)).resolve()
+        if not (d.is_dir() and (d / "pack.json").exists()):
+            d = next((base / str(name_or_dir) for base in (PACKS, LANGUAGES)
+                      if (base / str(name_or_dir) / "pack.json").exists()), PACKS / str(name_or_dir))
+        self.dir = d.resolve()
+        self.id = self.dir.name
         self.meta = json.loads((self.dir / "pack.json").read_text())
         self.name = self.meta["name"]
         self.root = (self.dir / self.meta.get("root", ".")).resolve()
@@ -61,9 +68,25 @@ class Pack:
         return piecewise(fn, form) if fn else form
 
     @property
+    def home(self):
+        """The language's own folder: where its Lab, course, docs and batches live."""
+        return (self.root / self.meta.get("home", ".")).resolve() if "home" in self.meta else self.dir
+
+    @property
+    def buildable(self):
+        return "build" in self.meta
+
+    def learning(self, key):
+        """Path of the language's Lab or course page (pack.json "learning"), or None."""
+        rel = self.meta.get("learning", {}).get(key)
+        return (self.home / rel).resolve() if rel else None
+
+    @property
     def typology(self):
         return self.meta.get("typology", {})
 
 
 def available():
-    return sorted(p.parent.name for p in PACKS.glob("*/pack.json"))
+    """Every pack: the engine's own (utp/packs) and the languages made with utp.py new (languages/)."""
+    names = {p.parent.name for p in PACKS.glob("*/pack.json")} | {p.parent.name for p in LANGUAGES.glob("*/pack.json")}
+    return sorted(names)

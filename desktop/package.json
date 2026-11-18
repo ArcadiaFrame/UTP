@@ -1,0 +1,29 @@
+{
+  "name": "utp-desktop",
+  "productName": "UTP",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The UTP app in its own window: chat, languages, files, Labs and courses.",
+  "main": "main.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^45.3.4",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "io.github.arcadiaframe.utp",
+    "productName": "UTP",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "package.json"],
+    "extraResources": [
+      { "from": "..", "to": "repo", "filter": ["utp/**/*", "vulcan-conlang/**/*", "languages/**/*", "LICENSE", "NOTICE", "README.md", "!**/__pycache__/**", "!**/node_modules/**"] }
+    ],
+    "mac": { "category": "public.app-category.education" },
+    "linux": { "target": ["AppImage"], "category": "Education" },
+    "win": { "target": ["nsis"] }
+  }
+}

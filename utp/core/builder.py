@@ -123,7 +123,10 @@ class Builder:
         self.gen = Generator(pack.laws.proto, pack.meta.get("generator", {}), pack.phonotactics.transparent)
         self.block = set()
         if self.cfg.get("blocklist"):
-            self.block = set((pack.root / self.cfg["blocklist"]).read_text().split())
+            bl = pack.root / self.cfg["blocklist"]
+            if not bl.exists():                    # a language folder outside the repository: the UTP's own copy
+                bl = CONCEPTS / pathlib.Path(self.cfg["blocklist"]).name
+            self.block = set(bl.read_text().split())
         self.reserved = set(self.cfg.get("reserved", []))
 
     # ---------- meanings ----------

@@ -368,6 +368,13 @@ def _clause(rd, toks, punct, embedded=False):
         else:
             f["register"] = "formal"
     core = list(toks)
+    # a content clause after the verb (verb-medial grammars): ... VERB comp CLAUSE
+    order = g.c["clause"]
+    if "content" in order and "verb" in order and order.index("content") > order.index("verb"):
+        comp = [i for i, t in enumerate(toks) if t.get("key") == g.key("comp")]
+        if comp:
+            f["content"] = _clause(rd, toks[comp[0] + 1:], "", embedded=True)
+            toks = toks[: comp[0]]
     # fronted auxiliary in questions
     if toks and f.get("type") in ("wh", "yes-no") and toks[0].get("key") in list(modal_inv) + [g.key("future")]:
         k = toks.pop(0)["key"]

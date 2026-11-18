@@ -10,7 +10,9 @@ Vulcan is the first language built with it: a historically layered family from T
 | Folder | What it is | Start with |
 |---|---|---|
 | `vulcan-conlang/` | The Vulcan and Romulan language: dictionary, grammar, pronunciation, phrasebook, lessons, tales, the course and the tools that build them | `vulcan-conlang/README.md` |
-| `utp/` | The language-independent engine: packs, the builder, the interlingua (meaning frames rendered in any pack's grammar), local-model helpers, Kokoro speech and a tutor | `utp/README.md` |
+| `utp/` | The language-independent engine: packs, the builder, the interlingua (meaning frames rendered in any pack's grammar), model-assisted growth, Labs and courses, the app server, Kokoro speech and a tutor | `utp/README.md` |
+| `languages/` | Languages made with `utp.py new`, each with its own dictionary, Lab, course and launcher | `languages/README.md` |
+| `desktop/` | The app in its own window (Electron) | `desktop/README.md` |
 
 ## Read it in a chat
 
@@ -21,18 +23,21 @@ Any assistant that can read a GitHub link can use the language. Point it at `vul
 Python 3.8 or newer, nothing else to install.
 
 ```
+python3 utp/utp.py app                          # the app: chat, languages, files, Labs and courses, in your browser
+python3 utp/utp.py new nerani --language Nerani --order SOV   # a new language, with its Lab and course
+python3 utp/utp.py expand vulcan "weather and the sky"        # a model proposes words; you approve; apply rebuilds
 python3 utp/tests/test_vulcan_pack.py           # the engine reproduces the Vulcan dictionary exactly
-python3 utp/utp.py build sample                 # build the sample language (9,584 entries)
-cd vulcan-conlang && python3 tools/lexicon.py check && python3 tools/export.py
 ```
 
-Local models (Ollama, LM Studio) and Kokoro speech are optional; see `utp/OFFLINE.md`.
+The app also runs in its own window: `cd desktop && npm install && npm start`.
+
+**Models:** one setting for everything, local or hosted: Ollama, any OpenAI-compatible server (LM Studio, llama.cpp, vLLM, OpenAI) or Anthropic's Claude. Choose under **Model** in the app, or `python3 utp/utp.py config --provider ...`. With a local model nothing leaves your machine. Setup details: `utp/OFFLINE.md`.
 
 ## Status
 
 - Vulcan: anatomy and clinical medicine added (batch 24); eight proposed roots await approval.
 - Next: the number system and logic-game vocabulary, then technical vocabulary toward 6,000 entries.
-- UTP: the typology checker, script module and a second, canon-anchored pack (Klingon is the leading candidate) are planned; see `utp/docs/design.md`.
+- UTP: new languages, model-assisted growth with review, a Lab and course per language, and the chat app are done. The typology checker, script module and a second, canon-anchored pack (Klingon is the leading candidate) are planned; see `utp/docs/design.md`.
 
 ## License and credits
 

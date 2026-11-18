@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UTP</title>
+<link rel="stylesheet" href="/ui/app.css">
+<script src="/ui/vendor/marked.min.js"></script>
+<script src="/ui/vendor/purify.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="Languages and files">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">U</span><span>UTP</span>
+      <button class="ghost small" id="new-chat" title="New conversation">New chat</button>
+    </div>
+    <div class="side-section">
+      <div class="side-head"><h2>Languages</h2><button class="ghost small" id="new-lang" title="Create a language">+ New</button></div>
+      <ul class="langs" id="langs"></ul>
+    </div>
+    <div class="side-section files">
+      <div class="side-head"><h2>Files</h2><button class="ghost small" id="refresh" title="Reload the file list">Refresh</button></div>
+      <div class="tree" id="tree" role="tree"></div>
+    </div>
+    <div class="side-foot">
+      <button class="ghost" id="settings-btn"><span class="dot" id="model-dot"></span><span id="model-label">Model…</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <section class="view" id="chat-view">
+      <div class="chat-bar">
+        <label>Language <select id="chat-lang"><option value="">None</option></select></label>
+        <label>Mode <select id="chat-mode"><option value="assistant">Assistant</option><option value="tutor">Tutor</option><option value="translator">Translator</option></select></label>
+        <div class="chips" id="attached"></div>
+      </div>
+      <div class="messages" id="messages">
+        <div class="empty" id="empty">
+          <h1>Build a language, grow it, learn it.</h1>
+          <p>Pick a language on the left, or ask anything. With a language selected, every answer looks words up in its dictionary first.</p>
+          <div class="starters">
+            <button data-cmd="/new">Create a new language</button>
+            <button data-cmd="/help">What can I type here?</button>
+          </div>
+        </div>
+      </div>
+      <form class="composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Message, or / for commands (/expand, /build, /new …)" aria-label="Message"></textarea>
+        <button class="primary" id="send" type="submit">Send</button>
+      </form>
+    </section>
+    <section class="view" id="file-view" hidden></section>
+  </main>
+</div>
+
+<dialog id="settings">
+  <form method="dialog" class="dlg" id="settings-form">
+    <h2>Model</h2>
+    <p class="muted">Used by the chat, the Lab's tutor, and every model-assisted tool. Keys are saved only on this machine (~/.utp/config.json).</p>
+    <fieldset class="seg" id="provider-seg">
+      <legend>Provider</legend>
+      <label><input type="radio" name="provider" value="ollama"> Ollama <span class="muted">local</span></label>
+      <label><input type="radio" name="provider" value="openai"> OpenAI-compatible <span class="muted">LM Studio, llama.cpp, OpenAI</span></label>
+      <label><input type="radio" name="provider" value="anthropic"> Anthropic <span class="muted">Claude</span></label>
+    </fieldset>
+    <label>Server address <input id="cfg-url" autocomplete="off"></label>
+    <label>Model <input id="cfg-model" list="model-list" autocomplete="off"><datalist id="model-list"></datalist></label>
+    <label id="key-row">API key <input id="cfg-key" type="password" autocomplete="off" placeholder="unchanged"></label>
+    <p class="muted" id="cfg-status"></p>
+    <div class="dlg-actions"><button type="button" id="cfg-test">Test connection</button><span class="spacer"></span><button value="cancel">Cancel</button><button class="primary" id="cfg-save" value="save">Save</button></div>
+  </form>
+</dialog>
+
+<dialog id="newlang">
+  <form method="dialog" class="dlg" id="newlang-form">
+    <h2>New language</h2>
+    <p class="muted">Creates <span class="mono">languages/&lt;name&gt;/</span> with its settings, sound laws, a first dictionary of about 9,500 words, its Lab and its course. Everything can be changed later.</p>
+    <div class="grid2">
+      <label>Folder name <input name="name" required pattern="[a-z][a-z0-9-]{1,30}" placeholder="nerani"></label>
+      <label>Language name <input name="language" placeholder="Nerani"></label>
+      <label>Word order <select name="order"><option>SOV</option><option>SVO</option></select></label>
+      <label>Branches <input name="branches" value="standard" placeholder="high,low"></label>
+      <label>Eras, oldest first <input name="eras" value="Ancient,Old,Middle,Modern"></label>
+      <label>Vowels <input name="vowels" value="a e i o u"></label>
+    </div>
+    <label>Consonants <input name="consonants" value="p t k b d g m n s z f v l r w y h sh ch"></label>
+    <label>Who speaks it (optional; every model prompt reads this) <textarea name="design" rows="3"></textarea></label>
+    <div class="log" id="newlang-log" hidden></div>
+    <div class="dlg-actions"><span class="spacer"></span><button value="cancel">Cancel</button><button class="primary" id="newlang-go" type="button">Create</button></div>
+  </form>
+</dialog>
+
+<script src="/ui/app.js"></script>
+</body>
+</html>

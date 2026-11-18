@@ -300,5 +300,36 @@
       "question": "Script type for each era, and the era at which spelling froze.",
       "proposal": "Not adopted."
     }
-  ]
+  ],
+  "home": "vulcan-conlang",
+  "learning": {
+    "lab": "lab/vuhlkansu-lab.html",
+    "course": "course/vuhlkansu-course.html",
+    "utp_lab": "lab/index.html"
+  },
+  "expand": {
+    "cwd": "vulcan-conlang",
+    "compounds": "lexicon/derivations.csv",
+    "roots": "lexicon/meanings.csv",
+    "batches": "batches",
+    "rebuild": [
+      [
+        "tools/derivation.py"
+      ],
+      [
+        "tools/lexicon.py",
+        "build"
+      ],
+      [
+        "tools/export.py"
+      ],
+      [
+        "tools/build_lab.py"
+      ],
+      [
+        "tools/build_course.py"
+      ]
+    ],
+    "note": "Vulcan is built by its own tools. utp.py apply appends approved compounds to derivations.csv and roots to meanings.csv, then runs these steps."
+  }
 }

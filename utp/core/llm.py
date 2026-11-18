@@ -12,56 +12,17 @@ three places, and in each one the UTP checks every answer before it is used:
   curate()    flag template-made meanings that make no sense (one who: rain); nothing
               is removed until you approve the list
 
-Any OpenAI-compatible server works: Ollama, LM Studio, llama.cpp server, Open WebUI.
-  UTP_LLM_URL     default http://localhost:11434/v1   (Ollama)
-  UTP_LLM_MODEL   default qwen3.5:9b
-  UTP_LLM_KEY     optional API key
+Model connection: utp/core/models.py (Anthropic, OpenAI-compatible servers, Ollama).
 """
 import csv
 import json
-import os
 import pathlib
 import re
-import urllib.request
+
+from .models import Model, ModelError  # noqa: F401
 
 INSTRUCTIONS = pathlib.Path(__file__).resolve().parent.parent / "LLM-INSTRUCTIONS.md"
-
-
-class LLM:
-    def __init__(self, url=None, model=None, key=None, timeout=300):
-        self.url = (url or os.environ.get("UTP_LLM_URL", "http://localhost:11434/v1")).rstrip("/")
-        self.model = model or os.environ.get("UTP_LLM_MODEL", "qwen3.5:9b")
-        self.key = key or os.environ.get("UTP_LLM_KEY", "")
-        self.timeout = timeout
-
-    def _req(self, path, payload=None):
-        headers = {"Content-Type": "application/json"}
-        if self.key:
-            headers["Authorization"] = f"Bearer {self.key}"
-        data = json.dumps(payload).encode() if payload is not None else None
-        req = urllib.request.Request(self.url + path, data=data, headers=headers)
-        with urllib.request.urlopen(req, timeout=self.timeout) as r:
-            return json.loads(r.read())
-
-    def available(self):
-        try:
-            self._req("/models")
-            return True
-        except Exception:
-            return False
-
-    def chat(self, messages, json_mode=False, temperature=0.3):
-        payload = {"model": self.model, "messages": messages, "temperature": temperature, "stream": False}
-        if json_mode:
-            payload["response_format"] = {"type": "json_object"}
-        out = self._req("/chat/completions", payload)
-        text = out["choices"][0]["message"]["content"]
-        return re.sub(r"<think>.*?</think>", "", text, flags=re.S).strip()   # reasoning models
-
-    def chat_json(self, messages):
-        text = self.chat(messages, json_mode=True, temperature=0.2)
-        m = re.search(r"\{.*\}", text, re.S)
-        return json.loads(m.group(0)) if m else {}
+LLM = Model          # the name the older tools use
 
 
 def section(name):

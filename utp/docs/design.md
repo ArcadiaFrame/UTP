@@ -28,7 +28,8 @@ The Vulcan pipeline (`derivation.py > lexicon.py build > export.py > build_lab.p
 | 5 | Interlingua | Language-neutral meaning frames; each pack's grammar renders them; the parser reads sentences back | 2 | Done for Vulcan, Romulan and an SVO sample |
 | 6 | Script | Script type, glyphs and their origins, the era spelling froze | 4 | Pending |
 | 7 | Contact and accent | Loanword reshaping, accent and learner-error prediction between packs | 5 | Pending |
-| 8 | Output and learning | Dictionaries, model instructions and context, Kokoro speech, spaced-repetition drills, conversation tutor | offline toolkit | Done (Vulcan's own docs and course stay in vulcan-conlang) |
+| 8 | Output and learning | Dictionaries, model instructions and context, Kokoro speech, spaced-repetition drills, conversation tutor; a Lab and course generated for every language | offline toolkit, app | Done (Vulcan keeps its own Lab and course too) |
+| 9 | Growth and the app | `utp.py new`; model-proposed batches checked and approved before they join; course sentences as frames; one model connection (Anthropic, OpenAI-compatible, Ollama); the chat app with files, Labs and courses, in a browser or Electron | app | Done 2026-11-18 |
 
 ## Phases
 

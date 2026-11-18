@@ -63,7 +63,7 @@ def main():
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Mock)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     base = f"http://127.0.0.1:{srv.server_port}"
-    os.environ.update(UTP_LLM_URL=base + "/v1", UTP_LLM_MODEL="mock", UTP_KOKORO_URL=base)
+    os.environ.update(UTP_LLM_PROVIDER="ollama", UTP_LLM_URL=base + "/v1", UTP_LLM_MODEL="mock", UTP_KOKORO_URL=base)
     tmp = pathlib.Path(tempfile.mkdtemp())
     os.environ["HOME"] = str(tmp)
     from utp.core import Pack
