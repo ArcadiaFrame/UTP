@@ -4,7 +4,7 @@
   if (window.__utpAssistant || document.getElementById("p-tutor")) return;     // the UTP Lab has its own Tutor tab
   window.__utpAssistant = true;
   const lang = window.UTP_LANGUAGE || null;
-  const css = `
+  let css = `
   #utp-a-btn{position:fixed;right:18px;bottom:18px;z-index:2147483000;background:#a3401e;color:#fff;border:0;border-radius:999px;padding:10px 16px;font:600 14px system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
   #utp-a{position:fixed;right:18px;bottom:68px;z-index:2147483000;width:min(400px,calc(100vw - 36px));height:min(560px,calc(100vh - 100px));display:none;flex-direction:column;background:#fff;color:#1e1c1a;border:1px solid #d9d5cf;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);font:14px/1.45 system-ui,sans-serif}
   #utp-a.open{display:flex}
@@ -18,6 +18,10 @@
   #utp-a button{border:1px solid #d9d5cf;background:#fff;color:#1e1c1a;border-radius:7px;padding:5px 10px;cursor:pointer;font:inherit}
   #utp-a button.p{background:#a3401e;border-color:#a3401e;color:#fff}
   @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #utp-a,:root:not([data-theme="light"]) #utp-a textarea,:root:not([data-theme="light"]) #utp-a button:not(.p),:root:not([data-theme="light"]) #utp-a header select{background:#22201e;color:#ece7e1;border-color:#37322e}:root:not([data-theme="light"]) #utp-a .u{background:#3a231a}}:root[data-theme="dark"] #utp-a,:root[data-theme="dark"] #utp-a textarea,:root[data-theme="dark"] #utp-a button:not(.p),:root[data-theme="dark"] #utp-a header select{background:#22201e;color:#ece7e1;border-color:#37322e}:root[data-theme="dark"] #utp-a .u{background:#3a231a}`;
+  css += `:root[data-theme="terminal"] #utp-a,:root[data-theme="terminal"] #utp-a textarea,:root[data-theme="terminal"] #utp-a button:not(.p),:root[data-theme="terminal"] #utp-a header select{background:#08101b;color:#ece4d6;border-color:#1f3248;font-family:"Courier Prime","Courier New",monospace}
+  :root[data-theme="terminal"] #utp-a{border-radius:0;box-shadow:0 0 0 1px #1f3248,0 10px 30px rgba(0,0,0,.55)}:root[data-theme="terminal"] #utp-a header{color:#ffc46b;text-transform:uppercase;letter-spacing:.06em}
+  :root[data-theme="terminal"] #utp-a .u{background:#2b1806}:root[data-theme="terminal"] #utp-a button.p,:root[data-theme="terminal"] #utp-a-btn{background:#ffa630;border-color:#ffa630;color:#120800;border-radius:0;text-transform:uppercase;letter-spacing:.05em;font-family:"Courier Prime","Courier New",monospace}
+  :root[data-theme="terminal"][data-palette="blue"] #utp-a button.p,:root[data-theme="terminal"][data-palette="blue"] #utp-a-btn{background:#5cb8ff;border-color:#5cb8ff;color:#02060c}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   const btn = document.createElement("button"); btn.id = "utp-a-btn"; btn.textContent = "Tutor";
   const box = document.createElement("div"); box.id = "utp-a"; box.setAttribute("role", "dialog"); box.setAttribute("aria-label", "Tutor");

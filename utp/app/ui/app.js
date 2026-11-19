@@ -296,17 +296,18 @@ $("#chat-conn").onchange = e => { S.connection = e.target.value; };
 $("#settings-btn").onclick = () => openSettings();
 
 /* ---------- theme: light, dark, or the system's; saved in Settings, passed to every open Lab and course ---------- */
-const THEMES = {system: "System", light: "Light", dark: "Dark"};
+const THEMES = {system: "System", light: "Light", dark: "Dark", terminal: "Terminal"};
+const NEXT_THEME = {system: "light", light: "dark", dark: "terminal", terminal: "system"};
 function theme() { return document.documentElement.dataset.theme || "system"; }
 function applyTheme(t, save = true) {
   if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
   window.UTP_THEME = t;
   document.querySelectorAll("iframe").forEach(f => { try { f.contentWindow.postMessage({utpTheme: t}, location.origin); } catch (e) { } });
-  $("#theme-btn").textContent = THEMES[t]; $("#theme-btn").title = `Theme: ${THEMES[t]}. Click for ${THEMES[{system: "light", light: "dark", dark: "system"}[t]]}.`;
+  $("#theme-btn").textContent = THEMES[t]; $("#theme-btn").title = `Theme: ${THEMES[t]}. Click for ${THEMES[NEXT_THEME[t]]}.`;
   if ($("#ap-theme")) $("#ap-theme").value = t;
   if (save) api("/api/settings", {app: {theme: t}}).catch(() => { });
 }
-$("#theme-btn").onclick = () => applyTheme({system: "light", light: "dark", dark: "system"}[theme()]);
+$("#theme-btn").onclick = () => applyTheme(NEXT_THEME[theme()]);
 window.addEventListener("message", e => { if (e.origin === location.origin && e.data && e.data.utpTheme) applyTheme(e.data.utpTheme, false); });
 applyTheme(window.UTP_THEME || "system", false);
 

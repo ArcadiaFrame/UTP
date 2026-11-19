@@ -39,8 +39,18 @@ async function renderSettings() {
         <label class="row">Building uses <select id="role-build">${opts(SET.roles.build)}</select></label></div>
     </section>
     <section>
-      <div><h2>Appearance</h2><p class="lead">For this app and every Lab and course it opens. Pages opened on their own have the same switch at the top.</p></div>
-      <div class="row"><label class="row">Theme <select id="ap-theme">${Object.entries(THEMES).map(([k, t]) => `<option value="${k}" ${theme() === k ? "selected" : ""}>${k === "system" ? "Follow the system" : t}</option>`).join("")}</select></label></div>
+      <div><h2>Appearance</h2><p class="lead">For this app and every Lab and course it opens. Pages opened on their own have the same theme switch at the top.</p></div>
+      <div class="form"><div class="grid2">
+        <label>Theme <select id="ap-theme">${Object.entries(THEMES).map(([k, t]) => `<option value="${k}" ${theme() === k ? "selected" : ""}>${k === "system" ? "Follow the system" : k === "terminal" ? "Terminal (Federation-style station console)" : t}</option>`).join("")}</select></label>
+        <label>Layout <select id="ap-layout">${[["auto", "Automatic (PADD on narrow screens)"], ["desktop", "Desktop"], ["padd", "PADD (handheld, for tablets at the table)"]].map(([k, t]) => `<option value="${k}" ${LOOK.layout === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+        <label>Terminal colours <select id="ap-palette">${Object.entries(PALETTES).map(([k, t]) => `<option value="${k}" ${LOOK.palette === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+        <label>Terminal control shape <select id="ap-shape">${Object.entries(SHAPES).map(([k, t]) => `<option value="${k}" ${LOOK.shape === k ? "selected" : ""}>${t}</option>`).join("")}</select></label>
+        <label>In-universe year, for the stardate <input id="ap-year" type="number" min="2151" max="3300" value="${esc(LOOK.year)}"></label>
+        <label class="row" style="align-self:end"><input type="checkbox" id="ap-sounds" ${LOOK.sounds ? "checked" : ""}> Interface sounds</label>
+      </div><p class="lead">In the Terminal theme each colour has one job: <b style="color:var(--accent)">act</b> (main buttons, your
+      choices), <b style="color:var(--go, var(--accent))">go</b> (tabs, steps, links), <b style="color:var(--label, var(--ink))">labels</b>,
+      red to remove, green when done. A square box means "any of these", a diamond "one of these". The station header shows the
+      program, the stardate (${stardate()} for the year above) and the model link.</p></div>
     </section>
     <section>
       <div><h2>Web search</h2><p class="lead">Your SearXNG, for finding sources in each language's Workshop. Searches go
@@ -171,6 +181,11 @@ function bindSettings() {
     });
   });
   $("#ap-theme").onchange = e => applyTheme(e.target.value);
+  $("#ap-layout").onchange = e => setLook({layout: e.target.value});
+  $("#ap-palette").onchange = e => setLook({palette: e.target.value});
+  $("#ap-shape").onchange = e => setLook({shape: e.target.value});
+  $("#ap-year").onchange = e => { const y = Math.round(+e.target.value); if (y >= 2151 && y <= 3300) { setLook({year: y}); renderSettings(); } };
+  $("#ap-sounds").onchange = e => { setLook({sounds: e.target.checked}); tone("done"); };
   $("#role-chat").onchange = async e => { await api("/api/settings", {roles: {chat: e.target.value}}); renderSettings(); refreshModel(); };
   $("#role-build").onchange = async e => { await api("/api/settings", {roles: {build: e.target.value}}); renderSettings(); };
 

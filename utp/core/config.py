@@ -35,7 +35,9 @@ DEFAULTS = {
     "roles": {"chat": "local", "build": "local"},
     "speech": {"url": "http://localhost:8880", "voice": ""},
     "paths": {"languages": "", "workspaces": []},
-    "app": {"port": 8765, "open": "auto", "theme": "system"},   # open: auto = the desktop window if installed, else the browser
+    "app": {"port": 8765, "open": "auto", "theme": "system",    # open: auto = the desktop window if installed, else the browser
+            "layout": "auto", "year": 2371, "sounds": False,     # layout: auto, desktop, padd; year: for the stardate
+            "palette": "amber-blue", "shape": "cut"},           # the Terminal theme: amber-blue, amber, blue; cut, square, rounded
     "library": {"embed_connection": "", "embed_model": ""},     # meaning-based search for sources (optional)
     "search": {"searxng": ""},                                  # your SearXNG, for finding sources on the web (optional)
     "desktop": {"python": ""},

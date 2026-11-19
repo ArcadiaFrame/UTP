@@ -12,7 +12,7 @@ const REPO = [path.join(process.resourcesPath || "", "repo"), path.resolve(__dir
 const CONFIG = path.join(process.env.UTP_HOME || path.join(require("os").homedir(), ".utp"), "config.json");
 function saved() { try { return JSON.parse(fs.readFileSync(CONFIG, "utf8")); } catch (e) { return {}; } }
 function savedPython() { return (saved().desktop || {}).python || null; }
-function syncTheme() { const t = (saved().app || {}).theme; nativeTheme.themeSource = ["light", "dark"].includes(t) ? t : "system"; }
+function syncTheme() { const t = (saved().app || {}).theme; nativeTheme.themeSource = t === "terminal" ? "dark" : ["light", "dark"].includes(t) ? t : "system"; }
 const PYTHONS = [process.env.UTP_PYTHON, savedPython(), ...(process.platform === "win32" ? ["py", "python", "python3"] : ["python3", "python"])].filter(Boolean);
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
 const pick = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : null; };

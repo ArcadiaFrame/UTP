@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UTP</title>
+<link rel="stylesheet" href="/ui/vendor/fonts/courier-prime.css">
 <link rel="stylesheet" href="/ui/app.css">
 <link rel="icon" href="/ui/favicon.png">
 <script src="/ui/vendor/marked.min.js"></script>
@@ -30,8 +31,16 @@
     </div>
   </aside>
 
+  <div class="scrim" id="scrim"></div>
   <main class="main">
-    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="station" id="station" aria-label="Station status">
+      <span class="prog">Universal Translation Program</span><span class="prog-sub">Linguistics terminal</span>
+      <span class="readout" id="st-readout"></span>
+      <span class="sd" id="st-date" title="Stardate (set the in-universe year in Settings > Appearance)"></span>
+      <span class="link"><span class="dot" id="st-dot"></span><span id="st-link">Link</span></span>
+    </div>
+    <div class="tabbar"><button class="ghost menu-btn" id="menu-btn" aria-label="Languages and files">☰ Menu</button>
+    <div class="tabs" role="tablist" id="tabs"></div></div>
     <section class="view" id="chat-view">
       <div class="chat-bar">
         <label>Language <select id="chat-lang"><option value="">None</option></select></label>
@@ -85,5 +94,6 @@
 <script src="/ui/app.js"></script>
 <script src="/ui/settings.js"></script>
 <script src="/ui/workshop.js"></script>
+<script src="/ui/look.js"></script>
 </body>
 </html>

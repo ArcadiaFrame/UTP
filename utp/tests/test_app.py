@@ -379,6 +379,12 @@ def main():
     check('window.UTP_THEME="dark"' in lab_page and 'id="theme-toggle"' in lab_page and 'window.UTP_THEME="dark"' in app_page
           and lab_page.index("UTP_THEME") < lab_page.index("<style"),
           "theme: the saved light/dark choice reaches the app and every Lab and course before they paint")
+    post("/api/settings", {"app": {"theme": "terminal", "layout": "padd", "year": 2375, "palette": "blue", "shape": "rounded"}}, origin)
+    term_page = get("/files/languages/testlang/lab/index.html")
+    check('window.UTP_THEME="terminal"' in term_page and '"layout": "padd"' in term_page and '"year": 2375' in term_page
+          and ':root[data-theme="terminal"]' in term_page and "/ui/look.js" in get("/") and '"palette": "blue"' in term_page
+          and '"shape": "rounded"' in term_page and "courier-prime.css" in term_page and "Courier Prime" in get("/ui/vendor/fonts/courier-prime.css"),
+          "terminal: the Terminal theme, colour scheme, control shape, PADD layout, stardate year and font reach every page")
     import base64
     up = json.loads(post("/api/sources/add", {"language": "worklang", "tier": "licensed", "files": [
         {"name": "glossary.html", "data": base64.b64encode(b"<html><body><nav>x</nav><p>A thraal is a snow hare.</p></body></html>").decode()}]}, origin))

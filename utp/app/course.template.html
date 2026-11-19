@@ -39,6 +39,31 @@
   --vulcan: #e0805a; --vulcan-tint: #3a231a; --cer: #d4ae5a; --cer-tint: #33290f;
   --good: #72c27a; --good-tint: #1b2e1c; --bad: #ef7468; --bad-tint: #3a1b18; --focus: #8ea6ff; color-scheme: dark;
 }
+/* Terminal: the UTP's original console theme in Courier (palettes: amber-blue, amber, blue; shapes: cut, square, rounded) */
+:root[data-theme="terminal"] {
+  --bg: #03060b; --surface: #08101b; --sunk: #0f1a29; --ink: #ece4d6; --muted: #93a6b8; --line: #1f3248;
+  --good: #8fe36b; --good-tint: #12260c; --bad: #ff6150; --bad-tint: #2e100c; --focus: #ffe0a8; color-scheme: dark;
+  --body: "Courier Prime", "Courier New", Courier, monospace; --display: var(--body); --mono: var(--body);
+  --act: #ffa630; --go: #5cb8ff; --label: #ffc46b; --radius: 0px;
+  --vulcan: #ffa630; --vulcan-tint: #2b1806; --cer: #ffc46b; --cer-tint: #2e2108;
+}
+:root[data-theme="terminal"][data-palette="amber"] { --bg: #050302; --surface: #0e0905; --sunk: #1a1009; --ink: #f4dcb4; --muted: #b48c5e;
+  --line: #3d2713; --go: #ffd08a; --focus: #fff0cc; }
+:root[data-theme="terminal"][data-palette="blue"] { --bg: #02050a; --surface: #07101c; --sunk: #0e1a2b; --ink: #d9eaf8; --muted: #7f9cb6;
+  --line: #1b3149; --act: #5cb8ff; --label: #9fd3ff; --go: #9fd3ff; --focus: #d4ecff; BLUE--vulcan: #ffa630; --vulcan-tint: #2b1806; --cer: #ffc46b; --cer-tint: #2e2108; }
+:root[data-theme="terminal"][data-shape="rounded"] { --radius: 7px; }
+[data-theme="terminal"] body { background-color: var(--bg); background-image: linear-gradient(rgba(92, 184, 255, .035) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(92, 184, 255, .035) 1px, transparent 1px); background-size: 28px 28px; }
+[data-theme="terminal"] h1, [data-theme="terminal"] h2 { text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+[data-theme="terminal"] h1 { color: var(--label); }
+[data-theme="terminal"] h3 { color: var(--label); letter-spacing: .1em; }
+[data-theme="terminal"] a { color: var(--go); }
+[data-theme="terminal"] button, [data-theme="terminal"] input, [data-theme="terminal"] select, [data-theme="terminal"] textarea { border-radius: var(--radius); font-family: var(--body); }
+[data-theme="terminal"] button { font-weight: 700; }
+[data-theme="terminal"] button.primary { color: #120800; background: var(--act); border-color: var(--act); }
+[data-theme="terminal"] button.primary, [data-theme="terminal"] nav button, [data-theme="terminal"] .theme-toggle { text-transform: uppercase; letter-spacing: .05em; }
+[data-theme="terminal"] nav button[aria-selected="true"] { color: var(--go); border-bottom-color: var(--go); }
+[data-theme="terminal"] button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
@@ -779,10 +804,11 @@ renderSoundKey(); renderAll(); route();
 /* Light, dark, or the system's setting: remembered in this browser, and in the UTP app's Settings when the app serves the page. */
 (function () {
   var b = document.getElementById("theme-toggle"), root = document.documentElement;
+  var NEXT = { system: "light", light: "dark", dark: "terminal", terminal: "system" };
   var cur = function () { return root.dataset.theme || "system"; };
-  var show = function () { b.textContent = { system: "Theme: system", light: "Theme: light", dark: "Theme: dark" }[cur()]; };
+  var show = function () { b.textContent = { system: "Theme: system", light: "Theme: light", dark: "Theme: dark", terminal: "Theme: terminal" }[cur()] || "Theme"; };
   b.onclick = function () {
-    var n = { system: "light", light: "dark", dark: "system" }[cur()];
+    var n = NEXT[cur()] || "system";
     if (n === "system") delete root.dataset.theme; else root.dataset.theme = n;
     try { localStorage.setItem("utp-theme", n); } catch (e) {}
     if (window.UTP_THEME) {

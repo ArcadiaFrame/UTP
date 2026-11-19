@@ -166,10 +166,16 @@ def system_prompt(language, mode, messages, files):
 
 
 def theme_tag():
-    t = C.load().get("app", {}).get("theme", "system")
-    t = t if t in ("system", "light", "dark") else "system"
-    return (f'<script>window.UTP_THEME={json.dumps(t)};'
-            f'if(UTP_THEME!=="system")document.documentElement.dataset.theme=UTP_THEME;</script>').encode()
+    a = C.load().get("app", {})
+    t = a.get("theme", "system")
+    t = t if t in ("system", "light", "dark", "terminal") else "system"
+    look = {"layout": a.get("layout", "auto"), "year": a.get("year", 2371), "sounds": bool(a.get("sounds")),
+            "palette": a.get("palette") if a.get("palette") in ("amber-blue", "amber", "blue") else "amber-blue",
+            "shape": a.get("shape") if a.get("shape") in ("cut", "square", "rounded") else "cut"}
+    return ('<link rel="stylesheet" href="/ui/vendor/fonts/courier-prime.css">'
+            f'<script>window.UTP_THEME={json.dumps(t)};window.UTP_LOOK={json.dumps(look)};'
+            'var d=document.documentElement;d.dataset.palette=UTP_LOOK.palette;d.dataset.shape=UTP_LOOK.shape;'
+            'if(UTP_THEME!=="system")d.dataset.theme=UTP_THEME;</script>').encode()
 
 
 ASSISTANT_TAG = '<script>window.UTP_LANGUAGE={lang};</script><script src="/ui/assistant.js" defer></script>'

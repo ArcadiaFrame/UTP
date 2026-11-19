@@ -38,6 +38,9 @@ Sources and credits
   3.4 (List, Tjuka, Blum, Kučerová, Ugarte, Rzymski, Greenhill and Forkel,
   eds., Max Planck Institute for Evolutionary Anthropology), licensed CC BY
   4.0. Details in utp/concepts/ATTRIBUTION.md.
+- Fonts: the Terminal theme bundles Courier Prime (Copyright 2015 The Courier
+  Prime Project Authors), licensed under the SIL Open Font License 1.1; see
+  utp/app/ui/vendor/fonts/OFL-CourierPrime.txt.
 - Speech: the UTP talks to Kokoro-FastAPI (remsky) and the Kokoro-82M model,
   which are separate projects under their own licenses and are not included.
 
