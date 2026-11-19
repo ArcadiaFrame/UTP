@@ -28,7 +28,8 @@ from .pack import Pack
 
 POS = {"noun", "verb", "adjective", "adverb", "particle", "pronoun", "number", "interjection", "phrase",
        "suffix", "prefix", "auxiliary", "conjunction", "determiner"}
-FIELDS = ["key", "gloss", "pos", "field", "era", "register", "kind", "parts", "basis", "status", "why", "approve"]
+FIELDS = ["key", "gloss", "pos", "field", "era", "register", "kind", "parts", "basis", "sources", "status", "why",
+          "approve"]
 TOKEN = re.compile(r"\{([^}]+)\}")
 PARTS_OK = re.compile(r"^(\{[^}]+\}[ +\-]?)+$")
 
@@ -52,7 +53,7 @@ def batches_dir(pack):
     return d
 
 
-def design_notes(pack, limit=4000):
+def design_notes(pack, limit=8000):
     for name in ("DESIGN.md", "README.md"):
         p = pack.home / name
         if p.exists():
@@ -77,13 +78,37 @@ def _building_blocks(pack, rows, topic, limit=500):
     return out
 
 
+def library_context(pack, query, k=8):
+    """Passages from the language's sources for a prompt, and the attested words not yet in the dictionary."""
+    from .library import Sources, format_passages
+    from .workshop import read_attested
+    hits = []
+    if (pack.home / "sources").exists():
+        src = Sources(pack.home)
+        try:
+            hits = src.search(f"{pack.meta.get('language', pack.name)} {query}", k=k)
+        finally:
+            src.close()
+    attested = [r for r in read_attested(pack) if r["status"] == "attested" and r["kind"] == "word" and r["gloss"]]
+    text = ""
+    if hits:
+        text += ("Sources for this topic (cite their ids in \"sources\" when a word rests on one):\n\n"
+                 + format_passages(hits, limit=700) + "\n\n")
+    if attested:
+        text += ("Attested words (fixed: never propose another word for these meanings, never respell them):\n"
+                 + "\n".join(f"- {r['form']}: {r['gloss']}" for r in attested[:150]) + "\n\n")
+    return text, hits
+
+
 def batch_prompt(pack, rows, topic, n, extra=""):
+    from .workshop import method_rules
     std = pack.meta["derivation"]["standard"]
+    context, _ = library_context(pack, topic)
     blocks = _building_blocks(pack, rows, topic)
     eras = ", ".join(f"{e['id']} ({e['rank']})" for e in _eras(pack) if not e.get("branch"))
     have = [r for r in lookup(rows, topic, std, limit=80)]
     msg = (f"Language: {pack.meta.get('language', pack.name)}\nEras, oldest first (rank): {eras}\n\n"
-           f"Design notes:\n{design_notes(pack) or '(none yet)'}\n\n{grammar_card(pack)}\n\n"
+           f"Design notes:\n{design_notes(pack) or '(none yet)'}\n\n{grammar_card(pack)}\n\n{context}"
            f"Topic for this batch: {topic}\nPropose up to {n} meanings the language needs for this topic and does "
            f"not have yet.\n{extra}\n\n"
            "Meanings the dictionary already has near this topic (do not repeat them):\n"
@@ -91,19 +116,26 @@ def batch_prompt(pack, rows, topic, n, extra=""):
            + "\n\nBuilding blocks (key = meaning [part of speech, era]):\n"
            + "\n".join(f"{r['key']} = {r['gloss']} [{r.get('pos', '')}, {r.get('era', '')}]" for r in blocks)
            + '\n\nAnswer in JSON: {"entries": [{"key": "new-key", "gloss": "...", "pos": "noun", "field": "...", '
-             '"era": "...", "register": "everyday", "kind": "compound", "parts": "{a}-{b}", "basis": "..."}]}')
-    return [{"role": "system", "content": section("Builder: expanding a language")}, {"role": "user", "content": msg}]
+             '"era": "...", "register": "everyday", "kind": "compound", "parts": "{a}-{b}", "basis": "...", '
+             '"sources": ["S1.2"]}]}')
+    system = section("Builder: expanding a language") + "\n\n" + method_rules()
+    return [{"role": "system", "content": system}, {"role": "user", "content": msg}]
 
 
-def validate(pack, rows, entries, topic):
-    """Check every proposal against the dictionary and the batch so far; never drop one silently."""
+def validate(pack, rows, entries, topic, src=None):
+    """Check every proposal against the dictionary, the sources and the batch so far; never drop one silently."""
+    from .workshop import read_attested
     rank = _rank(pack)
+    attested = {r["gloss"].lower().strip(): r["form"] for r in read_attested(pack)
+                if r["status"] == "attested" and r["kind"] == "word" and r["gloss"]}
     eras = [e["id"] for e in _eras(pack) if not e.get("branch")]
     keys = {r["key"]: r for r in rows}
     glosses = {(r.get("gloss", "").lower().strip(), r.get("pos", "")): r["key"] for r in rows}
     batch, out = {}, []
     for e in entries:
-        r = {k: str(e.get(k, "") or "").strip() for k in FIELDS}
+        cites = e.get("sources") or []
+        cites = cites.split() if isinstance(cites, str) else [str(c) for c in cites if isinstance(c, (str, int))]
+        r = {k: str(e.get(k, "") or "").strip() for k in FIELDS if k != "sources"}
         r["key"] = slug(r["key"] or r["gloss"])
         r["kind"] = "root" if r["kind"] in ("root", "core") else "compound"
         r["register"] = r["register"] or "everyday"
@@ -118,6 +150,12 @@ def validate(pack, rows, entries, topic):
             why.append(f"meaning already exists as {twin}")
         if r["key"] in batch:
             why.append("listed twice in this batch")
+        if r["gloss"].lower() in attested:
+            why.append(f"already attested as '{attested[r['gloss'].lower()]}' (audit/attested.csv)")
+        bad = [c for c in cites if not (src and src.passage(c))]
+        if bad:
+            r["basis"] = (r["basis"] + f" (cited {', '.join(bad)}, not in the library: removed)").strip()
+        r["sources"] = " ".join(c for c in cites if c not in bad)
         if r["pos"] not in POS:
             why.append(f"unknown part of speech '{r['pos']}'")
         if r["era"] not in rank:
@@ -161,10 +199,16 @@ def write_batch(pack, topic, rows):
 
 
 def propose_batch(pack, topic, model, n=30, extra=""):
+    from .library import Sources
     rows = pack.rows()
     answer = model.chat_json(batch_prompt(pack, rows, topic, n, extra))
     entries = answer.get("entries", []) if isinstance(answer, dict) else []
-    checked = validate(pack, rows, entries[: n * 2], topic)
+    src = Sources(pack.home) if (pack.home / "sources").exists() else None
+    try:
+        checked = validate(pack, rows, entries[: n * 2], topic, src)
+    finally:
+        if src:
+            src.close()
     return write_batch(pack, topic, checked), checked
 
 

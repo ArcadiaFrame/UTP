@@ -43,6 +43,16 @@ async function renderSettings() {
       <div class="row"><label class="row">Theme <select id="ap-theme">${Object.entries(THEMES).map(([k, t]) => `<option value="${k}" ${theme() === k ? "selected" : ""}>${k === "system" ? "Follow the system" : t}</option>`).join("")}</select></label></div>
     </section>
     <section>
+      <div><h2>Sources</h2><p class="lead">Each language's library is searched by words. To search by meaning too
+      (so "cold" also finds "ice"), name an embedding model on an Ollama or OpenAI-compatible connection, for example
+      <span class="mono">nomic-embed-text</span> (<span class="mono">ollama pull nomic-embed-text</span>), then run
+      <span class="mono">utp.py sources &lt;language&gt; embed</span>.</p></div>
+      <div class="form"><div class="grid2">
+        <label>Connection <select id="lb-conn"><option value="">Same as building</option>${SET.connections.filter(c => c.provider !== "anthropic").map(c => `<option value="${esc(c.id)}" ${c.id === (SET.library || {}).embed_connection ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</select></label>
+        <label>Embedding model (blank: off) <input id="lb-model" value="${esc((SET.library || {}).embed_model || "")}" placeholder="nomic-embed-text"></label></div>
+        <div class="row"><button class="primary" data-lb-save>Save</button><span class="result" id="lb-result"></span></div></div>
+    </section>
+    <section>
       <div><h2>Speech</h2><p class="lead">Kokoro-FastAPI, for hearing words in the tutor and <span class="mono">utp.py say</span>. Optional.</p></div>
       <div class="form"><div class="grid2">
         <label>Kokoro address <input id="sp-url" value="${esc(SET.speech.url)}"></label>
@@ -157,6 +167,10 @@ function bindSettings() {
   $("#role-chat").onchange = async e => { await api("/api/settings", {roles: {chat: e.target.value}}); renderSettings(); refreshModel(); };
   $("#role-build").onchange = async e => { await api("/api/settings", {roles: {build: e.target.value}}); renderSettings(); };
 
+  v.querySelector("[data-lb-save]").onclick = async () => {
+    await api("/api/settings", {library: {embed_connection: $("#lb-conn").value, embed_model: $("#lb-model").value.trim()}});
+    say($("#lb-result"), true, "Saved.");
+  };
   v.querySelector("[data-sp-test]").onclick = async () => {
     const r = await api("/api/speech/test", {url: $("#sp-url").value.trim()});
     say($("#sp-result"), r.ok, r.ok ? `Kokoro answers at ${r.url}.` : `No answer at ${r.url}.`);

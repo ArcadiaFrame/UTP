@@ -38,7 +38,8 @@ HIDDEN = {".git", "__pycache__", "node_modules", ".DS_Store", "dist", "out"}
 EDITABLE = {".md", ".csv", ".json", ".txt"}
 MAX_READ = 2_000_000
 RUNNABLE = {"build", "new", "expand", "apply", "sentences", "topics", "lab", "course", "card", "stats", "packs",
-            "derive", "root", "tree", "profile", "context", "render", "parse", "models", "export", "propose", "curate"}
+            "derive", "root", "tree", "profile", "context", "render", "parse", "models", "export", "propose", "curate",
+            "sources", "audit", "sounds"}
 
 
 def roots():
@@ -236,7 +237,10 @@ class Handler(BaseHTTPRequestHandler):
             route = {"/api/health": self.health, "/api/languages": lambda q: self._json({"languages": languages()}),
                      "/api/settings": lambda q: self._json(C.public()), "/api/about": self.about,
                      "/api/tree": self.tree, "/api/file": self.read_file, "/api/config": self.get_config,
-                     "/api/models": self.list_models, "/api/batches": self.batches, "/api/batch": self.batch}.get(u.path)
+                     "/api/models": self.list_models, "/api/batches": self.batches, "/api/batch": self.batch,
+                     "/api/sources": self.sources, "/api/sources/search": self.sources_search,
+                     "/api/sources/passage": self.sources_passage, "/api/attested": self.attested,
+                     "/api/design": self.design, "/api/sounds": self.sounds}.get(u.path)
             if not route:
                 return self._error("not found", 404)
             route(q)
@@ -262,13 +266,18 @@ class Handler(BaseHTTPRequestHandler):
                      "/api/rebuild": self.rebuild, "/api/settings": self.set_settings,
                      "/api/connections": self.save_connection, "/api/connections/delete": self.delete_connection,
                      "/api/connections/test": self.test_connection, "/api/speech/test": self.test_speech,
-                     "/api/paths/check": self.check_path, "/api/shortcut": self.shortcut}.get(u.path)
+                     "/api/paths/check": self.check_path, "/api/shortcut": self.shortcut,
+                     "/api/sources/add": self.sources_add, "/api/sources/remove": self.sources_remove,
+                     "/api/audit": self.audit, "/api/attested/set": self.attested_set,
+                     "/api/design/draft": self.design_draft, "/api/design/decide": self.design_decide,
+                     "/api/design/ask": self.design_ask, "/api/sounds/propose": self.sounds_propose,
+                     "/api/sounds/accept": self.sounds_accept}.get(u.path)
             if not route:
                 return self._error("not found", 404)
             route(body)
         except M.ModelError as e:
             self._error(e, 502)
-        except ValueError as e:
+        except (ValueError, KeyError) as e:
             self._error(e, 400)
         except PermissionError as e:
             self._error(e, 403)
@@ -409,6 +418,167 @@ class Handler(BaseHTTPRequestHandler):
         from utp.core.speech import Kokoro
         k = Kokoro(b.get("url") or None)
         self._json({"ok": k.available(), "url": k.url})
+
+    # ---------- the workshop: sources, attested words, design, sound laws ----------
+    def _src(self, lang):
+        from utp.core.library import Sources
+        return Sources(Pack(lang).home)
+
+    def sources(self, q):
+        from utp.core.library import TIERS, embedder
+        src = self._src(q["language"])
+        try:
+            self._json({"docs": src.docs(), "passages": src.count(), "tiers": TIERS,
+                        "embeddings": bool(embedder()[1]), "folder": relpath(src.dir)})
+        finally:
+            src.close()
+
+    def sources_search(self, q):
+        src = self._src(q["language"])
+        try:
+            tiers = [t for t in (q.get("tiers") or "").split(",") if t] or None
+            self._json({"hits": src.search(q.get("q", ""), k=int(q.get("k", 12)), tiers=tiers)})
+        finally:
+            src.close()
+
+    def sources_passage(self, q):
+        src = self._src(q["language"])
+        try:
+            p = src.passage(q.get("id", ""))
+            self._json(p) if p else self._error("no such passage", 404)
+        finally:
+            src.close()
+
+    def sources_add(self, b):
+        import base64
+        import tempfile
+        src = self._src(b["language"])
+        try:
+            lib, tier, out = src.lib(bool(b.get("shared"))), b.get("tier") or "canon", []
+            for f in b.get("files", []):
+                name = pathlib.Path(f["name"]).name
+                with tempfile.TemporaryDirectory() as tmp:
+                    path = pathlib.Path(tmp) / name
+                    path.write_bytes(base64.b64decode(f["data"]))
+                    try:
+                        doc, n = lib.add_file(path, tier, b.get("title") if len(b["files"]) == 1 else None,
+                                              url=b.get("url", ""))
+                        out.append({"name": name, "id": f"{lib.prefix}{doc}", "passages": n})
+                    except ValueError as e:
+                        out.append({"name": name, "problem": str(e)})
+            if (b.get("text") or "").strip():
+                doc, n = lib.add_text(b["text"], b.get("title") or "Pasted text", tier, url=b.get("url", ""))
+                out.append({"name": b.get("title") or "Pasted text", "id": f"{lib.prefix}{doc}", "passages": n})
+            self._json({"added": out})
+        finally:
+            src.close()
+
+    def sources_remove(self, b):
+        src = self._src(b["language"])
+        try:
+            cid = str(b["id"])
+            src.libs["G" if cid.upper().startswith("G") else "S"].remove(int(cid.lstrip("SGsg")))
+            self._json({"ok": True})
+        finally:
+            src.close()
+
+    def audit(self, b):
+        from utp.core import workshop as W
+        pack = Pack(b["language"])
+        self._sse_start()
+        try:
+            added, rejected = W.audit(pack, M.Model(role="build"), query=b.get("query") or None,
+                                      max_passages=int(b.get("max") or 240), log=lambda line: self._sse({"line": line}))
+            for r in rejected[:40]:
+                self._sse({"line": f"rejected {r['form']}: {r['why']}"})
+            self._sse({"done": True, "added": added, "rejected": len(rejected)})
+        except Exception as e:
+            self._sse({"error": f"{type(e).__name__}: {e}"})
+
+    def attested(self, q):
+        from utp.core import workshop as W
+        pack = Pack(q["language"])
+        self._json({"rows": W.read_attested(pack), "problems": dict(W.check_attested(pack)),
+                    "branches": pack.meta["derivation"]["branches"]})
+
+    def attested_set(self, b):
+        """Change a row's status (attested, doubtful, rejected), or add a row by hand (checked against its source)."""
+        from utp.core import workshop as W
+        pack = Pack(b["language"])
+        rows = W.read_attested(pack)
+        if b.get("add"):
+            row = {k: "" for k in W.ATTESTED}
+            row.update({k: str(v) for k, v in b["add"].items() if k in W.ATTESTED})
+            row["status"], row["kind"] = "attested", row["kind"] or "word"
+            row["branch"] = row["branch"] or pack.meta["derivation"]["standard"]
+            if row["cite"]:
+                src = self._src(b["language"])
+                try:
+                    why = W.check_word(src, row)
+                    p = src.passage(row["cite"].split()[0])
+                    if p:
+                        row["tier"], row["source"] = row["tier"] or p["tier"], p["title"]
+                finally:
+                    src.close()
+                if why:
+                    return self._error(why)
+            W.merge_attested(rows, [row])
+        else:
+            for r in rows:
+                if r["form"] == b["form"] and r["kind"] == b.get("kind", r["kind"]):
+                    r.update({k: str(b[k]) for k in ("status", "gloss", "pos", "branch", "key", "notes") if k in b})
+        W.write_attested(pack, rows)
+        self._json({"rows": W.read_attested(pack)})
+
+    def design(self, q):
+        from utp.core import workshop as W
+        pack = Pack(q["language"])
+        self._json({**W.read_decisions(pack), "design": relpath(pack.home / "DESIGN.md")})
+
+    def design_draft(self, b):
+        from utp.core import workshop as W
+        pack = Pack(b["language"])
+        self._sse_start()
+        try:
+            done = W.draft(pack, M.Model(role="build"), ids=b.get("ids") or None, n=int(b.get("n") or 3),
+                           log=lambda line: self._sse({"line": line}))
+            self._sse({"done": True, "drafted": [q["id"] for q in done]})
+        except Exception as e:
+            self._sse({"error": f"{type(e).__name__}: {e}"})
+
+    def design_decide(self, b):
+        from utp.core import workshop as W
+        q = W.decide(Pack(b["language"]), b["id"], b.get("choice", ""), b.get("reason", ""))
+        self._json({"question": q})
+
+    def design_ask(self, b):
+        from utp.core import workshop as W
+        self._json({"question": W.ask(Pack(b["language"]), b["question"], b.get("angles") or ("canon", "society"))})
+
+    def sounds(self, q):
+        from utp.core import workshop as W
+        pack = Pack(q["language"])
+        p = W.proposal_path(pack)
+        self._json({"proposal": json.loads(p.read_text()) if p.exists() else None, "current": W.check_sounds(pack),
+                    "buildable": pack.buildable, "approved_words": pack.buildable and W.has_approved_words(pack)})
+
+    def sounds_propose(self, b):
+        from utp.core import workshop as W
+        self._json({"proposal": W.propose_sounds(Pack(b["language"]), M.Model(role="build"))})
+
+    def sounds_accept(self, b):
+        from utp.core import workshop as W
+        pack = Pack(b["language"])
+        self._sse_start()
+        try:
+            words, tests = W.accept_sounds(pack, only_fitting=b.get("only_fitting", True), fresh=b.get("fresh"))
+            self._sse({"line": f"sound_laws.json updated: {tests} tests; {words} attested words joined meanings.csv"})
+            errors = X.rebuild(Pack(b["language"]), log=lambda line: self._sse({"line": line}))
+            for e in errors[:20]:
+                self._sse({"line": "error: " + " ".join(map(str, e))[:300]})
+            self._sse({"done": True, "errors": len(errors)})
+        except Exception as e:
+            self._sse({"error": f"{type(e).__name__}: {e}"})
 
     def about(self, q):
         from utp.app.launch import electron

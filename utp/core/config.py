@@ -35,7 +35,8 @@ DEFAULTS = {
     "roles": {"chat": "local", "build": "local"},
     "speech": {"url": "http://localhost:8880", "voice": ""},
     "paths": {"languages": "", "workspaces": []},
-    "app": {"port": 8765, "open": "auto", "theme": "system"},          # auto: the desktop window if it is installed, else the browser
+    "app": {"port": 8765, "open": "auto", "theme": "system"},   # open: auto = the desktop window if installed, else the browser
+    "library": {"embed_connection": "", "embed_model": ""},     # meaning-based search for sources (optional)
     "desktop": {"python": ""},
 }
 
@@ -189,7 +190,7 @@ def connection(cid=None, role="chat", cfg=None):
 def update(patch):
     """Change the plain settings: roles, speech, paths, app, desktop (connections have their own calls)."""
     cfg = load()
-    for section in ("roles", "speech", "paths", "app", "desktop"):
+    for section in ("roles", "speech", "paths", "app", "desktop", "library"):
         if section in patch and isinstance(patch[section], dict):
             cfg[section] = _merge(cfg[section], patch[section])
     ws = cfg["paths"].get("workspaces", [])

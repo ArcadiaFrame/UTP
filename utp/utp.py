@@ -15,6 +15,20 @@ Growing a language with a model (nothing joins the language until you approve it
   python3 utp/utp.py sentences nerani "greetings" [--n 10]   course sentences, checked by a round trip
   python3 utp/utp.py lab nerani | course nerani   regenerate the Lab or course page
 
+The workshop: building from sources, or from nothing (the steps in utp/METHOD.md)
+  python3 utp/utp.py sources nerani add notes.md scripts/*.txt --tier canon [--title ...] [--shared]
+  python3 utp/utp.py sources nerani paste --tier author --title "My notes"    text from the keyboard or a pipe
+  python3 utp/utp.py sources nerani                        list the sources; search with: sources nerani search "ice"
+  python3 utp/utp.py sources nerani remove 3 | embed       remove source S3 | meaning-based search vectors
+        tiers: author, canon, licensed, fan, science. Sources stay on this computer (not in git), except
+        files you put in <language>/sources/public/, which are published with the language.
+  python3 utp/utp.py audit nerani [--query "words in Nerani"] [--max 240]   attested words, checked against sources
+  python3 utp/utp.py attest nerani "ushaan" --gloss duel --cite S1.3        add one by hand
+  python3 utp/utp.py design nerani [--n 3]                draft the next design questions, then answer them here
+  python3 utp/utp.py design nerani --decide body B [--reason "..."] | --ask "Is there a military register?"
+  python3 utp/utp.py sounds nerani [--accept [--force] | --check]   proto-forms and sound laws that produce the
+        attested words; --accept remakes every generated root until words have been approved (--force: always)
+
 Settings (also on the app's Settings page; saved in ~/.utp/config.json)
   python3 utp/utp.py config                    show the settings
   python3 utp/utp.py config --name "Claude" --provider anthropic --model claude-sonnet-5-5 --key sk-ant-... [--role build]
@@ -91,6 +105,150 @@ def model_or_fail(role="build"):
     return m
 
 
+def cmd_workshop(a):
+    from utp.core import workshop as W
+    from utp.core.library import TIERS, Sources
+    if not a.pack:
+        print(f"usage: utp.py {a.cmd} <language> ...")
+        return 2
+    pack = Pack(a.pack)
+    if a.cmd == "sources":
+        verb, args = (a.rest[0] if a.rest else "list"), a.rest[1:]
+        src = Sources(pack.home)
+        try:
+            if verb == "add":
+                lib = src.lib(a.shared)
+                for f in args:
+                    doc, n = lib.add_file(f, a.tier or "canon", a.title if len(args) == 1 else None)
+                    print(f"{lib.prefix}{doc}: {f} ({n} passages)" if n else f"{f}: already in the library as {lib.prefix}{doc}")
+            elif verb == "paste":
+                text = sys.stdin.read()
+                doc, n = src.lib(a.shared).add_text(text, a.title or "Pasted text", a.tier or "author")
+                print(f"S{doc}: {n} passages")
+            elif verb == "search":
+                for h in src.search(" ".join(args), k=a.n or 8):
+                    print(f"[{h['id']}] {h['tier']}: {h['title']}\n  {h['text'][:300].replace(chr(10), ' ')}\n")
+            elif verb == "remove":
+                for d in args:
+                    lib = src.libs["G" if d.upper().startswith("G") else "S"]
+                    lib.remove(int(d.lstrip("SGsg")))
+                    print(f"removed {d}")
+            elif verb == "embed":
+                from utp.core.library import embedder
+                model, name = embedder()
+                if not model:
+                    print("Meaning-based search is off: set an embedding model in Settings > Sources (for example "
+                          "nomic-embed-text on Ollama).")
+                    return 1
+                for lib in src.libs.values():
+                    lib.embed(model, name)
+            elif verb == "show":
+                for c in args:
+                    p = src.passage(c)
+                    print(f"[{c}] {p['tier']}: {p['title']}\n{p['text']}\n" if p else f"{c}: not in the library")
+            else:
+                docs = src.docs()
+                for d in docs:
+                    print(f"  {d['cite']:5} {d['tier']:9} {d['passages']:4} passages  {d['title']}")
+                print(f"{len(docs)} sources, {src.count()} passages. Tiers: {', '.join(TIERS)}")
+        finally:
+            src.close()
+        return 0
+    if a.cmd == "attest":
+        if not a.file:
+            print('usage: utp.py attest <language> "<form>" --gloss ... --cite S1.2')
+            return 2
+        branches, std = W._branches(pack)
+        row = {k: "" for k in W.ATTESTED}
+        row.update({"form": a.file, "gloss": a.gloss or "", "kind": a.kind or "word", "branch": a.branch or std,
+                    "cite": a.cite or "", "evidence": a.evidence or "", "status": "attested", "tier": a.tier or ""})
+        if row["cite"]:
+            src = Sources(pack.home)
+            try:
+                why = W.check_word(src, row)
+                p = src.passage(row["cite"].split()[0])
+                if p:
+                    row["tier"], row["source"] = row["tier"] or p["tier"], p["title"]
+            finally:
+                src.close()
+            if why:
+                print(f"Not added: {why}")
+                return 1
+        rows = W.read_attested(pack)
+        W.merge_attested(rows, [row])
+        print(f"{a.file} -> {W.write_attested(pack, rows)}")
+        return 0
+    if a.cmd == "design":
+        if a.ask:
+            q = W.ask(pack, a.ask)
+            print(f"added {q['id']}: {q['question']}")
+            return 0
+        if a.decide:
+            choice = a.rest[0] if a.rest else ""
+            q = W.decide(pack, a.decide, choice, a.reason or "")
+            print(f"{q['id']}: {q.get('answer') or q['status']} -> DESIGN.md")
+            return 0
+        state = W.read_decisions(pack)
+        if not any(q["options"] for q in state["questions"] if q["status"] == "open"):
+            model = model_or_fail()
+            if not model:
+                return 1
+            W.draft(pack, model, n=a.n or 3)
+            state = W.read_decisions(pack)
+        for q in [q for q in state["questions"] if q["status"] == "open" and q["options"]]:
+            print(f"\n{q['id']}: {q['question']}")
+            for o in q["options"]:
+                tag = " (recommended)" if o["id"] == q.get("recommended") else ""
+                cites = f" [{', '.join(o['cites'])}]" if o["cites"] else " [invention]"
+                print(f"  {o['id']}. {o['label']}{tag}{cites}\n     {o['argument']}")
+            if not sys.stdin.isatty():
+                continue
+            ans = input("Choose a letter, write your own answer, 'skip', or press Enter to leave it open: ").strip()
+            if ans:
+                reason = input("Why? (optional) ").strip() if ans.lower() != "skip" else ""
+                q = W.decide(pack, q["id"], ans, reason)
+                print(f"  -> {q.get('answer') or q['status']}")
+        done = sum(q["status"] == "decided" for q in W.read_decisions(pack)["questions"])
+        print(f"\n{done} decided. DESIGN.md: {pack.home / 'DESIGN.md'}")
+        return 0
+    if a.cmd == "audit":
+        if a.check:
+            probs = W.check_attested(pack)
+            for f, why in probs:
+                print(f"  {f}: {why}")
+            print(f"{len(probs)} attested words not borne out by their sources")
+            return 1 if probs else 0
+        model = model_or_fail()
+        if not model:
+            return 1
+        added, rejected = W.audit(pack, model, query=a.query, max_passages=a.max or 240)
+        for r in rejected:
+            print(f"  rejected {r['form']}: {r['why']}")
+        print(f"{added} new attested words -> {W.attested_path(pack)}")
+        return 0
+    if a.cmd == "sounds":
+        if a.check:
+            res = W.check_sounds(pack)
+        elif a.accept:
+            words, tests = W.accept_sounds(pack, fresh=True if a.force else None)
+            print(f"sound_laws.json updated; {words} attested words joined meanings.csv; {tests} tests. "
+                  f"Rebuild with: utp.py build {a.pack}")
+            return 0
+        else:
+            model = model_or_fail()
+            if not model:
+                return 1
+            prop = W.propose_sounds(pack, model)
+            res = prop["fit"]
+            print(prop["notes"])
+        for r in res:
+            print(f"  {'ok ' if r['ok'] else 'NO '} {r['proto'] or '?':16} -> {r['got'] or '?':16} {r['form']} ({r['branch']}) {r['why'] if not r['ok'] else ''}")
+        print(f"{sum(r['ok'] for r in res)}/{len(res)} attested words produced by the laws"
+              + ("" if a.check else f". Accept with: utp.py sounds {a.pack} --accept"))
+        return 0
+    return 2
+
+
 def cmd_apply(pack, a):
     from utp.core.builder import Builder
     b = Builder(pack)                       # refuses packs that cannot be built (Vulcan)
@@ -133,6 +291,12 @@ def main(argv):
     for opt in ("language", "order", "branches", "eras", "consonants", "vowels", "about",
                 "provider", "model", "key", "url", "page", "name", "role", "languages", "workspace", "kokoro"):
         ap.add_argument(f"--{opt}")
+    for opt in ("tier", "title", "query", "gloss", "cite", "kind", "decide", "reason", "ask", "evidence", "branch"):
+        ap.add_argument(f"--{opt}")
+    ap.add_argument("--max", type=int)
+    ap.add_argument("--shared", action="store_true")
+    ap.add_argument("--accept", action="store_true")
+    ap.add_argument("--check", action="store_true")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--ai", action="store_true")
     ap.add_argument("--force", action="store_true")
@@ -194,6 +358,8 @@ def main(argv):
         except M.ModelError as e:
             print(e)
             return 1
+    if a.cmd in ("sources", "audit", "attest", "design", "sounds"):
+        return cmd_workshop(a)
     if a.cmd == "shortcut":
         from utp.app import launch
         for line in launch.install_shortcuts():

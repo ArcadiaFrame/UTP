@@ -38,6 +38,7 @@ async function loadLanguages() {
     if (p.lab && p.lab !== p.utp_lab) acts.push(`<a href="#" data-open="${esc(p.lab)}">${l.id === "vulcan" ? "Vuhlkansu Lab" : "Lab (own)"}</a>`);
     if (p.course) acts.push(`<a href="#" data-open="${esc(p.course)}">Course</a>`);
     if (l.expandable && p.utp_lab) acts.push(`<a href="#" data-open="${esc(p.utp_lab)}" data-hash="grow">Grow</a>`);
+    acts.push(`<a href="#" data-workshop="${esc(l.id)}" title="Sources, attested words, design decisions, sound laws">Workshop</a>`);
     acts.push(`<a href="#" data-folder="${esc(l.home)}">Folder</a>`);
     if (l.expandable) acts.push(`<a href="#" data-rebuild="${esc(l.id)}">Rebuild</a>`);
     return `<li class="lang ${S.lang === l.id ? "active" : ""}" data-lang="${esc(l.id)}">
@@ -57,6 +58,7 @@ $("#langs").addEventListener("click", async e => {
     e.preventDefault();
     if (a.dataset.open) openFile(a.dataset.open, a.dataset.hash);
     if (a.dataset.folder) revealFolder(a.dataset.folder);
+    if (a.dataset.workshop) openWorkshop(a.dataset.workshop);
     if (a.dataset.rebuild) runCommand(`/build ${a.dataset.rebuild}`);
     return;
   }
@@ -102,9 +104,12 @@ function drawTabs() {
 }
 function activate(id) {
   S.active = id; drawTabs();
-  $("#chat-view").hidden = id !== "chat"; $("#file-view").hidden = id === "chat" || id === "settings";
-  $("#settings-view").hidden = id !== "settings";
-  if (id === "settings") renderSettings(); else if (id !== "chat") renderFile(id);
+  const kind = id === "chat" ? "chat" : id === "settings" ? "settings" : id.startsWith("workshop:") ? "workshop" : "file";
+  $("#chat-view").hidden = kind !== "chat"; $("#file-view").hidden = kind !== "file";
+  $("#settings-view").hidden = kind !== "settings"; $("#workshop-view").hidden = kind !== "workshop";
+  if (kind === "settings") renderSettings();
+  else if (kind === "workshop") renderWorkshop(id.slice(9));
+  else if (kind === "file") renderFile(id);
 }
 $("#tabs").addEventListener("click", e => {
   const c = e.target.closest("[data-close]");
@@ -165,7 +170,7 @@ function csvTable(path, text) {
   const max = 2000, note = rows.length - 1 > max ? `<p class="note">${(rows.length - 1).toLocaleString()} rows; the first ${max} are shown.</p>` : "";
   const intro = batch ? `<p class="note">A batch proposed by a model. Tick the words to keep; <b>Add ticked words and rebuild</b> adds them to the language and rebuilds its dictionary, Lab and course. Rejected rows say why.</p>` : "";
   return intro + note + `<table class="csv"><thead><tr>${batch ? "<th>Add</th>" : ""}${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${
-    rows.slice(1, max + 1).map(r => `<tr class="${batch && r[si] === "rejected" ? "rejected" : ""}">${batch ? `<td>${r[si] === "proposed" ? `<input type="checkbox" data-key="${esc(r[ki])}" ${/^(y|yes|1|true|x)$/i.test(r[ai]) ? "checked" : ""} aria-label="add ${esc(r[ki])}">` : esc(r[si])}</td>` : ""}${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+    rows.slice(1, max + 1).map(r => `<tr class="${batch && r[si] === "rejected" ? "rejected" : ""}">${batch ? `<td>${r[si] === "proposed" ? `<input type="checkbox" data-key="${esc(r[ki])}" ${/^(y|yes|1|true|x)$/i.test(r[ai]) ? "checked" : ""} aria-label="add ${esc(r[ki])}">` : esc(r[si])}</td>` : ""}${r.map((c, j) => `<td>${/^(sources|cite)$/.test(head[j]) ? citeChips(c) : esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
 }
 function bindBar(path, r) {
   $("#file-view").querySelectorAll("[data-act]").forEach(b => b.onclick = async () => {

@@ -1,0 +1,24 @@
+{
+  "entries": 9584,
+  "roots": 3765,
+  "built": 5819,
+  "errors": 0,
+  "warnings": 0,
+  "by_era": {
+    "Imperial": 5807,
+    "Clan": 366,
+    "Old": 3184,
+    "Federation": 227
+  },
+  "by_pos": {
+    "adjective": 2016,
+    "noun": 5989,
+    "verb": 1178,
+    "particle": 214,
+    "number": 163,
+    "adverb": 4,
+    "suffix": 15,
+    "prefix": 2,
+    "auxiliary": 3
+  }
+}

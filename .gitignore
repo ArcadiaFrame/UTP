@@ -16,3 +16,7 @@ languages/*/lab/*.html
 languages/*/course/index.html
 utp/packs/sample/lab/
 utp/packs/sample/course/
+
+# sources libraries stay private (sources/public/ is published)
+**/sources/library.sqlite*
+**/sources/files/

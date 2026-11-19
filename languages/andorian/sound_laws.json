@@ -1,0 +1,87 @@
+{
+  "proto": {
+    "about": "Proto-Andorian.",
+    "units": [
+      "aa",
+      "ch",
+      "ee",
+      "ii",
+      "sh",
+      "th",
+      "zh",
+      "a",
+      "b",
+      "d",
+      "e",
+      "g",
+      "h",
+      "i",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "y",
+      "z"
+    ],
+    "vowels": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u",
+      "aa",
+      "ee",
+      "ii"
+    ],
+    "onset_clusters": [
+      "pr",
+      "pl",
+      "tr",
+      "tl",
+      "kr",
+      "kl",
+      "br",
+      "bl",
+      "dr",
+      "dl",
+      "sp",
+      "st",
+      "sk",
+      "sm",
+      "sn",
+      "sl"
+    ],
+    "finals": [
+      "p",
+      "t",
+      "k",
+      "m",
+      "n",
+      "s",
+      "sh",
+      "zh",
+      "th",
+      "r",
+      "l"
+    ]
+  },
+  "branches": {
+    "andorii": {
+      "label": "Andorian",
+      "rules": []
+    },
+    "aenar": {
+      "label": "Aenar Andorian",
+      "rules": []
+    }
+  },
+  "tests": []
+}

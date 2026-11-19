@@ -1,0 +1,491 @@
+{
+ "questions": [
+  {
+   "id": "speakers",
+   "question": "Who speaks it, where, and what do they talk about most?",
+   "angles": [
+    "world",
+    "society",
+    "canon"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Clan people of the ice, with an Imperial Guard",
+     "argument": "Canon shows Andorians in cities under the ice of Andoria, organised by clans (clan names close every formal name), with a standing military and a code of honour (the ushaan). Everyday talk is clan, debt, honour, ice and war; the Aenar are the same people long separated, speaking their own branch.",
+     "angles": [
+      "canon",
+      "society",
+      "world"
+     ],
+     "cites": [
+      "S1.2",
+      "S1.3",
+      "S1.4",
+      "S3.2",
+      "S4.3"
+     ],
+     "cost": "A warlike core vocabulary; gentler domains need building.",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Musicians first, soldiers later",
+     "argument": "Fan sources say music was the original basis of the language and that Andorians sense pitch and vibration through their antennae; canon has Hoshi Sato hear Andorian dialects in an alien's frequency patterns. The oldest layer of words is song, pitch and vibration; the military vocabulary is a later, Imperial layer.",
+     "angles": [
+      "body",
+      "history",
+      "canon"
+     ],
+     "cites": [
+      "S2.1",
+      "S1.1",
+      "S4.1"
+     ],
+     "cost": "Rests partly on fan material; needs canon's militarism added as a later era.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Bond and family first",
+     "argument": "The four-person bond is canon (a four-person wedding) and central to the novels; a species whose children need four parents, under a fertility crisis, talks most about bonds, kin and obligation. War and honour serve the clan and the bond.",
+     "angles": [
+      "society",
+      "body"
+     ],
+     "cites": [
+      "S3.2",
+      "S1.4"
+     ],
+     "cost": "Fits the 24th-century novels best; less of the 22nd-century Shran on screen.",
+     "invention": false
+    }
+   ],
+   "recommended": "A",
+   "settled": false,
+   "notes": "A and B can stack: A as the culture, B as the deepest layer of roots (Clan era). Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "body",
+   "question": "How do their bodies make and hear language? Any extra channel?",
+   "angles": [
+    "body",
+    "science",
+    "canon"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Antennae carry stance, as grammar",
+     "argument": "The antennae move with emotion on screen. Languages turn a channel their speakers always use into grammar (tone, evidentials). Andorian marks the speaker's stance with a small set of obligatory antenna positions that pair with spoken particles, so a sentence can be said in words alone (to aliens, or in the dark) and the particle stands in for the antennae.",
+     "angles": [
+      "body",
+      "canon",
+      "science"
+     ],
+     "cites": [
+      "S1.3",
+      "S4.1"
+     ],
+     "cost": "A sentence needs a stance marker; romanisation needs a way to write it.",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Antennae are body language only",
+     "argument": "Keep speech fully vocal; antenna movements live in narration and play, not in the words. Simplest for writers and for players reading lines aloud at the table.",
+     "angles": [
+      "use",
+      "canon"
+     ],
+     "cites": [
+      "S1.3"
+     ],
+     "cost": "Leaves the most alien feature out of the language.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Antennae hear: pitch and vibration matter",
+     "argument": "Antennae as hearing organs (as in insects) let Andorians hear low frequencies and vibration; canon ties Andorian dialects to frequency patterns. Words can differ by pitch or by a hummed or buzzed sound, which humans struggle to make.",
+     "angles": [
+      "body",
+      "canon",
+      "science"
+     ],
+     "cites": [
+      "S1.1",
+      "S2.1",
+      "S4.1"
+     ],
+     "cost": "Tone is hard for players to say and to write.",
+     "invention": false
+    }
+   ],
+   "recommended": "A",
+   "settled": false,
+   "notes": "A and C are compatible: stance in grammar (A), with a few pitch-marked words in ritual or song (C). Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "world",
+   "question": "What about their world must the vocabulary be rich in?",
+   "angles": [
+    "world",
+    "science"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Ice and the underground",
+     "argument": "Andoria is an icy moon and its people live under the ice; the ushaan-tor is an ice miner's tool. Rich vocabulary for ice, cold, darkness, warmth, tunnels, echo and mining, much of it built by compounding, as in real polar languages.",
+     "angles": [
+      "world",
+      "canon",
+      "science"
+     ],
+     "cites": [
+      "S1.2",
+      "S4.2"
+     ],
+     "cost": "",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "The sky over a gas giant",
+     "argument": "Andoria orbits a gas giant that dominates its sky and its days. Time, eclipses, light and navigation are reckoned by the giant, which gives the language its calendar and its myths.",
+     "angles": [
+      "world",
+      "canon"
+     ],
+     "cites": [
+      "S1.2"
+     ],
+     "cost": "Mostly invention: canon says little about the sky.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Both, ranked: ice first, the giant for time and myth",
+     "argument": "Ice and the underground for everyday words; the giant in the sky for time, calendar, myth and the ceremonial register.",
+     "angles": [
+      "world",
+      "canon"
+     ],
+     "cites": [
+      "S1.2",
+      "S4.2"
+     ],
+     "cost": "",
+     "invention": false
+    }
+   ],
+   "recommended": "C",
+   "settled": false,
+   "notes": "Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "history",
+   "question": "What split the speakers into branches, and when?",
+   "angles": [
+    "history",
+    "canon"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Aenar diverged in isolation, and innovated",
+     "argument": "The Aenar withdrew under the Northern Wastes long ago and were thought a myth until about 2104. Telepaths speaking little aloud let their spoken forms wear down and simplify, so Aenar is the more changed branch.",
+     "angles": [
+      "history",
+      "canon",
+      "body"
+     ],
+     "cites": [
+      "S1.2",
+      "S1.3"
+     ],
+     "cost": "Andorii must then be the conservative branch, with fewer sound changes.",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Aenar kept the old language",
+     "argument": "A small, isolated, pacifist people preserves the old forms (as Icelandic preserved Old Norse), while Andorii changed through empire, war and contact. Aenar words then sound archaic and ceremonial to Andorians, which suits the Code of the Ushaan and ritual.",
+     "angles": [
+      "history",
+      "canon",
+      "society"
+     ],
+     "cites": [
+      "S1.2",
+      "S1.3"
+     ],
+     "cost": "Most sound changes land on Andorii; Aenar names must look older.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Many clan dialects, and a second language",
+     "argument": "Canon speaks of certain Andorian dialects, and FASA's Graalek against the novels' Andorii suggests two languages on the planet. Model clan dialects as more branches, with Aenar as one of several.",
+     "angles": [
+      "history",
+      "canon"
+     ],
+     "cites": [
+      "S1.1",
+      "S3.1"
+     ],
+     "cost": "More branches to design and keep apart; more work before the first words.",
+     "invention": false
+    }
+   ],
+   "recommended": "B",
+   "settled": false,
+   "notes": "Eras so far: Clan, Old, Imperial, Federation. Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "sound",
+   "question": "What should it sound like, given the attested words?",
+   "angles": [
+    "sound",
+    "canon",
+    "body"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Hissing and breathy",
+     "argument": "The four-sex words, the name prefixes and most names are built on th, sh, zh, ch, with clusters shr and thr (Shran, shreya, Thresh), long aa (thaan, ushaan, Weytahn) and endings in -n, -th, -r, -l. Few hard stops.",
+     "angles": [
+      "sound",
+      "canon"
+     ],
+     "cites": [
+      "S3.1",
+      "S3.2",
+      "S1.3"
+     ],
+     "cost": "The one canon sentence (endon deth pednog, kayenn) has d, p, g, k and a doubled nn, which this sound cannot explain without a second layer.",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Fricative-rich, with plain stops",
+     "argument": "Roots favour th, sh, zh, ch and r-clusters, but plain stops (p, t, k, d, g) and doubled consonants are native too, so every canon form fits: thaan and zhavey as well as pednog and kayenn. Sayable at the table on the first try.",
+     "angles": [
+      "sound",
+      "canon",
+      "use"
+     ],
+     "cites": [
+      "S1.1",
+      "S3.1",
+      "S3.2"
+     ],
+     "cost": "Less distinctive than A.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Andorii sharp, Aenar soft",
+     "argument": "Let the branches sound different: Andorii keeps stops and clusters; Aenar turns stops into breathy fricatives (dh in Dhaven, jh in Jhamel), so an Aenar word is recognisable by ear.",
+     "angles": [
+      "sound",
+      "history",
+      "canon"
+     ],
+     "cites": [
+      "S1.3",
+      "S3.2"
+     ],
+     "cost": "Depends on the history answer; settles part of the sound laws early.",
+     "invention": false
+    }
+   ],
+   "recommended": "B",
+   "settled": false,
+   "notes": "C can be added on top of B when the sound laws are written. Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "writing",
+   "question": "How is it written? (Romanisation first; a native script later)",
+   "angles": [
+    "history",
+    "use"
+   ],
+   "status": "open",
+   "options": []
+  },
+  {
+   "id": "grammar",
+   "question": "Word order, and what the grammar must mark (evidence, rank, sex, number...)",
+   "angles": [
+    "society",
+    "body",
+    "canon"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Verb-final, with a final question word",
+     "argument": "In the one canon question, 'Arabic kayenn?' ('Is this Arabic?'), the predicate comes first and kayenn closes the sentence: a sentence-final question word, typical of verb-final languages. Verb-final (SOV) with postpositions; the grammar marks stance (from the antennae, if chosen), the four sexes in pronouns, and an honour register.",
+     "angles": [
+      "canon",
+      "society",
+      "body"
+     ],
+     "cites": [
+      "S1.1"
+     ],
+     "cost": "",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Verb-first, for a commanding sound",
+     "argument": "Read 'Endon deth pednog' as verb-first (endon 'cannot'): orders and challenges open with the action, fitting a military culture.",
+     "angles": [
+      "society",
+      "sound"
+     ],
+     "cites": [
+      "S1.1"
+     ],
+     "cost": "The question 'Arabic kayenn?' then needs another explanation.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Free order with case endings",
+     "argument": "Case suffixes mark who does what, and word order shows emphasis and honour: the most honoured noun goes first.",
+     "angles": [
+      "society",
+      "sound"
+     ],
+     "cites": [],
+     "cost": "Invention; heavier for players.",
+     "invention": true
+    }
+   ],
+   "recommended": "A",
+   "settled": false,
+   "notes": "The pack was created verb-final (SOV); choosing B or C changes pack.json's grammar. Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "persons",
+   "question": "Pronouns, sexes and genders, kinship terms",
+   "angles": [
+    "society",
+    "body",
+    "canon"
+   ],
+   "status": "open",
+   "options": [
+    {
+     "id": "A",
+     "label": "Four-way throughout",
+     "argument": "Four third-person pronouns by sex, the four attested parent words (zhavey, shreya, thavan, charan), sex prefixes in names (zh', sh', th', ch'), and polite address by sex (Zha, Sha, Cha, Tha). With other species Andorians accept he or she as an analogue, which implies their own language marks four.",
+     "angles": [
+      "society",
+      "body",
+      "canon"
+     ],
+     "cites": [
+      "S3.1",
+      "S3.2",
+      "S2.1",
+      "S4.2"
+     ],
+     "cost": "Players learn four pronouns; translators must choose an analogue.",
+     "invention": false
+    },
+    {
+     "id": "B",
+     "label": "Four-way in names and kinship only",
+     "argument": "Sex shows in names, kinship and address, but pronouns do not mark it, as in many real languages. Keeps the attested words and the quad, with less grammar to learn.",
+     "angles": [
+      "society",
+      "use",
+      "science"
+     ],
+     "cites": [
+      "S3.2",
+      "S4.2"
+     ],
+     "cost": "Less alien; the pronoun system carries no social information.",
+     "invention": false
+    },
+    {
+     "id": "C",
+     "label": "Canon only: two sexes, marriages of four",
+     "argument": "Only the four-person marriage is canon; treat the quad as social, not biological, and use two sexes in pronouns and kinship.",
+     "angles": [
+      "canon"
+     ],
+     "cites": [
+      "S1.4"
+     ],
+     "cost": "Throws away the best-developed licensed material and many attested words.",
+     "invention": false
+    }
+   ],
+   "recommended": "A",
+   "settled": false,
+   "notes": "Drafted by Claude in the build session.",
+   "drafted": "2026-11-18"
+  },
+  {
+   "id": "registers",
+   "question": "Formal, ritual, military, intimate, insulting: which exist and how they differ",
+   "angles": [
+    "society",
+    "history"
+   ],
+   "status": "open",
+   "options": []
+  },
+  {
+   "id": "numbers",
+   "question": "Number base and counting",
+   "angles": [
+    "body",
+    "history"
+   ],
+   "status": "open",
+   "options": []
+  },
+  {
+   "id": "names",
+   "question": "How personal, family and place names are formed",
+   "angles": [
+    "society",
+    "canon"
+   ],
+   "status": "open",
+   "options": []
+  },
+  {
+   "id": "metaphor",
+   "question": "What the culture compares things to, and what it never would; taboos",
+   "angles": [
+    "world",
+    "society"
+   ],
+   "status": "open",
+   "options": []
+  }
+ ]
+}

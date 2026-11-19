@@ -2,6 +2,8 @@
 
 These instructions are for any model, local or hosted, that writes, translates, teaches or helps build a UTP language. The UTP programs load the sections below as their prompts. To use a language in a chat app, load the files listed under "Setting up a chat app" as the model's knowledge, and paste the "Translator and writer" section as its system prompt.
 
+How a language is built, and the rules every building prompt follows (source tiers, citations, the angles, attested words): `METHOD.md`, whose "For models" section is added to those prompts.
+
 The rule above all others: **the dictionary is the language.** Every word comes from a pack's dictionary files. A model never invents a word silently, because an invented word breaks the language's sound laws, history and no-duplicates rule, and the next chat won't know it.
 
 ## Translator and writer

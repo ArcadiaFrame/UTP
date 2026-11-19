@@ -27,6 +27,13 @@ Sources and credits
 - Fan vocabulary: words from the Vulcan Language Dictionary (Vulcan Language
   Institute) and fandom are credited entry by entry in the dictionary's
   source column and in vulcan-conlang/analysis/audit-canon-fandom.md.
+- Andorian: the source notes in languages/andorian/sources/public/ summarise,
+  in their own words, Memory Alpha and Memory Beta (both CC BY-SA, fan wikis
+  at fandom.com) and the episodes, novels and games they cite: the DS9
+  relaunch novels (four sexes, kinship words, name prefixes), FASA's Among
+  the Clans (Graalek, Andor, -ia), and fan wikis and Spence Hill's An'dorian
+  (credited as fan sources). Attested words keep their source in
+  languages/andorian/audit/attested.csv.
 - Meaning registry: utp/concepts/concepts.csv is derived from Concepticon
   3.4 (List, Tjuka, Blum, Kučerová, Ugarte, Rzymski, Greenhill and Forkel,
   eds., Max Planck Institute for Evolutionary Anthropology), licensed CC BY

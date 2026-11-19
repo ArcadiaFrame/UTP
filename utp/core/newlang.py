@@ -8,6 +8,9 @@ languages/<name>/
   pack.json         every setting: branches, eras, sound shapes, grammar, speech, typology
   sound_laws.json   the proto-language's sounds and each branch's sound changes (start empty)
   meanings.csv      the language's own meanings, beyond the universal registry
+  sources/          the language's library (utp.py sources): private, except sources/public/
+  audit/            attested.csv: words the sources already use (utp.py audit)
+  design/           decisions.json and the sound-law proposal (utp.py design, utp.py sounds)
   batches/          model-proposed expansions waiting for your review (utp.py expand)
   build/            the dictionary, check report and dictionaries (utp.py build)
   docs/             grammar card and guides
@@ -147,9 +150,11 @@ def create(name, language=None, order="SOV", branches=("standard",), eras=("Anci
                      for b in branches},
         "tests": [],
     }
-    for d in ("batches", "build", "docs", "lab", "course"):
+    for d in ("batches", "build", "docs", "lab", "course", "audit", "design", "sources/public"):
         (home / d).mkdir(parents=True, exist_ok=True)
     (home / "batches" / ".gitkeep").write_text("")
+    (home / "sources" / "README.md").write_text(SOURCES_README.format(language=language, name=name))
+    (home / "sources" / ".gitignore").write_text("# the library and your files stay on this computer\nlibrary.sqlite*\nfiles/\n")
     (home / "pack.json").write_text(json.dumps(pack, indent=2, ensure_ascii=False) + "\n")
     (home / "sound_laws.json").write_text(json.dumps(laws, indent=2, ensure_ascii=False) + "\n")
     (home / "meanings.csv").write_text("key,gloss,pos,field,era,kind,parts,notes\n")
@@ -195,10 +200,11 @@ water a hundred ways; a seafaring people names the wind.)
 
 (Anything a model must respect: taboo sounds, honorifics, metaphors the culture uses, metaphors it never uses.)
 
-## Decisions log
+<!-- decisions: written by utp.py design; edit them there, not here -->
 
-| Date | Decision |
-|---|---|
+## Decisions
+
+None yet: `utp.py design` drafts the questions.
 """
 
 README = """# {language}
@@ -213,10 +219,27 @@ Made with the UTP. Every file below is generated from `pack.json`, `sound_laws.j
 | Approve a batch (mark `approve` = yes in the CSV), then | `python3 utp/utp.py apply {name} languages/{name}/batches/<file>.csv` |
 | Ask a model for course sentences | `python3 utp/utp.py sentences {name} "greetings" --n 12` |
 | Grammar card for any chat model | `python3 utp/utp.py card {name}` |
+| Add sources (scripts, notes, wiki pages, papers) | `python3 utp/utp.py sources {name} add <files> --tier canon` |
+| Find the words the sources already use | `python3 utp/utp.py audit {name}` |
+| Work through the design questions | `python3 utp/utp.py design {name}` |
+| Sound laws that produce the attested words | `python3 utp/utp.py sounds {name}`, then `--accept` |
 
 Files: `build/dictionary.md` and `build/english.md` (the dictionaries), `build/check_report.md`,
 `docs/grammar-card.md`, `lab/index.html` (open in any browser; the tutor needs the app),
 `course/index.html`, `batches/` (proposals waiting for review).
 
-Design notes that every model prompt reads: `DESIGN.md`.
+Design notes that every model prompt reads: `DESIGN.md`. How the steps fit together: `utp/METHOD.md`.
+"""
+
+SOURCES_README = """# Sources for {language}
+
+The library this language is built from. Add material in the app (Workshop > Sources) or with
+`python3 utp/utp.py sources {name} add <files> --tier canon`.
+
+- `library.sqlite` and `files/` stay on this computer: they are not published (see `.gitignore`), so scripts,
+  books and other copyrighted text are safe to add.
+- `public/` is published with the language. Put your own notes here; name a file `canon-...`, `licensed-...`,
+  `fan-...` or `science-...` to give it that tier (otherwise it is `author`). They are indexed automatically.
+
+Tiers: author (your decisions) > canon > licensed > fan; science makes choices plausible.
 """

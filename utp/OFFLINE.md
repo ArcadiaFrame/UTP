@@ -58,6 +58,22 @@ python3 utp/utp.py shortcut            # desktop and menu shortcuts for this com
 
 It runs on this machine only (127.0.0.1) and needs no internet unless you pick a hosted model.
 
+## The workshop: sources, attested words, design, sound laws
+
+All offline: the library is SQLite (part of Python), and the model can be local.
+
+```
+python3 utp/utp.py sources <language> add notes.md scripts/*.srt book.epub --tier canon
+python3 utp/utp.py sources <language> search "ice"
+python3 utp/utp.py audit <language>                  # attested words, each checked against its passage
+python3 utp/utp.py design <language>                 # draft and answer the design questions
+python3 utp/utp.py sounds <language>                 # proposed laws, run on the attested words; then --accept
+```
+
+PDFs need `pip install pypdf` (or the `pdftotext` program); everything else (text, Markdown, HTML, subtitles, Word,
+EPUB) is read with Python alone. For search by meaning as well as by words, pull an embedding model
+(`ollama pull nomic-embed-text`), name it in Settings > Sources, then run `utp.py sources <language> embed`.
+
 ## 3. Kokoro speech (optional)
 
 Run Kokoro-FastAPI in Docker on any machine with a GPU to spare, or on CPU:

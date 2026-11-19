@@ -1,0 +1,347 @@
+{
+  "name": "Andorian language family",
+  "language": "Andorian",
+  "format": "utp-pack/1",
+  "about": "Andorian (Andorii) and Aenar: the languages of Andoria. A UTP language built from canon, the licensed novels, fan work and real-world parallels.",
+  "root": ".",
+  "home": ".",
+  "files": {
+    "sound_laws": "sound_laws.json",
+    "lexicon": "build/lexicon.csv"
+  },
+  "derivation": {
+    "branches": [
+      "andorii",
+      "aenar"
+    ],
+    "standard": "andorii",
+    "kinds": {
+      "compound": "compound",
+      "loan": "loan"
+    },
+    "loan_branch": "andorii",
+    "coined_in_branch": {},
+    "join_rules": [
+      {
+        "pattern": "([aeiou])\\1\\+(?=\\1)",
+        "replace": "\\1\\1+h",
+        "note": "a long vowel meeting a like vowel at a fused join takes a linking h"
+      },
+      {
+        "pattern": "([aeiou])\\+(?=\\1\\1)",
+        "replace": "\\1+h",
+        "note": "a vowel meeting a like long vowel at a fused join takes a linking h"
+      }
+    ]
+  },
+  "phonotactics": {
+    "transparent": [],
+    "no_initial": [],
+    "max_medial_cluster": 2,
+    "final_cluster": false
+  },
+  "eras": [
+    {
+      "id": "Clan",
+      "rank": 0
+    },
+    {
+      "id": "Old",
+      "rank": 1
+    },
+    {
+      "id": "Imperial",
+      "rank": 2
+    },
+    {
+      "id": "Federation",
+      "rank": 3
+    }
+  ],
+  "generator": {
+    "shapes": {
+      "noun": [
+        [
+          "CVC",
+          30
+        ],
+        [
+          "CVCV",
+          25
+        ],
+        [
+          "CVCVC",
+          25
+        ],
+        [
+          "CCVC",
+          8
+        ],
+        [
+          "CVCCV",
+          7
+        ],
+        [
+          "VCVC",
+          5
+        ]
+      ],
+      "verb": [
+        [
+          "CVC",
+          35
+        ],
+        [
+          "CVCV",
+          30
+        ],
+        [
+          "CVCVC",
+          20
+        ],
+        [
+          "CCVC",
+          8
+        ],
+        [
+          "VCV",
+          7
+        ]
+      ],
+      "adjective": [
+        [
+          "CVCV",
+          30
+        ],
+        [
+          "CVC",
+          25
+        ],
+        [
+          "CVCVC",
+          25
+        ],
+        [
+          "VCVC",
+          10
+        ],
+        [
+          "CCVCV",
+          10
+        ]
+      ],
+      "short": [
+        [
+          "CV",
+          40
+        ],
+        [
+          "VC",
+          20
+        ],
+        [
+          "CVC",
+          40
+        ]
+      ]
+    },
+    "harsh": [
+      "t",
+      "k",
+      "d",
+      "g",
+      "ch",
+      "r"
+    ],
+    "soft": [
+      "m",
+      "n",
+      "s",
+      "sh",
+      "l",
+      "v",
+      "h",
+      "y",
+      "w"
+    ],
+    "field_tone": {
+      "warfare-and-hunting": "harsh",
+      "emotions-and-values": "soft",
+      "kinship": "soft"
+    }
+  },
+  "build": {
+    "out": "build",
+    "id_prefix": "AN",
+    "registry": {
+      "tiers": [
+        1,
+        2,
+        3
+      ],
+      "exclude_pos": [
+        "classifier"
+      ],
+      "templates": "all"
+    },
+    "meanings": "meanings.csv",
+    "compound_head": "last",
+    "compound_join": "-",
+    "affix_join": "+",
+    "affix_position": {
+      "negative": "prefix"
+    },
+    "blocklist": "../../utp/concepts/english_labels.txt",
+    "reserved": []
+  },
+  "speech": {
+    "voice": "am_michael",
+    "from": "spelling",
+    "sounds": {
+      "sh": "ʃ",
+      "ch": "ʧ",
+      "aa": "aː",
+      "ee": "eː",
+      "ii": "iː",
+      "y": "j",
+      "r": "ɾ"
+    },
+    "stress": "first"
+  },
+  "grammar": {
+    "andorii": {
+      "about": "A starting SOV grammar made by utp.py new. Change anything; the interlingua follows it.",
+      "clause": [
+        "subject",
+        "adverbs",
+        "object",
+        "goal",
+        "content",
+        "verb",
+        "evidence",
+        "formal"
+      ],
+      "np_order": [
+        "head",
+        "mods",
+        "num",
+        "of",
+        "poss"
+      ],
+      "front_aux_in_questions": false,
+      "pronouns": {
+        "1sg": "i",
+        "2sg": "you",
+        "3sg": "he-or-she",
+        "1pl": "we",
+        "3pl": "they"
+      },
+      "possessives": {
+        "1sg": "my"
+      },
+      "wh": {
+        "what": "what",
+        "who": "who",
+        "where": "where",
+        "when": "when",
+        "why": "why",
+        "how": "how",
+        "how-many": "how-many"
+      },
+      "markers": {
+        "toward": {
+          "key": "g-toward",
+          "attach": "hyphen"
+        },
+        "of": {
+          "key": "g-of",
+          "attach": "prefix"
+        },
+        "plural": {
+          "key": "g-plural",
+          "attach": "hyphen"
+        },
+        "ongoing": {
+          "key": "g-ongoing",
+          "attach": "hyphen"
+        },
+        "past": {
+          "key": "g-past",
+          "attach": "hyphen"
+        },
+        "completed": {
+          "key": "g-completed",
+          "attach": "prefix"
+        },
+        "honorific": {
+          "key": "g-honorific",
+          "attach": "hyphen"
+        },
+        "humble": {
+          "key": "g-humble",
+          "attach": "hyphen"
+        },
+        "adverbial": {
+          "key": "g-adverbial",
+          "attach": "hyphen"
+        },
+        "future": "g-future",
+        "negative": "not",
+        "never": "never",
+        "in": "in",
+        "comp": "g-comp",
+        "if": "if",
+        "vocative": "g-vocative",
+        "question": "g-question",
+        "request": "g-request",
+        "hortative": "g-hortative",
+        "modal": {
+          "ability": "g-ability",
+          "duty": "g-duty"
+        },
+        "evidence": {},
+        "object": {
+          "key": "g-object",
+          "attach": "hyphen",
+          "drop_if_indefinite": true
+        }
+      }
+    }
+  },
+  "typology": {
+    "andorii": {
+      "word_order": "SOV",
+      "noun_phrase": {
+        "adjective": "N-Adj",
+        "genitive": "N-Gen",
+        "relative_clause": "N-Rel"
+      },
+      "adpositions": "postpositions",
+      "alignment": "nominative-accusative",
+      "morphology": {
+        "type": "agglutinative",
+        "affixes": "suffixing; negative is a prefix"
+      },
+      "prosody": {
+        "tone": "none",
+        "stress": "first syllable"
+      }
+    }
+  },
+  "learning": {
+    "lab": "lab/index.html",
+    "course": "course/index.html"
+  },
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "What are the speakers like, and what do they talk about most?",
+      "proposal": "Write it in DESIGN.md; the expansion prompts read it."
+    },
+    {
+      "id": "Q2",
+      "question": "What sound changes split the branches?",
+      "proposal": "Add rules to sound_laws.json, then rebuild."
+    }
+  ]
+}

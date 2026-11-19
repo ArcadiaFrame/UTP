@@ -85,9 +85,10 @@ python3 utp/utp.py new nerani --language Nerani --order SOV --branches high,low 
     --eras Ancient,Old,Middle,Modern --consonants "p t k m n s l r w y h sh" --vowels "a e i o u"
 ```
 
-or **+ New** in the app. Then:
+or **+ New** in the app. Then follow `METHOD.md` (in the app: the language's **Workshop**):
 
-1. Describe the speakers in `languages/nerani/DESIGN.md`. Every model prompt reads it.
-2. Give the branches their sound changes in `sound_laws.json` (each rule: `id`, `pattern`, `replace`, `note`, `era`), and tune `pack.json` (generator weights, grammar, speech). Rebuild with `utp.py build nerani`.
+1. Gather sources, if you have any: `utp.py sources nerani add <files> --tier canon`. Find the words they already use: `utp.py audit nerani`.
+2. Decide the design: `utp.py design nerani` drafts each question with cited options; your answers go into `DESIGN.md`, which every model prompt reads.
+3. Sound laws: `utp.py sounds nerani` proposes a proto-language and laws and runs them on the attested words; `--accept` adopts them. Or write `sound_laws.json` by hand (each rule: `id`, `pattern`, `replace`, `note`, `era`) and tune `pack.json` (generator weights, grammar, speech). Rebuild with `utp.py build nerani`.
 3. Grow it: `utp.py expand nerani "kinship and the household"`, review the batch, `utp.py apply`. Add course sentences with `utp.py sentences`.
 4. Open it: `python3 languages/nerani/open.py`, the desktop app, or `lab/index.html` straight from the folder.

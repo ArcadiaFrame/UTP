@@ -15,6 +15,9 @@ or **+ New** in the app. A language folder holds everything about it:
 | `sound_laws.json` | The proto-language's sounds and each branch's sound changes |
 | `meanings.csv` | The language's own meanings, beyond the universal registry (approved batches land here) |
 | `DESIGN.md` | Who speaks it and what the words must respect; every model prompt reads it |
+| `sources/` | The language's library (`utp.py sources`): private, except `sources/public/`, which is published |
+| `audit/attested.csv` | Words the sources already use, each with the passage it appears in (`utp.py audit`) |
+| `design/` | The design questions and your answers (`utp.py design`), and the latest sound-law proposal (`utp.py sounds`) |
 | `batches/` | Model-proposed words waiting for review (`utp.py expand`) |
 | `build/` | The dictionary (`lexicon.csv`, `dictionary.md`, `english.md`) and its check report |
 | `docs/grammar-card.md` | The grammar on one card, for people and models |

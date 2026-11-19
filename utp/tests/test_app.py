@@ -39,7 +39,8 @@ CALLS = []
 
 ENTRIES = [
     {"key": "star-river", "gloss": "the band of stars across the night sky", "pos": "noun", "field": "the-physical-world",
-     "era": "Old", "kind": "compound", "parts": "{star}-{river}", "basis": "Japanese ama-no-gawa 'heaven's river'"},
+     "era": "Old", "kind": "compound", "parts": "{star}-{river}", "basis": "Japanese ama-no-gawa 'heaven's river'",
+     "sources": ["S1.1", "S42.1"]},
     {"key": "rain-house", "gloss": "shelter from rain", "pos": "noun", "field": "the-house", "era": "Ancient",
      "kind": "compound", "parts": "{rain-precipitation}-{house}", "basis": "a plain descriptive compound"},
     {"key": "glimmerfrost", "gloss": "frost that glitters at dawn", "pos": "noun", "field": "the-physical-world",
@@ -59,7 +60,28 @@ FRAMES = [
 ]
 
 
+AUDIT = {"words": [
+    {"form": "kethra", "gloss": "ice", "pos": "noun", "kind": "word", "branch": "north", "cite": "S1.1", "evidence": "call ice kethra"},
+    {"form": "sora", "gloss": "dawn", "pos": "noun", "kind": "word", "branch": "south", "cite": "S1.1"},
+    {"form": "velan", "gloss": "sled", "pos": "noun", "kind": "word", "branch": "north", "cite": "S1.1"},
+    {"form": "zzfake", "gloss": "made up", "kind": "word", "cite": "S1.1"},
+    {"form": "Varo", "kind": "name", "cite": "S9.9"}]}
+DRAFT = {"options": [{"label": "Ice people", "argument": "the sources say so", "angles": ["world"], "cites": ["S1.1", "S99.1"]},
+                     {"label": "Sky people", "argument": "invention", "angles": ["world"], "cites": []}], "recommended": "A"}
+SOUNDS = {"proto": {"units": ["th", "p", "t", "k", "m", "n", "s", "l", "r", "v", "h", "y", "w", "a", "e", "i", "o", "u"],
+                    "vowels": ["a", "e", "i", "o", "u"], "finals": ["n", "m", "s", "r", "l", "k", "t", "th"]},
+          "branches": {"south": {"rules": [{"id": "S1", "pattern": "u", "replace": "o", "note": "u lowers to o"}]}},
+          "words": [{"form": "kethra", "branch": "north", "proto": "*kethra"}, {"form": "sora", "branch": "south", "proto": "*sura"},
+                    {"form": "velan", "branch": "north", "proto": "*velam"}], "notes": "mock laws"}
+
+
 def reply_for(text):
+    if "auditing sources" in text:
+        return json.dumps(AUDIT)
+    if "Design question:" in text:
+        return json.dumps(DRAFT)
+    if "Reconstruct the proto-language" in text:
+        return json.dumps(SOUNDS)
     if "Topic for this batch" in text:
         return json.dumps({"entries": ENTRIES})
     if "Frame format" in text:
@@ -201,6 +223,64 @@ def main():
     check(len(ok) == 2 and len(bad) == 1 and "unknown keys" in bad[0]["why"] and n_added == 2 and ok[0]["v"] in course,
           f"sentences: 2 rendered and read back ({ok[0]['v']}), 1 rejected, both in the course")
 
+    # 4b. the workshop: sources, audit, design, sound laws (utp/METHOD.md)
+    from utp.core import workshop as W
+    from utp.core.library import Sources
+    whome = newlang.create("worklang", language="Worklang", order="SOV", branches=["north", "south"],
+                           consonants="p t k m n s l r v th h y w")
+    newlang.first_build(whome)
+    wp = Pack("worklang")
+    src = Sources(whome)
+    note = TMP / "field-notes.md"
+    note.write_text("# Field notes\n\nIn the north they call ice kethra. The southern word for dawn is sora. A velan is a sled.")
+    doc, n = src.own.add_file(note, "canon")
+    again = src.own.add_file(note, "canon")
+    (whome / "sources" / "public").mkdir(parents=True, exist_ok=True)
+    (whome / "sources" / "public" / "science-cold.md").write_text("# Cold\n\nIce forms when water freezes.")
+    src.close()
+    src = Sources(whome)
+    hits = src.search("ice", k=5)
+    check(doc == 1 and n == 1 and again == (1, 0) and {h["tier"] for h in hits} == {"canon", "science"}
+          and src.passage("S1.1")["title"] == "field notes" and src.check_cites("S1.1 S7.7") == (["S1.1"], ["S7.7"])
+          and (whome / "sources" / "files" / "field-notes.md").exists() and "library.sqlite" in (whome / "sources" / ".gitignore").read_text(),
+          "library: files indexed once, searchable across tiers, public/ indexed automatically, citations checked")
+    src.close()
+    added, rejected = W.audit(wp, model, log=lambda s: None)
+    att = {r["form"]: r for r in W.read_attested(wp)}
+    why = {r["form"]: r["why"] for r in rejected}
+    check(added == 3 and set(att) == {"kethra", "sora", "velan"} and att["sora"]["branch"] == "south"
+          and att["kethra"]["tier"] == "canon" and "does not appear" in why.get("zzfake", "") and "not one of the passages" in why.get("Varo", ""),
+          f"audit: words kept only if they appear in the passage they cite {why}")
+    W.draft(wp, model, n=2, log=lambda s: None)
+    q = W.read_decisions(wp)["questions"][0]
+    check(len(q["options"]) == 2 and q["options"][0]["cites"] == ["S1.1"] and q["options"][0]["dropped_cites"] == ["S99.1"]
+          and q["options"][1]["invention"] and len(W.question_bank()) >= 10,
+          "design: options drafted from METHOD.md's questions; invented citations dropped, uncited options marked invention")
+    W.decide(wp, q["id"], "A", "the field notes say so")
+    design = (whome / "DESIGN.md").read_text()
+    src = Sources(whome)
+    top = src.search("Ice people", k=3)
+    src.close()
+    check("**Ice people.**" in design and "Why: the field notes say so" in design and "Sky people" in design
+          and design.count(W.MARK) == 1 and top and top[0]["tier"] == "author",
+          "design: a decision goes into DESIGN.md and into the library as an author source")
+    prop = W.propose_sounds(wp, model)
+    fits = {r["form"]: r["ok"] for r in prop["fit"]}
+    check(prop["fits"] == 2 and fits == {"kethra": True, "sora": True, "velan": False},
+          f"sounds: the engine runs the proposed laws on every attested word ({fits})")
+    words, tests = W.accept_sounds(wp, fresh=False)
+    from utp.core.builder import Builder
+    rows_w, errs_w, _ = Builder(Pack("worklang")).build()
+    keys = {r["form"]: r["key"] for r in W.read_attested(Pack("worklang"))}
+    by = {r["key"]: r for r in rows_w}
+    check(words == 2 and tests == 2 and by[keys["kethra"]]["north"] == "kethra" and by[keys["sora"]]["south"] == "sora"
+          and by[keys["sora"]]["north"] == "sura" and not [e for e in errs_w if e[1] in ("E1", "E6")],
+          f"sounds: accepted laws lock the attested words into the dictionary, checked by every build {[e for e in errs_w if e[1] in ('E1', 'E6')][:3]}")
+    bpath, brows = X.propose_batch(Pack("worklang"), "the sky", model, n=5)
+    star = next(r for r in brows if r["key"] == "star-river")
+    check(star["sources"] == "S1.1" and "S42.1" in star["basis"] and "S1.1" in json.dumps(CALLS[-1][3]),
+          "expand: prompts carry the language's sources; cited ids are checked and kept in the batch")
+
     # 5. the app server
     from utp.app import server as S
     srv = S.serve(0)
@@ -278,6 +358,24 @@ def main():
     check('window.UTP_THEME="dark"' in lab_page and 'id="theme-toggle"' in lab_page and 'window.UTP_THEME="dark"' in app_page
           and lab_page.index("UTP_THEME") < lab_page.index("<style"),
           "theme: the saved light/dark choice reaches the app and every Lab and course before they paint")
+    import base64
+    up = json.loads(post("/api/sources/add", {"language": "worklang", "tier": "licensed", "files": [
+        {"name": "glossary.html", "data": base64.b64encode(b"<html><body><nav>x</nav><p>A thraal is a snow hare.</p></body></html>").decode()}]}, origin))
+    found = json.loads(get("/api/sources/search?language=worklang&q=hare"))["hits"]
+    shown_p = json.loads(get(f"/api/sources/passage?language=worklang&id={found[0]['id']}"))
+    try:
+        post("/api/attested/set", {"language": "worklang", "add": {"form": "nothere", "cite": found[0]["id"]}}, origin)
+        refused = False
+    except urllib.error.HTTPError as e:
+        refused = e.code == 400
+    post("/api/attested/set", {"language": "worklang", "add": {"form": "thraal", "gloss": "snow hare", "cite": found[0]["id"]}}, origin)
+    att_http = json.loads(get("/api/attested?language=worklang"))
+    des_http = json.loads(get("/api/design?language=worklang"))
+    snd_http = json.loads(get("/api/sounds?language=worklang"))
+    check(up["added"][0]["passages"] == 1 and found and found[0]["tier"] == "licensed" and "snow hare" in shown_p["text"]
+          and "x" not in shown_p["text"].split() and refused and any(r["form"] == "thraal" and r["tier"] == "licensed" for r in att_http["rows"])
+          and des_http["questions"][0]["status"] == "decided" and snd_http["proposal"]["fits"] == 2,
+          "server workshop: sources uploaded and searched, attested words checked against their passage, design and sounds served")
     about = json.loads(get("/api/about"))
     check(about["repo"] == str(S.REPO) and about["python"], "server: the About section")
     srv.shutdown()

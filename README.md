@@ -3,7 +3,20 @@ Universal translation program (con-language creator) w/languages such as vulcan 
 
 The UTP builds whole constructed languages the way natural languages grow: a proto-language, sound laws for each daughter language, roots checked against the language's sound rules, later meanings built from older words, and eras. Everything else (dictionaries, guides, phrasebooks, lessons, speech) is generated from one dictionary file, so nothing drifts out of date.
 
-Vulcan is the first language built with it: a historically layered family from Tribal Vulcan through Classical and Unified to Federation Standard, with Romulan splitting away at the Sundering. 3,645 dictionary entries so far, 0 errors.
+Vulcan is the first language built with it: a historically layered family from Tribal Vulcan through Classical and Unified to Federation Standard, with Romulan splitting away at the Sundering. 3,645 dictionary entries so far, 0 errors. Andorian (Andorii and Aenar) is the second, being built from canon, the licensed novels, fan work and real-world parallels by the method in `utp/METHOD.md`.
+
+It is made for science-fiction and fantasy writers, game masters and players (Star Trek Adventures tables included): a polyglot language workshop that runs on your own computer, with or without a model.
+
+## Building a language: from nothing, or from sources
+
+Every language follows the same steps (`utp/METHOD.md`): gather sources, find the words they already use, decide the design question by question, find sound laws that produce the attested words, then grow the vocabulary in reviewed batches. In the app, each language's **Workshop** has a page per step.
+
+- **Sources** go into a private library for each language (SQLite with full-text search, plus meaning-based search if you set an embedding model): scripts, subtitles, saved wiki pages, novels, papers, your notes. Each source has a tier: your own decisions, canon, licensed, fan, or real-world science. Your library stays on your computer; only files in `sources/public/` are published with the language.
+- **Attested words** are found by a model and kept only if they really appear in the passage they cite.
+- **Design** questions (who speaks it, their bodies, world, history, sound, grammar, persons, registers...) come with options argued from canon, body, world, society, history, sound and use, with citations. Your answers go into `DESIGN.md`, which every later prompt reads.
+- **Sound laws** are proposed by a model and run by the engine on every attested word; accepted laws lock those words into the dictionary, and every build checks them.
+
+With no sources, the same steps work from scratch: Design asks you instead of citing.
 
 ## What's here
 
@@ -49,7 +62,8 @@ Everything is saved in `~/.utp/config.json`, readable only by you; API keys neve
 
 - Vulcan: anatomy and clinical medicine added (batch 24); eight proposed roots await approval.
 - Next: the number system and logic-game vocabulary, then technical vocabulary toward 6,000 entries.
-- UTP: new languages, model-assisted growth with review, a Lab and course per language, and the chat app are done. The typology checker, script module and a second, canon-anchored pack (Klingon is the leading candidate) are planned; see `utp/docs/design.md`.
+- Andorian: library seeded (canon, licensed, fan, science), 56 attested words and names, seven design questions drafted and waiting for decisions.
+- UTP: new languages, the workshop (sources library, audit, design, sound laws), model-assisted growth with review, a Lab and course per language, and the chat app are done. The typology checker, script module and a second, canon-anchored pack (Klingon is the leading candidate) are planned; see `utp/docs/design.md`.
 
 ## License and credits
 

@@ -1,0 +1,3 @@
+# the library and your files stay on this computer
+library.sqlite*
+files/

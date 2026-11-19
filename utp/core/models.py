@@ -188,6 +188,13 @@ class Model:
                 if piece:
                     yield piece
 
+    def embed(self, texts, model=None):
+        """Embedding vectors for texts (Ollama and OpenAI-compatible servers; Anthropic has no embeddings)."""
+        if self.provider == "anthropic":
+            raise ModelError("Anthropic has no embeddings endpoint: pick an Ollama or OpenAI-compatible connection")
+        out = self._json("/embeddings", {"model": model or self.model, "input": list(texts)})
+        return [d["embedding"] for d in sorted(out.get("data", []), key=lambda d: d.get("index", 0))]
+
     def chat_json(self, messages):
         text = self.chat(messages, json_mode=True, temperature=0.2)
         m = re.search(r"\{.*\}", text, re.S)
