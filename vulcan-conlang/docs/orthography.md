@@ -95,7 +95,7 @@ A reader can therefore split any word: a hyphen marks a word boundary or a gramm
 - In prose, write numbers as words: *shelek-k'oo yik-vak*. The system is base ten and regular: ten-one is eleven, two-ten is twenty.
 - In technical writing, use numerals.
 - The number follows the noun it counts.
-- The full number system is completed in the number batch (multiplicatives, distributives, collectives, decimals). That batch also decides whether a second, ritual count exists beside base ten.
+- The full number system (multiplicatives, distributives, collectives, fractions, decimals) is in `docs/word-building.md`. Beside base ten there is a ritual count by sevens, *huk-shil*, for temple, calendar and bond rites; write its numbers as words too: *vauk hukot veet* "one seven, three".
 
 ## 8. A worked example
 

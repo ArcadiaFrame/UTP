@@ -1,6 +1,6 @@
 # Word-building
 
-Vulcan has a small stock of old roots and builds everything else from them. A student is a "learning one" (*haumok-veh*), a school a "learning place" (*haumokpuhl*), and the Federation is "worlds joined" (*spak-kau*), on the pattern of canon *kash-kau*, "minds joined." The dictionary has 3,645 entries: 211 canon words, 1,278 roots, 2082 words built from older ones, 72 designed words and 2 loan; 99 of the entries are Romulan only.
+Vulcan has a small stock of old roots and builds everything else from them. A student is a "learning one" (*haumok-veh*), a school a "learning place" (*haumokpuhl*), and the Federation is "worlds joined" (*spak-kau*), on the pattern of canon *kash-kau*, "minds joined." The dictionary has 3,688 entries: 211 canon words, 1,278 roots, 2125 words built from older ones, 72 designed words and 2 loan; 99 of the entries are Romulan only.
 
 ## Where the rules come from
 
@@ -94,6 +94,22 @@ A built word can never be older than its pieces; the checker refuses one that is
 | 1 *vauk* | 10 *vak* | 11 *vak-vauk* | 20 *yik-vak* |
 | 12 *vak-yik* | 19 *vak-ke* | 30 *veet-vak* | 90 *ke-vak* |
 | 100 *pizh* | 1,000 *te* | first *vauksakh* | second *yiksakh* |
-| a third *veet-khasni* | a quarter *ir-khasni* | | |
+| a third *veet-khasni* | a quarter *ir-khasni* | a tenth *vak-khasni* | a fraction *khasni-seekher* |
+| once *vauk-pon* | twice *yik-pon* | one by one *vauk-vauk* | a trio *veetot* |
+| hundredth *pizhsakh* | decimal point *vak-kiruk* | about ten *vak weellirfu* | exactly *srerfu* |
+
+**How often, how many each, how many together.** "Times" is *pon* "time": *vauk-pon* once, *veet-pon* three times. A
+number said twice is distributive, as in Turkish and Japanese: *vauk-vauk* one each, one by one; *yik-yik* two by two.
+A number with *-ot* names a set: *veetot* a trio, *irot* a foursome (a pair stays *ezh*, a dozen *eiv*).
+
+**Arithmetic.** *moluk* add, *srur-wa* subtract ("take away"), *ok'-tor* multiply ("make many"), *yuk* divide;
+*sakatuth* remainder; *ezh-seekher* even number ("pair-number"), *uhf-ezh-seekher* odd, *uhf-yuk-seekher* prime
+("undivided number"); *yik-tulmee* square ("second power"), *yik-ishuk* square root.
+
+**Two counts.** Daily life and science use the ten-count, *vak-shil*. Temples, calendars and bond rites keep the
+seven-count, *huk-shil*, after the roughly seven-year cycle: its unit is *hukot* "a seven", so ten is
+*vauk hukot veet* "one seven, three", and forty-nine is *huk-hukot*, the great seven, the full ritual count. A span of
+seven years is a *huk-ka'ke*, and *hukuk* "sevenfold" means, in rites, complete. (*Huk-huk* would be the distributive
+"seven each", so the great seven is built on *hukot*.)
 
 **Kin terms are descriptive**, as in clan societies. An aunt or uncle is "parent-sibling," *zheenak-khano*, as Swedish says *farbror*, "father-brother." A niece or nephew is "sibling-child," *khano-wan*. A cousin is a "clan-sibling," *ketol-khano*: in a society of great Houses, cousins grow up as siblings, as in the Hawaiian and Iroquois kin systems. Elder and younger siblings keep their own old roots (*alen*, *tasas*), because seniority matters.

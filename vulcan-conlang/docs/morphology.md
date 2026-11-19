@@ -2,7 +2,7 @@
 
 This is the reference for every piece that builds or bends a Vulcan word: what it does, what it attaches to, how it joins and when it entered the language. `docs/word-building.md` explains *why* a meaning is a root or a built word; this file is the rulebook for *how*. The checker enforces the joining rule (E12) and flags unusual attachments for review (W3).
 
-Status: The dictionary has 3,645 entries: 211 canon words, 1,278 roots, 2082 words built from older ones, 72 designed words and 2 loan; 99 of the entries are Romulan only.
+Status: The dictionary has 3,688 entries: 211 canon words, 1,278 roots, 2125 words built from older ones, 72 designed words and 2 loan; 99 of the entries are Romulan only.
 
 ## 1. The shape of a Vulcan word
 

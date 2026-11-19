@@ -3046,7 +3046,7 @@ vagina-c,vagina,noun,body,compound,,{woman}-{part},,,,clinical,Standard,,,Built:
 vulva-c,vulva,noun,body,compound,,{outside}-{woman}-{part},,,,clinical,Standard,,,Built from older words
 testicles-c,testicles,noun,body,compound,,{seed}-{vessel},,,,clinical,Standard,,,"Built: seed-vessel: canon tulek ""vessel"""
 semen,semen,noun,body,compound,,{seed}-{water},,,,clinical,Standard,,,Built from older words
-menstruation,menstruation,noun,body,compound,,{month}-{plak},,,,clinical,Standard,,,"Built: month-blood: JA gek-kei Shedding is scant and mostly reabsorbed in the working model (a hypothesis, not universal)."
+menstruation,menstruation,noun,body,compound,,{month}-{plak},,,,clinical,Standard,,,Built: month-blood: JA gek-kei
 anatomy,anatomy,noun,body,compound,,{inquiry} t'+{form},,,,clinical,Standard,,,Built: canon pattern mik t'X
 pregnancy,pregnancy,noun,body,compound,,{wan}-{carry}+{action},,,,everyday,Classical,,,Built: child-carrying
 pregnant,pregnant,adjective,body,compound,,{wan}-{carry}+{adjectival},,,,everyday,Classical,,,Built from older words
@@ -3456,13 +3456,13 @@ el'ru'esta,hand-embrace: palms and fingers joined (old word; intimate colloquial
 lok,penis (slang),noun,body,design,lok,,lok,,,slang,Standard,VLD (Vulcan Language Institute),"Fandom spelling kept: lok, as fans write it","Fandom word adopted. Do not confuse with lokh ""sea""."
 sa-mekh,father (a child's word and form of address),noun,kin,design,sa-mekh,,sa-mekh,,,intimate,Classical,VLD (Vulcan Language Institute),"Fandom spelling kept: sa-mekh, as fans write it",Fandom word adopted. Canon-built lausan is the plain noun; sa-mekh is what a child calls a father.
 tonk'peh,hello (casual greeting),interjection,speech,design,tonk'peh,,tonk'peh,,,colloquial,Standard,fan glossaries (credited to the VLD; not in the 2004 VLI guide as a headword),"Fandom spelling kept: tonk'peh, as fans write it",Fandom word adopted. Canon t'nar is the formal opening.
-body,"body, the living body as a whole",noun,body,core,hesi,,,,,everyday,Tribal,,,"Proposed root (batch 24): basic vocabulary every language names; distinct from si'an 'form' and lu 'self'. Chosen from the generator's short candidates, since a word this common should be short. Awaiting approval"
-fat,"fat, grease (of the body or of food)",noun,body,core,,,,,,everyday,Tribal,,,Proposed root (batch 24): Swadesh-207 'fat'. Awaiting approval
-guts,"guts, intestines",noun,body,core,,,,,,everyday,Tribal,,,Proposed root (batch 24): Swadesh-207 'guts'. Awaiting approval
-kidney,kidney,noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): an old root in most languages (LA ren, PIE *negwhro-); central to a desert body's water economy. Awaiting approval"
-milk,milk,noun,body,core,,,,,,everyday,Tribal,,,Proposed root (batch 24): basic mammal vocabulary. Awaiting approval
-navel,navel,noun,body,core,,,,,,everyday,Tribal,,,Proposed root (batch 24): Swadesh-207 'navel'. Awaiting approval
-sinew,"sinew, tendon",noun,body,core,,,,,,everyday,Tribal,,,Proposed root (batch 24): a hunter's word (PIE *sneh1wr). Awaiting approval
+body,"body, the living body as a whole",noun,body,core,hesi,,,,,everyday,Tribal,,,"Proposed root (batch 24): basic vocabulary every language names; distinct from si'an 'form' and lu 'self'. Chosen from the generator's short candidates, since a word this common should be short. Approved by Arcadia, 18 Nov 2026"
+fat,"fat, grease (of the body or of food)",noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): Swadesh-207 'fat'. Approved by Arcadia, 18 Nov 2026"
+guts,"guts, intestines",noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): Swadesh-207 'guts'. Approved by Arcadia, 18 Nov 2026"
+kidney,kidney,noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): an old root in most languages (LA ren, PIE *negwhro-); central to a desert body's water economy. Approved by Arcadia, 18 Nov 2026"
+milk,milk,noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): basic mammal vocabulary. Approved by Arcadia, 18 Nov 2026"
+navel,navel,noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): Swadesh-207 'navel'. Approved by Arcadia, 18 Nov 2026"
+sinew,"sinew, tendon",noun,body,core,,,,,,everyday,Tribal,,,"Proposed root (batch 24): a hunter's word (PIE *sneh1wr). Approved by Arcadia, 18 Nov 2026"
 bodily,"bodily, of the body",adjective,body,compound,,{body}+{adjectival},,,,everyday,Classical,,,Built from older words
 tissue,tissue (of the body),noun,body,compound,,{body}-{cloth},,,,clinical,Standard,,,Built: body-cloth: EN tissue < French tissu 'woven cloth'
 organ,organ (of the body),noun,body,compound,,{body}-{part},,,,clinical,Standard,,,Built: body-part: JA zouki is the same idea
@@ -3481,7 +3481,7 @@ strain-n,strain (of a sinew or muscle),noun,body,compound,,{sinew}-{stretch}+{ac
 cramp,"cramp, spasm",noun,body,compound,,{muscle}-{seize-mind},,,,everyday,Classical,,,Built from older words
 grip,"grip, hold fast",verb,body,compound,,{hold}-{strong},,,,everyday,Classical,,,Built: hold strong
 navel-cord,umbilical cord,noun,body,compound,,{navel}-{rope},,,,everyday,Classical,,,Built from older words
-gland,gland,noun,body,core,fulo,,,,,everyday,Classical,,,"Proposed root (batch 24): a native root in many languages (German Druese, Russian zheleza); chosen from the generator's short candidates. Awaiting approval"
+gland,gland,noun,body,core,fulo,,,,,everyday,Classical,,,"Proposed root (batch 24): a native root in many languages (German Druese, Russian zheleza); chosen from the generator's short candidates. Approved by Arcadia, 18 Nov 2026"
 secretion,"secretion, what a gland gives out",noun,body,compound,,{gland}-{water},,,,clinical,Standard,,,Built: gland-water
 secrete,secrete,verb,body,compound,,{gland}-{flow},,,,clinical,Standard,,,Built from older words
 mucus,"mucus, protective membrane fluid",noun,body,compound,,{nose}-{oil},,,,everyday,Classical,,,Built from older words
@@ -3644,3 +3644,46 @@ well-right,"well-right, the right to draw from a well",noun,law,compound,,{water
 irrigation,irrigation,noun,desert,compound,,{water}-{lead}+{action},,,,everyday,Classical,,,Built: water-leading: JA kangai
 water-steward,"water-steward, keeper of a shared water",noun,desert,compound,,{water}-{keep}-{ve},,,,everyday,Classical,,,Built from older words
 water-share,"water-share, an allotment of water",noun,desert,compound,,{water}-{share}+{action},,,,everyday,Classical,,,Built from older words
+subtract,"subtract, take away",verb,number,compound,,{take}-{away},,,,everyday,Classical,,,"Built: take away: EN take away, JA hiku 'pull' (batch 25)"
+subtraction,subtraction,noun,number,compound,,{take}-{away}+{action},,,,everyday,Classical,,,Built: (batch 25)
+multiply,multiply,verb,number,compound,,{many}-{tor},,,,everyday,Classical,,,Built: make many: LA multiplicare (batch 25)
+multiplication,multiplication,noun,number,compound,,{many}-{tor}+{action},,,,everyday,Classical,,,Built: (batch 25)
+remainder,"remainder, what is left over",noun,number,compound,,{remain}+{action},,,,everyday,Classical,,,Built: what remains: DE Rest (batch 25)
+digit,"digit, a single figure (0 to 9)",noun,number,compound,,{finger}-{number},,,,everyday,Classical,,,Built: finger-number: LA digitus 'finger' (batch 25)
+numeral,"numeral, a written number sign",noun,number,compound,,{number}-{sign},,,,everyday,Classical,,,Built: number-mark (batch 25)
+integer,"integer, whole number",noun,number,compound,,{whole}-{number},,,,technical,Classical,,,Built: whole number: DE ganze Zahl (batch 25)
+even-number,even number,noun,number,compound,,{pair}-{number},,,,everyday,Classical,,,Built: a number of pairs: JA guusuu 'pair-number' (batch 25)
+odd-number,odd number,noun,number,compound,,{without}-{pair}-{number},,,,everyday,Classical,,,Built: unpaired number: JA kisuu (batch 25)
+prime-number,prime number,noun,number,compound,,{without}-{divide}-{number},,,,technical,Classical,,,"Built: undivided number: JA sosuu, DE Primzahl (batch 25)"
+square-n,"square (of a number), second power",noun,number,compound,,{two}-{power},,,,technical,Classical,,,Built: second power: DE zweite Potenz (batch 25)
+cube-n,"cube (of a number), third power",noun,number,compound,,{three}-{power},,,,technical,Classical,,,Built: third power (batch 25)
+square-root,square root,noun,number,compound,,{two}-{root},,,,technical,Classical,,,Built: two-root: JA heihoukon (batch 25)
+fraction,fraction,noun,number,compound,,{part}-{number},,,,everyday,Classical,,,Built: part-number: JA bunsuu (batch 25)
+fifth-part,a fifth (fraction),noun,number,compound,,{five}-{part},,,,everyday,Classical,,,Built: as ir-khasni a quarter (batch 25)
+tenth-part,a tenth (fraction),noun,number,compound,,{ten}-{part},,,,everyday,Classical,,,Built: as ir-khasni a quarter (batch 25)
+decimal,"decimal, counted in tens",adjective,number,compound,,{ten}+{adjectival},,,,technical,Classical,,,Built: (batch 25)
+decimal-point,decimal point,noun,number,compound,,{ten}-{point},,,,technical,Classical,,,Built: ten-point (batch 25)
+negative-number,"negative number, a number below zero",noun,number,compound,,{under}-{zero}-{number},,,,technical,Classical,,,Built: below-zero number (batch 25)
+infinite,"infinite, without end",adjective,number,compound,,{without}-{end}+{adjectival},,,,everyday,Unified,,,Built: (batch 25)
+estimate,"estimate, reckon roughly",verb,number,compound,,{guess}-{measure},,,,everyday,Classical,,,Built: guess-measure: EN estimate 'set a value on' (batch 25)
+approximately,"approximately, about (with numbers)",adverb,number,compound,,{near}+{adverbial},,,,everyday,Classical,,,"Built: nearly: EN nearly, JA yaku (batch 25)"
+exactly,"exactly, precisely",adverb,number,compound,,{correct}+{adverbial},,,,everyday,Classical,,,Built: (batch 25)
+hundredth,hundredth,number,number,compound,,{hundred}+{ordinal},,,,everyday,Classical,,,Built: regular ordinal (batch 25)
+thousandth,thousandth,number,number,compound,,{thousand}+{ordinal},,,,everyday,Classical,,,Built: regular ordinal (batch 25)
+once,"once, one time",adverb,number,compound,,{one}-{pon},,,,everyday,Tribal,,,"Built: one time: JA ikkai, EN once (batch 25)"
+twice,"twice, two times",adverb,number,compound,,{two}-{pon},,,,everyday,Tribal,,,Built: two times: JA nikai (batch 25)
+thrice,three times,adverb,number,compound,,{three}-{pon},,,,everyday,Tribal,,,Built: three times (batch 25)
+one-by-one,"one by one, one each (distributive)",adverb,number,compound,,{one}-{one},,,,everyday,Tribal,,,"Built: distributives by repeating the number: Turkish birer, Japanese hitotsu-hitotsu (batch 25)"
+two-by-two,"two by two, two each (distributive)",adverb,number,compound,,{two}-{two},,,,everyday,Tribal,,,Built: distributive by repetition (batch 25)
+trio,"trio, a set of three",noun,number,compound,,{three}+{collective},,,,everyday,Classical,,,Built: (batch 25)
+foursome,"foursome, a set of four",noun,number,compound,,{four}+{collective},,,,everyday,Classical,,,Built: (batch 25)
+decade,"decade, ten years",noun,number,compound,,{ten}-{year},,,,everyday,Classical,,,Built: as pizh-ka'ke century (batch 25)
+millennium,"millennium, a thousand years",noun,number,compound,,{thousand}-{year},,,,everyday,Classical,,,Built: as pizh-ka'ke century (batch 25)
+abacus,"abacus, counting stones",noun,number,compound,,{count}-{stone},,,,everyday,Classical,,,"Built: count-stones: LA calculus 'pebble', JA soroban (batch 25)"
+none,"none, not one",determiner,number,compound,,{not}-{one},,,,everyday,Classical,,,Built: not one: EN none < ne-one (batch 25)
+ten-count,the ten-count: everyday and scientific counting in tens,noun,number,compound,,{ten}-{count},,,,everyday,Classical,,,Built: Arcadia's decision (18 Nov 2026): base ten for daily life and science (batch 25)
+seven-count,"the seven-count: the ritual count by sevens, used in temple, calendar and bond rites",noun,number,compound,,{seven}-{count},,,,ceremonial,Classical,,,"Built: Arcadia's decision (18 Nov 2026): a ritual count by seven beside base ten, after the roughly seven-year cycle (batch 25)"
+a-seven,"a seven: the unit of the ritual count, a set of seven",noun,number,compound,,{seven}+{collective},,,,ceremonial,Classical,,,"Built: ritual unit; ten in the seven-count is vauk hukot veet, one seven and three (batch 25)"
+great-seven,"the great seven: forty-nine, seven sevens, the full ritual count",noun,number,compound,,{seven}-{seven}+{collective},,,,ceremonial,Classical,,,"Built: seven sevens; not huk-huk, which would be the distributive 'seven each' (batch 25)"
+seven-year,"a seven-year: the span of the long cycle, as the ritual count reckons it",noun,number,compound,,{seven}-{year},,,,ceremonial,Classical,,,Built: the roughly seven-year cycle; the clinical long-cycle stays silukh-takhar-pon (batch 25)
+sevenfold,"sevenfold; (in rites) complete, perfected",adjective,number,compound,,{seven}+{adjectival},,,,ceremonial,Classical,,,Built: as veetuk triple; in ritual speech a thing done seven times is whole (batch 25)

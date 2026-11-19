@@ -364,3 +364,23 @@ Built from the setting's species design notes (18 Nov). The guide is the new `do
 - *Hafei-plak* "menstruation": the entry now notes that scant, reabsorbed shedding is a working hypothesis.
 - The Classical sweet-rite forms in the species notes are still not imported, as the notes require.
 - **Tools:** `lexicon/derivations.csv` was reconciled with the working copy. The batch 21–23 rows and the courtship, suitor and sweetheart audit fixes were kept, and *stillness* now reads "stone-ness" there too, so `derivation.py` can no longer undo it.
+
+## Batch 25: numbers, counting and the seven-count (3,688 entries, 18 Nov 2026)
+
+Arcadia approved batch 24's eight roots (*hesi* body, *wawar* fat, *pakit* guts, *sosha* kidney, *beik* milk,
+*keikh'esh* navel, *pik* sinew, *fulo* gland) and decided the counting question: **base ten for daily life and
+science, with a ritual count by sevens beside it.**
+
+- 43 new entries, 0 errors, no earlier form or id changed. All built from older words; no new roots.
+- **Arithmetic:** subtract *srur-wa* "take away", multiply *ok'-tor* "make many", remainder, digit "finger-number"
+  (Latin *digitus*), numeral, integer "whole number", even "pair-number" and odd "unpaired number" (as Japanese
+  *guusuu*, *kisuu*), prime "undivided number", square and cube "second and third power", square root "two-root",
+  fraction "part-number" (Japanese *bunsuu*), a fifth, a tenth, decimal, decimal point, negative number, infinite,
+  estimate, approximately, exactly.
+- **Order and frequency:** hundredth, thousandth; once, twice, three times (*vauk-pon* "one time");
+  distributives by repeating the number (*vauk-vauk* one by one, *yik-yik* two by two).
+- **Sets and spans:** trio *veetot*, foursome *irot*, decade, millennium, abacus *shil-sheka* "count-stones"
+  (Latin *calculus* "pebble"), none *suhk-vauk* "not one".
+- **The two counts:** the ten-count *vak-shil* and the ceremonial seven-count *huk-shil*: its unit *hukot* "a seven",
+  the great seven *huk-hukot* (forty-nine), the seven-year *huk-ka'ke*, and *hukuk* "sevenfold", in rites "complete".
+- Docs: `docs/word-building.md` (numbers) and `docs/orthography.md` §7.

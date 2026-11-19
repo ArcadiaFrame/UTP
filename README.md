@@ -3,7 +3,7 @@ Universal translation program (con-language creator) w/languages such as vulcan 
 
 The UTP builds whole constructed languages the way natural languages grow: a proto-language, sound laws for each daughter language, roots checked against the language's sound rules, later meanings built from older words, and eras. Everything else (dictionaries, guides, phrasebooks, lessons, speech) is generated from one dictionary file, so nothing drifts out of date.
 
-Vulcan is the first language built with it: a historically layered family from Tribal Vulcan through Classical and Unified to Federation Standard, with Romulan splitting away at the Sundering. 3,645 dictionary entries so far, 0 errors. Andorian (Andorii and Aenar) is the second, being built from canon, the licensed novels, fan work and real-world parallels by the method in `utp/METHOD.md`.
+Vulcan is the first language built with it: a historically layered family from Tribal Vulcan through Classical and Unified to Federation Standard, with Romulan splitting away at the Sundering. 3,688 dictionary entries so far, 0 errors. Andorian (Andorii and Aenar) is the second, being built from canon, the licensed novels, fan work and real-world parallels by the method in `utp/METHOD.md`.
 
 It is made for science-fiction and fantasy writers, game masters and players (Star Trek Adventures tables included): a polyglot language workshop that runs on your own computer, with or without a model.
 
@@ -61,8 +61,8 @@ Everything is saved in `~/.utp/config.json`, readable only by you; API keys neve
 
 ## Status
 
-- Vulcan: anatomy and clinical medicine added (batch 24); eight proposed roots await approval.
-- Next: the number system and logic-game vocabulary, then technical vocabulary toward 6,000 entries.
+- Vulcan: the number system finished, with a ritual count by sevens beside base ten (batch 25); batch 24's eight roots approved.
+- Next: logic-game vocabulary (kal-toh and its relatives), then technical vocabulary toward 6,000 entries.
 - Andorian: library seeded (canon, licensed, fan, science), 56 attested words and names, seven design questions drafted and waiting for decisions.
 - UTP: new languages, the workshop (sources library, audit, design, sound laws), model-assisted growth with review, a Lab and course per language, and the chat app are done. The typology checker, script module and a second, canon-anchored pack (Klingon is the leading candidate) are planned; see `utp/docs/design.md`.
 

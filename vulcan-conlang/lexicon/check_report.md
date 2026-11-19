@@ -1,6 +1,8 @@
 # Dictionary check
 
-3645 entries. 0 errors, 64 warnings or accepted exceptions.
+3688 entries. 0 errors, 64 warnings or accepted exceptions.
+
+Sound-law test cases: all pass.
 
 ## Errors
 - none

@@ -1730,3 +1730,46 @@ well-right,"well-right, the right to draw from a well",noun,law,Classical,everyd
 irrigation,irrigation,noun,desert,Classical,everyday,{water}-{lead}+{action},water-leading: JA kangai
 water-steward,"water-steward, keeper of a shared water",noun,desert,Classical,everyday,{water}-{keep}-{ve},
 water-share,"water-share, an allotment of water",noun,desert,Classical,everyday,{water}-{share}+{action},
+subtract,"subtract, take away",verb,number,Classical,everyday,{take}-{away},"take away: EN take away, JA hiku 'pull' (batch 25)"
+subtraction,subtraction,noun,number,Classical,everyday,{subtract}+{action},(batch 25)
+multiply,multiply,verb,number,Classical,everyday,{many}-{tor},make many: LA multiplicare (batch 25)
+multiplication,multiplication,noun,number,Classical,everyday,{multiply}+{action},(batch 25)
+remainder,"remainder, what is left over",noun,number,Classical,everyday,{remain}+{action},what remains: DE Rest (batch 25)
+digit,"digit, a single figure (0 to 9)",noun,number,Classical,everyday,{finger}-{number},finger-number: LA digitus 'finger' (batch 25)
+numeral,"numeral, a written number sign",noun,number,Classical,everyday,{number}-{sign},number-mark (batch 25)
+integer,"integer, whole number",noun,number,Classical,technical,{whole}-{number},whole number: DE ganze Zahl (batch 25)
+even-number,even number,noun,number,Classical,everyday,{pair}-{number},a number of pairs: JA guusuu 'pair-number' (batch 25)
+odd-number,odd number,noun,number,Classical,everyday,{without}-{pair}-{number},unpaired number: JA kisuu (batch 25)
+prime-number,prime number,noun,number,Classical,technical,{without}-{divide}-{number},"undivided number: JA sosuu, DE Primzahl (batch 25)"
+square-n,"square (of a number), second power",noun,number,Classical,technical,{two}-{power},second power: DE zweite Potenz (batch 25)
+cube-n,"cube (of a number), third power",noun,number,Classical,technical,{three}-{power},third power (batch 25)
+square-root,square root,noun,number,Classical,technical,{two}-{root},two-root: JA heihoukon (batch 25)
+fraction,fraction,noun,number,Classical,everyday,{part}-{number},part-number: JA bunsuu (batch 25)
+fifth-part,a fifth (fraction),noun,number,Classical,everyday,{five}-{part},as ir-khasni a quarter (batch 25)
+tenth-part,a tenth (fraction),noun,number,Classical,everyday,{ten}-{part},as ir-khasni a quarter (batch 25)
+decimal,"decimal, counted in tens",adjective,number,Classical,technical,{ten}+{adjectival},(batch 25)
+decimal-point,decimal point,noun,number,Classical,technical,{ten}-{point},ten-point (batch 25)
+negative-number,"negative number, a number below zero",noun,number,Classical,technical,{under}-{zero}-{number},below-zero number (batch 25)
+infinite,"infinite, without end",adjective,number,Unified,everyday,{infinity}+{adjectival},(batch 25)
+estimate,"estimate, reckon roughly",verb,number,Classical,everyday,{guess}-{measure},guess-measure: EN estimate 'set a value on' (batch 25)
+approximately,"approximately, about (with numbers)",adverb,number,Classical,everyday,{near}+{adverbial},"nearly: EN nearly, JA yaku (batch 25)"
+exactly,"exactly, precisely",adverb,number,Classical,everyday,{correct}+{adverbial},(batch 25)
+hundredth,hundredth,adjective,number,Classical,everyday,{hundred}+{ordinal},regular ordinal (batch 25)
+thousandth,thousandth,adjective,number,Classical,everyday,{thousand}+{ordinal},regular ordinal (batch 25)
+once,"once, one time",adverb,number,Tribal,everyday,{one}-{pon},"one time: JA ikkai, EN once (batch 25)"
+twice,"twice, two times",adverb,number,Tribal,everyday,{two}-{pon},two times: JA nikai (batch 25)
+thrice,three times,adverb,number,Tribal,everyday,{three}-{pon},three times (batch 25)
+one-by-one,"one by one, one each (distributive)",adverb,number,Tribal,everyday,{one}-{one},"distributives by repeating the number: Turkish birer, Japanese hitotsu-hitotsu (batch 25)"
+two-by-two,"two by two, two each (distributive)",adverb,number,Tribal,everyday,{two}-{two},distributive by repetition (batch 25)
+trio,"trio, a set of three",noun,number,Classical,everyday,{three}+{collective},(batch 25)
+foursome,"foursome, a set of four",noun,number,Classical,everyday,{four}+{collective},(batch 25)
+decade,"decade, ten years",noun,number,Classical,everyday,{ten}-{year},as pizh-ka'ke century (batch 25)
+millennium,"millennium, a thousand years",noun,number,Classical,everyday,{thousand}-{year},as pizh-ka'ke century (batch 25)
+abacus,"abacus, counting stones",noun,number,Classical,everyday,{count}-{stone},"count-stones: LA calculus 'pebble', JA soroban (batch 25)"
+none,"none, not one",determiner,number,Classical,everyday,{not}-{one},not one: EN none < ne-one (batch 25)
+ten-count,the ten-count: everyday and scientific counting in tens,noun,number,Classical,everyday,{ten}-{count},Arcadia's decision (18 Nov 2026): base ten for daily life and science (batch 25)
+seven-count,"the seven-count: the ritual count by sevens, used in temple, calendar and bond rites",noun,number,Classical,ceremonial,{seven}-{count},"Arcadia's decision (18 Nov 2026): a ritual count by seven beside base ten, after the roughly seven-year cycle (batch 25)"
+a-seven,"a seven: the unit of the ritual count, a set of seven",noun,number,Classical,ceremonial,{seven}+{collective},"ritual unit; ten in the seven-count is vauk hukot veet, one seven and three (batch 25)"
+great-seven,"the great seven: forty-nine, seven sevens, the full ritual count",noun,number,Classical,ceremonial,{seven}-{a-seven},"seven sevens; not huk-huk, which would be the distributive 'seven each' (batch 25)"
+seven-year,"a seven-year: the span of the long cycle, as the ritual count reckons it",noun,number,Classical,ceremonial,{seven}-{year},the roughly seven-year cycle; the clinical long-cycle stays silukh-takhar-pon (batch 25)
+sevenfold,"sevenfold; (in rites) complete, perfected",adjective,number,Classical,ceremonial,{seven}+{adjectival},as veetuk triple; in ritual speech a thing done seven times is whole (batch 25)
