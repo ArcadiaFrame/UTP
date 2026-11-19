@@ -43,6 +43,13 @@ async function renderSettings() {
       <div class="row"><label class="row">Theme <select id="ap-theme">${Object.entries(THEMES).map(([k, t]) => `<option value="${k}" ${theme() === k ? "selected" : ""}>${k === "system" ? "Follow the system" : t}</option>`).join("")}</select></label></div>
     </section>
     <section>
+      <div><h2>Web search</h2><p class="lead">Your SearXNG, for finding sources in each language's Workshop. Searches go
+      only to it; pages you tick are fetched into that language's private library. SearXNG must allow JSON: in its
+      <span class="mono">settings.yml</span>, <span class="mono">search: formats: [html, json]</span>.</p></div>
+      <div class="form"><label>SearXNG address <input id="sx-url" value="${esc((SET.search || {}).searxng || "")}" placeholder="http://localhost:8080"></label>
+        <div class="row"><button data-sx-test>Test</button><button class="primary" data-sx-save>Save</button><span class="result" id="sx-result"></span></div></div>
+    </section>
+    <section>
       <div><h2>Sources</h2><p class="lead">Each language's library is searched by words. To search by meaning too
       (so "cold" also finds "ice"), name an embedding model on an Ollama or OpenAI-compatible connection, for example
       <span class="mono">nomic-embed-text</span> (<span class="mono">ollama pull nomic-embed-text</span>), then run
@@ -167,6 +174,15 @@ function bindSettings() {
   $("#role-chat").onchange = async e => { await api("/api/settings", {roles: {chat: e.target.value}}); renderSettings(); refreshModel(); };
   $("#role-build").onchange = async e => { await api("/api/settings", {roles: {build: e.target.value}}); renderSettings(); };
 
+  v.querySelector("[data-sx-test]").onclick = async () => {
+    say($("#sx-result"), true, "Searching…");
+    const r = await api("/api/search/test", {url: $("#sx-url").value.trim()});
+    say($("#sx-result"), r.ok, r.ok ? `SearXNG answers at ${r.url} (${r.results} results for a test search).` : r.problem);
+  };
+  v.querySelector("[data-sx-save]").onclick = async () => {
+    await api("/api/settings", {search: {searxng: $("#sx-url").value.trim().replace(/\/+$/, "")}});
+    say($("#sx-result"), true, "Saved.");
+  };
   v.querySelector("[data-lb-save]").onclick = async () => {
     await api("/api/settings", {library: {embed_connection: $("#lb-conn").value, embed_model: $("#lb-model").value.trim()}});
     say($("#lb-result"), true, "Saved.");

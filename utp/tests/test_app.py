@@ -26,6 +26,7 @@ import tempfile
 import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 UTP = pathlib.Path(__file__).resolve().parent.parent
@@ -106,6 +107,26 @@ class Mock(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         CALLS.append(("GET", self.path, dict(self.headers), None))
+        base = f"http://127.0.0.1:{self.server.server_port}"
+        path = urllib.parse.urlparse(self.path)
+        if path.path == "/search":                                         # SearXNG
+            q = urllib.parse.parse_qs(path.query)
+            return self._send({"query": q["q"][0], "results": [
+                {"title": "Ice hare", "url": f"{base}/wiki/Ice_hare", "content": "The ice hare of the north", "engine": "mock"},
+                {"title": "Snow notes", "url": f"{base}/notes.html", "content": "notes on snow", "engines": ["a", "b"]},
+                {"title": "Ice hare again", "url": f"{base}/wiki/Ice_hare", "content": "duplicate"}]})
+        if path.path == "/nojson/search":
+            return self._send(b"<html>SearXNG</html>", "text/html")
+        if path.path == "/api.php":                                        # a MediaWiki site
+            return self._send({"parse": {"title": "Ice hare", "text": {"*": '<div class="navbox">Menu Home Random</div>'
+                               "<p>The ice hare is called thraal in the north. It turns white in winter and lives under the snow crust.</p>"}}})
+        if path.path == "/notes.html":
+            return self._send(b"<html><head><title>Snow notes</title></head><body><nav>menu</nav><main><p>" + b"Snow lies deep. " * 60
+                              + b"</p></main><footer>foot</footer></body></html>", "text/html; charset=utf-8")
+        if path.path == "/blocked":
+            self.send_response(403)
+            self.end_headers()
+            return
         self._send({"data": [{"id": "mock-a"}, {"id": "mock-b"}]})
 
     def do_POST(self):
@@ -376,6 +397,34 @@ def main():
           and "x" not in shown_p["text"].split() and refused and any(r["form"] == "thraal" and r["tier"] == "licensed" for r in att_http["rows"])
           and des_http["questions"][0]["status"] == "decided" and snd_http["proposal"]["fits"] == 2,
           "server workshop: sources uploaded and searched, attested words checked against their passage, design and sounds served")
+    # web search through SearXNG, pages into the private library
+    from utp.core import websearch as WS
+    C.update({"search": {"searxng": base}})
+    res = WS.search("ice hare")
+    lib_w = Sources(whome)
+    cid, n_w, title_w = WS.add_url(lib_w.own, res[0]["url"], "science")
+    wiki_text = lib_w.passage(cid + ".1")["text"]
+    try:
+        WS.fetch(base + "/blocked")
+        blocked = ""
+    except WS.SearchError as e:
+        blocked = str(e)
+    lib_w.close()
+    nojson = WS.test(base + "/nojson")
+    check(len(res) == 2 and res[0]["engine"] == "mock" and res[1]["engine"] == "a, b" and title_w == "Ice hare" and n_w == 1
+          and "thraal" in wiki_text and "Menu" not in wiki_text and "save the page" in blocked and not nojson["ok"]
+          and "json" in nojson["problem"] and WS.suggest_tier("https://memory-alpha.fandom.com/wiki/Aenar") == "canon"
+          and WS.suggest_tier("https://memory-beta.fandom.com/wiki/Andorii") == "licensed",
+          "web search: SearXNG results, wiki pages read through their API, blocked sites and JSON-off explained")
+    web = json.loads(get("/api/search?language=worklang&q=ice"))
+    got = json.loads(post("/api/sources/url", {"language": "worklang", "urls": [{"url": base + "/notes.html", "tier": "fan"},
+                                                                              {"url": base + "/blocked"}]}, origin))
+    page_src = json.loads(get("/api/sources?language=worklang"))
+    check(web["results"][0]["have"] and not web["results"][1]["have"] and got["added"][0]["passages"] >= 1
+          and got["added"][0]["title"] == "Snow notes" and "403" in got["added"][1]["problem"] and page_src["web"]
+          and any(d["url"] == base + "/notes.html" and d["tier"] == "fan" for d in page_src["docs"])
+          and json.loads(post("/api/search/test", {}, origin))["ok"],
+          "server web search: results marked when already in the library; ticked pages fetched with their tier")
     about = json.loads(get("/api/about"))
     check(about["repo"] == str(S.REPO) and about["python"], "server: the About section")
     srv.shutdown()

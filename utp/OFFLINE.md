@@ -70,6 +70,11 @@ python3 utp/utp.py design <language>                 # draft and answer the desi
 python3 utp/utp.py sounds <language>                 # proposed laws, run on the attested words; then --accept
 ```
 
+With your SearXNG set (`utp.py config --searxng http://localhost:8080`, or Settings > Web search; its `settings.yml`
+needs `search: formats: [html, json]`), `utp.py sources <language> web "query"` searches and
+`utp.py sources <language> url <address> --tier canon` fetches a page into the private library. Sites that refuse
+programs can be saved from your browser and dropped in as files.
+
 PDFs need `pip install pypdf` (or the `pdftotext` program); everything else (text, Markdown, HTML, subtitles, Word,
 EPUB) is read with Python alone. For search by meaning as well as by words, pull an embedding model
 (`ollama pull nomic-embed-text`), name it in Settings > Sources, then run `utp.py sources <language> embed`.

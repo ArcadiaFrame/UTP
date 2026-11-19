@@ -240,7 +240,7 @@ class Handler(BaseHTTPRequestHandler):
                      "/api/models": self.list_models, "/api/batches": self.batches, "/api/batch": self.batch,
                      "/api/sources": self.sources, "/api/sources/search": self.sources_search,
                      "/api/sources/passage": self.sources_passage, "/api/attested": self.attested,
-                     "/api/design": self.design, "/api/sounds": self.sounds}.get(u.path)
+                     "/api/design": self.design, "/api/sounds": self.sounds, "/api/search": self.web_search}.get(u.path)
             if not route:
                 return self._error("not found", 404)
             route(q)
@@ -271,7 +271,8 @@ class Handler(BaseHTTPRequestHandler):
                      "/api/audit": self.audit, "/api/attested/set": self.attested_set,
                      "/api/design/draft": self.design_draft, "/api/design/decide": self.design_decide,
                      "/api/design/ask": self.design_ask, "/api/sounds/propose": self.sounds_propose,
-                     "/api/sounds/accept": self.sounds_accept}.get(u.path)
+                     "/api/sounds/accept": self.sounds_accept, "/api/sources/url": self.sources_url,
+                     "/api/search/test": self.web_search_test}.get(u.path)
             if not route:
                 return self._error("not found", 404)
             route(body)
@@ -428,7 +429,8 @@ class Handler(BaseHTTPRequestHandler):
         from utp.core.library import TIERS, embedder
         src = self._src(q["language"])
         try:
-            self._json({"docs": src.docs(), "passages": src.count(), "tiers": TIERS,
+            from utp.core.websearch import address
+            self._json({"docs": src.docs(), "passages": src.count(), "tiers": TIERS, "web": bool(address()),
                         "embeddings": bool(embedder()[1]), "folder": relpath(src.dir)})
         finally:
             src.close()
@@ -469,6 +471,44 @@ class Handler(BaseHTTPRequestHandler):
             if (b.get("text") or "").strip():
                 doc, n = lib.add_text(b["text"], b.get("title") or "Pasted text", tier, url=b.get("url", ""))
                 out.append({"name": b.get("title") or "Pasted text", "id": f"{lib.prefix}{doc}", "passages": n})
+            self._json({"added": out})
+        finally:
+            src.close()
+
+    def web_search(self, q):
+        from utp.core import websearch as WS
+        try:
+            res = WS.search(q.get("q", ""), n=int(q.get("n", 10)), page=int(q.get("page", 1)))
+        except WS.SearchError as e:
+            return self._json({"results": [], "problem": str(e), "configured": bool(WS.address())})
+        if q.get("language"):
+            src = self._src(q["language"])
+            try:
+                have = {d["url"] for d in src.docs() if d.get("url")}
+            finally:
+                src.close()
+            for r in res:
+                r["have"] = r["url"] in have
+        self._json({"results": res, "configured": True})
+
+    def web_search_test(self, b):
+        from utp.core import websearch as WS
+        self._json(WS.test(b.get("url") or None))
+
+    def sources_url(self, b):
+        """Fetch ticked web pages into the language's private library."""
+        from utp.core import websearch as WS
+        src = self._src(b["language"])
+        out = []
+        try:
+            lib = src.lib(bool(b.get("shared")))
+            for item in b.get("urls", []):
+                item = item if isinstance(item, dict) else {"url": item}
+                try:
+                    cid, n, title = WS.add_url(lib, item["url"], item.get("tier") or None, item.get("title") or None)
+                    out.append({"url": item["url"], "id": cid, "passages": n, "title": title})
+                except (WS.SearchError, ValueError) as e:
+                    out.append({"url": item["url"], "problem": str(e)})
             self._json({"added": out})
         finally:
             src.close()

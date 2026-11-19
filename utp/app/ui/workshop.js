@@ -46,7 +46,7 @@ function citeChips(text) {
 }
 function wsLog(el) { el.hidden = false; el.textContent = ""; return line => { el.textContent += line + "\n"; el.scrollTop = el.scrollHeight; }; }
 function mark(text, q) {
-  const words = (q || "").toLowerCase().match(/[\w']{2,}/g) || [];
+  const words = (q || "").toLowerCase().match(/[\w']{3,}/g) || [];
   let h = esc(text);
   words.forEach(w => { h = h.replace(new RegExp(`(${w.replace(/[^\w']/g, "")}[\\w']*)`, "gi"), "<mark>$1</mark>"); });
   return h;
@@ -74,7 +74,15 @@ function paneSources() {
       <span class="result" id="ws-add-result"></span>
     </div>
     <div class="form">
-      <b>Search</b>
+      <b>Find sources on the web</b>
+      ${d.web ? `<p class="lead">Searches your SearXNG. Each result gets a suggested tier from its site; change it if it is
+      wrong, tick the pages to keep, and they are fetched into this language's private library with their address.</p>
+      <div class="row"><input id="wb-q" value="${esc(W.prefill || "")}" placeholder="Andorian antennae, Andorii words, Aenar telepathy…" style="flex:1"><button id="wb-go">Search the web</button></div>
+      <div id="wb-res"></div>` : `<p class="lead">Set your SearXNG address in <a href="#" data-settings>Settings → Web search</a> to search the
+      web from here.</p>`}
+    </div>
+    <div class="form">
+      <b>Search the library</b>
       <div class="row"><input id="ws-q" placeholder="ice, duel, antennae, family…" style="flex:1">
         <select id="ws-qtier"><option value="">All tiers</option>${tiers.map(([k]) => `<option>${k}</option>`).join("")}</select>
         <button id="ws-search">Search</button></div>
@@ -86,6 +94,34 @@ function paneSources() {
       ${d.docs.map(x => `<tr><td class="mono">${x.cite}</td><td>${tierBadge(x.tier)}</td><td>${esc(x.title)}${x.library === "G" ? ' <span class="muted">(shared)</span>' : ""}${x.kind === "decision" ? ' <span class="muted">(design decision)</span>' : ""}</td>
         <td>${x.passages}</td><td>${esc(x.added)}</td><td>${x.kind === "decision" ? "" : x.kind === "public" ? '<span class="muted" title="Published with the language: remove the file from sources/public/">published</span>' : `<button data-rm="${x.cite}">Remove</button>`}</td></tr>`).join("")}</tbody></table>`
       : '<p class="muted">None yet. A language can start from nothing: go to Design, and it asks you instead of citing.</p>'}</div>`;
+  W.prefill = "";
+  P().querySelector("[data-settings]")?.addEventListener("click", e => { e.preventDefault(); openSettings(); });
+  const tierSel = (t, i) => `<select data-wtier="${i}">${tiers.map(([k]) => `<option ${k === t ? "selected" : ""}>${k}</option>`).join("")}</select>`;
+  const web = async page => {
+    const q = $("#wb-q").value.trim(); if (!q) return;
+    $("#wb-res").innerHTML = '<p class="muted">Searching…</p>';
+    const r = await api(`/api/search?language=${W.lang}&q=${encodeURIComponent(q)}&n=12`);
+    if (r.problem) { $("#wb-res").innerHTML = `<p class="bad">${esc(r.problem)}</p>`; return; }
+    W.web = r.results;
+    $("#wb-res").innerHTML = (r.results.map((h, i) => `<div class="hit web"><label class="row"><input type="checkbox" data-wpick="${i}" ${h.have ? "disabled" : ""}>
+        <b>${esc(h.title)}</b></label> ${tierSel(h.tier, i)} ${h.have ? '<span class="badge ok">in the library</span>' : ""}
+        <div><a href="${esc(h.url)}" target="_blank" rel="noopener" class="mono">${esc(h.url)}</a></div>
+        <div class="hit-text">${mark(h.content, q)}</div></div>`).join("") || '<p class="muted">Nothing found.</p>')
+      + (r.results.length ? `<div class="row"><button class="primary" id="wb-add">Add ticked pages</button><span class="result" id="wb-result"></span></div>` : "");
+    $("#wb-add")?.addEventListener("click", async () => {
+      const urls = [...P().querySelectorAll("[data-wpick]:checked")].map(c => ({url: W.web[+c.dataset.wpick].url,
+        tier: P().querySelector(`[data-wtier="${c.dataset.wpick}"]`).value}));
+      if (!urls.length) return;
+      say($("#wb-result"), true, `Fetching ${urls.length} page${urls.length > 1 ? "s" : ""}…`);
+      const res = await api("/api/sources/url", {language: W.lang, urls});
+      const bad = res.added.filter(a => a.problem);
+      say($("#wb-result"), !bad.length, res.added.map(a => a.problem ? a.problem : `${a.id}: ${a.title} (${a.passages} passages)`).join(" · "));
+      if (res.added.some(a => a.passages)) setTimeout(() => renderWorkshop(W.lang), 1500);
+    });
+  };
+  $("#wb-go")?.addEventListener("click", () => web());
+  $("#wb-q")?.addEventListener("keydown", e => { if (e.key === "Enter") web(); });
+  if ($("#wb-q") && $("#wb-q").value) { $("#wb-q").scrollIntoView({block: "center"}); web(); }
   const files = [];
   const pick = list => { files.push(...list); $("#ws-drop").textContent = files.map(f => f.name).join(", ") || "Drop files here"; };
   $("#ws-files").onchange = e => pick([...e.target.files]);
@@ -192,8 +228,9 @@ function paneDesign() {
           ${o.cites.length ? `<div>${citeChips(o.cites.join(" "))}</div>` : ""}</div></label>`).join("")}
         <label class="opt"><input type="radio" name="q-${esc(q.id)}" value="own"><div><b>My own answer</b><input data-own placeholder="Write it here"></div></label>
         <label>Why (optional, goes into DESIGN.md) <input data-reason value="${esc(q.reason || "")}"></label>
-        <div class="acts"><button class="primary" data-decide>Decide</button><button data-redraft>Draft again</button><button data-skip>Skip</button></div>`
-      : `<div class="acts"><button data-draft>Draft options</button><button data-skip>Skip</button></div>`}
+        <div class="acts"><button class="primary" data-decide>Decide</button><button data-redraft>Draft again</button><button data-skip>Skip</button>
+          ${q.options.every(o => o.invention) ? '<button data-web title="No sources for this question yet">Find sources on the web</button>' : ""}</div>`
+      : `<div class="acts"><button data-draft>Draft options</button><button data-skip>Skip</button><button data-web>Find sources on the web</button></div>`}
     </div>`;
   };
   P().innerHTML = `
@@ -226,6 +263,11 @@ function paneDesign() {
     const id = c.dataset.q, q = d.questions.find(x => x.id === id);
     c.querySelector("[data-draft]")?.addEventListener("click", () => draft([id]));
     c.querySelector("[data-redraft]")?.addEventListener("click", () => draft([id]));
+    c.querySelector("[data-web]")?.addEventListener("click", () => {
+      const l = S.langs.find(x => x.id === W.lang);
+      W.prefill = `${l ? l.language : W.lang} ${q.question.replace(/\(.*?\)/g, "").replace(/[?]/g, "").trim()}`;
+      W.pane = "sources"; renderWorkshop(W.lang);
+    });
     c.querySelector("[data-skip]")?.addEventListener("click", async () => { await api("/api/design/decide", {language: W.lang, id, choice: "skip"}); renderWorkshop(W.lang); });
     c.querySelector("[data-reopen]")?.addEventListener("click", () => { q._editing = true; q.status = "open"; paneDesign(); });
     c.querySelector("[data-decide]")?.addEventListener("click", async () => {

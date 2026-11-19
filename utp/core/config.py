@@ -37,6 +37,7 @@ DEFAULTS = {
     "paths": {"languages": "", "workspaces": []},
     "app": {"port": 8765, "open": "auto", "theme": "system"},   # open: auto = the desktop window if installed, else the browser
     "library": {"embed_connection": "", "embed_model": ""},     # meaning-based search for sources (optional)
+    "search": {"searxng": ""},                                  # your SearXNG, for finding sources on the web (optional)
     "desktop": {"python": ""},
 }
 
@@ -127,7 +128,7 @@ def public(cfg=None):
         c["needs_key"] = needs_key(c["provider"], c["url"])
     cfg["providers"], cfg["role_labels"], cfg["config_path"] = PROVIDERS, ROLES, str(path())
     cfg["languages_dir"] = str(languages_dir(cfg))
-    cfg["env_overrides"] = sorted(k for k in ("UTP_LLM_PROVIDER", "UTP_LLM_URL", "UTP_LLM_MODEL", "UTP_LLM_KEY",
+    cfg["env_overrides"] = sorted(k for k in ("UTP_SEARXNG", "UTP_LLM_PROVIDER", "UTP_LLM_URL", "UTP_LLM_MODEL", "UTP_LLM_KEY",
                                               "ANTHROPIC_API_KEY", "OPENAI_API_KEY", "UTP_KOKORO_URL", "UTP_LANGUAGES")
                                   if os.environ.get(k))
     return cfg
@@ -190,7 +191,7 @@ def connection(cid=None, role="chat", cfg=None):
 def update(patch):
     """Change the plain settings: roles, speech, paths, app, desktop (connections have their own calls)."""
     cfg = load()
-    for section in ("roles", "speech", "paths", "app", "desktop", "library"):
+    for section in ("roles", "speech", "paths", "app", "desktop", "library", "search"):
         if section in patch and isinstance(patch[section], dict):
             cfg[section] = _merge(cfg[section], patch[section])
     ws = cfg["paths"].get("workspaces", [])

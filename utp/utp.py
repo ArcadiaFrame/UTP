@@ -20,6 +20,8 @@ The workshop: building from sources, or from nothing (the steps in utp/METHOD.md
   python3 utp/utp.py sources nerani paste --tier author --title "My notes"    text from the keyboard or a pipe
   python3 utp/utp.py sources nerani                        list the sources; search with: sources nerani search "ice"
   python3 utp/utp.py sources nerani remove 3 | embed       remove source S3 | meaning-based search vectors
+  python3 utp/utp.py sources nerani web "Andorian antennae"        search the web with your SearXNG
+  python3 utp/utp.py sources nerani url https://... [--tier canon] fetch pages into the private library
         tiers: author, canon, licensed, fan, science. Sources stay on this computer (not in git), except
         files you put in <language>/sources/public/, which are published with the language.
   python3 utp/utp.py audit nerani [--query "words in Nerani"] [--max 240]   attested words, checked against sources
@@ -34,7 +36,8 @@ Settings (also on the app's Settings page; saved in ~/.utp/config.json)
   python3 utp/utp.py config --name "Claude" --provider anthropic --model claude-sonnet-5-5 --key sk-ant-... [--role build]
   python3 utp/utp.py config --name "Desktop" --provider ollama --url http://desktop.local:11434/v1 --model qwen3.5:9b --role chat
         a named connection, added or changed; --role chat|build|both picks what it does (default: both)
-  python3 utp/utp.py config --languages ~/Conlangs --workspace ~/Writing --kokoro http://localhost:8880
+  python3 utp/utp.py config --languages ~/Conlangs --workspace ~/Writing --kokoro http://localhost:8880 \
+        --searxng http://localhost:8080      your SearXNG, for finding sources on the web
   python3 utp/utp.py models [--role build]     the models a connection's server offers
   python3 utp/utp.py shortcut                  a desktop and menu shortcut that opens the app with a double-click
 
@@ -128,6 +131,24 @@ def cmd_workshop(a):
             elif verb == "search":
                 for h in src.search(" ".join(args), k=a.n or 8):
                     print(f"[{h['id']}] {h['tier']}: {h['title']}\n  {h['text'][:300].replace(chr(10), ' ')}\n")
+            elif verb == "web":
+                from utp.core import websearch as WS
+                have = {d["url"] for d in src.docs() if d.get("url")}
+                try:
+                    for i, r in enumerate(WS.search(" ".join(args), n=a.n or 10), 1):
+                        print(f"{i:2}. [{r['tier']}] {r['title']}{'  (in the library)' if r['url'] in have else ''}\n    {r['url']}\n    {r['content'][:200]}")
+                except WS.SearchError as e:
+                    print(e)
+                    return 1
+                print(f"Add pages with: utp.py sources {a.pack} url <address> [--tier canon|licensed|fan|science|author]")
+            elif verb == "url":
+                from utp.core import websearch as WS
+                for u_ in args:
+                    try:
+                        cid, n, title = WS.add_url(src.lib(a.shared), u_, a.tier, a.title if len(args) == 1 else None)
+                        print(f"{cid}: {title} ({n} passages)" if n else f"{u_}: already in the library as {cid}")
+                    except WS.SearchError as e:
+                        print(e)
             elif verb == "remove":
                 for d in args:
                     lib = src.libs["G" if d.upper().startswith("G") else "S"]
@@ -291,7 +312,7 @@ def main(argv):
     for opt in ("language", "order", "branches", "eras", "consonants", "vowels", "about",
                 "provider", "model", "key", "url", "page", "name", "role", "languages", "workspace", "kokoro"):
         ap.add_argument(f"--{opt}")
-    for opt in ("tier", "title", "query", "gloss", "cite", "kind", "decide", "reason", "ask", "evidence", "branch"):
+    for opt in ("tier", "title", "query", "gloss", "cite", "kind", "decide", "reason", "ask", "evidence", "branch", "searxng"):
         ap.add_argument(f"--{opt}")
     ap.add_argument("--max", type=int)
     ap.add_argument("--shared", action="store_true")
@@ -337,6 +358,8 @@ def main(argv):
                 patch.setdefault("paths", {})["workspaces"] = ws
             if a.kokoro:
                 patch["speech"] = {"url": a.kokoro}
+            if a.searxng is not None:
+                patch["search"] = {"searxng": a.searxng.rstrip("/")}
             if patch:
                 C.update(patch)
             pub = C.public()
@@ -349,6 +372,7 @@ def main(argv):
             for w in pub["paths"]["workspaces"]:
                 print(f"  workspace: {w['path']}")
             print(f"  speech:    {pub['speech']['url']}")
+            print(f"  search:    {pub.get('search', {}).get('searxng') or '(no SearXNG set: utp.py config --searxng http://...)'}")
             if pub["env_overrides"]:
                 print(f"  (overridden by environment: {', '.join(pub['env_overrides'])})")
             return 0

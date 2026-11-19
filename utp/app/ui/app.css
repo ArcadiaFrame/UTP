@@ -211,3 +211,6 @@ pre.log { max-height: 220px; overflow: auto; background: var(--sunk); border-rad
 .cite-pop .conn-head { display: flex; gap: 8px; align-items: baseline; }
 .cite-pop .spacer { flex: 1; }
 @media (max-width: 800px) { .form .grid3 { grid-template-columns: 1fr; } }
+.hit.web label.row { display: inline-flex; gap: 8px; }
+.hit.web select { font-size: 12.5px; padding: 2px 6px; margin-left: 6px; }
+.hit.web a.mono { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
