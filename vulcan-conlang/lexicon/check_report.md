@@ -1,6 +1,6 @@
 # Dictionary check
 
-3688 entries. 0 errors, 64 warnings or accepted exceptions.
+3800 entries. 0 errors, 65 warnings or accepted exceptions.
 
 Sound-law test cases: all pass.
 
@@ -17,6 +17,7 @@ Sound-law test cases: all pass.
 - V3072 W3: 'action' on a noun (mating): check the morphology spec
 - V3326 W3: 'action' on a adjective (empty): check the morphology spec
 - V3401 W3: 'action' on a noun (kal): check the morphology spec
+- V3749 W3: 'action' on a noun (reason): check the morphology spec
 - V0002 X: accepted exception: Canon spelling kept: sehlat, as in TOS and every later source
 - V0008 X: accepted exception: Screen spelling kept: kroykah, as heard on screen (audit, Nov 2026)
 - V0010 X: accepted exception: Screen spelling kept: ahn-woon, as heard on screen (audit, Nov 2026)

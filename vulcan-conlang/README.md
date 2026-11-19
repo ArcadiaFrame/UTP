@@ -2,7 +2,7 @@
 
 A complete, historically layered Vulcan language built from canon: Proto-Vulcan → Classical and Ceremonial → Unified → Federation Standard Vulcan, with Romulan splitting away at the Sundering. Sound laws derive every form, a checker prevents duplicates, and every sentence in these files renders from the dictionary.
 
-**Status:** 3,688 dictionary entries, 0 errors. Batch 25 finished the number system, with a ritual count by sevens beside base ten; batch 24 added the body, physiology and clinical medicine.
+**Status:** 3,800 dictionary entries, 0 errors. Batch 26 added logic, games, science, technology and the starship; batch 25 finished the number system, with a ritual count by sevens beside base ten.
 - A 306-line phrasebook in 29 scenes, plus three sets of sayings and the tale formulas.
 - Three tales and lessons 1 to 8.
 - An interactive course: Foundations, Conversation and the first Literary units.

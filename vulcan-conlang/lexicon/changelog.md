@@ -384,3 +384,29 @@ science, with a ritual count by sevens beside it.**
 - **The two counts:** the ten-count *vak-shil* and the ceremonial seven-count *huk-shil*: its unit *hukot* "a seven",
   the great seven *huk-hukot* (forty-nine), the seven-year *huk-ka'ke*, and *hukuk* "sevenfold", in rites "complete".
 - Docs: `docs/word-building.md` (numbers) and `docs/orthography.md` §7.
+
+## Batch 26: mind and method (3,800 entries, 18 Nov 2026)
+
+Logic, games, science, technology, the starship and medicine. 112 new entries, all built from older words; 0 errors;
+no earlier form or id changed. Twenty planned words already existed (conclusion *liyanuth*, analysis *sotauth*,
+navigation *vikezhuth*, warp drive *gar-toos* and others) and were reused rather than added twice.
+
+- **Logic and reasoning (Unified, the era of Surak's logic):** premise *khriv-seenoom* "the ground of reasoning",
+  infer, deduce *vosan-liyan* "conclude from the law", induction *ok'-liyanuth* "concluding from many", theorem
+  *sekil-vosan* "proven law", axiom *ishuk-patuhol* "root-truth", disprove, refute *fivunuth-yath* "break the
+  argument", valid *sekiluk*, fallacy *seli-seenoom*, paradox *yik-patuhol* "two truths", contradiction, consistent
+  *vauk-motoluk* "of one way", tautology "same-saying", imply *khat-pokok* "say within", probable *li-kupuk*,
+  uncertain, model *nahp-si'an* "thought-form", synthesis, irrational, bias *vauk-peisat* "one-side", subjective
+  *lu-naluk* "self-feeling" and objective, binary, category *nuk-gor* "group-name", classify, analogy, ambiguous
+  *yik-motoluk* "two-wayed", accurate, reasoning, hypothesize.
+- **Games:** move (a piece), game board, opponent, draw *yakuh-nawak* "equal end", gambit *krokh-motol*
+  "sacrifice-way", score, match, tournament *sikilot*, novice, dice *vukol-sheka* "chance-stones", luck, wager,
+  three-dimensional chess *veet-sikil-sasheish* "the three-board game", and kal-toh's rod *koru-vakik* and lattice.
+- **Science:** acceleration, chemical compound and reaction, electric charge, wavelength, warp factor, impulse drive
+  *weellir-toos* "near-engine", dimension, evolution *suni-falavuth* "life-change", climate, microbe, virus.
+- **Technology and the ship:** code, algorithm, password *skas-pifo* "key-word", input and output, software
+  *cheilfer-kash* "machine-mind" and hardware *cheilfer-hesi* "machine-body", malfunction "machine-sickness",
+  override, backup, reactor *tekak-kekru* "energy-heart", generator, battery, wire, cable, alloy, laser *fise-troos*
+  "focused light", interface *khi-itat* "between-face", device, alert, evacuate, orbit, ensign, mission, ship's
+  log, stardate *mune-tanakh* "star-day", quarters, airlock *funa-sral* "breath-lock", curriculum, data file.
+- **Medicine:** vaccine *pu-nazhe* "fore-cure", surgery, physician, sickbay.
