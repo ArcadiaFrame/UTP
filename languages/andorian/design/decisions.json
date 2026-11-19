@@ -8,7 +8,7 @@
     "society",
     "canon"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -65,7 +65,12 @@
    "recommended": "A",
    "settled": false,
    "notes": "A and B can stack: A as the culture, B as the deepest layer of roots (Clan era). Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "A",
+   "answer": "Clan people of the ice, with an Imperial Guard",
+   "reason": "Arcadia's choice, with the musicians option as the deepest layer: the oldest roots (Clan era) are song, pitch and vibration.",
+   "decided": "2026-11-18",
+   "library_doc": 5
   },
   {
    "id": "body",
@@ -75,7 +80,7 @@
     "science",
     "canon"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -128,7 +133,12 @@
    "recommended": "A",
    "settled": false,
    "notes": "A and C are compatible: stance in grammar (A), with a few pitch-marked words in ritual or song (C). Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "A",
+   "answer": "Antennae carry stance, as grammar",
+   "reason": "Arcadia's choice: stance is grammar, with a spoken particle standing in when the antennae cannot be seen.",
+   "decided": "2026-11-18",
+   "library_doc": 6
   },
   {
    "id": "world",
@@ -137,7 +147,7 @@
     "world",
     "science"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -188,7 +198,12 @@
    "recommended": "C",
    "settled": false,
    "notes": "Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "C",
+   "answer": "Both, ranked: ice first, the giant for time and myth",
+   "reason": "Arcadia's choice.",
+   "decided": "2026-11-18",
+   "library_doc": 7
   },
   {
    "id": "history",
@@ -197,7 +212,7 @@
     "history",
     "canon"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -250,7 +265,12 @@
    "recommended": "B",
    "settled": false,
    "notes": "Eras so far: Clan, Old, Imperial, Federation. Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "B",
+   "answer": "Aenar kept the old language",
+   "reason": "Arcadia's choice: most sound changes fall on Andorii; Aenar forms read as archaic and ceremonial.",
+   "decided": "2026-11-18",
+   "library_doc": 8
   },
   {
    "id": "sound",
@@ -260,7 +280,7 @@
     "canon",
     "body"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -315,7 +335,12 @@
    "recommended": "B",
    "settled": false,
    "notes": "C can be added on top of B when the sound laws are written. Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "B",
+   "answer": "Fricative-rich, with plain stops",
+   "reason": "Arcadia's choice.",
+   "decided": "2026-11-18",
+   "library_doc": 9
   },
   {
    "id": "writing",
@@ -335,7 +360,7 @@
     "body",
     "canon"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -382,7 +407,12 @@
    "recommended": "A",
    "settled": false,
    "notes": "The pack was created verb-final (SOV); choosing B or C changes pack.json's grammar. Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "A",
+   "answer": "Verb-final, with a final question word",
+   "reason": "Arcadia's choice.",
+   "decided": "2026-11-18",
+   "library_doc": 11
   },
   {
    "id": "persons",
@@ -392,7 +422,7 @@
     "body",
     "canon"
    ],
-   "status": "open",
+   "status": "decided",
    "options": [
     {
      "id": "A",
@@ -445,7 +475,12 @@
    "recommended": "A",
    "settled": false,
    "notes": "Drafted by Claude in the build session.",
-   "drafted": "2026-11-18"
+   "drafted": "2026-11-18",
+   "chosen": "A",
+   "answer": "Four-way throughout",
+   "reason": "Arcadia's choice.",
+   "decided": "2026-11-18",
+   "library_doc": 10
   },
   {
    "id": "registers",
